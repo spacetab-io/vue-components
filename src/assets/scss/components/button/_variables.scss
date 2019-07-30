@@ -1,0 +1,65 @@
+@import "../../utils/variables";
+
+/* Button
+-------------------------- */
+$st-button-font-size: 14px !default;
+$st-button-font-weight: 500 !default;
+$st-button-border-radius: $st-border-radius !default;
+$st-button-padding-vertical: 12px !default;
+$st-button-padding-horizontal: 20px !default;
+
+$st-button-large-font-size: 14px !default;
+$st-button-large-border-radius: 6px !default;
+$st-button-large-padding-vertical: 16px !default;
+$st-button-large-padding-horizontal: 20px !default;
+
+$st-button-medium-font-size: 14px !default;
+$st-button-medium-border-radius: $st-border-radius !default;
+$st-button-medium-padding-vertical: 12px !default;
+$st-button-medium-padding-horizontal: 20px !default;
+
+$st-button-small-font-size: 14px !default;
+$st-button-small-border-radius: #{$st-border-radius - 1} !default;
+$st-button-small-padding-vertical: 12px !default;
+$st-button-small-padding-horizontal: 20px !default;
+
+$st-button-mini-font-size: 14px !default;
+$st-button-mini-border-radius: #{$st-border-radius - 1} !default;
+$st-button-mini-padding-vertical: 12px !default;
+$st-button-mini-padding-horizontal: 20px !default;
+
+$st-button-default-border: $st-color-white-smoke !default;
+$st-button-default-color: $st-color-taupe-gray !default;
+$st-button-default-fill: rgba($st-color-white, .76) !default;
+
+$st-button-disabled-border: mix($st-color-white, $st-border-color, 20%) !default;
+$st-button-disabled-color: $st-disabled-color !default;
+$st-button-disabled-fill: $st-disabled-fill !default;
+
+$st-button-primary-border: $st-color-primary !default;
+$st-button-primary-color: $st-color-white !default;
+$st-button-primary-fill: $st-color-primary !default;
+
+$st-button-secondary-border: $st-color-primary !default;
+$st-button-secondary-color: $st-color-primary !default;
+$st-button-secondary-fill: $st-color-white-smoke !default;
+$st-button-secondary-border-radius: 4px !default;
+
+$st-button-success-border: $st-color-success !default;
+$st-button-success-color: $st-color-white !default;
+$st-button-success-fill: $st-color-success !default;
+
+$st-button-warning-border: $st-color-warning !default;
+$st-button-warning-color: $st-color-white !default;
+$st-button-warning-fill: $st-color-warning !default;
+
+$st-button-danger-border: $st-color-danger !default;
+$st-button-danger-color: $st-color-white !default;
+$st-button-danger-fill: $st-color-danger !default;
+
+$st-button-info-border: $st-color-white-smoke !default;
+$st-button-info-color: $st-color-blueberry !default;
+$st-button-info-fill: $st-color-white-smoke !default;
+
+$st-button-hover-tint-percent: 20% !default;
+$st-button-active-shade-percent: 10% !default;

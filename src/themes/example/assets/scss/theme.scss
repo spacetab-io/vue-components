@@ -1,0 +1,10 @@
+// Define new variables for your theme
+$st-color-turquoise: #40E0D0 !default;
+$st-color-orangered: #FF4500 !default;
+
+// Or, redefine default theme's variables
+$st-color-primary: $st-color-orangered !default;
+$st-color-secondary: $st-color-turquoise !default;
+$st-border-width: 2px !default;
+
+@import "../../../../assets/scss/theme";

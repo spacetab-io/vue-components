@@ -1,0 +1,37 @@
+@import "colors";
+
+// Fonts
+$st-font: '' !default;
+
+// Colors
+$st-color-primary: $st-color-mantis !default;
+$st-color-secondary: $st-color-blueberry !default;
+
+$st-color-success: $st-color-mantis !default;
+$st-color-warning: $st-color-meat-brown !default;
+$st-color-danger: $st-color-sunset-orange !default;
+$st-color-info: $st-color-blueberry !default;
+
+// Text colors
+$st-text-color-primary: $st-color-taupe-gray !default;
+$st-text-color-secondary: $st-color-blueberry !default;
+
+$st-text-color-regular: $st-color-dark-gunmetal !default;
+$st-text-color-placeholder: $st-color-taupe-gray !default;
+
+// Borders
+$st-border-width: 1px !default;
+$st-border-style: solid !default;
+$st-border-color: $st-color-pastel-gray !default;
+$st-border-color-hover: $st-text-color-placeholder !default;
+$st-border-radius: 6px !default;
+$st-border-radius-circle: 100% !default;
+$st-border: $st-border-width $st-border-style $st-border-color !default;
+
+// Backgrounds
+$st-background-color: $st-color-white-smoke !default;
+
+// Disabled
+$st-disabled-fill: $st-background-color !default;
+$st-disabled-color: $st-text-color-placeholder !default;
+$st-disabled-border-color: mix($st-color-white, $st-border-color, 20%) !default;

@@ -1,0 +1,83 @@
+{
+  "name": "@spacetab/vue-components",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "icon:generate": "node config/icon-generator.js",
+    "build-bundle": "vue-cli-service build --target lib --name @spacetab/vue-components ./src/components/index.js",
+    "storybook:build": "node config/icon-generator.js && build-storybook",
+    "storybook:serve": "node config/icon-generator.js && start-storybook -p 6006",
+    "test:unit": "vue-cli-service test:unit"
+  },
+  "dependencies": {
+    "core-js": "^2.6.9",
+    "svg-sprite-loader": "^4.1.6",
+    "tslint": "^5.18.0",
+    "vue": "^2.6.10",
+    "vue-class-component": "^7.1.0",
+    "vue-property-decorator": "^8.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@storybook/addon-actions": "^5.1.9",
+    "@storybook/addon-knobs": "^5.1.9",
+    "@storybook/addon-links": "^5.1.9",
+    "@storybook/addon-notes": "^5.1.9",
+    "@storybook/addon-options": "^5.1.9",
+    "@storybook/addons": "^5.1.9",
+    "@storybook/theming": "^5.1.9",
+    "@storybook/vue": "^5.1.9",
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.6.8",
+    "@vue/cli-plugin-babel": "^3.9.2",
+    "@vue/cli-plugin-typescript": "^3.9.0",
+    "@vue/cli-plugin-unit-mocha": "^3.9.0",
+    "@vue/cli-service": "^3.9.3",
+    "@vue/test-utils": "^1.0.0-beta.20",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.6",
+    "babel-preset-vue": "^2.0.2",
+    "chai": "^4.2.0",
+    "html-loader": "^0.5.5",
+    "lint-staged": "^9.2.1",
+    "markdown-loader": "^5.1.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
+    "typescript": "^3.5.3",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js"
+  ],
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "vue-cli-service lint",
+      "git add"
+    ],
+    "*.vue": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
+}

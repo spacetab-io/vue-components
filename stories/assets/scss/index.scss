@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono&display=swap&subset=cyrillic');
+
+body, html {
+  font-family: 'Open Sans', sans-serif;
+}
+body {
+  margin: 0;
+  padding: 10px;
+}
+input, textarea, select, button, meter, progress {
+  font: inherit;
+}
+code {
+  font-family: 'Fira Mono', monospace;
+  display: block;
+  background: #f4f5f9;
+  font-size: 14px;
+}
+
+@import "button";
+@import "icon";
+@import "customization";
