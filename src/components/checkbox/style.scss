@@ -33,7 +33,6 @@
     height: $st-checkbox-height;
     border: $st-border-style $st-checkbox-common-border-width $st-checkbox-common-border-color;
     border-radius: $st-checkbox-border-radius;
-    transition: $st-checkbox-transition;
 
     &::after {
       position: absolute;

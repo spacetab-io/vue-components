@@ -2,6 +2,7 @@
 
 // Fonts
 $st-font: '' !default;
+$st-font-size: 14px !default;
 
 // Colors
 $st-color-primary: $st-color-mantis !default;
@@ -35,3 +36,17 @@ $st-background-color: $st-color-white-smoke !default;
 $st-disabled-fill: $st-background-color !default;
 $st-disabled-color: $st-text-color-placeholder !default;
 $st-disabled-border-color: mix($st-color-white, $st-border-color, 20%) !default;
+$st-disabled-text-color: $st-text-color-primary !default;
+
+// Transition
+$st-all-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) !default;
+$st-fade-transition: opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) !default;
+$st-fade-linear-transition: opacity 200ms linear !default;
+$st-md-fade-transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1), opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) !default;
+$st-border-transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) !default;
+$st-color-transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) !default;
+$st-fill-transition: fill 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) !default;
+
+// Scrollbar
+$st-scrollbar-thumb-background: $st-color-near-chambray;
+$st-scrollbar-track-background: $st-color-white;

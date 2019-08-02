@@ -6,7 +6,10 @@ import {
   Vue,
 } from 'vue-property-decorator';
 
-@Component
+
+@Component({
+  name: 'StIcon',
+})
 export default class Icon extends Vue {
   @Prop({ type: String, required: true })
   name!: string;

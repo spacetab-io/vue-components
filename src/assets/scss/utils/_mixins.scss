@@ -1,5 +1,6 @@
 @import "functions";
 @import "variables/breakpoints";
+@import "variables/colors";
 
 @mixin b($name, $namespaced: true, $with-dot: true) {
   @at-root {
@@ -98,5 +99,35 @@
 
   @else {
     @warn "Undefeined points: `#{$map}`";
+  }
+}
+
+@mixin scroll-bar {
+  &::-webkit-scrollbar {
+    z-index: 11;
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 6px;
+    background: $st-scrollbar-thumb-background;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-corner {
+    background: $st-scrollbar-track-background;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $st-scrollbar-track-background;
+  }
+
+  &::-webkit-scrollbar-track-piece {
+    width: 6px;
+    background: $st-scrollbar-track-background;
+  }
+
+  &::-webkit-scrollbar:horizontal {
+    height: 6px;
   }
 }

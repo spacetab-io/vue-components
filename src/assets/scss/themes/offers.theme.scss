@@ -2,8 +2,11 @@
 @import "./offers/variables";
 
 // Components
-@import "./offers/button"; // Import component's custom style file if you want to change it
+@import "./offers/button"; // Import component's default style file if you don't want to change it
 @import "../../../components/button-group/style";
-@import "../../../components/icon/style"; // Import component's custom style file if you want to change it
-@import "../../../components/row/style";
 @import "../../../components/col/style";
+@import "../../../components/checkbox/style";
+@import "../../../components/icon/style"; // Import component's custom style file if you want to change it
+@import "../../../components/input/style";
+@import "../../../components/textarea/style";
+@import "../../../components/row/style";

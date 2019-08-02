@@ -20,7 +20,7 @@
   }
 
   @if $parent == null {
-    $parent: '';
+    @return $scope + $ELEMENT_SEPARATOR + $name;
   }
 
   @return $parent + ' ' + $scope + $ELEMENT_SEPARATOR + $name;
@@ -38,7 +38,7 @@
   $spaceDel: '';
 
   @if $space {
-    $spaceDel: '';
+    $spaceDel: ' ';
   }
 
   @return $parent + $spaceDel + $scope + $MODIFIER_SEPARATOR + $name;

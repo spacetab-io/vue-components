@@ -19,7 +19,10 @@ interface PropObject {
   [key: string]: number;
 }
 
-@Component
+
+@Component({
+  name: 'StCol',
+})
 export default class StCol extends Vue {
   @Prop({ type: String, default: 'div' })
   tag!: string;

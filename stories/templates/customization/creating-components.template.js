@@ -33,6 +33,16 @@ export const template = `
         </code>
       </pre>
     </div>
+    
+    <h3>Import component</h3>
+    <div>
+      Import your component in next files:
+      <pre>
+      <span class="storybook-customization__file-link">src/components/index.js</span>
+      
+      <span class="storybook-customization__file-link">src/index.ts</span>
+      </pre>    
+    </div>
       
     <h3>Create component's story page</h3>
     <div>
