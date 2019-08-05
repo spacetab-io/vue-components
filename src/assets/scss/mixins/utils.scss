@@ -7,8 +7,9 @@
       display: table;
       content: "";
     }
+
     #{$selector}::after {
-      clear: both
+      clear: both;
     }
   }
 }

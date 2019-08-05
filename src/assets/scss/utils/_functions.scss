@@ -2,12 +2,15 @@
 
 @function b($name, $namespaced: true, $with-dot: true) {
   $dot: '';
-  @if($with-dot) {
+
+  @if ($with-dot) {
     $dot: '.';
   }
-  @if($namespaced) {
+
+  @if ($namespaced) {
     @return $dot + $PREFIX + '-' + $name;
   }
+
   @return $dot + $name;
 }
 
@@ -15,6 +18,7 @@
   @if $scope == null {
     $scope: &;
   }
+
   @return $scope + $ELEMENT_SEPARATOR + $name;
 }
 
@@ -22,11 +26,12 @@
   @if $scope == null {
     $scope: &;
   }
+
   @return $scope + $MODIFIER_SEPARATOR + $name;
 }
 
 @function class-name-without-modifier($class-name) {
-  /*$str-index: str_index($class-name, $MODIFIER_SEPARATOR);
-  @return str_slice($class-name, 1, ($str-index - 1));*/
+  /* $str-index: str_index($class-name, $MODIFIER_SEPARATOR);
+  @return str_slice($class-name, 1, ($str-index - 1)); */
   @return $class-name;
 }

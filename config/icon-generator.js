@@ -20,6 +20,13 @@ fs.writeFile('./src/assets/icons/icons.json', json, 'utf8', (err) => {
 });
 
 let iconsFileTemplate = '';
+// TODO: разробраться с импортом
+// error  Unexpected '!' in '!svg-sprite-loader!../assets/icons/alert.svg'. Do not use import syntax to configure webpack loaders - import/no-webpack-loader-syntax
+// error  Unexpected use of file extension "svg" for "!svg-sprite-loader!../assets/icons/alert.svg"
+iconsFileTemplate += `/* eslint import/no-webpack-loader-syntax: 0 */
+/* eslint import/no-unresolved: 0 */
+`;
+
 icons.forEach(icon => {
   iconsFileTemplate += `import '!svg-sprite-loader!../assets/icons/${icon}.svg';\n`;
 });

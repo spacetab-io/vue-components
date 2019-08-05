@@ -13,8 +13,9 @@
       display: table;
       content: "";
     }
+
     #{$selector}::after {
-      clear: both
+      clear: both;
     }
   }
 }
@@ -25,9 +26,9 @@
   @at-root {
     #{$selector}::after {
       display: inline-block;
-      content: "";
       height: 100%;
-      vertical-align: middle
+      vertical-align: middle;
+      content: "";
     }
   }
 }

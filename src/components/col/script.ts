@@ -4,6 +4,8 @@ import {
   Vue,
 } from 'vue-property-decorator';
 
+import StRow from '@/components/row/script';
+
 interface StylePaddings {
   paddingLeft?: string;
   paddingRight?: string;
@@ -50,17 +52,19 @@ export default class StCol extends Vue {
   xl!: number|object;
 
   get gutter(): number {
-    let $parent: any = this.$parent;
-    while ($parent && $parent.$options._componentTag !== 'st-row') {
+    let { $parent } = this;
+    /* eslint no-underscore-dangle: 0 */
+    while ($parent && $parent.$el && $parent.$el.classList.contains('st-row')) {
+      /* eslint prefer-destructuring: 0 */
       $parent = $parent.$parent;
     }
-    return $parent ? $parent.gutter : 0;
+    return $parent ? ($parent as StRow).gutter : 0;
   }
 
   get style(): StylePaddings {
     const style: StylePaddings = {};
     if (this.gutter) {
-      style.paddingLeft = this.gutter / 2 + 'px';
+      style.paddingLeft = `${this.gutter / 2}px`;
       style.paddingRight = style.paddingLeft;
     }
     return style;

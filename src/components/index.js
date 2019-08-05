@@ -1,7 +1,8 @@
-import Vue from "vue";
-import StButton from "./button/index.vue";
-import StRow from "./row/index.vue";
-import StCol from "./col/index.vue";
+import Vue from 'vue';
+
+import StButton from './button/index.vue';
+import StCol from './col/index.vue';
+import StRow from './row/index.vue';
 
 const Components = {
   StButton,
@@ -9,7 +10,7 @@ const Components = {
   StCol,
 };
 
-Object.keys(Components).forEach(name => {
+Object.keys(Components).forEach((name) => {
   Vue.component(name, Components[name]);
 });
 

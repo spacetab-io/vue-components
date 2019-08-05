@@ -1,3 +1,5 @@
+/* eslint import/no-webpack-loader-syntax: 0 */
+/* eslint import/no-unresolved: 0 */
 import '!svg-sprite-loader!../assets/icons/advanced-search.svg';
 import '!svg-sprite-loader!../assets/icons/aeroexpress.svg';
 import '!svg-sprite-loader!../assets/icons/airplane.svg';

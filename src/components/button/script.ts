@@ -4,6 +4,7 @@ import {
   Prop,
   Vue,
 } from 'vue-property-decorator';
+
 import StIcon from '../icon/index.vue';
 
 @Component({
@@ -71,8 +72,8 @@ export default class StButton extends Vue {
 
   get buttonClass() {
     return [
-      this.type ? 'st-button--' + this.type : '',
-      this.buttonSize ? 'st-button--' + this.buttonSize : '',
+      this.type ? `st-button--${this.type}` : '',
+      this.size ? `st-button--${this.size}` : '',
       {
         'st-button--disabled': this.disabled,
         'st-button--loading': this.loading,
@@ -90,11 +91,11 @@ export default class StButton extends Vue {
   }
 
 
-  get _elFormItemSize(): string {
+  get elFormItemSize(): string {
     return (this.elFormItem || {}).elFormItemSize;
   }
 
   get buttonSize(): string {
-    return this.size || this._elFormItemSize || (this.$ELEMENT || { size: undefined }).size;
+    return this.size || this.elFormItemSize;
   }
 }

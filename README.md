@@ -7,12 +7,12 @@
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compiles and hot-reloads for development (starts Storybook for development) 
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Compiles and minifies for production (builds Storybook)
 ```
 npm run build
 ```
@@ -30,18 +30,6 @@ npm run lint
 ### Run your unit tests
 ```
 npm run test:unit
-```
-
-## Storybook
-
-### Compiles and hot-reloads for development
-```
-npm run storybook:serve
-```
-
-### Compiles and minifies for production
-```
-npm run storybook:build
 ```
 
 ### Customize configuration

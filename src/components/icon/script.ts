@@ -1,9 +1,10 @@
+import '../../utils/icons';
+
 import {
   Component,
   Prop,
   Vue,
 } from 'vue-property-decorator';
-import '../../utils/icons';
 
 @Component
 export default class Icon extends Vue {
@@ -13,7 +14,7 @@ export default class Icon extends Vue {
   get iconClass() {
     return [
       'st-icon',
-      this.name ? 'st-icon--' + this.name : '',
+      this.name ? `st-icon--${this.name}` : '',
     ];
   }
 
