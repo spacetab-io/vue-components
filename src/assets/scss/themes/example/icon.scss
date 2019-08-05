@@ -1,0 +1,18 @@
+// Import your theme's variables (or default variables)
+@import "variables";
+
+// Import default component's file with styles
+@import "../../../../components/icon/style";
+
+// Redefine default component's variables you want to change
+$st-icon-width: 22px;
+$st-icon-height: 22px;
+$st-icon-color: $st-color-orangered;
+
+// Add new style things if you want to
+@include b('icon') {
+  // New properties here
+  padding: 10px;
+  background: $st-color-turquoise;
+  border-radius: 100%;
+}

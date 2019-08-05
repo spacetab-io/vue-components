@@ -1,17 +1,30 @@
 export const template = `
   <div class="storybook-customization">
     <h2>Creating a theme</h2>
+    
     <h3>Prepare theme files</h3>
     <div>
-      1. Create folders for your theme:
-      <pre><code>
-        src/themes/%theme_name%/assets // your theme's assets
-        src/themes/%theme_name%/components  // your theme's components
-      </code></pre>
-      
-      2. Create a theme's style file.
+      1. Create a theme folder
       <pre>
-      <span class="storybook-customization__file-link">src/themes/%theme_name%/assets/theme.scss</span>
+      <span class="storybook-customization__file-link">src/assets/scss/themes/%theme_name%</span>
+      </pre> 
+      
+      2. Create a theme file
+      <pre>
+      <span class="storybook-customization__file-link">src/assets/scss/themes/%theme_name%.theme.scss</span>
+      </pre> 
+    </div>
+    
+    <h3>Theme customizing example</h3>
+    <div>
+      <b>[!] We have an example of custom theme - it is theme with name "Example". You can find it here:</b>
+      <pre>
+      <span class="storybook-customization__file-link">src/assets/scss/themes/example.theme.scss</span>
+      </pre> 
+      
+      1. Redefine default theme's variables
+      <pre>
+      <span class="storybook-customization__file-link">src/assets/scss/themes/%theme_name%/_variables.scss</span>
         <code class="language-scss">
           // Define new variables for your theme
           $st-color-turquoise: #40E0D0 !default;
@@ -22,76 +35,37 @@ export const template = `
           $st-color-secondary: $st-color-turquoise !default;
           $st-border-width: 2px !default;
           
-          @import "../../../../assets/scss/theme";
+          @import "../../utils/variables";
+        </code>
+      </pre>
+      
+      2. Prepare theme's styles file to use it
+      <pre>
+      <span class="storybook-customization__file-link">src/assets/scss/themes/%theme_name%.theme.scss</span>
+        <code class="language-scss">
+          // General things
+          @import "./example/variables";
+          
+          // Components
+          @import "../../../components/%component_name%/style"; // Import component's default style file if you don't want to change it
+          @import "./example/%component_name%"; // Import component's custom style file if you want to change it
         </code>
       </pre>
     </div>
     
-    <h3>Create a custom component</h3>
+    <h3>Use your theme in your projects</h3>
     <div>
-      1. Create component's index.vue file 
       <pre>
-      <span class="storybook-customization__file-link">src/themes/%theme_name%/components/%component_name%/index.vue</span>
-      </pre>
-      2. You can create your own component or extend one of default's. 
-      In this example we will extend the default's Icon component.
-      <pre><code class="language-txt">
-        For example check file:
-        src/themes/example/components/icon/index.vue
-      </code></pre>
-    </div>
-    
-    <h3>Create component's story page</h3>
-    <div>
-      1. Import your component in <i>index.stories.js</span>.
-      <pre>
-      <span class="storybook-customization__file-link">stories/themes/%theme_name%/index.stories.js</span>
-        <code class="language-js">
-          import Vue from 'vue';
-          import StCustomComponent from '../components/%component_name%/index.vue';
-          import documentationFile from '../../../../../stories/documentation/%component_name%.md';
+        <code class="language-scss">
+          // src/assets/scss/var.scss
+          @import '~@spacetab/vue-components/src/assets/scss/themes/%theme_name%.theme.scss';
           
-          Vue.component('st-custom-component', StCustomComponent);
+          // The variables you want to modify
+          $st-color-success: green;
+          // Also you can modify components' variables
+          $st-button-danger-color: red;
         </code>
-      </pre>
-      
-      2. Create a documentation, a story and a template files.
-      <pre>
-      <span class="storybook-customization__file-link">stories/themes/%theme_name%/documentation/%component_name%.md</span>
-        <code class="language-md">
-          # Documentation
-  
-          ## Attributes
-          component's attributes here
-        </code>
-      </pre>
-      
-      <pre>
-      <span class="storybook-customization__file-link">stories/themes/%theme_name%/pages/%component_name%/default.stories.js</span>
-        <code class="language-js">
-          import { storiesOf } from '@storybook/vue';
-          import { template } from '../../templates/%component_name%/default.template';
-          
-          storiesOf('Themes: %ThemeName%|%ComponentName%', module).add(
-            'Default',
-            () => ({
-              template: template,
-            }),
-            {
-              notes: { 
-                markdown: documentationFile,
-              },
-            },
-        </code>
-      </pre>
-
-      <pre>
-      <span class="storybook-customization__file-link">stories/themes/%theme_name%/templates/%component_name%/default.template.js</span>
-        <code class="language-txt">
-          For example check file:
-          stories/themes/example/templates/icon/default.template.js
-        </code>
-      </pre>
+      </pre>    
     </div>
   </div>
 `;

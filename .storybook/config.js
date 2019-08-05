@@ -8,16 +8,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { spacetabTheme } from './spacetab-theme';
 
 function loadStories() {
-  const defaultStories = require.context('../stories', true, /.stories.js$/);
-  const exampleThemeStories = require.context(
-    '../stories/themes/example/',
-    true,
-    /.stories.js$/,
-  );
-  requireStories(defaultStories);
-  requireStories(exampleThemeStories);
-}
-function requireStories(stories) {
+  const stories = require.context('../stories', true, /.stories.js$/);
   stories.keys().forEach(filename => stories(filename));
 }
 

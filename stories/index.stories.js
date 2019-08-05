@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import './assets/scss/index.scss';
+
 import Vue from 'vue';
 
 import StButton from '../src/components/button/index.vue';

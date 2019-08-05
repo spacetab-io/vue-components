@@ -12,7 +12,7 @@ export const template = `
       <br>If you already have a style file with your local variables you can use it.
       <pre><code class="language-scss">
         // src/assets/scss/var.scss
-        @import '~@spacetab/vue-components/src/assets/scss/theme';
+        @import '~@spacetab/vue-components/src/assets/scss/themes/%theme_name%.theme.scss';
         
         // The variables you want to modify
         $st-color-success: green;
