@@ -1,0 +1,20 @@
+<label for="checkbox"
+       class="st-checkbox"
+       :class="checkboxMods"
+       :aria-checked="!!this.value"
+       :aria-disabled="disabled"
+       role="checkbox">
+    <div class="st-checkbox__input">
+        <div class="st-checkbox__inner"></div>
+        <input id="checkbox"
+               class="st-checkbox__original-input"
+               type="checkbox"
+               value="model"
+               @input="toggleCheckbox">
+    </div>
+    <span class="st-checkbox__label"
+          v-if="$slots.default || label">
+      <slot></slot>
+      <template v-if="!$slots.default">{{ label }}</template>
+    </span>
+</label>
