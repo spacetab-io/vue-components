@@ -1,0 +1,9 @@
+// General things
+@import "./offers/variables";
+
+// Components
+@import "./offers/button"; // Import component's custom style file if you want to change it
+@import "../../../components/button-group/style";
+@import "../../../components/icon/style"; // Import component's custom style file if you want to change it
+@import "../../../components/row/style";
+@import "../../../components/col/style";

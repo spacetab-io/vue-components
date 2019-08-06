@@ -1,0 +1,136 @@
+.st-button {
+  height: 42px;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.71;
+  letter-spacing: normal;
+  text-align: center;
+  color: $offers-main-color;
+  background: transparent;
+  border-radius: 21px;
+  padding: 0 20px;
+  padding-bottom: 2px;
+  border: 1px solid $offers-main-color;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    color: $offers-hover-main-color;
+    border-color: $offers-hover-main-color;
+  }
+
+  &:active {
+    color: $offers-active-main-color;
+    border-color: $offers-active-main-color;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &--default, &--primary {
+    background-color: $offers-main-color;
+    color: $offers-white-color;
+
+    &:hover {
+      background-color: $offers-hover-main-color;
+      border-color: $offers-hover-main-color;
+      color: $offers-white-color;
+    }
+
+    &:active {
+      background-color: $offers-active-main-color;
+      border-color: $offers-active-main-color;
+      color: $offers-white-color;
+    }
+  }
+
+  &--success {
+    border-color: $offers-green-color;
+    color: $offers-green-color;
+
+    &:hover {
+      color: mix($offers-black-color, $offers-green-color, 10);
+      border-color: mix($offers-black-color, $offers-green-color, 10);
+    }
+
+    &:active {
+      color: mix($offers-black-color, $offers-green-color, 20);
+      border-color: mix($offers-black-color, $offers-green-color, 20);
+    }
+  }
+
+  &--warning {
+    border-color: $offers-yellow-color;
+    color: $offers-yellow-color;
+
+    &:hover {
+      color: mix($offers-black-color, $offers-yellow-color, 10);
+      border-color: mix($offers-black-color, $offers-yellow-color, 10);
+    }
+
+    &:active {
+      color: mix($offers-black-color, $offers-yellow-color, 20);
+      border-color: mix($offers-black-color, $offers-yellow-color, 20);
+    }
+  }
+
+  &--danger {
+    border-color: $offers-red-color;
+    color: $offers-red-color;
+
+    &:hover {
+      color: mix($offers-black-color, $offers-red-color, 10);
+      border-color: mix($offers-black-color, $offers-red-color, 10);
+    }
+
+    &:active {
+      color: mix($offers-black-color, $offers-red-color, 20);
+      border-color: mix($offers-black-color, $offers-red-color, 20);
+    }
+  }
+
+  &--cancel {
+    border-color: $offers-dark-gray-color;
+    color: $offers-dark-gray-color;
+
+    &:hover {
+      color: mix($offers-black-color, $offers-dark-gray-color, 10);
+      border-color: mix($offers-black-color, $offers-dark-gray-color, 10);
+    }
+
+    &:active {
+      color: mix($offers-black-color, $offers-dark-gray-color, 20);
+      border-color: mix($offers-black-color, $offers-dark-gray-color, 20);
+    }
+  }
+
+  &--small, &--mini {
+    height: 32px;
+  }
+
+  &--text {
+    border: none;
+    padding: 0;
+  }
+
+  &--circle {
+    padding: 0;
+    width: 42px;
+
+    .st-button__icon {
+      margin: 0;
+    }
+  }
+
+  &__icon {
+    margin-right: 5px;
+  }
+
+  & .st-button__icon {
+    color: inherit;
+  }
+}
