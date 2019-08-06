@@ -10,4 +10,3 @@
 * Added new theme: `Offers`
 * Added new component: `Checkbox`
 * Added new components: `Input`, `Textarea`
-    
