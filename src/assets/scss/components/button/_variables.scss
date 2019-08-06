@@ -30,7 +30,7 @@ $st-button-mini-padding-horizontal: 20px !default;
 
 $st-button-default-border: $st-color-white-smoke !default;
 $st-button-default-color: $st-color-taupe-gray !default;
-$st-button-default-fill: rgba($st-color-white, .76) !default;
+$st-button-default-fill: rgba($st-color-white, 0.76) !default;
 
 $st-button-disabled-border: mix($st-color-white, $st-border-color, 20%) !default;
 $st-button-disabled-color: $st-disabled-color !default;

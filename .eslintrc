@@ -1,0 +1,112 @@
+{
+  "root": true,
+  "extends": [
+    "plugin:vue/strongly-recommended",
+    "plugin:compat/recommended",
+    "airbnb-base"
+  ],
+  "plugins": [
+    "vue",
+    "simple-import-sort",
+    "@typescript-eslint"
+  ],
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser"
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "./webpack.base.js"
+      }
+    }
+  },
+  "globals": {
+    "__config": "readonly",
+    "__stage": "readonly",
+    "__vcs": "readonly",
+    "VERSION": "readonly"
+  },
+  "rules": {
+    "sort-imports": "off",
+    "no-plusplus": [0, { "allowForLoopAfterthoughts": true }],
+    "no-void": 0,
+    "default-case": 0,
+    "max-len": ["error", {
+      "code": 120,
+      "ignoreComments": true,
+      "ignoreUrls": true,
+      "ignoreStrings": true,
+      "ignoreTemplateLiterals": true
+    }],
+    "class-methods-use-this": 0,
+    "consistent-return": 0,
+    "no-param-reassign": ["error", {
+      "props": true,
+      "ignorePropertyModificationsFor": [
+        "state",
+        "acc",
+        "e"
+      ]
+    }],
+
+    "import/first": 0,
+    "import/order": [
+      0,
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "newlines-between": "never"
+      }
+    ],
+    "import/named": 2,
+    "import/namespace": 2,
+    "import/default": 2,
+    "import/export": 2,
+    "import/no-unresolved": 2,
+    "import/no-cycle": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/prefer-default-export": 0,
+    "import/extensions": ["error", {
+      "js": "never",
+      "json": "always",
+      "ts": "never",
+      "d.ts": "never",
+      "vue": "ignorePackages"
+    }],
+
+    "simple-import-sort/sort": "error",
+
+    "vue/this-in-template": ["error", "never"],
+    "vue/html-closing-bracket-newline": ["error", {
+      "singleline": "never",
+      "multiline": "never"
+    }],
+    "vue/max-attributes-per-line": ["error", {
+      "singleline": 1,
+      "multiline": {
+        "max": 1,
+        "allowFirstLine": true
+      }
+    }],
+    "vue/component-name-in-template-casing": ["error", "kebab-case"],
+    "vue/name-property-casing": ["error", "kebab-case"],
+    "vue/require-default-prop": "off",
+    "vue/prop-name-casing": "off",
+    "vue/no-use-v-if-with-v-for": [0, { "allowUsingIterationVar": true }],
+
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error", {
+      "vars": "all",
+      "args": "after-used",
+      "ignoreRestSiblings": false
+    }],
+    "camelcase": "off",
+    "@typescript-eslint/camelcase": ["error", { "properties": "never" }],
+    "@typescript-eslint/indent": ["error", 2]
+  }
+}

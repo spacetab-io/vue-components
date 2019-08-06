@@ -4,14 +4,16 @@
 
 @include b('button-group') {
   @include utils-clearfix;
+
   display: inline-block;
   vertical-align: middle;
 
-  & #{ b('button') } {
-    float: left;
+  #{ b('button') } {
     position: relative;
+    float: left;
     min-width: 150px;
-    & + #{ b(button) } {
+
+    + #{ b(button) } {
       margin-left: 0;
     }
 
@@ -19,6 +21,7 @@
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
     }
+
     &:last-child {
       background-color: mix($st-color-primary, $st-color-black, 80%);
       border-top-left-radius: 0;
@@ -27,19 +30,23 @@
       &:focus {
         background-color: mix($st-color-primary, $st-color-black, 90%);
       }
+
       &:hover {
         background-color: $st-color-white;
       }
     }
+
     &:first-child:last-child {
+      border-top-left-radius: $st-button-border-radius;
       border-top-right-radius: $st-button-border-radius;
       border-bottom-right-radius: $st-button-border-radius;
-      border-top-left-radius: $st-button-border-radius;
       border-bottom-left-radius: $st-button-border-radius;
     }
+
     &:not(:first-child):not(:last-child) {
       border-radius: 0;
     }
+
     &:not(:last-child) {
       margin-right: -1px;
     }
@@ -60,12 +67,14 @@
       &:first-child {
         border-right-color: rgba($st-color-white, 0.5);
       }
+
       &:last-child {
         border-left-color: rgba($st-color-white, 0.5);
       }
+
       &:not(:first-child):not(:last-child) {
-        border-left-color: rgba($st-color-white, 0.5);
         border-right-color: rgba($st-color-white, 0.5);
+        border-left-color: rgba($st-color-white, 0.5);
       }
     }
   }

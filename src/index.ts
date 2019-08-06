@@ -12,10 +12,6 @@ const install = (Vue: VueConstructor) => {
   Vue.component('st-icon', StIcon);
   Vue.component('st-row', StRow);
   Vue.component('st-col', StCol);
-
-  Vue.prototype.$ELEMENT = {
-    size: '',
-  };
 };
 
 export default {
@@ -25,4 +21,4 @@ export default {
   StIcon,
   StRow,
   StCol,
-}
+};

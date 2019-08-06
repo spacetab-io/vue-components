@@ -38,7 +38,9 @@
     @media only screen and #{inspect(map-get($map, $key))} {
       @content;
     }
-  } @else {
+  }
+
+  @else {
     @warn "Undefeined points: `#{$map}`";
   }
 }

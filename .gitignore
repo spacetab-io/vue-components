@@ -1,6 +1,5 @@
 .DS_Store
 node_modules
-storybook-static
 /dist
 
 # local env files
@@ -21,3 +20,7 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
+
+# Compiled files
+.eslintcache
+.stylelintcache

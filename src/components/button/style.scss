@@ -5,35 +5,42 @@
 @import "../../assets/scss/components/button/variables";
 
 @include b('button') {
+
   $root: &;
 
+  box-sizing: border-box;
   display: inline-block;
-  line-height: 1;
   height: 40px;
+  margin: 0;
+  font-weight: $st-button-font-weight;
+  line-height: 1;
+  color: $st-color-mantis;
+  text-align: center;
   white-space: nowrap;
   cursor: pointer;
   background: $st-button-default-fill;
   border: $st-border-width $st-border-style $st-color-mantis;
-  color: $st-color-mantis;
   -webkit-appearance: none;
-  text-align: center;
-  box-sizing: border-box;
   outline: none;
-  margin: 0;
-  transition: .1s;
-  font-weight: $st-button-font-weight;
+  transition: 0.1s;
+
   @include utils-user-select(none);
+
   & + & {
     margin-left: 10px;
   }
 
   @include button-size(0, $st-button-padding-horizontal, $st-button-font-size, $st-button-border-radius, $root);
 
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
   &:hover,
   &:focus {
     color: $st-color-white;
-    border-color: $st-color-primary;
     background-color: $st-color-white;
+    border-color: $st-color-primary;
   }
 
   &:active {
@@ -42,15 +49,12 @@
     outline: none;
   }
 
-  &::-moz-focus-inner {
-    border: 0;
-  }
-
-  & [class*="#{ b('icon', true, false) }"] {
+  [class*="#{ b('icon', true, false) }"] {
     width: 16px;
     height: 16px;
     line-height: 16px;
-    & + span {
+
+    + span {
       margin-left: 5px;
       vertical-align: top;
     }
@@ -61,27 +65,29 @@
 
     &:hover,
     &:focus {
+      color: $st-color-white;
       background-color: $st-color-mantis;
       border-color: $st-color-mantis;
-      color: $st-color-white;
     }
 
     &:active {
+      color: mix($st-color-black, $st-color-primary, $st-button-active-shade-percent);
       background: $st-color-white;
       border-color: mix($st-color-black, $st-color-primary, $st-button-active-shade-percent);
-      color: mix($st-color-black, $st-color-primary, $st-button-active-shade-percent);
       outline: none;
     }
   }
 
   @include m('default') {
     @include button-variant($st-button-default-color, $st-button-default-fill, $st-button-default-border, $root);
+
     min-width: 192px;
 
     &#{ m('plain', $root) } {
       color: $st-color-taupe-gray;
       border-color: $st-color-white-smoke;
     }
+
     &#{ m('disabled', $root) },
     &#{ m('disabled', $root) }:hover {
       color: mix($st-color-taupe-gray, $st-color-white);
@@ -97,6 +103,7 @@
         color: mix($st-color-taupe-gray, $st-color-white);
       }
     }
+
     &:hover,
     &#{ m('plain') }:hover {
       color: $st-color-taupe-gray;
@@ -112,6 +119,7 @@
   @include m('primary') {
     min-width: 226px;
     height: 48px;
+
     @include button-variant($st-button-primary-color, $st-button-primary-fill, $st-button-primary-border, $root);
 
     &:hover,
@@ -141,6 +149,7 @@
         color: $st-color-white;
       }
     }
+
     &:hover {
       color: $st-color-white;
       background-color: $st-color-mantis;
@@ -149,16 +158,19 @@
         color: $st-color-white;
       }
     }
+
     &#{ m('plain', $root) } {
       &#{ m('disabled', $root) } {
         background-color: mix($st-color-white-smoke, $st-color-white, 20%);
       }
     }
+
     &#{ m('disabled', $root) } {
       #{ b('icon') } {
         color: mix($st-color-mantis, $st-color-white, 50%);
       }
     }
+
     &#{ m('approve', $root) } {
       #{ b('icon') } {
         color: $st-color-mantis;
@@ -170,6 +182,7 @@
           color: $st-color-white;
         }
       }
+
       &#{ m('disabled', $root) } {
         &,
         &:hover,
@@ -180,6 +193,7 @@
         }
       }
     }
+
     &#{ m('cancel', $root) } {
       color: $st-color-taupe-gray;
       border-color: $st-color-pastel-gray;
@@ -192,6 +206,7 @@
           color: $st-color-white;
         }
       }
+
       &:not(#{ m('disabled', $root) }):hover {
         color: $st-color-white;
         background-color: $st-color-pastel-gray;
@@ -201,9 +216,11 @@
           color: $st-color-white;
         }
       }
+
       &#{ m('plain', $root) } {
         background-color: mix($st-color-pastel-gray, $st-color-white, 10%);
       }
+
       &#{ m('disabled', $root) } {
         &,
         &:hover,
@@ -225,6 +242,7 @@
         color: $st-color-taupe-gray;
       }
     }
+
     &#{ m('remove', $root) } {
       color: $st-color-sunset-orange;
       border-color: $st-color-sunset-orange;
@@ -235,12 +253,13 @@
 
       &:not(#{ m('disabled', $root) }):focus {
         color: $st-color-white;
-        background-color: mix( $st-color-sunset-orange, $st-color-white, 80%);
+        background-color: mix($st-color-sunset-orange, $st-color-white, 80%);
 
         #{ b('icon') } {
           color: $st-color-white;
         }
       }
+
       &:not(#{ m('disabled', $root) }):hover {
         color: $st-color-white;
         background-color: $st-color-sunset-orange;
@@ -250,20 +269,23 @@
           color: $st-color-white;
         }
       }
+
       &#{ m('plain', $root) } {
         background-color: mix($st-color-sunset-orange, $st-color-white, 10%);
       }
+
       &#{ m('disabled', $root) } {
         &,
         &:hover,
         &:focus {
           color: mix($st-color-sunset-orange, $st-color-white);
-          border-color: mix( $st-color-sunset-orange, $st-color-white);
+          border-color: mix($st-color-sunset-orange, $st-color-white);
 
           #{ b('icon') } {
             color: mix($st-color-sunset-orange, $st-color-white);
           }
         }
+
         &#{ m('plain', $root) } {
           background-color: mix($st-color-sunset-orange, $st-color-white, 10%);
         }
@@ -278,9 +300,11 @@
   @include m('success') {
     @include button-variant($st-button-success-color, $st-button-success-fill, $st-button-success-border, $root);
   }
+
   @include m('warning') {
     @include button-variant($st-button-warning-color, $st-button-warning-fill, $st-button-warning-border, $root);
   }
+
   @include m('danger') {
     @include button-variant($st-button-danger-color, $st-button-danger-fill, $st-button-danger-border, $root);
   }
@@ -297,10 +321,12 @@
         color: mix($st-color-blueberry, $st-color-white, 80%);
       }
     }
+
     &:not(#{ m('disabled', $root) }):hover {
       background-color: $st-color-white;
       border-color: $st-color-blueberry;
     }
+
     &#{ m('disabled', $root) } {
       &,
       &:hover {
@@ -312,6 +338,7 @@
       #{ b('icon') } {
         color: mix($st-color-blueberry, $st-color-white, 50%);
       }
+
       &#{ m('plain', $root) },
       &#{ m('plain', $root) }:hover {
         color: mix($st-color-blueberry, $st-color-white, 40%);
@@ -319,6 +346,7 @@
         border-color: mix($st-color-blueberry, $st-color-white, 30%);
       }
     }
+
     &:not(#{ m('disabled', $root) })#{ m('plain', $root) } {
       color: $st-color-blueberry;
       background-color: mix($st-color-blueberry, $st-color-white, 20%);
@@ -334,56 +362,69 @@
       color: $st-button-info-color;
     }
   }
+
   @include m('extra-large') {
     min-width: 322px;
     height: 48px;
     line-height: 48px;
+
     @include button-size(0, 27px, 15px, $st-button-large-border-radius, $root);
   }
+
   @include m('large') {
     min-width: 322px;
     height: 40px;
     line-height: 40px;
+
     @include button-size(0, $st-button-large-padding-horizontal, $st-button-large-font-size, $st-button-large-border-radius, $root);
   }
+
   @include m('medium') {
     min-width: 226px;
+
     @include button-size($st-button-medium-padding-vertical, $st-button-medium-padding-horizontal, $st-button-medium-font-size, $st-button-medium-border-radius, $root);
   }
+
   @include m('small') {
     min-width: 192px;
+
     @include button-size($st-button-small-padding-vertical, $st-button-small-padding-horizontal, $st-button-small-font-size, $st-button-small-border-radius, $root);
   }
+
   @include m('mini') {
     min-width: 166px;
+
     @include button-size($st-button-mini-padding-vertical, $st-button-mini-padding-horizontal, $st-button-mini-font-size, $st-button-mini-border-radius, $root);
   }
+
   @include m('text') {
-    border-color: transparent;
+    padding-right: 0;
+    padding-left: 0;
     color: mix($st-color-taupe-gray, $st-color-white, 50%);
     background: transparent;
-    padding-left: 0;
-    padding-right: 0;
+    border-color: transparent;
 
     &:not(#{ m('disabled', $root) }):hover,
     &:not(#{ m('disabled', $root) }):focus {
       color: mix($st-color-taupe-gray, $st-color-white, 80%);
-      border-color: transparent;
       background-color: transparent;
+      border-color: transparent;
 
       #{ b('icon') } {
         color: mix($st-color-taupe-gray, $st-color-white, 80%);
       }
     }
+
     &:not(#{ m('disabled', $root) }):active {
       color: $st-color-taupe-gray;
-      border-color: transparent;
       background-color: transparent;
+      border-color: transparent;
 
       #{ b('icon') } {
         color: $st-color-taupe-gray;
       }
     }
+
     &#{ m('disabled', $root) },
     &#{ m('disabled', $root) }:hover,
     &#{ m('disabled', $root) }:focus {
@@ -394,14 +435,16 @@
         color: mix($st-color-taupe-gray, $st-color-white, 40%);
       }
     }
+
     &:not(#{ m('disabled', $root) })#{ m('search', $root) } {
       &:focus {
-        color: mix($st-text-color-regular,$st-color-white, 40%);
+        color: mix($st-text-color-regular, $st-color-white, 40%);
 
         #{ b('icon') } {
-          color: mix($st-text-color-regular,$st-color-white, 40%);
+          color: mix($st-text-color-regular, $st-color-white, 40%);
         }
       }
+
       &:hover {
         color: $st-color-blueberry;
 
@@ -409,6 +452,7 @@
           color: $st-color-blueberry;
         }
       }
+
       &:active {
         color: $st-text-color-regular;
 
@@ -434,8 +478,8 @@
     &:focus {
       color: mix($st-color-white, $st-color-primary, 50%);
       cursor: not-allowed;
-      background-image: none;
       background-color: $st-color-white;
+      background-image: none;
       border-color: mix($st-color-white, $st-color-primary, 50%);
     }
 
@@ -446,27 +490,27 @@
 
   @include m('loading') {
     position: relative;
+    min-width: 192px;
     padding-top: 11px;
     padding-bottom: 11px;
-    min-width: 192px;
     pointer-events: none;
 
-    &:before {
-      pointer-events: none;
-      content: '';
+    &::before {
       position: absolute;
-      left: -1px;
       top: -1px;
       right: -1px;
       bottom: -1px;
+      left: -1px;
+      pointer-events: none;
+      content: '';
+      background-color: rgba(255, 255, 255, 0.35);
       border-radius: inherit;
-      background-color: rgba(255,255,255,.35);
     }
   }
 
   @include m('round') {
-    border-radius: 20px;
     padding: 12px 23px;
+    border-radius: 20px;
 
     &#{ m('primary', $root) } {
       padding-top: 16px;
@@ -475,22 +519,23 @@
   }
 
   @include m('circle') {
-    padding: 0;
-    text-align: center;
-    line-height: 38px;
     width: 40px;
     min-width: auto;
+    padding: 0;
+    line-height: 38px;
+    text-align: center;
     border-radius: $st-border-radius-circle;
+
     #{ b('icon') } {
-      height: 18px;
       width: 18px;
+      height: 18px;
       font-size: 24px;
       line-height: 0;
     }
   }
 
   @include m('bold-border') {
-    border-width: 2px;
     line-height: 36px;
+    border-width: 2px;
   }
 }

@@ -5,27 +5,31 @@
   from {
     transform: rotateZ(0deg);
   }
+
   to {
     transform: rotateZ(360deg);
   }
 }
 
 @include b('icon') {
+  $root: &;
+
   display: inline-block;
-  vertical-align: middle;
-  color: $st-icon-color;
   width: $st-icon-width;
   height: $st-icon-height;
   line-height: 1;
-  svg {
+  color: $st-icon-color;
+  vertical-align: middle;
+
+  @include e('svg') {
     width: inherit;
-    height: inherit;
     max-width: 100%;
+    height: inherit;
     max-height: 100%;
   }
 
   @include m('loader') {
-    svg {
+    #{ e('svg', $root) } {
       animation: rotating 2s linear infinite;
     }
   }

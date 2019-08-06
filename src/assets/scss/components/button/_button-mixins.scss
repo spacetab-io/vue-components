@@ -6,9 +6,9 @@
 @mixin addSize($name, $padding, $min-width, $height: auto) {
   @at-root {
     #{ m($name) } {
-      padding: $padding;
       min-width: $min-width;
       height: $height;
+      padding: $padding;
     }
   }
 }
@@ -17,6 +17,7 @@
   padding: $padding-vertical $padding-horizontal;
   font-size: $font-size;
   border-radius: $border-radius;
+
   &#{ m('round', $root) } {
     padding: $padding-vertical $padding-horizontal;
   }
@@ -29,22 +30,22 @@
 
   &:hover,
   &:focus {
+    color: $color;
     background: mix($st-color-white, $background-color, $st-button-hover-tint-percent);
     border-color: mix($st-color-white, $border-color, $st-button-hover-tint-percent);
-    color: $color;
   }
 
   &:active {
+    color: $color;
     background: mix($st-color-black, $background-color, $st-button-active-shade-percent);
     border-color: mix($st-color-black, $border-color, $st-button-active-shade-percent);
-    color: $color;
     outline: none;
   }
 
   &#{ m('active', $root) } {
+    color: $color;
     background: mix($st-color-black, $background-color, $st-button-active-shade-percent);
     border-color: mix($st-color-black, $border-color, $st-button-active-shade-percent);
-    color: $color;
   }
 
   &#{ m('disabled', $root) } {
@@ -70,15 +71,15 @@
 
   &:hover,
   &:focus {
+    color: $st-color-white;
     background: $color;
     border-color: $color;
-    color: $st-color-white;
   }
 
   &:active {
+    color: $st-color-white;
     background: mix($st-color-black, $color, $st-button-active-shade-percent);
     border-color: mix($st-color-black, $color, $st-button-active-shade-percent);
-    color: $st-color-white;
     outline: none;
   }
 
@@ -98,16 +99,19 @@
   @at-root {
     #{ m($name) } {
       color: $secondaryColor;
-      border-color: $accentColor;
       background: $accentColor;
+      border-color: $accentColor;
     }
+
     #{ m($name) }:not(#{ m('disabled') }):hover {
       color: $accentColor;
       background: $secondaryColor;
     }
+
     #{ m($name) } #{ e('icon') + b('icon') } {
       color: $secondaryColor;
     }
+
     #{ m($name) }:not(#{ m('disabled') }):hover #{ e('icon') + b('icon') } {
       color: $accentColor;
     }
@@ -120,16 +124,19 @@
   @at-root {
     #{ $plain-style-class } {
       color: $accent-color;
-      border-color: $accent-color;
       background: transparent;
+      border-color: $accent-color;
     }
+
     #{ $plain-style-class }:not(#{ m('disabled') }):hover {
       color: $secondary-color;
       background: $accent-color;
     }
+
     #{ $plain-style-class } #{ e('icon') }#{ b('icon') } {
       color: $accent-color;
     }
+
     #{ $plain-style-class }:not(#{ m('disabled') }):hover #{ e('icon') + b('icon') } {
       color: $secondary-color;
     }
@@ -144,10 +151,12 @@
       color: $accent-color;
       background: transparent;
     }
+
     #{ $text-style-class }:not(#{ m('disabled') }):hover {
       color: lighten($accent-color, 10);
       background: transparent;
     }
+
     #{ $text-style-class }:not(#{ m('disabled') }):active {
       color: darken($accent-color, 10);
       background: transparent;
@@ -161,16 +170,19 @@
   @at-root {
     #{ $circle-style-class } {
       color: $accent-color;
-      border-color: $accent-color;
       background: transparent;
+      border-color: $accent-color;
     }
+
     #{ $circle-style-class }:not(#{ m('disabled') }):hover {
       color: $secondary-color;
       background: $accent-color;
     }
+
     #{ $circle-style-class } #{ e('icon') + b('icon') } {
       color: $accent-color;
     }
+
     #{ $circle-style-class }:not(#{ m('disabled') }):hover #{ e('icon') + b('icon') } {
       color: $secondary-color;
     }
@@ -180,29 +192,36 @@
 @mixin buttonStyle($name, $accent-color, $secondary-color) {
   @at-root {
     #{ m($name) } {
+      color: $accent-color;
       background: transparent;
       border-color: $accent-color;
-      color: $accent-color;
     }
+
     #{ m($name) }:not(#{ m('disabled') }):not(#{ m('text') }):hover {
-      background: $accent-color;
       color: $secondary-color;
+      background: $accent-color;
     }
+
     #{ m($name) + m('text') }:not(#{ m('disabled') }):hover {
       color: lighten($accent-color, 10);
     }
+
     #{ m($name) + m('text') }:not(#{ m('disabled') }):active {
       color: darken($accent-color, 10);
     }
+
     #{ m($name) } #{ e('icon') + b('icon') } {
       color: $accent-color;
     }
+
     #{ m($name) }:not(#{ m('disabled') }):not(#{ m('text') }):hover #{ e('icon') + b('icon') } {
       color: $secondary-color;
     }
+
     #{ m($name) + m('text') }:not(#{ m('disabled') }):hover #{ e('icon') + b('icon') } {
       color: lighten($accent-color, 10);
     }
+
     #{ m($name) + m('text') }:not(#{ m('disabled') }):active #{ e('icon') + b('icon') } {
       color: darken($accent-color, 10);
     }
@@ -212,11 +231,11 @@
 @mixin buttonType($name, $padding, $border-radius, $min-width, $border-width) {
   @at-root {
     #{ m($name) } {
-      padding: $padding;
       min-width: $min-width;
-      border-radius: $border-radius;
+      padding: $padding;
       background: transparent;
       border: solid $border-width;
+      border-radius: $border-radius;
     }
   }
 }
@@ -224,17 +243,20 @@
 @mixin buttonStyleFilled($name, $accent-color, $secondary-color) {
   @at-root {
     &#{ b($name) } {
+      color: $secondary-color;
       background: $accent-color;
       border-color: $accent-color;
-      color: $secondary-color;
     }
+
     &#{ b($name) } &#{ e('icon') }#{ b('icon') } {
       color: $st-color-white;
     }
+
     &#{ b($name) }:not(#{ m('disabled') }):hover {
-      background: transparent;
       color: $accent-color;
+      background: transparent;
     }
+
     &#{ b($name) }:not(#{ m('disabled') }):hover #{ e('icon') + b('icon') } {
       color: $accent-color;
     }
@@ -244,10 +266,10 @@
 @mixin buttonTypeFilled($name, $padding, $border-radius, $min-width, $border-width) {
   @at-root {
     #{ m($name) } {
-      padding: $padding;
       min-width: $min-width;
-      border-radius: $border-radius;
+      padding: $padding;
       border: solid $border-width;
+      border-radius: $border-radius;
     }
   }
 }

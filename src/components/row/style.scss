@@ -4,24 +4,29 @@
 @include b(row) {
   position: relative;
   box-sizing: border-box;
+
   @include utils-clearfix;
 
   @include m(flex) {
     display: flex;
-    &:before,
-    &:after {
+
+    &::before,
+    &::after {
       display: none;
     }
 
     @include m(justify-center) {
       justify-content: center;
     }
+
     @include m(justify-end) {
       justify-content: flex-end;
     }
+
     @include m(justify-space-between) {
       justify-content: space-between;
     }
+
     @include m(justify-space-around) {
       justify-content: space-around;
     }
@@ -29,6 +34,7 @@
     @include m(align-middle) {
       align-items: center;
     }
+
     @include m(align-bottom) {
       align-items: flex-end;
     }
