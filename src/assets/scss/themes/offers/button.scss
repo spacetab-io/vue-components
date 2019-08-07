@@ -7,23 +7,23 @@
   font-weight: normal;
   font-stretch: normal;
   line-height: 1.71;
-  color: $offers-main-color;
+  color: $st-color-primary;
   text-align: center;
   letter-spacing: normal;
   cursor: pointer;
   background: transparent;
-  border: 1px solid $offers-main-color;
+  border: 1px solid $st-color-primary;
   border-radius: 21px;
   outline: none;
 
   &:hover {
-    color: $offers-hover-main-color;
-    border-color: $offers-hover-main-color;
+    color: $st-color-primary-hover;
+    border-color: $st-color-primary-hover;
   }
 
   &:active {
-    color: $offers-active-main-color;
-    border-color: $offers-active-main-color;
+    color: $st-color-primary-active;
+    border-color: $st-color-primary-active;
   }
 
   &:disabled {
@@ -33,79 +33,79 @@
 
   &--default,
   &--primary {
-    color: $offers-white-color;
-    background-color: $offers-main-color;
+    color: $st-color-white;
+    background-color: $st-color-primary;
 
     &:hover {
-      color: $offers-white-color;
-      background-color: $offers-hover-main-color;
-      border-color: $offers-hover-main-color;
+      color: $st-color-white;
+      background-color: $st-color-primary-hover;
+      border-color: $st-color-primary-hover;
     }
 
     &:active {
-      color: $offers-white-color;
-      background-color: $offers-active-main-color;
-      border-color: $offers-active-main-color;
+      color: $st-color-white;
+      background-color: $st-color-primary-active;
+      border-color: $st-color-primary-active;
     }
   }
 
   &--success {
-    color: $offers-green-color;
-    border-color: $offers-green-color;
+    color: $st-color-success;
+    border-color: $st-color-success;
 
     &:hover {
-      color: mix($offers-black-color, $offers-green-color, 10);
-      border-color: mix($offers-black-color, $offers-green-color, 10);
+      color: mix($st-color-black, $st-color-success, 10);
+      border-color: mix($st-color-black, $st-color-success, 10);
     }
 
     &:active {
-      color: mix($offers-black-color, $offers-green-color, 20);
-      border-color: mix($offers-black-color, $offers-green-color, 20);
+      color: mix($st-color-black, $st-color-success, 20);
+      border-color: mix($st-color-black, $st-color-success, 20);
     }
   }
 
   &--warning {
-    color: $offers-yellow-color;
-    border-color: $offers-yellow-color;
+    color: $st-color-warning;
+    border-color: $st-color-warning;
 
     &:hover {
-      color: mix($offers-black-color, $offers-yellow-color, 10);
-      border-color: mix($offers-black-color, $offers-yellow-color, 10);
+      color: mix($st-color-black, $st-color-warning, 10);
+      border-color: mix($st-color-black, $st-color-warning, 10);
     }
 
     &:active {
-      color: mix($offers-black-color, $offers-yellow-color, 20);
-      border-color: mix($offers-black-color, $offers-yellow-color, 20);
+      color: mix($st-color-black, $st-color-warning, 20);
+      border-color: mix($st-color-black, $st-color-warning, 20);
     }
   }
 
   &--danger {
-    color: $offers-red-color;
-    border-color: $offers-red-color;
+    color: $st-color-error;
+    border-color: $st-color-error;
 
     &:hover {
-      color: mix($offers-black-color, $offers-red-color, 10);
-      border-color: mix($offers-black-color, $offers-red-color, 10);
+      color: mix($st-color-black, $st-color-error, 10);
+      border-color: mix($st-color-black, $st-color-error, 10);
     }
 
     &:active {
-      color: mix($offers-black-color, $offers-red-color, 20);
-      border-color: mix($offers-black-color, $offers-red-color, 20);
+      color: mix($st-color-black, $st-color-error, 20);
+      border-color: mix($st-color-black, $st-color-error, 20);
     }
   }
 
   &--cancel {
-    color: $offers-dark-gray-color;
-    border-color: $offers-dark-gray-color;
+    color: $st-color-dark-gray;
+    border-color: $st-color-dark-gray;
 
     &:hover {
-      color: mix($offers-black-color, $offers-dark-gray-color, 10);
-      border-color: mix($offers-black-color, $offers-dark-gray-color, 10);
+      color: mix($st-color-black, $st-color-dark-gray, 10);
+      border-color: mix($st-color-black, $st-color-dark-gray, 10);
     }
 
     &:active {
-      color: mix($offers-black-color, $offers-dark-gray-color, 20);
-      border-color: mix($offers-black-color, $offers-dark-gray-color, 20);
+      color: mix($st-color-black, $st-color-dark-gray, 20);
+      border-color: mix($st-color-black, $st-color-dark-gray, 20);
     }
   }
 
