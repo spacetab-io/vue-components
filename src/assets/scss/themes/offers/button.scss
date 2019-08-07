@@ -1,0 +1,138 @@
+.st-button {
+  height: 42px;
+  padding: 0 20px;
+  padding-bottom: 2px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.71;
+  color: $st-color-primary;
+  text-align: center;
+  letter-spacing: normal;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid $st-color-primary;
+  border-radius: 21px;
+  outline: none;
+
+  &:hover {
+    color: $st-color-primary-hover;
+    border-color: $st-color-primary-hover;
+  }
+
+  &:active {
+    color: $st-color-primary-active;
+    border-color: $st-color-primary-active;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &--default,
+  &--primary {
+    color: $st-color-white;
+    background-color: $st-color-primary;
+
+    &:hover {
+      color: $st-color-white;
+      background-color: $st-color-primary-hover;
+      border-color: $st-color-primary-hover;
+    }
+
+    &:active {
+      color: $st-color-white;
+      background-color: $st-color-primary-active;
+      border-color: $st-color-primary-active;
+    }
+  }
+
+  &--success {
+    color: $st-color-success;
+    border-color: $st-color-success;
+
+    &:hover {
+      color: mix($st-color-black, $st-color-success, 10);
+      border-color: mix($st-color-black, $st-color-success, 10);
+    }
+
+    &:active {
+      color: mix($st-color-black, $st-color-success, 20);
+      border-color: mix($st-color-black, $st-color-success, 20);
+    }
+  }
+
+  &--warning {
+    color: $st-color-warning;
+    border-color: $st-color-warning;
+
+    &:hover {
+      color: mix($st-color-black, $st-color-warning, 10);
+      border-color: mix($st-color-black, $st-color-warning, 10);
+    }
+
+    &:active {
+      color: mix($st-color-black, $st-color-warning, 20);
+      border-color: mix($st-color-black, $st-color-warning, 20);
+    }
+  }
+
+  &--danger {
+    color: $st-color-error;
+    border-color: $st-color-error;
+
+    &:hover {
+      color: mix($st-color-black, $st-color-error, 10);
+      border-color: mix($st-color-black, $st-color-error, 10);
+    }
+
+    &:active {
+      color: mix($st-color-black, $st-color-error, 20);
+      border-color: mix($st-color-black, $st-color-error, 20);
+    }
+  }
+
+  &--cancel {
+    color: $st-color-dark-gray;
+    border-color: $st-color-dark-gray;
+
+    &:hover {
+      color: mix($st-color-black, $st-color-dark-gray, 10);
+      border-color: mix($st-color-black, $st-color-dark-gray, 10);
+    }
+
+    &:active {
+      color: mix($st-color-black, $st-color-dark-gray, 20);
+      border-color: mix($st-color-black, $st-color-dark-gray, 20);
+    }
+  }
+
+  &--small,
+  &--mini {
+    height: 32px;
+  }
+
+  &--text {
+    padding: 0;
+    border: none;
+  }
+
+  &__icon {
+    margin-right: 5px;
+  }
+
+  &--circle {
+    width: 42px;
+    padding: 0;
+
+    .st-button__icon {
+      margin: 0;
+    }
+  }
+
+  .st-button__icon {
+    color: inherit;
+  }
+}

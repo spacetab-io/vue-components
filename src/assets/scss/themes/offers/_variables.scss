@@ -1,0 +1,20 @@
+$st-color-royal-blue: #4264fb;
+$st-color-cerulean-blue: #2c4de0;
+$st-color-persian-blue: #1030bd;
+$st-color-night-rider: #333;
+$st-color-pink-swan: #b7b7b7;
+$st-color-light-gray: #d4d4d4;
+$st-color-moon-yellow: #ebc715;
+$st-color-jade: #00c27a;
+$st-color-coral-red: #fb4242;
+
+$st-color-primary: $st-color-royal-blue;
+$st-color-primary-hover: $st-color-cerulean-blue;
+$st-color-primary-active: $st-color-persian-blue;
+$st-color-dark-gray: $st-color-pink-swan;
+$st-color-black: $st-color-night-rider;
+$st-color-warning: $st-color-moon-yellow;
+$st-color-success: $st-color-jade;
+$st-color-error: $st-color-coral-red;
+
+@import "../../utils/variables";
