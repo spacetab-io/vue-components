@@ -1,0 +1,32 @@
+@import "../../utils/variables";
+
+$st-checkbox-common-border-color: $st-color-pastel-gray !default;
+$st-checkbox-common-border-width: 1px !default;
+
+$st-checkbox-height: 18px !default;
+$st-checkbox-width: 18px !default;
+
+$st-checkbox-border-radius: 3px !default;
+
+$st-checkbox-label-padding: 0 0 0 10px !default;
+$st-checkbox-label-font-size: 14px !default;
+
+$st-checkbox-check-mark-transition: transform 0.15s cubic-bezier(0.71, -0.46, 0.88, 0.6) 0.05s !default;
+$st-checkbox-check-mark-color: $st-color-white !default;
+$st-checkbox-check-mark-weight: 2px !default;
+$st-checkbox-check-mark-height: 8px !default;
+$st-checkbox-check-mark-width: 4px !default;
+
+$st-checkbox-transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 10.46), background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 10.46) !default;
+$st-checkbox-label-transition: color 0.15s cubic-bezier(0.71, -0.46, 0.88, 0.6) 0.05s !default;
+
+$st-checkbox-disabled-background-color: #f4f5f9 !default;
+$st-checkbox-disabled-border-color: #f4f5f9 !default;
+
+$st-checkbox-disabled-color: $st-color-taupe-gray !default;
+
+$st-checkbox-checked-disabled-background-color: #e5eaf9 !default;
+$st-checkbox-checked-disabled-border-color: #e5eaf9 !default;
+
+$st-checkbox-checked-background-color: $st-color-blueberry !default;
+$st-checkbox-checked-border-color: $st-color-blueberry !default;

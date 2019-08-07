@@ -14,20 +14,34 @@
   @return $dot + $name;
 }
 
-@function e($name, $scope: null) {
+@function e($name, $scope: null, $parent: null) {
   @if $scope == null {
     $scope: &;
   }
 
-  @return $scope + $ELEMENT_SEPARATOR + $name;
+  @if $parent == null {
+    $parent: '';
+  }
+
+  @return $parent + ' ' + $scope + $ELEMENT_SEPARATOR + $name;
 }
 
-@function m($name, $scope: null) {
+@function m($name, $scope: null, $parent: null, $space: True) {
   @if $scope == null {
     $scope: &;
   }
 
-  @return $scope + $MODIFIER_SEPARATOR + $name;
+  @if $parent == null {
+    $parent: '';
+  }
+
+  $spaceDel: '';
+
+  @if $space {
+    $spaceDel: '';
+  }
+
+  @return $parent + $spaceDel + $scope + $MODIFIER_SEPARATOR + $name;
 }
 
 @function class-name-without-modifier($class-name) {

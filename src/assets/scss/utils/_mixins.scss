@@ -9,18 +9,74 @@
   }
 }
 
-@mixin e($name, $scope: null) {
-  @at-root {
+@mixin e($name, $scope: null, $at-root: true) {
+  @if ($at-root) {
+    @at-root {
+      #{ e($name, $scope) } {
+        @content;
+      }
+    }
+  }
+
+  @else {
     #{ e($name, $scope) } {
       @content;
     }
   }
 }
 
-@mixin m($name, $scope: null) {
-  @at-root {
+@mixin m($name, $scope: null, $at-root: true) {
+  @if ($at-root) {
+    @at-root {
+      #{ m($name, $scope) } {
+        @content;
+      }
+    }
+  }
+
+  @else {
     #{ m($name, $scope) } {
       @content;
+    }
+  }
+}
+
+@mixin state($mod, $root: null, $at-root: false) {
+  @if ($root == null) {
+    $root: &;
+  }
+
+  @if ($at-root) {
+    #{ m($mod, $root) } {
+      @content;
+    }
+  }
+
+  @else {
+    @at-root {
+      #{ m($mod, $root) } {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin dblState($mod, $mod2, $root: null, $at-root: false) {
+  @if ($root == null) {
+    $root: &;
+  }
+
+  @if ($at-root) {
+    #{ m($mod, $root, &, false) }#{ m($mod2, $root, &, false) } {
+      @content;
+    }
+  }
+
+  @else {
+    @at-root {
+      #{ m($mod, $root, &, false) }#{ m($mod2, $root, &, false) } {
+        @content;
+      }
     }
   }
 }
