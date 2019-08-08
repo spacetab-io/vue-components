@@ -51,13 +51,13 @@ jobs:
           key: project-dist-{{ .Revision }}
       - run:
           name: Build container
-          command: docker build -t spacetabs/vue-components:{{ .Revision }} .
+          command: docker build -t spacetabs/vue-components:latest .
       - run:
           name: Login to the docker hub
           command: docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
       - run:
           name: Push image to registry
-          command: docker push spacetabs/vue-components:{{ .Revision }}
+          command: docker push spacetabs/vue-components:latest
 
   deploy:
     machine: true
