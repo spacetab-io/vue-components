@@ -97,7 +97,7 @@
 
     &:hover {
       @include e('inner', $root, false) {
-        border: $st-border-style $st-checkbox-common-border-width $st-checkbox-common-border-color;
+        border-color: $st-checkbox-disabled-border-color;
       }
     }
   }
