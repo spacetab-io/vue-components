@@ -4,7 +4,7 @@ import {
   Vue,
 } from 'vue-property-decorator';
 
-import StRow from '@/components/row/script';
+import StRow from '../row/script';
 
 interface StylePaddings {
   paddingLeft?: string;
