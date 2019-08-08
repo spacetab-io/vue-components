@@ -1,0 +1,282 @@
+@import "../../assets/scss/utils/mixins";
+@import "../../assets/scss/components/input/variables";
+@import "../../assets/scss/components/icon/variables";
+
+@include b(input) {
+  $root: &;
+
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  font-size: $st-font-size;
+
+  @include scroll-bar;
+
+  #{ b('icon') } {
+    &#{ e('clear', $root) } {
+      width: ($st-icon-size - 2) + px;
+      height: ($st-icon-size - 2) + px;
+      color: $st-color-pastel-gray;
+      cursor: pointer;
+      transition: $st-fill-transition;
+
+      &:hover {
+        color: $st-input-icon-focus-color;
+      }
+    }
+  }
+
+  &:hover {
+    #{ e('suffix', $root) },
+    #{ e('prefix', $root) } {
+      color: $st-input-icon-hover-color;
+
+      #{ b('icon') } {
+        color: $st-input-icon-hover-color;
+
+        &#{ e('clear', $root) }:hover {
+          color: $st-input-icon-focus-color;
+        }
+      }
+    }
+  }
+
+  @include e(inner) {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 100%;
+    height: $st-input-height;
+    padding: 0 15px;
+    font-size: inherit;
+    line-height: 1;
+    color: $st-input-color;
+    background-color: $st-input-fill;
+    background-image: none;
+    -webkit-appearance: none;
+    border: $st-input-border;
+    border-radius: $st-input-border-radius;
+    outline: none;
+    transition: $st-border-transition;
+
+    /** disalbe default clear on IE */
+    &::-ms-clear {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+
+    &::placeholder {
+      color: $st-input-placeholder-color;
+    }
+
+    &:hover {
+      border-color: $st-input-hover-border;
+
+      + #{ e('suffix', $root) },
+      + #{ e('prefix', $root) } {
+        color: $st-input-icon-hover-color;
+
+        #{ b('icon') } {
+          color: $st-input-icon-hover-color;
+        }
+      }
+    }
+
+    &:focus {
+      border-color: $st-input-focus-border;
+      outline: none;
+
+      + #{ e('suffix', $root) },
+      + #{ e('prefix', $root) } {
+        color: $st-input-icon-focus-color;
+
+        #{ b('icon') } {
+          &:not(#{ e('clear', $root) }) {
+            color: $st-input-icon-focus-color;
+          }
+        }
+      }
+    }
+  }
+
+  @include e(suffix) {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    height: 100%;
+    color: $st-input-icon-color;
+    text-align: center;
+    transition: all 0.3s;
+
+    #{ b('icon') } {
+      color: $st-input-icon-color;
+    }
+  }
+
+  @include e(prefix) {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    height: 100%;
+    color: $st-input-icon-color;
+    text-align: center;
+    transition: all 0.3s;
+
+    #{ b('icon') } {
+      color: $st-input-icon-color;
+    }
+  }
+
+  @include e(prefix) {
+    line-height: $st-input-height - 2;
+  }
+
+  @include e(suffix) {
+    line-height: $st-input-height - 2;
+  }
+
+  @include e(icon) {
+    width: $st-icon-width;
+    height: $st-icon-height;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  @include e(validateIcon) {
+    pointer-events: none;
+  }
+
+  @include m(active) {
+    #{ e('inner', $root) } {
+      border-color: $st-input-focus-border;
+      outline: none;
+    }
+  }
+
+  @include m(disabled) {
+    #{ e('inner', $root) } {
+      color: $st-input-disabled-color;
+      cursor: not-allowed;
+      background-color: $st-input-disabled-fill;
+      border-color: $st-input-disabled-border;
+
+      &::placeholder {
+        color: $st-input-disabled-placeholder-color;
+      }
+    }
+
+    #{ e('icon', $root) } {
+      cursor: not-allowed;
+    }
+  }
+
+  @include m(with-suffix) {
+    #{ e('inner', $root) } {
+      padding-right: 30px;
+    }
+
+    #{ e('suffix', $root) } {
+      right: 10px;
+    }
+
+    &#{ m('state-visible', $root) } {
+      #{ e('inner', $root) } {
+        padding-right: 40px;
+      }
+    }
+  }
+
+  @include m(with-prefix) {
+    #{ e('inner', $root) } {
+      padding-left: 30px;
+    }
+
+    #{ e('prefix', $root) } {
+      left: 10px;
+    }
+  }
+
+  @include m(extra-large) {
+    font-size: $st-input-extra-large-font-size;
+    line-height: 48px;
+
+    #{ e('inner', $root) } {
+      height: 48px;
+      line-height: 48px;
+    }
+
+    #{ e('prefix', $root) },
+    #{ e('suffix', $root) } {
+      line-height: 48px;
+    }
+
+    #{ e('icon', $root) } {
+      &:not(#{ e('clear', $root) }):not(.st-select__caret) {
+        width: 24px;
+        height: 24px;
+        font-size: 24px;
+      }
+    }
+  }
+
+  @include m(large) {
+    font-size: $st-input-large-font-size;
+    line-height: 40px;
+
+    #{ e('inner', $root) } {
+      height: 40px;
+      line-height: 40px;
+    }
+
+    #{ e('prefix', $root) },
+    #{ e('suffix', $root) } {
+      line-height: 40px;
+    }
+
+    #{ e('icon', $root) } {
+      width: 24px;
+      height: 24px;
+      font-size: 24px;
+    }
+  }
+
+  @include m(medium) {
+    font-size: $st-input-medium-font-size;
+
+    #{ e('inner', $root) } {
+      height: $st-input-medium-height;
+      line-height: 40px;
+    }
+
+    #{ e('prefix', $root) },
+    #{ e('suffix', $root) } {
+      line-height: $st-input-medium-height - 2;
+    }
+  }
+
+  @include m(small) {
+    font-size: $st-input-small-font-size;
+
+    #{ e('inner', $root) } {
+      height: $st-input-small-height;
+    }
+
+    #{ e('prefix', $root) },
+    #{ e('suffix', $root) } {
+      line-height: $st-input-small-height - 2;
+    }
+  }
+
+  @include m(mini) {
+    font-size: $st-input-mini-font-size;
+
+    #{ e('inner', $root) } {
+      height: $st-input-mini-height;
+    }
+
+    #{ e('prefix', $root) },
+    #{ e('suffix', $root) } {
+      line-height: $st-input-mini-height - 2;
+    }
+  }
+}

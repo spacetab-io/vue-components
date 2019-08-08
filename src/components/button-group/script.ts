@@ -3,5 +3,8 @@ import {
   Vue,
 } from 'vue-property-decorator';
 
-@Component
+
+@Component({
+  name: 'StButtonGroup',
+})
 export default class StButtonGroup extends Vue {}

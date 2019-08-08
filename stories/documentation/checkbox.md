@@ -6,4 +6,6 @@
 | --- | --- | --- | --- | --- | --- |
 | disabled | Disabled state | false | Boolean | - | * |
 | label | Checkbox label | false | String | - | * |
-| v-model | v-model атрибут | true | Boolean | - | * |
+| v-model | v-model attribute | true | Boolean | - | * |
+
+## Events

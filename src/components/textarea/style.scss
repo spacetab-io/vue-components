@@ -1,0 +1,88 @@
+@import "../../assets/scss/utils/mixins";
+@import "../../assets/scss/components/textarea/variables";
+
+@include b(textarea) {
+  $root: &;
+
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  font-size: $st-font-size;
+  vertical-align: bottom;
+
+  @include e(inner) {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    padding: 5px 15px;
+    font-size: inherit;
+    line-height: 1.5;
+    color: $st-textarea-color;
+    resize: none;
+    background-color: $st-textarea-fill;
+    background-image: none;
+    border: $st-textarea-border;
+    border-radius: $st-textarea-border-radius;
+    transition: $st-border-transition;
+
+    &::placeholder {
+      color: $st-textarea-placeholder-color;
+    }
+
+    &:hover {
+      border-color: $st-textarea-hover-border;
+    }
+
+    &:focus {
+      border-color: $st-textarea-focus-border;
+      outline: none;
+    }
+  }
+
+  @include e(loader) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: $st-textarea-loader-color;
+    transform: translate(-50%, -50%);
+  }
+
+  @include m((disabled)) {
+    #{ e('inner', $root) } {
+      color: $st-textarea-disabled-color;
+      cursor: not-allowed;
+      background-color: $st-textarea-disabled-fill;
+      border-color: $st-textarea-disabled-border;
+
+      &::placeholder {
+        color: $st-textarea-disabled-placeholder-color;
+      }
+    }
+  }
+
+  @include m(resizable) {
+    #{ e('inner', $root) } {
+      resize: vertical;
+    }
+  }
+
+  @include m(extra-large) {
+    font-size: $st-textarea-extra-large-font-size;
+  }
+
+  @include m(large) {
+    font-size: $st-textarea-large-font-size;
+  }
+
+  @include m(medium) {
+    font-size: $st-textarea-medium-font-size;
+  }
+
+  @include m(small) {
+    font-size: $st-textarea-small-font-size;
+  }
+
+  @include m(mini) {
+    font-size: $st-textarea-mini-font-size;
+  }
+}

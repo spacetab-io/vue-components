@@ -9,7 +9,10 @@ interface StyleMargins {
   marginRight?: string;
 }
 
-@Component
+
+@Component({
+  name: 'StRow',
+})
 export default class StRow extends Vue {
   @Prop({ type: String, default: 'div' })
   tag!: string;

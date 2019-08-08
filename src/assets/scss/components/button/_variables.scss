@@ -1,29 +1,27 @@
 @import "../../utils/variables";
 
-/* Button
--------------------------- */
-$st-button-font-size: 14px !default;
+$st-button-font-size: $st-font-size !default;
 $st-button-font-weight: 500 !default;
 $st-button-border-radius: $st-border-radius !default;
 $st-button-padding-vertical: 12px !default;
 $st-button-padding-horizontal: 20px !default;
 
-$st-button-large-font-size: 14px !default;
+$st-button-large-font-size: $st-font-size !default;
 $st-button-large-border-radius: 6px !default;
 $st-button-large-padding-vertical: 16px !default;
 $st-button-large-padding-horizontal: 20px !default;
 
-$st-button-medium-font-size: 14px !default;
+$st-button-medium-font-size: $st-font-size !default;
 $st-button-medium-border-radius: $st-border-radius !default;
 $st-button-medium-padding-vertical: 12px !default;
 $st-button-medium-padding-horizontal: 20px !default;
 
-$st-button-small-font-size: 14px !default;
+$st-button-small-font-size: $st-font-size !default;
 $st-button-small-border-radius: #{$st-border-radius - 1} !default;
 $st-button-small-padding-vertical: 12px !default;
 $st-button-small-padding-horizontal: 20px !default;
 
-$st-button-mini-font-size: 14px !default;
+$st-button-mini-font-size: $st-font-size !default;
 $st-button-mini-border-radius: #{$st-border-radius - 1} !default;
 $st-button-mini-padding-vertical: 12px !default;
 $st-button-mini-padding-horizontal: 20px !default;

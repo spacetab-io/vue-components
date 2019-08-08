@@ -1,0 +1,19 @@
+@import "../../utils/variables";
+
+$st-textarea-color: $st-text-color-regular !default;
+$st-textarea-fill: $st-color-white !default;
+$st-textarea-border: $st-border !default;
+$st-textarea-border-radius: $st-border-radius !default;
+$st-textarea-placeholder-color: $st-text-color-placeholder !default;
+$st-textarea-hover-border: $st-border-color-hover !default;
+$st-textarea-focus-border: $st-color-taupe-gray !default;
+$st-textarea-loader-color: $st-text-color-primary !default;
+$st-textarea-disabled-color: $st-disabled-color !default;
+$st-textarea-disabled-fill: $st-disabled-fill !default;
+$st-textarea-disabled-border: $st-disabled-border-color !default;
+$st-textarea-disabled-placeholder-color: $st-text-color-placeholder !default;
+$st-textarea-extra-large-font-size: $st-font-size !default;
+$st-textarea-large-font-size: $st-font-size !default;
+$st-textarea-medium-font-size: $st-font-size !default;
+$st-textarea-small-font-size: 13px !default;
+$st-textarea-mini-font-size: 12px !default;

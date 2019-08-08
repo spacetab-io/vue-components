@@ -1,0 +1,30 @@
+<div :class="[
+      'st-textarea',
+      this.size ? 'st-textarea--' + this.size : '',
+      {
+        'st-textarea--disabled': disabled,
+        'st-textarea--resizable': resizable,
+        'st-textarea--loading': loading,
+      }
+     ]">
+  <textarea class="st-textarea__inner"
+            ref="textarea"
+            :disabled="disabled"
+            :readonly="readonly"
+            :required="required"
+            :placeholder="placeholder"
+            :minlength="minlength"
+            :maxlength="maxlength"
+            :autofocus="autofocus"
+            :rows="rows"
+            :cols="cols"
+            :name="name"
+            :tabindex="tabindex"
+            @input="handleInput"
+            @focus="$emit('focus')"
+            @blur="$emit('blur')"
+            @change="handleChange">{{ textareaValue }}</textarea>
+  <st-icon v-if="loading"
+           name="loader"
+           class="st-textarea__loader" />
+</div>
