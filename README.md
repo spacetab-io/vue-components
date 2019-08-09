@@ -1,4 +1,4 @@
-# @spacetab/vue-components
+# @spacetab/vue-components [![CircleCI](https://circleci.com/gh/spacetabs/vue-components.svg?style=svg)](https://circleci.com/gh/spacetabs/vue-components)
 
 ## Project
 
