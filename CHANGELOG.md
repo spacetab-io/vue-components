@@ -12,6 +12,12 @@
 ### Maintenance
 
 * Fixed styles for `cancel` and `remove` types for `Button`
+* Icon generator was moved from `config` to `build` directory
+* Generated icons files were renamed:
+    * `icons.json` to `_icons.generated.json` at `src/assets/icons`
+    * `src/utils/icons.ts` to `src/components/icon/_icons.generated.ts`
+* All icons' symbol ids have got prefix `st-` 
+
 
 
 
