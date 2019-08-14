@@ -2,6 +2,7 @@
   "name": "@spacetab/vue-components",
   "version": "0.1.2",
   "private": true,
+  "main": "src/index.ts",
   "scripts": {
     "serve": "node build/icon-generator.js && start-storybook -p 6006",
     "build": "node build/icon-generator.js && build-storybook -o dist",
@@ -18,7 +19,6 @@
   "dependencies": {
     "core-js": "^2.6.9",
     "lodash": "^4.17.15",
-    "svg-sprite-loader": "^4.1.6",
     "vue": "^2.6.10",
     "vue-class-component": "^7.1.0",
     "vue-property-decorator": "^8.2.1"
@@ -68,6 +68,7 @@
     "stylelint-config-standard": "^18.3.0",
     "stylelint-declaration-use-variable": "^1.7.0",
     "stylelint-scss": "^3.9.1",
+    "svg-sprite-loader": "^4.1.6",
     "ts-loader": "^6.0.4",
     "typescript": "^3.5.3",
     "vue-template-compiler": "^2.6.10"

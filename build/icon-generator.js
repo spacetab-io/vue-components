@@ -17,7 +17,8 @@ const iconsListScriptPath = './src/components/icon/_icons.generated.ts';
 const iconsList = [];
 const iconsImportPath = '../../assets/icons';
 
-let resultTemplate = `{{importIconList}}
+let resultTemplate = `/* eslint-disable */
+{{importIconList}}
 `;
 let importIconList = [];
 
@@ -30,7 +31,9 @@ fs.readdirSync(iconsSvgDirectory).forEach(file => {
   iconsList.push(fileName);
 
   importIconList.push(render(
-    `import '${iconsImportPath}/{{icon}}.svg';`,
+    // Рабочее решение для сторибука, но не для проекта
+    // `import '!svg-sprite-loader?symbolId=st-[name]!${iconsImportPath}/{{icon}}.svg';`
+    `import '!svg-sprite-loader!${iconsImportPath}/{{icon}}.svg';`,
     {
       icon: fileName
     }
