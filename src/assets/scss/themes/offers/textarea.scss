@@ -1,0 +1,29 @@
+.st-textarea {
+  font-size: 14px;
+  line-height: 1;
+
+  &__inner {
+    background: inherit;
+    border-color: $st-color-pink-swan;
+    border-radius: 2px;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $st-color-white;
+    }
+
+    &:active,
+    &:focus {
+      border-color: $st-color-primary;
+    }
+  }
+
+  &.st-textarea--disabled {
+    .st-textarea__inner {
+      background-color: $st-color-alabaster;
+      border-color: $st-color-pink-swan;
+      opacity: 0.6;
+    }
+  }
+}

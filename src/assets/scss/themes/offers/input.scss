@@ -1,0 +1,41 @@
+.st-input {
+  &__inner {
+    height: 42px;
+    font-size: 14px;
+    line-height: 1;
+    background-color: transparent;
+    border-color: $st-color-pink-swan;
+    border-radius: 2px;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $st-color-white;
+    }
+
+    &:active,
+    &:focus {
+      border-color: $st-color-primary;
+    }
+  }
+
+  &.st-input--focused {
+    .st-input__prefix .st-icon {
+      color: $st-color-primary;
+    }
+  }
+
+  &--small {
+    .st-input__inner {
+      height: 32px;
+    }
+  }
+
+  &.st-input--disabled {
+    .st-input__inner {
+      background-color: $st-color-alabaster;
+      border-color: $st-color-pink-swan;
+      opacity: 0.6;
+    }
+  }
+}
