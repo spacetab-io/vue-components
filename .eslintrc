@@ -7,7 +7,7 @@
   ],
   "plugins": [
     "vue",
-    "simple-import-sort",
+    // "simple-import-sort",
     "@typescript-eslint"
   ],
   "parserOptions": {
