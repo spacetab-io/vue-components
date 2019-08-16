@@ -1,0 +1,31 @@
+@include b(textarea) {
+  $root: &;
+
+  font-size: 14px;
+  line-height: 1;
+
+  @include e('inner') {
+    background: inherit;
+    border-color: $st-color-pink-swan;
+    border-radius: 2px;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $st-color-white;
+    }
+
+    &:active,
+    &:focus {
+      border-color: $st-color-primary;
+    }
+  }
+
+  @include m('disabled') {
+    #{ e('inner', $root) } {
+      background-color: $st-color-alabaster;
+      border-color: $st-color-pink-swan;
+      opacity: 0.6;
+    }
+  }
+}
