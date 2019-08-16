@@ -1,6 +1,6 @@
-import icons from '../../../src/assets/icons/icons';
+import { iconsList } from '../../utils/props-options';
 
-const iconsList = icons.reduce((acc, icon) => {
+const iconsPreviewElements = iconsList.reduce((acc, icon) => {
   acc += `
     <li class="icon-list__item">
       <span>${icon}</span>
@@ -13,7 +13,7 @@ const iconsList = icons.reduce((acc, icon) => {
 export const template = `
   <div class="storybook-components storybook-components--icon">
     <ul class="icon-list">
-      ${iconsList}
+      ${iconsPreviewElements}
     </ul>
   </div>
 `;
