@@ -1,17 +1,19 @@
-.st-checkbox {
-  &__inner {
+@include b(checkbox) {
+  $root: &;
+
+  @include e('inner') {
     border-radius: 1px;
     transition: none;
   }
 
-  &--checked {
-    .st-checkbox__inner {
+  @include m('checked') {
+    #{ e('inner', $root) } {
       background-color: $st-color-royal-blue;
       border-color: $st-color-royal-blue;
     }
 
     &:hover {
-      .st-checkbox__inner {
+      #{ e('inner', $root) } {
         background-color: $st-color-cerulean-blue;
         border-color: $st-color-cerulean-blue;
       }
@@ -19,23 +21,18 @@
   }
 
   &:hover {
-    .st-checkbox__inner {
+    #{ e('inner', $root) } {
       border-color: $st-color-royal-blue;
     }
   }
 
-  &.st-checkbox--disabled {
+  @include m('disabled') {
     &:not(.st-checkbox--checked) .st-checkbox__inner {
       background-color: $st-color-white;
       border-color: $st-color-light-gray;
     }
 
-    &.st-checkbox--checked .st-checkbox__input .st-checkbox__inner {
-      background-color: $st-color-light-gray;
-      border-color: $st-color-light-gray;
-    }
-
-    .st-checkbox__label {
+    #{ e('label', $root) } {
       color: $st-color-black;
     }
   }

@@ -1,5 +1,7 @@
-.st-input {
-  &__inner {
+@include b(input) {
+  $root: &;
+
+  @include e('inner') {
     height: 42px;
     font-size: 14px;
     line-height: 1;
@@ -19,20 +21,20 @@
     }
   }
 
-  &.st-input--focused {
-    .st-input__prefix .st-icon {
+  @include m('focused') {
+    #{ e('prefix', $root) } .st-icon {
       color: $st-color-primary;
     }
   }
 
-  &--small {
-    .st-input__inner {
+  @include m('small') {
+    #{ e('inner', $root) } {
       height: 32px;
     }
   }
 
-  &.st-input--disabled {
-    .st-input__inner {
+  @include m('disabled') {
+    #{ e('inner', $root) } {
       background-color: $st-color-alabaster;
       border-color: $st-color-pink-swan;
       opacity: 0.6;
