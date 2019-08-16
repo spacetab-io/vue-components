@@ -194,7 +194,7 @@
       }
     }
 
-    &#{ m('cancel', $root) } {
+    @include m('cancel', $root) {
       color: $st-color-taupe-gray;
       border-color: $st-color-pastel-gray;
 
@@ -243,7 +243,7 @@
       }
     }
 
-    &#{ m('remove', $root) } {
+    @include m('remove', $root) {
       color: $st-color-sunset-orange;
       border-color: $st-color-sunset-orange;
 

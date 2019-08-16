@@ -9,6 +9,10 @@
 
 * Added `Offers` theme styles for `Checkbox`, `Input` and `Textarea` components
 
+### Maintenance
+
+* Fixed styles for `cancel` and `remove` types for `Button`
+
 
 
 ## 0.1.1
