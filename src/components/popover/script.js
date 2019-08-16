@@ -6,10 +6,12 @@ import {
   off,
   on,
   removeClass,
-} from '@/utils/dom';
-import { generateId } from '@/utils/util';
-import Popper from '@/utils/vue-popper';
+} from './utils/dom';
+import { generateId } from './utils/util';
+import Popper from './utils/vue-popper';
 
+
+export const TRIGGER_LIST = ['click', 'focus', 'hover', 'manual'];
 
 export default {
   name: 'StPopover',
@@ -17,8 +19,8 @@ export default {
   props: {
     trigger: {
       type: String,
-      default: 'click',
-      validator: value => ['click', 'focus', 'hover', 'manual'].indexOf(value) > -1,
+      default: TRIGGER_LIST[0],
+      validator: value => TRIGGER_LIST.indexOf(value) > -1,
     },
     openDelay: {
       type: Number,

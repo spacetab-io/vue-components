@@ -1,63 +1,55 @@
 import { storiesOf } from '@storybook/vue';
 import {
   boolean,
-  radios,
-  select,
   text,
   number,
+  select,
 } from '@storybook/addon-knobs';
-import { template } from '../../templates/input/default.template';
+import { template } from '../../templates/popover/default.template';
 
 import popoverDocumentation from '../../documentation/popover.md';
+import { TRIGGER_LIST } from '../../../src/components/popover/script';
 
-import {
-  sizeOptions,
-  iconsList,
-} from '../../utils/props-options';
-
-storiesOf('Components|Input', module).add(
+storiesOf('Components|Popover', module).add(
   'Default',
   () => ({
     template: `<div>${template}</div>`,
     props: {
+      trigger: {
+        default: select('trigger', TRIGGER_LIST, TRIGGER_LIST[0]),
+      },
+      openDelay: {
+        default: number('openDelay', 0),
+      },
+      closeDelay: {
+        default: number('closeDelay', 0),
+      },
+      title: {
+        default: text('title', 'Пример заголовка'),
+      },
       disabled: {
         default: boolean('disabled', false),
       },
-      loading: {
-        default: boolean('loading', false),
+      content: {
+        default: text('content', 'Пример текста'),
       },
-      size: {
-        default: radios('size', sizeOptions, ''),
+      popperClass: {
+        default: text('popperClass', ''),
       },
-      type: {
-        default: text('type', ''),
+      width: {
+        default: text('width', '240px'),
       },
-      pattern: {
-        default: text('pattern', ''),
+      visibleArrow: {
+        default: boolean('visibleArrow', true),
       },
-      placeholder: {
-        default: text('placeholder', 'Input placeholder'),
+      arrowOffset: {
+        default: number('arrowOffset', 0),
       },
-      prefixIcon: {
-        default: select('prefixIcon', iconsList, ''),
+      transition: {
+        default: text('transition', 'fade-in-linear'),
       },
-      suffixIcon: {
-        default: select('suffixIcon', iconsList, ''),
-      },
-      clearIconAsSuffixIcon: {
-        default: boolean('clearIconAsSuffixIcon', false),
-      },
-      required: {
-        default: boolean('required', false),
-      },
-      clearable: {
-        default: boolean('clearable', true),
-      },
-      readonly: {
-        default: boolean('readonly', false),
-      },
-      maxlength: {
-        default: number('maxlength'),
+      tabindex: {
+        default: number('tabindex', 0),
       },
     },
   }),
