@@ -3,15 +3,17 @@
   "version": "0.1.2",
   "private": true,
   "scripts": {
-    "serve": "node build/icon-generator.js && start-storybook -p 6006",
-    "build": "node build/icon-generator.js && build-storybook -o dist",
+    "serve": "npm run generator:all && start-storybook -p 6006",
+    "build": "npm run generator:all && build-storybook -o dist",
     "build-bundle": "vue-cli-service build --dest lib ./src/components/index.js",
     "lint": "npm run lint:eslint && npm run lint:stylelint",
     "lint:stylelint": "stylelint --cache \"src/**/*.{vue,scss}\" && exit 0",
     "lint:eslint": "eslint --cache \"src/**/*.{js,ts,vue}\"",
     "lint:fix": "npm run lint:eslint -- --fix && npm run lint:stylelint -- --fix",
-    "icon:generate": "node build/icon-generator.js",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "generator:all": "npm run generator:icons && npm run generator:themes",
+    "generator:icons": "node build/icon-generator.js",
+    "generator:themes": "node build/theme-generator.js"
   },
   "dependencies": {
     "core-js": "^2.6.9",

@@ -1,15 +1,15 @@
-// General things
-@import "./offers/variables";
+/* Generated with build/theme-generator.js */
+
+// Variables
+@import './offers/_variables';
 
 // Components
-@import "./offers/button"; // Import component's default style file if you don't want to change it
-@import "../../../components/button-group/style";
-@import "../../../components/col/style";
-@import "../../../components/checkbox/style";
-@import "../../../components/icon/style"; // Import component's custom style file if you want to change it
-@import "../../../components/input/style";
-@import "../../../components/textarea/style";
-@import "../../../components/row/style";
-@import "./offers/checkbox.scss";
-@import "./offers/input.scss";
-@import "./offers/textarea.scss";
+@import './offers/button';
+@import '../../../components/button-group/style';
+@import './offers/checkbox';
+@import '../../../components/col/style';
+@import '../../../components/icon/style';
+@import './offers/input';
+@import '../../../components/radio/style';
+@import '../../../components/row/style';
+@import './offers/textarea';
