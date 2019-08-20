@@ -1,7 +1,7 @@
-@import "../../utils/functions";
-@import "../../utils/mixins";
-@import "../../utils/variables";
-@import "variables";
+@import '../../utils/functions';
+@import '../../utils/mixins';
+@import '../../utils/variables';
+@import 'variables';
 
 @mixin addSize($name, $padding, $min-width, $height: auto) {
   @at-root {

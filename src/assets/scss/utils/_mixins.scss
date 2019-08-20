@@ -1,6 +1,6 @@
-@import "functions";
-@import "variables/breakpoints";
-@import "variables/colors";
+@import 'functions';
+@import 'variables/breakpoints';
+@import 'variables/colors';
 
 @mixin b($name, $namespaced: true, $with-dot: true) {
   @at-root {
@@ -138,7 +138,7 @@
   }
 
   @else {
-    @warn "Undefeined points: `#{$map}`";
+    @warn 'Undefeined points: `#{$map}`';
   }
 }
 

@@ -1,4 +1,4 @@
-@import "config";
+@import 'config';
 
 @function b($name, $namespaced: true, $with-dot: true) {
   $dot: '';

@@ -1,5 +1,5 @@
-@import "../../assets/scss/utils/mixins";
-@import "../../assets/scss/components/radio/variables";
+@import '../../assets/scss/utils/mixins';
+@import '../../assets/scss/components/radio/variables';
 
 @include b('radio') {
   $root: &;

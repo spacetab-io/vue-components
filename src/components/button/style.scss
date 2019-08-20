@@ -1,8 +1,8 @@
-@import "../../assets/scss/utils/mixins";
-@import "../../assets/scss/utils/functions";
-@import "../../assets/scss/utils/helper-classes";
-@import "../../assets/scss/components/button/button-mixins";
-@import "../../assets/scss/components/button/variables";
+@import '../../assets/scss/utils/mixins';
+@import '../../assets/scss/utils/functions';
+@import '../../assets/scss/utils/helper-classes';
+@import '../../assets/scss/components/button/button-mixins';
+@import '../../assets/scss/components/button/variables';
 
 @include b('button') {
 
@@ -49,7 +49,7 @@
     outline: none;
   }
 
-  [class*="#{ b('icon', true, false) }"] {
+  [class*='#{ b('icon', true, false) }'] {
     width: 16px;
     height: 16px;
     line-height: 16px;
