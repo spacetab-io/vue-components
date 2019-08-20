@@ -1,6 +1,6 @@
-@import "../../assets/scss/utils/mixins";
-@import "../../assets/scss/utils/helper-classes";
-@import "../../assets/scss/components/button/variables";
+@import '../../assets/scss/utils/mixins';
+@import '../../assets/scss/utils/helper-classes';
+@import '../../assets/scss/components/button/variables';
 
 @include b('button-group') {
   @include utils-clearfix;

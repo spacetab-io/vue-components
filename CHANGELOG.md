@@ -17,6 +17,7 @@
     * `icons.json` to `_icons.generated.json` at `src/assets/icons`
     * `src/utils/icons.ts` to `src/components/icon/_icons.generated.ts`
 * All icons' symbol ids have got prefix `st-` 
+* Added theme generator. Since now you can build your theme's files - use `npm run generator:themes`.
 
 
 

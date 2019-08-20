@@ -1,6 +1,6 @@
-@import "../../assets/scss/utils/mixins";
-@import "../../assets/scss/components/input/variables";
-@import "../../assets/scss/components/icon/variables";
+@import '../../assets/scss/utils/mixins';
+@import '../../assets/scss/components/input/variables';
+@import '../../assets/scss/components/icon/variables';
 
 @include b(input) {
   $root: &;

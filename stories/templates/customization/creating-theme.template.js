@@ -8,20 +8,10 @@ export const template = `
       <pre>
       <span class="storybook-customization__file-link">src/assets/scss/themes/%theme_name%</span>
       </pre> 
-      
-      2. Create a theme file
-      <pre>
-      <span class="storybook-customization__file-link">src/assets/scss/themes/%theme_name%.theme.scss</span>
-      </pre> 
     </div>
     
     <h3>Theme customizing example</h3>
     <div>
-      <b>[!] We have an example of custom theme - it is theme with name "Example". You can find it here:</b>
-      <pre>
-      <span class="storybook-customization__file-link">src/assets/scss/themes/example.theme.scss</span>
-      </pre> 
-      
       1. Redefine default theme's variables
       <pre>
       <span class="storybook-customization__file-link">src/assets/scss/themes/%theme_name%/_variables.scss</span>
@@ -39,18 +29,14 @@ export const template = `
         </code>
       </pre>
       
-      2. Prepare theme's styles file to use it
+      2. Prepare theme's styles file to use it. Run command:
       <pre>
-      <span class="storybook-customization__file-link">src/assets/scss/themes/%theme_name%.theme.scss</span>
-        <code class="language-scss">
-          // General things
-          @import "./example/variables";
-          
-          // Components
-          @import "../../../components/%component_name%/style"; // Import component's default style file if you don't want to change it
-          @import "./example/%component_name%"; // Import component's custom style file if you want to change it
+        <code class="language-sh">
+          npm run generator:themes
         </code>
       </pre>
+      It will generate your theme's file
+      <pre><span class="storybook-customization__file-link">src/assets/scss/themes/%theme_name%.theme.scss</span></pre>
     </div>
     
     <h3>Use your theme in your projects</h3>

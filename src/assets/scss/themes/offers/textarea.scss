@@ -1,3 +1,6 @@
+// Import default component's file with styles
+@import '../../../../components/textarea/style';
+
 @include b(textarea) {
   $root: &;
 
