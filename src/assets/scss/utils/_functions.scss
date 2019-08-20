@@ -32,16 +32,14 @@
   }
 
   @if $parent == null {
-    $parent: '';
+    @return $scope + $MODIFIER_SEPARATOR + $name;
   }
-
-  $spaceDel: '';
 
   @if $space {
-    $spaceDel: ' ';
+    @return $parent + ' ' + $scope + $MODIFIER_SEPARATOR + $name;
   }
 
-  @return $parent + $spaceDel + $scope + $MODIFIER_SEPARATOR + $name;
+  @return $parent + $scope + $MODIFIER_SEPARATOR + $name;
 }
 
 @function class-name-without-modifier($class-name) {

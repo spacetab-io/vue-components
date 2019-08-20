@@ -62,6 +62,10 @@
   &#{ m('plain', $root) } {
     @include button-plain($background-color, $root);
   }
+
+  #{ b('icon') } {
+    color: $color;
+  }
 }
 
 @mixin button-plain($color, $root) {

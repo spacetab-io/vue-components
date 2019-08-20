@@ -40,7 +40,6 @@
   &:focus {
     color: $st-color-white;
     background-color: $st-color-white;
-    border-color: $st-color-primary;
   }
 
   &:active {
@@ -67,7 +66,6 @@
     &:focus {
       color: $st-color-white;
       background-color: $st-color-mantis;
-      border-color: $st-color-mantis;
     }
 
     &:active {
@@ -86,6 +84,11 @@
     &#{ m('plain', $root) } {
       color: $st-color-taupe-gray;
       border-color: $st-color-white-smoke;
+
+      &:hover,
+      &:focus {
+        color: $st-color-taupe-gray;
+      }
     }
 
     &#{ m('disabled', $root) },
@@ -140,6 +143,10 @@
   @include m('secondary') {
     min-width: 192px;
     border-radius: $st-button-secondary-border-radius;
+
+    #{ b('icon') } {
+      color: $st-color-mantis;
+    }
 
     &:focus {
       color: $st-color-white;
@@ -198,22 +205,27 @@
       color: $st-color-taupe-gray;
       border-color: $st-color-pastel-gray;
 
-      &:not(#{ m('disabled', $root) }):focus {
-        color: $st-color-white;
-        background-color: mix($st-color-pastel-gray, $st-color-white, 80%);
-
+      &:not(#{ m('disabled', $root) }) {
         #{ b('icon') } {
-          color: $st-color-white;
+          color: $st-color-pastel-gray;
         }
-      }
 
-      &:not(#{ m('disabled', $root) }):hover {
-        color: $st-color-white;
-        background-color: $st-color-pastel-gray;
-        border-color: $st-color-pastel-gray;
-
-        #{ b('icon') } {
+        &:focus,
+        &:hover {
           color: $st-color-white;
+
+          #{ b('icon') } {
+            color: $st-color-white;
+          }
+        }
+
+        &:focus {
+          background-color: mix($st-color-pastel-gray, $st-color-white, 80%);
+        }
+
+        &:hover {
+          background-color: $st-color-pastel-gray;
+          border-color: $st-color-pastel-gray;
         }
       }
 
@@ -290,10 +302,6 @@
           background-color: mix($st-color-sunset-orange, $st-color-white, 10%);
         }
       }
-    }
-
-    #{ b('icon') } {
-      color: $st-color-mantis;
     }
   }
 
