@@ -1,6 +1,6 @@
-@import "functions";
-@import "variables/breakpoints";
-@import "variables/colors";
+@import 'functions';
+@import 'variables/breakpoints';
+@import 'variables/colors';
 
 @mixin b($name, $namespaced: true, $with-dot: true) {
   @at-root {
@@ -62,6 +62,46 @@
   }
 }
 
+@mixin notState($mod, $root: null, $at-root: false) {
+  @if ($root == null) {
+    $root: &;
+  }
+
+  @if ($at-root) {
+    #{$root}:not(#{ m($mod, $root) }) {
+      @content;
+    }
+  }
+
+  @else {
+    @at-root {
+      #{$root}:not(#{ m($mod, $root) }) {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin notDblState($mod, $mod2, $root: null, $at-root: false) {
+  @if ($root == null) {
+    $root: &;
+  }
+
+  @if ($at-root) {
+    #{$root}:not(#{ m($mod, $root) }):not(#{ m($mod2, $root) }) {
+      @content;
+    }
+  }
+
+  @else {
+    @at-root {
+      #{$root}:not(#{ m($mod, $root) }):not(#{ m($mod2, $root) }) {
+        @content;
+      }
+    }
+  }
+}
+
 @mixin dblState($mod, $mod2, $root: null, $at-root: false) {
   @if ($root == null) {
     $root: &;
@@ -98,7 +138,7 @@
   }
 
   @else {
-    @warn "Undefeined points: `#{$map}`";
+    @warn 'Undefeined points: `#{$map}`';
   }
 }
 

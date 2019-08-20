@@ -22,6 +22,10 @@ export default class StCheckbox extends Vue {
     }
 
     toggleCheckbox() {
+      if (this.disabled) {
+        return;
+      }
+
       this.emmitInput(!this.value);
     }
 

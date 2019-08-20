@@ -1,4 +1,4 @@
-import '../../utils/icons';
+import './_icons.generated';
 
 import {
   Component,

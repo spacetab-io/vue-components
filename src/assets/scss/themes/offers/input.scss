@@ -1,0 +1,46 @@
+// Import default component's file with styles
+@import '../../../../components/input/style';
+
+@include b(input) {
+  $root: &;
+
+  @include e('inner') {
+    height: 42px;
+    font-size: 14px;
+    line-height: 1;
+    background-color: transparent;
+    border-color: $st-color-pink-swan;
+    border-radius: 2px;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $st-color-white;
+    }
+
+    &:active,
+    &:focus {
+      border-color: $st-color-primary;
+    }
+  }
+
+  @include m('focused') {
+    #{ e('prefix', $root) } .st-icon {
+      color: $st-color-primary;
+    }
+  }
+
+  @include m('small') {
+    #{ e('inner', $root) } {
+      height: 32px;
+    }
+  }
+
+  @include m('disabled') {
+    #{ e('inner', $root) } {
+      background-color: $st-color-alabaster;
+      border-color: $st-color-pink-swan;
+      opacity: 0.6;
+    }
+  }
+}

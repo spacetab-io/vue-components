@@ -1,3 +1,6 @@
+import icons from '../../src/assets/icons/_icons.generated';
+
+// Size Options
 export const sizeOptions = {
   '-': '',
   mini: 'mini',
@@ -7,7 +10,7 @@ export const sizeOptions = {
   'extra-Large': 'extra-large'
 };
 
-import icons from '../../src/assets/icons/icons';
+// Icons
 export const iconsList = [
   '',
   ...icons,

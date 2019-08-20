@@ -1,5 +1,5 @@
-@import "../../assets/scss/utils/mixins";
-@import "../../assets/scss/components/checkbox/variables";
+@import '../../assets/scss/utils/mixins';
+@import '../../assets/scss/components/checkbox/variables';
 
 @include b('checkbox') {
   $root: &;
@@ -41,7 +41,7 @@
       box-sizing: content-box;
       width: $st-checkbox-check-mark-width;
       height: $st-checkbox-check-mark-height;
-      content: "";
+      content: '';
       border: $st-checkbox-check-mark-weight $st-border-style $st-checkbox-check-mark-color;
       border-top: 0;
       border-left: 0;
@@ -97,7 +97,7 @@
 
     &:hover {
       @include e('inner', $root, false) {
-        border: $st-border-style $st-checkbox-common-border-width $st-checkbox-common-border-color;
+        border-color: $st-checkbox-disabled-border-color;
       }
     }
   }

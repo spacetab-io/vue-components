@@ -32,5 +32,15 @@ npm run lint
 npm run test:unit
 ```
 
+### Build icons
+```
+npm run generator:icons
+```
+
+### Build themes
+```
+npm run generator:themes
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).

@@ -1,0 +1,50 @@
+@import '../../assets/scss/utils/mixins';
+@import '../../assets/scss/components/radio/variables';
+
+@include b('radio') {
+  $root: &;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  cursor: pointer;
+
+  @include e('inner') {
+    box-sizing: border-box;
+    width: $st-radio-inner-size;
+    height: $st-radio-inner-size;
+    background-color: $st-radio-inner-background;
+    border: $st-radio-inner-border;
+    border-radius: 100%;
+    transition: $st-radio-inner-transition;
+  }
+
+  @include e('label') {
+    padding-left: $st-radio-label-padding;
+    font-size: $st-radio-label-font-size;
+  }
+
+  & + & {
+    margin-left: $st-radio-group-margin;
+  }
+
+  @include notDblState('disabled', 'selected') {
+    &:hover {
+      @include e('inner', $root, false) {
+        border: $st-radio-inner-hover-border;
+      }
+    }
+  }
+
+  @include state('selected') {
+    @include e('inner', $root, false) {
+      border: $st-radio-inner-selected-border;
+    }
+  }
+
+  @include state('disabled') {
+    cursor: not-allowed;
+    opacity: $st-radio-disabled-opacity;
+  }
+}

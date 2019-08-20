@@ -1,0 +1,12 @@
+@import '../../utils/variables';
+
+$st-radio-inner-border: 2px solid $st-color-pastel-gray !default;
+$st-radio-inner-hover-border: 2px solid $st-color-blueberry !default;
+$st-radio-inner-selected-border: 6px solid $st-color-blueberry !default;
+$st-radio-inner-size: 18px !default;
+$st-radio-inner-background: $st-color-white !default;
+$st-radio-inner-transition: border 100ms !default;
+$st-radio-label-font-size: 14px !default;
+$st-radio-label-padding: 10px !default;
+$st-radio-group-margin: 30px !default;
+$st-radio-disabled-opacity: 0.5 !default;
