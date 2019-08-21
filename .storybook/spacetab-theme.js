@@ -3,7 +3,7 @@ import { create } from '@storybook/theming';
 export const spacetabTheme = create({
   base: 'light', // base theme
 
-  appBg: '#f4f5f9',
+  appBg: '#edf0f8',
   barBg: '#3f4557',
   barTextColor: '#ffffff',
   barSelectedColor: '#ebb242',
