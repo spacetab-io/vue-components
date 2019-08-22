@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.0
+
+### Maintenance
+* Fixed `Offers` theme for `Button` component
+* Added `Radio` component to `Offers` theme
+* Fixed `Checkbox` value type 
+
+
+
+
 ## 0.1.2
 
 ### Dependencies

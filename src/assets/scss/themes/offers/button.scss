@@ -1,7 +1,9 @@
 // Import default component's file with styles
 @import '../../../../components/button/style';
 
-.st-button {
+@include b(button) {
+  $root: &;
+
   height: 42px;
   padding: 0 20px;
   padding-bottom: 2px;
@@ -19,13 +21,16 @@
   border-radius: 21px;
   outline: none;
 
-  &:hover {
-    color: $st-color-primary-hover;
+  &:hover,
+  &:focus {
+    color: $st-color-white;
+    background-color: $st-color-primary-hover;
     border-color: $st-color-primary-hover;
   }
 
   &:active {
-    color: $st-color-primary-active;
+    color: $st-color-white;
+    background-color: $st-color-primary-active;
     border-color: $st-color-primary-active;
   }
 
@@ -39,7 +44,8 @@
     color: $st-color-white;
     background-color: $st-color-primary;
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: $st-color-white;
       background-color: $st-color-primary-hover;
       border-color: $st-color-primary-hover;
@@ -50,64 +56,133 @@
       background-color: $st-color-primary-active;
       border-color: $st-color-primary-active;
     }
+
+    &:disabled {
+      color: $st-color-white;
+      background-color: $st-color-primary;
+      border-color: $st-color-primary;
+    }
   }
 
-  &--success {
+  @include m('success') {
     color: $st-color-success;
     border-color: $st-color-success;
 
-    &:hover {
-      color: mix($st-color-black, $st-color-success, 10);
+    &:hover,
+    &:focus {
+      color: $st-color-white;
+      background-color: mix($st-color-black, $st-color-success, 10);
       border-color: mix($st-color-black, $st-color-success, 10);
     }
 
     &:active {
-      color: mix($st-color-black, $st-color-success, 20);
+      color: $st-color-white;
+      background-color: mix($st-color-black, $st-color-success, 20);
       border-color: mix($st-color-black, $st-color-success, 20);
     }
   }
 
-  &--warning {
+  @include m('info') {
+    color: $st-color-primary;
+    border-color: $st-color-primary;
+
+    &:hover,
+    &:focus {
+      color: $st-color-white;
+      background-color: mix($st-color-black, $st-color-primary, 10);
+      border-color: mix($st-color-black, $st-color-primary, 10);
+    }
+
+    &:active {
+      color: $st-color-white;
+      background-color: mix($st-color-black, $st-color-primary, 20);
+      border-color: mix($st-color-black, $st-color-primary, 20);
+    }
+
+    &:not(#{ m('disabled', $root) }):focus {
+      color: $st-color-white;
+      background-color: $st-color-primary;
+      border-color: $st-color-primary;
+
+      #{ b('icon') } {
+        color: $st-color-primary;
+      }
+    }
+
+    &:not(#{ m('disabled', $root) }):hover {
+      background-color: $st-color-primary;
+      border-color: $st-color-primary;
+    }
+  }
+
+  @include m('warning') {
     color: $st-color-warning;
     border-color: $st-color-warning;
 
-    &:hover {
-      color: mix($st-color-black, $st-color-warning, 10);
+    &:hover,
+    &:focus {
+      color: $st-color-white;
+      background-color: mix($st-color-black, $st-color-warning, 10);
       border-color: mix($st-color-black, $st-color-warning, 10);
     }
 
     &:active {
-      color: mix($st-color-black, $st-color-warning, 20);
+      color: $st-color-white;
+      background-color: mix($st-color-black, $st-color-warning, 20);
       border-color: mix($st-color-black, $st-color-warning, 20);
     }
   }
 
-  &--danger {
+  @include m('danger') {
     color: $st-color-error;
     border-color: $st-color-error;
 
-    &:hover {
-      color: mix($st-color-black, $st-color-error, 10);
+    &:hover,
+    &:focus {
+      color: $st-color-white;
+      background-color: mix($st-color-black, $st-color-error, 10);
       border-color: mix($st-color-black, $st-color-error, 10);
     }
 
     &:active {
-      color: mix($st-color-black, $st-color-error, 20);
+      color: $st-color-white;
+      background-color: mix($st-color-black, $st-color-error, 20);
       border-color: mix($st-color-black, $st-color-error, 20);
     }
   }
 
-  &--cancel {
+  @include m('remove') {
+    color: $st-color-error;
+    border-color: $st-color-error;
+
+    &:hover,
+    &:focus {
+      color: $st-color-white;
+      background-color: mix($st-color-black, $st-color-error, 10);
+      border-color: mix($st-color-black, $st-color-error, 10);
+    }
+
+    &:active {
+      color: $st-color-white;
+      background-color: mix($st-color-black, $st-color-error, 20);
+      border-color: mix($st-color-black, $st-color-error, 20);
+    }
+  }
+
+  @include m('cancel') {
     color: $st-color-dark-gray;
     border-color: $st-color-dark-gray;
 
-    &:hover {
-      color: mix($st-color-black, $st-color-dark-gray, 10);
+    &:hover,
+    &:focus {
+      color: $st-color-white;
+      background-color: mix($st-color-black, $st-color-dark-gray, 10);
       border-color: mix($st-color-black, $st-color-dark-gray, 10);
     }
 
     &:active {
-      color: mix($st-color-black, $st-color-dark-gray, 20);
+      color: $st-color-white;
+      background-color: mix($st-color-black, $st-color-dark-gray, 20);
       border-color: mix($st-color-black, $st-color-dark-gray, 20);
     }
   }
@@ -117,16 +192,33 @@
     height: 32px;
   }
 
-  &--text {
+  @include m('text') {
     padding: 0;
     border: none;
+
+    &:not(#{ m('disabled', $root) }):hover,
+    &:not(#{ m('disabled', $root) }):focus {
+      color: $st-color-primary-hover;
+
+      #{ b('icon') } {
+        color: $st-color-primary-hover;
+      }
+    }
+
+    &:not(#{ m('disabled', $root) }):active {
+      color: $st-color-primary-hover;
+
+      #{ b('icon') } {
+        color: $st-color-primary-hover;
+      }
+    }
   }
 
-  &__icon {
+  @include e('icon') {
     margin-right: 5px;
   }
 
-  &--circle {
+  @include m('circle') {
     width: 42px;
     padding: 0;
 
