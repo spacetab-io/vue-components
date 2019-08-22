@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.0
+
+### Maintenance
+* Fixed `Offers` theme for `Button` component
+* Added `Radio` component to `Offers` theme
+* Fixed `Checkbox` value type 
+
+
+
+
 ## 0.1.2
 
 ### Dependencies
@@ -36,10 +46,3 @@
 * Changed CLI scripts at `package.json`
     * `npm run storybook:serve` renamed to `npm run serve`
     * `npm run storybook:build` renamed to `npm run build`
-
-## 0.2.0
-
-### Maintenance
-* Fixed `Offers` theme for `Button` component
-* Added `Radio` component to `Offers` theme
-* Fixed `Checkbox` value type 
