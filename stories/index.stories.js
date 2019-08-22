@@ -12,9 +12,11 @@ import StTextarea from '../src/components/textarea/index.vue';
 import StRow from '../src/components/row/index.vue';
 import StCol from '../src/components/col/index.vue';
 import StRadio from "../src/components/radio/index.vue";
+import StSwitch from "../src/components/switch/index.vue";
 
 Vue.component('st-button-group', StButtonGroup);
 Vue.component('st-button', StButton);
+Vue.component('st-switch', StSwitch);
 Vue.component('st-input', StInput);
 Vue.component('st-checkbox', StCheckbox);
 Vue.component('st-radio', StRadio);
