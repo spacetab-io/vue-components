@@ -1,0 +1,15 @@
+<div class="st-switch"
+     :class="rootClasses">
+    <div v-if="inactiveLabel"
+         @click="inactiveClicked"
+         class="st-switch__inactive-label">
+        {{ inactiveLabel }}
+    </div>
+    <div class="st-switch__core"
+         @click="toggleValue"></div>
+    <div v-if="activeLabel"
+         @click="activeClicked"
+         class="st-switch__active-label">
+        {{ activeLabel }}
+    </div>
+</div>

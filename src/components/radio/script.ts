@@ -4,39 +4,39 @@ import {
 
 @Component
 export default class StRadio extends Vue {
-    @Prop({ required: true })
+  @Prop({ required: true })
   value!: any;
 
-    @Prop({ required: true })
-    option!: any;
+  @Prop({ required: true })
+  option!: any;
 
-    @Prop()
-    label?: string;
+  @Prop(String)
+  label?: string;
 
-    @Prop()
-    disabled!: any;
+  @Prop(Boolean)
+  disabled!: boolean;
 
-    @Emit('input')
-    public select() {
-      return this.option;
+  @Emit('input')
+  public select() {
+    return this.option;
+  }
+
+  public onClick() {
+    if (this.disabled) {
+      return;
     }
 
-    public onClick() {
-      if (this.disabled) {
-        return;
-      }
+    this.select();
+  }
 
-      this.select();
-    }
+  get isSelected(): boolean {
+    return this.value === this.option;
+  }
 
-    get isSelected(): boolean {
-      return this.value === this.option;
-    }
-
-    get rootClasses(): { [key: string]: boolean } {
-      return {
-        'st-radio--selected': this.isSelected,
-        'st-radio--disabled': this.disabled,
-      };
-    }
+  get rootClasses(): { [key: string]: boolean } {
+    return {
+      'st-radio--selected': this.isSelected,
+      'st-radio--disabled': this.disabled,
+    };
+  }
 }
