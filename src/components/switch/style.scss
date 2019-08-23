@@ -1,0 +1,83 @@
+@import '../../assets/scss/utils/mixins';
+@import "../../assets/scss/components/switch/variables";
+
+@include b('switch') {
+  $root: &;
+
+  $core-width: ($st-switch-core-circle-width * 2) + ($st-switch-core-circle-spacing * 2);
+  $core-height: $st-switch-core-circle-height + ($st-switch-core-circle-spacing * 2);
+
+  display: flex;
+
+  @include e('core') {
+    position: relative;
+    width: $core-width;
+    height: $core-height;
+    cursor: pointer;
+    background: $st-switch-inactive-color;
+    border-radius: $core-height / 2;
+    outline: none;
+    transition: $st-switch-core-transition;
+
+    &::after {
+      position: absolute;
+      top: $st-switch-core-circle-spacing;
+      left: $st-switch-core-circle-spacing;
+      width: $st-switch-core-circle-width;
+      height: $st-switch-core-circle-height;
+      content: '';
+      background: $st-switch-core-circle-color;
+      border-radius: $st-switch-core-circle-height / 2;
+      transition: $st-switch-core-transition;
+    }
+  }
+
+  @include e('inactive-label') {
+    margin-right: $st-switch-labels-margin;
+    font-size: $st-switch-labels-size;
+    cursor: pointer;
+  }
+
+  @include e('active-label') {
+    margin-left: $st-switch-labels-margin;
+    font-size: $st-switch-labels-size;
+    cursor: pointer;
+  }
+
+  @include notState('active') {
+    @include e('inactive-label', $root, false) {
+      color: $st-switch-active-color;
+    }
+  }
+
+  @include state('active') {
+    @include e('active-label', $root, false) {
+      color: $st-switch-active-color;
+    }
+
+    @include e('core', $root, false) {
+      background: $st-switch-active-color;
+
+      &::after {
+        left: $core-width - $st-switch-core-circle-spacing - $st-switch-core-circle-width;
+      }
+    }
+  }
+
+  @include state('disabled') {
+    cursor: not-allowed;
+    opacity: 0.6;
+
+    @include e('core', $root, false) {
+      cursor: not-allowed;
+    }
+
+    @include e('inactive-label', $root, false) {
+      cursor: not-allowed;
+    }
+
+    @include e('active-label', $root, false) {
+      cursor: not-allowed;
+    }
+  }
+}
