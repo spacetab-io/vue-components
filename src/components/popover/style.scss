@@ -1,0 +1,8 @@
+@import './tooltip.scss';
+
+.popover-reference {
+  width: 240px;
+  max-height: 480px;
+  overflow-y: auto;
+  word-break: break-all;
+}

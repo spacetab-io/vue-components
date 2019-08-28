@@ -1,20 +1,29 @@
 export const template = `
-  <div class="storybook-components storybook-components--popover">
-    <st-popover :trigger="trigger"
-                :open-delay="openDelay"
-                :close-delay="closeDelay"
-                :title="title"
+  <div class="storybook-components storybook-components--popover"
+       style="margin-top: 100px; text-align: center;">
+    <st-popover :open="open"
                 :disabled="disabled"
-                :content="content"
-                :popper-class="popperClass"
-                :width="width"
-                :visible-arrow="visibleArrow"
-                :arrow-offset="arrowOffset"
-                :transition="transition"
-                :tabindex="tabindex">
+                :placement="placement"
+                :delay="delay"
+                :trigger="trigger"
+                :offset="offset"
+                :container="container"
+                :boundaries-element="boundariesElement"
+                :popper-options="popperOptions"
+                :popover-class="popoverClass"
+                :popover-base-class="popoverBaseClass"
+                :popover-wrapper-class="popoverWrapperClass"
+                :popover-arrow-class="popoverArrowClass"
+                :popover-inner-class="popoverInnerClass"
+                :auto-hide="autoHide"
+                :handle-resize="handleResize"
+                :open-group="openGroup"
+                :open-class="openClass">
       <template v-slot:reference>
-        Кликни по мне
+        Click me
       </template>
+
+      Hi! I am popover!
     </st-popover>
   </div>
 `;

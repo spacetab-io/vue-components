@@ -4,56 +4,75 @@ import {
   text,
   number,
   select,
+  object,
 } from '@storybook/addon-knobs';
 import { template } from '../../templates/popover/default.template';
 
 import popoverDocumentation from '../../documentation/popover.md';
-import { TRIGGER_LIST } from '../../../src/components/popover/script';
+import { POSITIONS, TRIGGERS } from '../../../src/components/popover/utils';
+
 
 storiesOf('Components|Popover', module).add(
   'Default',
   () => ({
     template: `<div>${template}</div>`,
     props: {
-      trigger: {
-        default: select('trigger', TRIGGER_LIST, TRIGGER_LIST[0]),
-      },
-      openDelay: {
-        default: number('openDelay', 0),
-      },
-      closeDelay: {
-        default: number('closeDelay', 0),
-      },
-      title: {
-        default: text('title', 'Пример заголовка'),
+      open: {
+        default: boolean('open'),
       },
       disabled: {
-        default: boolean('disabled', false),
+        default: boolean('disabled'),
       },
-      content: {
-        default: text('content', 'Пример текста'),
+      placement: {
+        default: select('placement', Object.values(POSITIONS), POSITIONS.RIGHT),
       },
-      popperClass: {
-        default: text('popperClass', ''),
+      delay: {
+        default: object('delay', { show: 0, hide: 300 }),
       },
-      width: {
-        default: text('width', '240px'),
+      trigger: {
+        default: select('trigger', Object.values(TRIGGERS), TRIGGERS.CLICK),
       },
-      visibleArrow: {
-        default: boolean('visibleArrow', true),
+      offset: {
+        default: number('offset', 0),
       },
-      arrowOffset: {
-        default: number('arrowOffset', 0),
+      container: {
+        default: text('container', 'body'),
       },
-      transition: {
-        default: text('transition', 'fade-in-linear'),
+      boundariesElement: {
       },
-      tabindex: {
-        default: number('tabindex', 0),
+      popperOptions: {
+        default: object('popperOptions'),
+      },
+      popoverClass: {
+        default: text('popoverClass'),
+      },
+      popoverBaseClass: {
+        default: text('popoverBaseClass'),
+      },
+      popoverWrapperClass: {
+        default: text('popoverWrapperClass'),
+      },
+      popoverArrowClass: {
+        default: text('popoverArrowClass'),
+      },
+      popoverInnerClass: {
+        default: text('popoverInnerClass'),
+      },
+      autoHide: {
+        default: boolean('autoHide'),
+      },
+      handleResize: {
+        default: boolean('handleResize'),
+      },
+      openGroup: {
+        default: boolean('openGroup'),
+      },
+      openClass: {
+        default: text('openClass'),
       },
     },
   }),
   {
     notes: { markdown: popoverDocumentation },
-  }
+  },
 );

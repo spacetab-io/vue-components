@@ -1,21 +1,14 @@
-<span>
-  <transition
-    :name="transition"
-    @after-enter="handleAfterEnter"
-    @after-leave="handleAfterLeave">
-    <div
-      class="el-popover el-popper"
-      :class="[popperClass, content && 'el-popover--plain']"
-      ref="popper"
-      v-show="!disabled && showPopper"
-      :style="{ width: width + 'px' }"
-      role="tooltip"
-      :id="tooltipId"
-      :aria-hidden="(disabled || !showPopper) ? 'true' : 'false'"
-    >
-      <div class="el-popover__title" v-if="title" v-text="title"></div>
-      <slot>{{ content }}</slot>
-    </div>
-  </transition>
-  <slot name="reference"></slot>
-</span>
+<v-popover ref="popover"
+           v-bind="props"
+           v-on="listeners">
+  <div class="popover-trigger">
+    <slot name="reference" />
+  </div>
+
+  <div slot="popover"
+       class="popover-reference"
+       @mouseenter="$refs.popover.show()"
+       @mouseleave="$refs.popover.hide()">
+    <slot />
+  </div>
+</v-popover>
