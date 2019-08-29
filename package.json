@@ -13,7 +13,8 @@
     "test:unit": "vue-cli-service test:unit",
     "generator:all": "npm run generator:icons && npm run generator:themes",
     "generator:icons": "node build/icon-generator.js",
-    "generator:themes": "node build/theme-generator.js"
+    "generator:themes": "node build/theme-generator.js",
+    "generator:component": "node build/component-generator.js"
   },
   "dependencies": {
     "core-js": "^2.6.9",
