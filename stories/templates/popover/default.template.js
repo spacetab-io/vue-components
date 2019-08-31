@@ -20,7 +20,7 @@ export const template = `
                 :open-group="openGroup"
                 :open-class="openClass">
       <template v-slot:reference>
-        Click me
+        <button>Click me</button>
       </template>
 
       Hi! I am popover!

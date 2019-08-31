@@ -1,12 +1,11 @@
 <v-popover ref="popover"
            v-bind="props"
            v-on="listeners">
-  <div class="popover-trigger">
+  <div class="st-popover__reference">
     <slot name="reference" />
   </div>
 
   <div slot="popover"
-       class="popover-reference"
        @mouseenter="$refs.popover.show()"
        @mouseleave="$refs.popover.hide()">
     <slot />
