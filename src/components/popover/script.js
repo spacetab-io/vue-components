@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VTooltip from 'v-tooltip';
-import { POSITIONS, TRIGGERS } from './utils';
+import { PLACEMENTS, TRIGGERS } from './utils';
 
 
 Vue.use(VTooltip);
@@ -13,8 +13,8 @@ export default {
     disabled: Boolean,
     placement: {
       type: String,
-      default: POSITIONS.AUTO,
-      validator: prop => Object.values(POSITIONS).includes(prop),
+      default: PLACEMENTS.AUTO,
+      validator: prop => Object.values(PLACEMENTS).includes(prop),
     },
     delay: {
       type: Object,

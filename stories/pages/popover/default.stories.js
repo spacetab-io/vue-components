@@ -9,7 +9,7 @@ import {
 import { template } from '../../templates/popover/default.template';
 
 import popoverDocumentation from '../../documentation/popover.md';
-import { POSITIONS, TRIGGERS } from '../../../src/components/popover/utils';
+import { PLACEMENTS, TRIGGERS } from '../../../src/components/popover/utils';
 
 
 storiesOf('Components|Popover', module).add(
@@ -24,7 +24,7 @@ storiesOf('Components|Popover', module).add(
         default: boolean('disabled'),
       },
       placement: {
-        default: select('placement', Object.values(POSITIONS), POSITIONS.RIGHT),
+        default: select('placement', Object.values(PLACEMENTS), PLACEMENTS.RIGHT),
       },
       delay: {
         default: object('delay', { show: 0, hide: 300 }),

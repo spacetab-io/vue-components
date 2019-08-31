@@ -1,5 +1,5 @@
 
-export const POSITIONS = {
+export const PLACEMENTS = {
   AUTO: 'auto',
   AUTO_START: 'auto-start',
   AUTO_END: 'auto-end',
@@ -10,7 +10,7 @@ export const POSITIONS = {
   RIGHT_START: 'right-start',
   RIGHT_END: 'right-end',
   BOTTOM: 'bottom',
-  BOTTOM_START: 'bottom_start',
+  BOTTOM_START: 'bottom-start',
   BOTTOM_END: 'bottom-end',
   LEFT: 'left',
   LEFT_START: 'left-start',
