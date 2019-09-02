@@ -1,5 +1,6 @@
-import { Component, Prop, Vue } from 'vue-property-decorator';
 import VTooltip from 'v-tooltip';
+import { Component, Prop, Vue } from 'vue-property-decorator';
+
 import { PLACEMENTS, TRIGGERS } from './utils';
 
 
@@ -8,7 +9,7 @@ Vue.use(VTooltip, {
   defaultTargetClass: 'st-tooltip',
   defaultArrowSelector: '.st-tooltip__arrow',
   defaultInnerSelector: '.st-tooltip__inner',
-  // defaultLoadingClass: 'st-tooltip--loading',
+  defaultLoadingClass: 'st-tooltip--loading',
   defaultTemplate: `
     <div class="st-tooltip" role="tooltip">
       <div class="st-tooltip__arrow"></div>
@@ -42,7 +43,7 @@ export default class StPopover extends Vue {
     default: PLACEMENTS.AUTO,
     validator: prop => Object.values(PLACEMENTS).includes(prop),
   })
-  placement: string = PLACEMENTS.AUTO;
+  placement: PLACEMENTS = PLACEMENTS.AUTO;
 
   @Prop({
     type: Object,
@@ -96,14 +97,7 @@ export default class StPopover extends Vue {
   @Prop(Boolean)
   openClass!: boolean;
 
-  get props() {
-    return {
-      ...this.$props,
-      ...this.$attrs,
-    };
-  }
-
-  get listeners() {
+  get listeners(): object {
     return this.$listeners || {};
   }
 }

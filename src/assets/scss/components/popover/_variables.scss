@@ -5,6 +5,8 @@ $st-tooltip-arrow-size: 8px !default;
 $st-tooltip-inner-color: $st-color-white !default;
 $st-tooltip-inner-bgColor: $st-color-black !default;
 $st-tooltip-inner-radius: 16px;
+$st-tooltip-transition-hidden: opacity 0.15s, visibility 0.15s;
+$st-tooltip-transition-visible: opacity 0.15s;
 
 $st-popover-z-index: 10000 !default;
 $st-popover-inner-color: $st-color-black !default;

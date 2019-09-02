@@ -1,4 +1,3 @@
-
 declare module 'v-tooltip' {
   import { PluginObject } from 'vue';
 

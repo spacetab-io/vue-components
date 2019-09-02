@@ -79,7 +79,7 @@
       "vue": "ignorePackages"
     }],
 
-    // "simple-import-sort/sort": "error",
+    "simple-import-sort/sort": "error",
 
     "vue/this-in-template": ["error", "never"],
     "vue/html-closing-bracket-newline": ["error", {
