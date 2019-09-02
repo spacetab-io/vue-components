@@ -11,6 +11,7 @@ import Icon from '../src/components/icon/index.vue';
 import StInput from '../src/components/input/index.vue';
 import StRadio from '../src/components/radio/index.vue';
 import StRow from '../src/components/row/index.vue';
+import StScrollbar from '../src/components/scrollbar/index.vue';
 import StSwitch from '../src/components/switch/index.vue';
 import StTextarea from '../src/components/textarea/index.vue';
 
@@ -22,5 +23,6 @@ Vue.component('st-icon', Icon);
 Vue.component('st-input', StInput);
 Vue.component('st-radio', StRadio);
 Vue.component('st-row', StRow);
+Vue.component('st-scrollbar', StScrollbar);
 Vue.component('st-switch', StSwitch);
 Vue.component('st-textarea', StTextarea);

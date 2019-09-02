@@ -1,0 +1,9 @@
+@import '../../utils/variables';
+
+$st-scrollbar-caret-size: 10px;
+$st-scrollbar-base-margin: 3px;
+$st-scrollbar-base-opacity: 0;
+$st-scrollbar-hover-opacity: 1;
+$st-scrollbar-transition: 0.3s;
+$st-scrollbar-caret-background: rgba(0, 0, 0, 0.3);
+$st-scrollbar-caret-border-radius: $st-scrollbar-caret-size / 2;

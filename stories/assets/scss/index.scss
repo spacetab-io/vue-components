@@ -4,24 +4,28 @@
 body, html {
   font-family: 'Open Sans', sans-serif;
 }
+
 body {
-  margin: 0;
   padding: 10px;
+  margin: 0;
 }
+
 input, textarea, select, button, meter, progress {
   font: inherit;
 }
+
 code {
-  font-family: 'Fira Mono', monospace;
   display: block;
-  background: #f4f5f9;
+  font-family: 'Fira Mono', monospace;
   font-size: 14px;
+  background: #f4f5f9;
 }
 
 @import "button";
 @import "icon";
 @import "customization";
 @import "radio";
+@import "scrollbar";
 
 // TODO: Продумать возможность переключения тем
 @import "theme-import.temp";

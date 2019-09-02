@@ -1,0 +1,22 @@
+<div class="st-scrollbar"
+     ref="root">
+    <div class="st-scrollbar__vertical-scroll-container"
+         @click="onScrollContainerClicked($event, true)"
+         ref="verticalScrollContainer">
+        <div class="st-scrollbar__vertical-scroll"
+             ref="verticalScroll"
+             :style="verticalScrollStyles"></div>
+    </div>
+    <div class="st-scrollbar__horizontal-scroll-container"
+         @click="onScrollContainerClicked($event, false)"
+         ref="horizontalScrollContainer">
+        <div class="st-scrollbar__horizontal-scroll"
+             ref="horizontalScroll"
+             :style="horizontalScrollStyles"></div>
+    </div>
+    <div class="st-scrollbar__container"
+         :style="containerStyles"
+         ref="container">
+        <slot></slot>
+    </div>
+</div>
