@@ -42,5 +42,10 @@ npm run generator:icons
 npm run generator:themes
 ```
 
+### Create new components
+```
+npm run generator:component
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
