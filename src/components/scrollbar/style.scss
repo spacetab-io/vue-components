@@ -16,15 +16,25 @@
   @include e('vertical-scroll') {
     position: absolute;
     width: $st-scrollbar-caret-size;
+    cursor: pointer;
     background: $st-scrollbar-caret-background;
     border-radius: $st-scrollbar-caret-border-radius;
+
+    &:hover {
+      background: $st-scrollbar-caret-background-hover;
+    }
   }
 
   @include e('horizontal-scroll') {
     position: absolute;
     height: $st-scrollbar-caret-size;
+    cursor: pointer;
     background: $st-scrollbar-caret-background;
     border-radius: $st-scrollbar-caret-border-radius;
+
+    &:hover {
+      background: $st-scrollbar-caret-background-hover;
+    }
   }
 
   @include e('vertical-scroll-container') {
@@ -42,19 +52,23 @@
     right: $st-scrollbar-caret-size + $st-scrollbar-base-margin;
     bottom: $st-scrollbar-caret-size * -1;
     left: $st-scrollbar-base-margin;
+    height: $st-scrollbar-caret-size;
     opacity: $st-scrollbar-base-opacity;
     transition: $st-scrollbar-transition;
   }
 
-  &:hover {
-    @include e('vertical-scroll-container', $root, false) {
-      right: $st-scrollbar-base-margin;
-      opacity: $st-scrollbar-hover-opacity;
-    }
+  @at-root {
+    #{ m('hovered', $root) },
+    #{$root}:hover {
+      @include e('vertical-scroll-container', $root, false) {
+        right: $st-scrollbar-base-margin;
+        opacity: $st-scrollbar-hover-opacity;
+      }
 
-    @include e('horizontal-scroll-container', $root, false) {
-      bottom: $st-scrollbar-base-margin;
-      opacity: $st-scrollbar-hover-opacity;
+      @include e('horizontal-scroll-container', $root, false) {
+        bottom: $st-scrollbar-base-margin;
+        opacity: $st-scrollbar-hover-opacity;
+      }
     }
   }
 }

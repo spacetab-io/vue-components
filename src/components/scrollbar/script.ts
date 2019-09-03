@@ -285,6 +285,12 @@ export default class StScrollbar extends Vue {
     };
   }
 
+  get rootClasses() {
+    return {
+      'st-scrollbar--hovered': this.verticalScrollData.isDrag || this.horizontalScrollData.isDrag,
+    };
+  }
+
   get verticalScrollStyles() {
     const scrollContainer1Percent = this.verticalScrollData.scrollContainerSize / 100;
     const scrollTopPosition = scrollContainer1Percent * this.verticalScrollData.scrollPositionPercent;
