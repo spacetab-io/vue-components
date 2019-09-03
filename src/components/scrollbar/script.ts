@@ -13,10 +13,6 @@ interface ScrollParameters {
   isDrag: boolean,
 }
 
-interface ExtendedMouseEvent extends MouseEvent {
-  path: Element[],
-}
-
 @Component({
   name: 'StScrollbar',
 })
@@ -93,7 +89,7 @@ export default class StScrollbar extends Vue {
     ) * 100;
   }
 
-  public onScrollContainerClicked(event: ExtendedMouseEvent, isVertical: boolean = true) {
+  public onScrollContainerClicked(event: MouseEvent, isVertical: boolean = true) {
     const isHovered = this.isScrollHovered(event, isVertical);
 
     if (isHovered) {
@@ -244,35 +240,51 @@ export default class StScrollbar extends Vue {
     }
   }
 
-  public isScrollHovered(event: ExtendedMouseEvent, vertical: boolean = true) {
+  public isScrollHovered(event: MouseEvent, vertical: boolean = true) {
     if (vertical) {
-      return event.path[0] === this.$refs.verticalScroll;
+      const {
+        left, top, right, bottom,
+      } = this.verticalScroll.getBoundingClientRect();
+      return (
+        event.clientX >= left
+          && event.clientX <= right
+          && event.clientY >= top
+          && event.clientY <= bottom
+      );
     }
-    return event.path[0] === this.$refs.horizontalScroll;
+    const {
+      left, top, right, bottom,
+    } = this.horizontalScroll.getBoundingClientRect();
+    return (
+      event.clientX >= left
+        && event.clientX <= right
+        && event.clientY >= top
+        && event.clientY <= bottom
+    );
   }
 
   get verticalScroll(): HTMLElement {
-    return (this.$refs.verticalScroll as HTMLElement);
+    return this.$refs.verticalScroll as HTMLElement;
   }
 
   get horizontalScroll(): HTMLElement {
-    return (this.$refs.horizontalScroll as HTMLElement);
+    return this.$refs.horizontalScroll as HTMLElement;
   }
 
   get verticalScrollContainer(): HTMLElement {
-    return (this.$refs.verticalScrollContainer as HTMLElement);
+    return this.$refs.verticalScrollContainer as HTMLElement;
   }
 
   get horizontalScrollContainer(): HTMLElement {
-    return (this.$refs.horizontalScrollContainer as HTMLElement);
+    return this.$refs.horizontalScrollContainer as HTMLElement;
   }
 
   get contentContainer(): HTMLElement {
-    return (this.$refs.container as HTMLElement);
+    return this.$refs.container as HTMLElement;
   }
 
   get root(): HTMLElement {
-    return (this.$refs.root as HTMLElement);
+    return this.$refs.root as HTMLElement;
   }
 
   get containerStyles() {
