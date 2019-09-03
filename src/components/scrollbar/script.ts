@@ -62,11 +62,8 @@ export default class StScrollbar extends Vue {
     this.recalculateData();
 
     this.contentContainer.addEventListener('scroll', this.recalculateScrollPosition);
-    // @ts-ignore
     this.verticalScroll.addEventListener('mousedown', this.onVerticalMouseDown);
-    // @ts-ignore
     this.horizontalScroll.addEventListener('mousedown', this.onHorizontalMouseDown);
-    // @ts-ignore
     window.addEventListener('mousemove', this.onMouseMove);
     window.addEventListener('mouseup', this.onMouseUp);
   }
@@ -254,28 +251,28 @@ export default class StScrollbar extends Vue {
     return event.path[0] === this.$refs.horizontalScroll;
   }
 
-  get verticalScroll(): Element {
-    return (this.$refs.verticalScroll as Element);
+  get verticalScroll(): HTMLElement {
+    return (this.$refs.verticalScroll as HTMLElement);
   }
 
-  get horizontalScroll(): Element {
-    return (this.$refs.horizontalScroll as Element);
+  get horizontalScroll(): HTMLElement {
+    return (this.$refs.horizontalScroll as HTMLElement);
   }
 
-  get verticalScrollContainer(): Element {
-    return (this.$refs.verticalScrollContainer as Element);
+  get verticalScrollContainer(): HTMLElement {
+    return (this.$refs.verticalScrollContainer as HTMLElement);
   }
 
-  get horizontalScrollContainer(): Element {
-    return (this.$refs.horizontalScrollContainer as Element);
+  get horizontalScrollContainer(): HTMLElement {
+    return (this.$refs.horizontalScrollContainer as HTMLElement);
   }
 
-  get contentContainer(): Element {
-    return (this.$refs.container as Element);
+  get contentContainer(): HTMLElement {
+    return (this.$refs.container as HTMLElement);
   }
 
-  get root(): Element {
-    return (this.$refs.root as Element);
+  get root(): HTMLElement {
+    return (this.$refs.root as HTMLElement);
   }
 
   get containerStyles() {
