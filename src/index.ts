@@ -6,6 +6,7 @@ import StCheckbox from './components/checkbox/index.vue';
 import StCol from './components/col/index.vue';
 import StIcon from './components/icon/index.vue';
 import StInput from './components/input/index.vue';
+import StPopover from './components/popover/index.vue';
 import StRow from './components/row/index.vue';
 import StTextarea from './components/textarea/index.vue';
 
@@ -16,6 +17,7 @@ const install = (Vue: VueConstructor) => {
   Vue.component('st-col', StCol);
   Vue.component('st-icon', StIcon);
   Vue.component('st-input', StInput);
+  Vue.component('st-popover', StPopover);
   Vue.component('st-row', StRow);
   Vue.component('st-textarea', StTextarea);
 };
@@ -26,6 +28,7 @@ export default {
   StButtonGroup,
   StIcon,
   StInput,
+  StPopover,
   StRow,
   StCol,
 };
