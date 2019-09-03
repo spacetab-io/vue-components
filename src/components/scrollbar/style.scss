@@ -1,0 +1,74 @@
+@import '../../assets/scss/utils/mixins';
+@import '../../assets/scss/components/scrollbar/_variables';
+
+@include b('scrollbar') {
+  $root: &;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  @include e('container') {
+    overflow: scroll;
+  }
+
+  @include e('vertical-scroll') {
+    position: absolute;
+    width: $st-scrollbar-caret-size;
+    cursor: pointer;
+    background: $st-scrollbar-caret-background;
+    border-radius: $st-scrollbar-caret-border-radius;
+
+    &:hover {
+      background: $st-scrollbar-caret-background-hover;
+    }
+  }
+
+  @include e('horizontal-scroll') {
+    position: absolute;
+    height: $st-scrollbar-caret-size;
+    cursor: pointer;
+    background: $st-scrollbar-caret-background;
+    border-radius: $st-scrollbar-caret-border-radius;
+
+    &:hover {
+      background: $st-scrollbar-caret-background-hover;
+    }
+  }
+
+  @include e('vertical-scroll-container') {
+    position: absolute;
+    top: $st-scrollbar-base-margin;
+    right: $st-scrollbar-caret-size * -1;
+    bottom: $st-scrollbar-caret-size + $st-scrollbar-base-margin;
+    width: $st-scrollbar-caret-size;
+    opacity: $st-scrollbar-base-opacity;
+    transition: $st-scrollbar-transition;
+  }
+
+  @include e('horizontal-scroll-container') {
+    position: absolute;
+    right: $st-scrollbar-caret-size + $st-scrollbar-base-margin;
+    bottom: $st-scrollbar-caret-size * -1;
+    left: $st-scrollbar-base-margin;
+    height: $st-scrollbar-caret-size;
+    opacity: $st-scrollbar-base-opacity;
+    transition: $st-scrollbar-transition;
+  }
+
+  @at-root {
+    #{ m('hovered', $root) },
+    #{$root}:hover {
+      @include e('vertical-scroll-container', $root, false) {
+        right: $st-scrollbar-base-margin;
+        opacity: $st-scrollbar-hover-opacity;
+      }
+
+      @include e('horizontal-scroll-container', $root, false) {
+        bottom: $st-scrollbar-base-margin;
+        opacity: $st-scrollbar-hover-opacity;
+      }
+    }
+  }
+}

@@ -7,6 +7,8 @@
 * Added `Radio` component to `Offers` theme
 * Fixed `Checkbox` value type 
 
+### Features
+* Added `Scrollbar` component
 
 
 
