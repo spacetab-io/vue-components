@@ -1,0 +1,39 @@
+@import '../../utils/variables';
+
+$st-notification-width: 350px !default;
+$st-notification-border-radius: 4px !default;
+$st-notification-z-index: 100 !default;
+$st-notification-padding: 14px 48px 14px 18px !default;
+$st-notification-opacity: 0.9 !default;
+$st-notification-transition: all 0.5s !default;
+
+$st-notification-text-color: $st-color-white !default;
+$st-notification-margin: 10px !default;
+
+$st-notification-icon-size: 12px !default;
+$st-notification-icon-width: $st-notification-icon-size !default;
+$st-notification-icon-height: $st-notification-icon-size !default;
+$st-notification-icon-font: $st-notification-icon-size !default;
+$st-notification-icon-color: $st-notification-text-color !default;
+
+$st-notification-close-icon-size: 10px !default;
+$st-notification-close-icon-width: $st-notification-close-icon-size !default;
+$st-notification-close-icon-height: $st-notification-close-icon-size !default;
+$st-notification-close-icon-font: $st-notification-close-icon-size !default;
+$st-notification-close-icon-color: $st-notification-text-color !default;
+$st-notification-close-icon-padding: 5px !default;
+
+$st-notification-margin-window: $st-notification-margin !default;
+$st-notification-margin-item: $st-notification-margin !default;
+
+$st-notification-background-info: $st-color-dark-grey !default;
+$st-notification-background-success: $st-color-mantis !default;
+$st-notification-background-warning: $st-color-meat-brown !default;
+$st-notification-background-error: $st-color-sunset-orange !default;
+
+$st-notification-title-font-size: 14px !default;
+$st-notification-title-color: $st-notification-text-color !default;
+$st-notification-title-margin-bottom: 2px !default;
+
+$st-notification-message-font-size: 11px !default;
+$st-notification-message-color: $st-notification-text-color !default;
