@@ -6,6 +6,7 @@ import StCheckbox from './checkbox/index.vue';
 import StCol from './col/index.vue';
 import StIcon from './icon/index.vue';
 import StInput from './input/index.vue';
+import StNotifications from './notifications-group/index.vue';
 import StPopover from './popover/index.vue';
 import StRow from './row/index.vue';
 import StTextarea from './textarea/index.vue';
@@ -17,6 +18,7 @@ const Components = {
   StCol,
   StIcon,
   StInput,
+  StNotifications,
   StPopover,
   StRow,
   StTextarea,

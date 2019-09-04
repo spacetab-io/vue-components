@@ -1,0 +1,90 @@
+@import '../../assets/scss/utils/mixins';
+@import '../../assets/scss/components/notification/_variables';
+
+@include b('notification') {
+  $root: &;
+
+  position: relative;
+  box-sizing: border-box;
+  width: $st-notification-width;
+  padding: $st-notification-padding;
+  pointer-events: all;
+  border-radius: $st-notification-border-radius;
+  opacity: $st-notification-opacity;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  @include m('info') {
+    background: $st-notification-background-info;
+  }
+
+  @include m('success') {
+    background: $st-notification-background-success;
+  }
+
+  @include m('warning') {
+    background: $st-notification-background-warning;
+  }
+
+  @include m('error') {
+    background: $st-notification-background-error;
+  }
+
+  @include e('icon') {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    width: $st-notification-icon-width;
+    height: $st-notification-icon-height;
+    font-size: $st-notification-icon-font;
+    color: $st-notification-icon-color;
+    transform: translateY(-50%);
+
+    + #{ e('content', $root) } {
+      margin-left: 10px;
+    }
+  }
+
+  @include e('title') {
+    margin-bottom: $st-notification-title-margin-bottom;
+    font-size: $st-notification-title-font-size;
+    color: $st-notification-title-color;
+  }
+
+  @include e('message') {
+    font-size: $st-notification-message-font-size;
+    color: $st-notification-message-color;
+  }
+
+  @include e('close-btn') {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    width: $st-notification-close-icon-width;
+    height: $st-notification-close-icon-height;
+    padding: $st-notification-close-icon-padding;
+    font-size: $st-notification-close-icon-font;
+    color: $st-notification-icon-color;
+    cursor: pointer;
+    opacity: 0.5;
+    transform: translateY(-50%);
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+#{ b('transition-notification-enter-active') },
+#{ b('transition-notification-leave-active') },
+#{ b('transition-notification-move') } {
+  opacity: $st-notification-opacity;
+  transition: $st-notification-transition;
+}
+
+#{ b('transition-notification-enter') },
+#{ b('transition-notification-leave-to') } {
+  opacity: 0;
+}
