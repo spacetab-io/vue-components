@@ -43,7 +43,7 @@ export default class StPopover extends Vue {
     default: PLACEMENTS.AUTO,
     validator: prop => Object.values(PLACEMENTS).includes(prop),
   })
-  placement: PLACEMENTS = PLACEMENTS.AUTO;
+  placement!: string;
 
   @Prop({
     type: Object,
@@ -56,7 +56,7 @@ export default class StPopover extends Vue {
     default: `${TRIGGERS.HOVER} ${TRIGGERS.FOCUS}`,
     validator: prop => Object.values(TRIGGERS).includes(prop),
   })
-  trigger: string = `${TRIGGERS.HOVER} ${TRIGGERS.FOCUS}`;
+  trigger!: string;
 
   @Prop(Number)
   offset!: number;
@@ -91,11 +91,11 @@ export default class StPopover extends Vue {
   @Prop(Boolean)
   handleResize!: boolean;
 
-  @Prop(Boolean)
-  openGroup!: boolean;
+  @Prop(String)
+  openGroup!: string;
 
-  @Prop(Boolean)
-  openClass!: boolean;
+  @Prop(String)
+  openClass!: string;
 
   get listeners(): object {
     return this.$listeners || {};
