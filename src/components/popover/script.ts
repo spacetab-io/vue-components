@@ -100,4 +100,13 @@ export default class StPopover extends Vue {
   get listeners(): object {
     return this.$listeners || {};
   }
+
+  onMouseEnter() {
+    if (this.autoHide) { return; }
+    this.$refs.popover.show();
+  }
+
+  onMouseLeave() {
+    this.$refs.popover.hide();
+  }
 }

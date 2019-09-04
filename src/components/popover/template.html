@@ -6,8 +6,8 @@
   </div>
 
   <div slot="popover"
-       @mouseenter="$refs.popover.show()"
-       @mouseleave="$refs.popover.hide()">
+       @mouseenter="onMouseEnter"
+       @mouseleave="onMouseLeave">
     <slot />
   </div>
 </v-popover>
