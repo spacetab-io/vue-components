@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import { boolean, text, array, select, number } from '@storybook/addon-knobs';
 import { template } from '../../templates/notifications/default.template';
-import notificationsDocumentation from '../../documentation/notifications-group.md'
+import notificationsDocumentation from '../../documentation/notifications.md'
 import { iconsList } from '../../utils/props-options';
 
 const notificationTypes = [
@@ -49,23 +49,13 @@ storiesOf('Components|Notifications', module).add('Default', () => ({
   },
   methods: {
     callNotification() {
-      const {
-        type,
-        title,
-        message,
-        closeable,
-        duration,
-        icon,
-      } = this;
-
-      console.log(this.$stNotification);
       this.$stNotification({
-        type,
-        title,
-        message,
-        closeable,
-        duration,
-        icon,
+        type: this.type,
+        title: this.title,
+        message: this.message,
+        closeable: this.closeable,
+        duration: this.duration,
+        icon: this.icon,
       });
     }
   }
