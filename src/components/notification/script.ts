@@ -5,14 +5,7 @@ import {
 } from 'vue-property-decorator';
 
 import StIcon from '../icon/index.vue';
-
-export enum NOTIFICATION_TYPES {
-  INFO = 'info',
-  SUCCESS = 'success',
-  WARNING = 'warning',
-  ERROR = 'error',
-  CUSTOM = 'custom',
-}
+import { NOTIFICATION_TYPES } from './types';
 
 
 @Component({

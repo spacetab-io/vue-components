@@ -1,10 +1,9 @@
 import Vue from 'vue';
 
-import StButton from './button/index.vue';
 import StButtonGroup from './button-group/index.vue';
+import StButton from './button/index.vue';
 import StCheckbox from './checkbox/index.vue';
 import StCol from './col/index.vue';
-import StHello from './hello/index.vue';
 import Icon from './icon/index.vue';
 import StInput from './input/index.vue';
 import StNotification from './notification/index.vue';
@@ -21,7 +20,6 @@ const Components = {
   StButtonGroup,
   StCheckbox,
   StCol,
-  StHello,
   Icon,
   StInput,
   StNotification,

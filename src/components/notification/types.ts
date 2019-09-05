@@ -1,4 +1,10 @@
-import { NOTIFICATION_TYPES } from './script';
+export enum NOTIFICATION_TYPES {
+  INFO = 'info',
+  SUCCESS = 'success',
+  WARNING = 'warning',
+  ERROR = 'error',
+  CUSTOM = 'custom',
+}
 
 export interface NotificationOptions {
   title?: string;
