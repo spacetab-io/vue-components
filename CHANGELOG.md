@@ -2,13 +2,15 @@
 
 ## 0.2.0
 
+### Features
+* Added `Radio` component to `Offers` theme
+* Added new component: `Notifications`
+* Added new component: `Scrollbar`
+
 ### Maintenance
 * Fixed `Offers` theme for `Button` component
-* Added `Radio` component to `Offers` theme
 * Fixed `Checkbox` value type 
-
-### Features
-* Added `Scrollbar` component
+* Added components generator. If you are about to make a new component just run `npm run generator:component` and follow the instructions.
 
 
 

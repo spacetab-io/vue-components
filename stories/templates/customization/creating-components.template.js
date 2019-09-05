@@ -1,7 +1,20 @@
 export const template = `
   <div class="storybook-customization">
-    <h2>Creating a new component</h2>
+    <h2>Creating a new component [with generator]</h2>
 
+    <h3>Create component</h3>
+    <div>
+      1. Run next command in your terminal:
+      <pre>
+        <code class="language-sh">
+          npm run generator:component
+        </code>
+      </pre>
+      
+      2. Follow generator's steps.    
+    </div>
+    
+    <h2>Creating a new component [manually]</h2>
     <h3>Create component</h3>
     <div>
       1. Create component's files 
@@ -46,16 +59,7 @@ export const template = `
       
     <h3>Create component's story page</h3>
     <div>
-      1. Import your component in index.stories.js.
-      <pre>
-      <span class="storybook-customization__file-link">stories/index.stories.js</span>
-        <code class="language-js">
-          import StComponentName from '../src/components/%component_name%/index.vue';
-          Vue.component('st-component-name', StCol);
-        </code>
-      </pre>
-      
-      2. Create a documentation, a story and a template files.
+      1. Create a documentation, a story and a template files.
       <pre>
       <span class="storybook-customization__file-link">stories/documentation/%component_name%.md</span>
         <code class="language-md">

@@ -53,6 +53,10 @@ const pathGenerator = {
             dir: (name) => `${DIRECTORIES.variables}${name}/`,
             file: (name) => `${pathGenerator.component.variables.dir(name)}_variables.scss`,
         },
+        index: {
+          dir: () => `${DIRECTORIES.components}`,
+          file: () => `${pathGenerator.component.index.dir()}index.js`,
+        },
     },
 };
 
@@ -207,6 +211,8 @@ const generateComponent = () => {
             pathGenerator.component.variables.file(name),
         );
     }
+
+    renderIndexComponentsFile();
 };
 
 generateStory = () => {
@@ -245,29 +251,27 @@ generateStory = () => {
             KEBAB_NAME: name,
         },
     );
-
-    renderIndexStoriesFile();
 };
 
-const renderIndexStoriesFile = () => {
-    const components = fs.readdirSync(DIRECTORIES.components).filter(item => item.indexOf('.') === -1);
+const renderIndexComponentsFile = () => {
+  const components = fs.readdirSync(DIRECTORIES.components).filter(item => item.indexOf('.') === -1);
 
-    const formatted = components.map(item => ({
-        kebabName: item,
-        pascalName: getComponentNameByKebab(item),
-    }));
+  const formatted = components.map(item => ({
+    kebabName: item,
+    pascalName: getComponentNameByKebab(item),
+  }));
 
-    const COMPONENTS_IMPORTS = formatted.map(item => `import ${item.pascalName} from '../src/components/${item.kebabName}/index.vue';`).join('\n');
-    const COMPONENTS_REGISTER = formatted.map(item => `Vue.component('st-${item.kebabName}', ${item.pascalName});`).join('\n');
+  const COMPONENTS_IMPORTS = formatted.map(item => `import ${item.pascalName} from './${item.kebabName}/index.vue';`).join('\n');
+  const COMPONENTS_LIST = formatted.map(item => `  ${item.pascalName},`).join('\n');
 
-    renderFileFromTemplate(
-        `${DIRECTORIES.generator.templates.story}index-file.template.txt`,
-        pathGenerator.stories.index.file(),
-        {
-            COMPONENTS_IMPORTS,
-            COMPONENTS_REGISTER,
-        },
-    );
+  renderFileFromTemplate(
+    `${DIRECTORIES.generator.templates.component}index-file.template.txt`,
+    pathGenerator.component.index.file(),
+    {
+      COMPONENTS_IMPORTS,
+      COMPONENTS_LIST,
+    },
+  );
 };
 
 const getComponentNameByKebab = (name) => {
