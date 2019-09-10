@@ -1,0 +1,6 @@
+@import '../../assets/scss/utils/mixins';
+@import '../../assets/scss/components/table/_variables';
+
+@include b('table') {
+  $root: &;
+}

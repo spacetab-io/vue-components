@@ -17,6 +17,7 @@ import StRow from './row/index.vue';
 import StScrollbar from './scrollbar/index.vue';
 import StSwitch from './switch/index.vue';
 import StTabs from './tabs/index.vue';
+import StTable from './table/index.vue';
 import StTextarea from './textarea/index.vue';
 
 const Components = {
@@ -37,6 +38,7 @@ const Components = {
   StScrollbar,
   StSwitch,
   StTabs,
+  StTable,
   StTextarea,
 };
 
