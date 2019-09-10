@@ -47,7 +47,7 @@ export default class StPopover extends Vue {
 
   @Prop({
     type: Object,
-    default: () => ({ show: 0, hide: 300 }),
+    default: () => ({ show: 0, hide: 200 }),
   })
   delay!: object;
 
@@ -58,7 +58,7 @@ export default class StPopover extends Vue {
   })
   trigger!: string;
 
-  @Prop(Number)
+  @Prop({ type: Number, default: 4 })
   offset!: number;
 
   @Prop(String)
