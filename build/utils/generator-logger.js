@@ -1,7 +1,7 @@
 const TEXT_BLUE = '\x1b[34m';
 const TEXT_GREEN = '\x1b[32m';
 const TEXT_RED = '\x1b[31m';
-const TEXT_BLACK = '\x1b[30m';
+const TEXT_BLACK = '\x1b[35m';
 
 class GeneratorLogger {
   constructor(name) {
