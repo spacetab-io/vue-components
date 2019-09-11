@@ -14,6 +14,7 @@ import StRow from './row/index.vue';
 import StScrollbar from './scrollbar/index.vue';
 import StSwitch from './switch/index.vue';
 import StTextarea from './textarea/index.vue';
+import StPagination from './pagination/index.vue';
 
 const Components = {
   StButton,
@@ -30,6 +31,7 @@ const Components = {
   StScrollbar,
   StSwitch,
   StTextarea,
+  StPagination,
 };
 
 Object.keys(Components).forEach((name) => {
