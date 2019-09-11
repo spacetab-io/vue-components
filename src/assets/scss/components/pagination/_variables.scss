@@ -1,0 +1,27 @@
+@import '../../utils/variables';
+
+$st-pagination-font-size: 13px !default;
+$st-pagination-page-size: 28px !default;
+$st-pagination-page-margin: 14px !default;
+$st-pagination-page-border-radius: 100% !default;
+$st-pagination-icon-margin: 9px !default;
+$st-pagination-control-margin: 36px !default;
+$st-pagination-text-color: $st-color-dark-gunmetal !default;
+$st-pagination-current-page-bg-color: $st-color-dark-grey !default;
+$st-pagination-current-page-color: $st-color-white !default;
+$st-pagination-seperator-bg-color: transparent !default;
+$st-pagination-page-hover-bg-color: $st-color-solitude-white !default;
+$st-pagination-label-text-transformation: uppercase !default;
+
+$st-pagination-label-font-size: $st-pagination-font-size !default;
+$st-pagination-page-font-size: $st-pagination-font-size !default;
+
+$st-pagination-icon-boundary-margin: $st-pagination-icon-margin !default;
+$st-pagination-icon-step-margin: $st-pagination-icon-margin !default;
+
+$st-pagination-control-boundary-margin: $st-pagination-control-margin !default;
+$st-pagination-control-step-margin: $st-pagination-control-margin !default;
+
+$st-pagination-page-text-color: $st-pagination-text-color !default;
+$st-pagination-control-text-color: $st-pagination-text-color !default;
+
