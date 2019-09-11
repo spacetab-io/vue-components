@@ -1,0 +1,24 @@
+<transition name="st-transition-notification">
+  <div v-show="visible"
+       :class="[
+        'st-notification',
+        `st-notification--${type}`,
+       ]"
+       @mouseenter="onMouseEnter()"
+       @mouseleave="onMouseLeave()">
+    <st-icon v-if="icon"
+             class="st-notification__icon"
+             :name="icon" />
+    <div class="st-notification__content">
+      <div v-if="title"
+           class="st-notification__title">
+        {{ title }}
+      </div>
+      <div class="st-notification__message">{{ message }}</div>
+    </div>
+    <st-icon v-if="closeable"
+             class="st-notification__close-btn"
+             name="cross"
+             @click="close" />
+  </div>
+</transition>
