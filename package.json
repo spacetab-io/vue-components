@@ -89,9 +89,6 @@
   ],
   "main": "src/index.ts",
   "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": [
-    "npm run lint"
-  ]
+    "pre-commit": "npm run lint"
+  }
 }
