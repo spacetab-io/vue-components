@@ -1,22 +1,38 @@
 import Vue from 'vue';
 
+import StBadge from './badge/index.vue';
 import StButtonGroup from './button-group/index.vue';
 import StButton from './button/index.vue';
 import StCheckbox from './checkbox/index.vue';
 import StCol from './col/index.vue';
 import StIcon from './icon/index.vue';
 import StInput from './input/index.vue';
+import StNotification from './notification/index.vue';
+import StNotificationsGroup from './notifications-group/index.vue';
+import StPagination from './pagination/index.vue';
+import StPopover from './popover/index.vue';
+import StRadio from './radio/index.vue';
 import StRow from './row/index.vue';
+import StScrollbar from './scrollbar/index.vue';
+import StSwitch from './switch/index.vue';
 import StTextarea from './textarea/index.vue';
 
 const Components = {
-  StButtonGroup,
+  StBadge,
   StButton,
+  StButtonGroup,
   StCheckbox,
   StCol,
   StIcon,
   StInput,
+  StNotification,
+  StNotificationsGroup,
+  StPagination,
+  StPopover,
+  StRadio,
   StRow,
+  StScrollbar,
+  StSwitch,
   StTextarea,
 };
 

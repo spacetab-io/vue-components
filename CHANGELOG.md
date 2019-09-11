@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.2.1
+
+### Features
+* Added `Radio` component to `Offers` theme
+* Added new component: `Switch`
+* Added new component: `Notifications`
+* Added new component: `Scrollbar`
+* Added new component: `Pagination`
+* Added new component: `Popover`
+* Added new component: `Badge`
+
+### Maintenance
+* Fixed `Offers` theme for `Button` component
+* Fixed `Checkbox` value type 
+* Added components generator. If you are about to make a new component just run `npm run generator:component` and follow the instructions.
+* Prepared for publishing
+
+
+
 ## 0.1.2
 
 ### Dependencies

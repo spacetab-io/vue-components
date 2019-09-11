@@ -24,6 +24,10 @@
     }
   }
 
+  @include e('suffix') {
+    right: 15px;
+  }
+
   @include m('focused') {
     #{ e('prefix', $root) } .st-icon {
       color: $st-color-primary;

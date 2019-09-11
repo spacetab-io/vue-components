@@ -10,7 +10,7 @@ export default class StCheckbox extends Vue {
     @Prop(Boolean)
   readonly disabled!: boolean;
 
-    @Prop(String)
+    @Prop(Boolean)
     readonly value!: boolean;
 
     @Prop(String)

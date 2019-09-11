@@ -1,0 +1,43 @@
+@import '../../utils/variables';
+
+$st-badge-display: inline-block !default;
+$st-badge-height: 20px !default;
+$st-badge-min-width: 115px !default;
+$st-badge-font-size: 11px !default;
+$st-badge-line-height: $st-badge-height - 2px !default;
+$st-badge-text-align: center !default;
+$st-badge-padding-horizontal: 5px !default;
+$st-badge-padding-vertical: 0 !default;
+
+$st-badge-icon-size: 12px !default;
+$st-badge-icon-width: $st-badge-icon-size !default;
+$st-badge-icon-height: $st-badge-icon-size !default;
+$st-badge-icon-margin: 2px !default;
+
+$st-badge-border-style: solid !default;
+$st-badge-border-color: transparent !default;
+$st-badge-border-width: 0 !default;
+$st-badge-border-width-fill: 1px !default;
+
+$st-badge-border-radius: 2px;
+$st-badge-border-radius-round: 10.5px;
+
+// Status types
+$st-badge-color-info: $st-color-blueberry !default;
+$st-badge-color-cancel: $st-color-pastel-gray !default;
+$st-badge-color-success: $st-color-mantis !default;
+$st-badge-color-warning: $st-color-meat-brown !default;
+$st-badge-color-error: $st-color-sunset-orange !default;
+// Block type
+$st-badge-color-block: $st-color-pastel-gray !default;
+$st-badge-color-block-hover: $st-color-blueberry !default;
+
+// Status types
+$st-badge-background-info: $st-badge-color-info !default;
+$st-badge-background-cancel: $st-badge-color-cancel !default;
+$st-badge-background-success: $st-badge-color-success !default;
+$st-badge-background-warning: $st-badge-color-warning !default;
+$st-badge-background-error: $st-badge-color-error !default;
+// Block type
+$st-badge-background-block: $st-badge-color-block !default;
+$st-badge-background-block-hover: $st-badge-color-block-hover !default;

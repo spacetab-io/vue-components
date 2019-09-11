@@ -4,12 +4,19 @@
 @import './offers/_variables';
 
 // Components
+@import '../../../components/badge/style';
 @import './offers/button';
 @import '../../../components/button-group/style';
 @import './offers/checkbox';
 @import '../../../components/col/style';
 @import '../../../components/icon/style';
 @import './offers/input';
-@import '../../../components/radio/style';
+@import '../../../components/notification/style';
+@import '../../../components/notifications-group/style';
+@import '../../../components/pagination/style';
+@import '../../../components/popover/style';
+@import './offers/radio';
 @import '../../../components/row/style';
+@import '../../../components/scrollbar/style';
+@import '../../../components/switch/style';
 @import './offers/textarea';

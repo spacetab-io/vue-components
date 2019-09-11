@@ -1,5 +1,7 @@
 import icons from '../../src/assets/icons/_icons.generated';
 
+export const withoutCustomEntity = array => array.filter(item => item !== 'custom');
+
 // Size Options
 export const sizeOptions = {
   '-': '',

@@ -1,0 +1,6 @@
+@import '../../assets/scss/utils/mixins';
+@import '../../assets/scss/components/{{KEBAB_COMPONENT_NAME}}/_variables';
+
+@include b('{{KEBAB_COMPONENT_NAME}}') {
+  $root: &;
+}

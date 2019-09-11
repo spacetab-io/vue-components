@@ -9,14 +9,26 @@ class GeneratorLogger {
   }
 
   info(message) {
+    if (!this.name) {
+      console.log(TEXT_BLACK, message);
+      return;
+    }
     console.log(TEXT_BLUE, `${this.name}:`, TEXT_BLACK, message);
   }
 
   fail(message) {
+    if (!this.name) {
+      console.log(TEXT_RED, message);
+      return;
+    }
     console.log(TEXT_BLUE, `${this.name}:`, TEXT_RED, message);
   }
 
   success(message) {
+    if (!this.name) {
+      console.log(TEXT_GREEN, message);
+      return;
+    }
     console.log(TEXT_BLUE, `${this.name}:`, TEXT_GREEN, message);
   }
 }

@@ -1,0 +1,173 @@
+@import '../../assets/scss/utils/mixins';
+@import '../../assets/scss/components/badge/_variables';
+@import '../../assets/scss/components/badge/_mixins';
+
+@include b('badge') {
+  $root: &;
+
+  display: $st-badge-display;
+  min-width: $st-badge-min-width;
+  height: $st-badge-height;
+  padding: $st-badge-padding-vertical $st-badge-padding-horizontal;
+  font-size: $st-badge-font-size;
+  line-height: $st-badge-line-height;
+  text-align: $st-badge-text-align;
+  border: $st-badge-border-width $st-badge-border-style $st-badge-border-color;
+  border-radius: $st-badge-border-radius;
+
+  #{ b('icon') } {
+    width: $st-badge-icon-width;
+    height: $st-badge-icon-height;
+    margin-right: $st-badge-icon-margin;
+  }
+
+  @include m('round') {
+    border-radius: $st-badge-border-radius-round;
+  }
+
+  @include m('fill-none') {
+    border-width: $st-badge-border-width-fill;
+
+    &#{ m('block', $root) } {
+      color: $st-badge-color-block;
+      border-color: $st-badge-color-block;
+
+      #{ b('icon') } {
+        color: $st-badge-color-block;
+      }
+
+      &:hover {
+        color: $st-badge-color-block-hover;
+        border-color: $st-badge-color-block-hover;
+
+        #{ b('icon') } {
+          color: $st-badge-color-block-hover;
+        }
+      }
+    }
+
+    &#{ m('info', $root) } {
+      @include status-type-fill-none($st-badge-background-info, $st-badge-color-info);
+    }
+
+    &#{ m('cancel', $root) } {
+      @include status-type-fill-none($st-badge-background-cancel, $st-badge-color-cancel);
+    }
+
+    &#{ m('success', $root) } {
+      @include status-type-fill-none($st-badge-background-success, $st-badge-color-success);
+    }
+
+    &#{ m('warning', $root) } {
+      @include status-type-fill-none($st-badge-background-warning, $st-badge-color-warning);
+    }
+
+    &#{ m('error', $root) } {
+      @include status-type-fill-none($st-badge-background-error, $st-badge-color-error);
+    }
+  }
+
+  @include m('fill-half') {
+    border-width: $st-badge-border-width-fill;
+
+    &#{ m('block', $root) } {
+      color: $st-badge-color-block;
+      background: mix($st-badge-background-block, $st-color-white, 25%);
+
+      #{ b('icon') } {
+        color: $st-badge-color-block;
+      }
+
+      &:hover {
+        color: $st-badge-color-block-hover;
+        background: mix($st-badge-background-block-hover, $st-color-white, 25%);
+
+        #{ b('icon') } {
+          color: $st-badge-color-block-hover;
+        }
+      }
+    }
+
+    &#{ m('info', $root) } {
+      @include status-type-fill-half($st-badge-background-info, $st-badge-color-info);
+    }
+
+    &#{ m('cancel', $root) } {
+      @include status-type-fill-half($st-badge-background-cancel, $st-badge-color-cancel);
+    }
+
+    &#{ m('success', $root) } {
+      @include status-type-fill-half($st-badge-background-success, $st-badge-color-success);
+    }
+
+    &#{ m('warning', $root) } {
+      @include status-type-fill-half($st-badge-background-warning, $st-badge-background-warning);
+    }
+
+    &#{ m('error', $root) } {
+      @include status-type-fill-half($st-badge-background-error, $st-badge-background-error);
+    }
+  }
+
+  @include m('fill-full') {
+    border-width: $st-badge-border-width-fill;
+
+    &#{ m('block', $root) } {
+      color: $st-color-white;
+      background: $st-badge-background-block;
+
+      #{ b('icon') } {
+        color: $st-color-white;
+      }
+
+      &:hover {
+        background: $st-badge-background-block-hover;
+      }
+    }
+
+    &#{ m('info', $root) } {
+      @include status-type-fill-full($st-badge-background-info, $st-badge-color-info);
+    }
+
+    &#{ m('cancel', $root) } {
+      @include status-type-fill-full($st-badge-background-cancel, $st-badge-color-cancel);
+    }
+
+    &#{ m('success', $root) } {
+      @include status-type-fill-full($st-badge-background-success, $st-badge-color-success);
+    }
+
+    &#{ m('warning', $root) } {
+      @include status-type-fill-full($st-badge-background-warning, $st-badge-color-warning);
+    }
+
+    &#{ m('error', $root) } {
+      @include status-type-fill-full($st-badge-background-error, $st-badge-color-error);
+    }
+  }
+
+  @include m('info') {
+    border-color: $st-badge-background-info;
+  }
+
+  @include m('cancel') {
+    border-color: $st-badge-background-cancel;
+  }
+
+  @include m('success') {
+    border-color: $st-badge-background-success;
+  }
+
+  @include m('warning') {
+    border-color: $st-badge-background-warning;
+  }
+
+  @include m('error') {
+    border-color: $st-badge-background-error;
+  }
+
+  @include e('text') {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
