@@ -1,0 +1,122 @@
+@import '../../assets/scss/utils/mixins';
+@import '../../assets/scss/components/pagination/variables';
+
+@include b('pagination') {
+  $root: &;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include m('hidden') {
+    display: none;
+  }
+
+  @include e('page') {
+    width: $st-pagination-page-size;
+    height: $st-pagination-page-size;
+    margin-right: $st-pagination-page-margin;
+    font-size: $st-pagination-page-font-size;
+    font-weight: 500;
+    line-height: $st-pagination-page-size;
+    color: $st-pagination-page-text-color;
+    text-align: center;
+    cursor: pointer;
+    border-radius: $st-pagination-page-border-radius;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      background-color: $st-pagination-page-hover-bg-color;
+    }
+
+    @include m('current') {
+      color: $st-pagination-current-page-color;
+      cursor: not-allowed;
+      background-color: $st-pagination-current-page-bg-color;
+
+      &:hover {
+        background-color: $st-pagination-current-page-bg-color;
+      }
+    }
+
+    @include m('seperator') {
+      background-color: $st-pagination-seperator-bg-color;
+
+      &:hover {
+        background-color: $st-pagination-seperator-bg-color;
+      }
+    }
+  }
+
+  @include e('step') {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $st-pagination-control-text-color;
+    cursor: pointer;
+
+    @include m('disabled') {
+      cursor: not-allowed;
+    }
+
+    @include m('next') {
+      margin-left: $st-pagination-control-step-margin;
+
+      @include e('label', $root, false) {
+        margin-right: $st-pagination-icon-step-margin;
+      }
+    }
+
+    @include m('prev') {
+      margin-right: $st-pagination-control-step-margin;
+
+      @include e('label', $root, false) {
+        margin-left: $st-pagination-icon-step-margin;
+      }
+    }
+  }
+
+  @include e('boundary') {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $st-pagination-control-text-color;
+    cursor: pointer;
+
+    @include m('disabled') {
+      cursor: not-allowed;
+    }
+
+    @include m('last') {
+      margin-left: $st-pagination-control-boundary-margin;
+
+      @include e('label', $root, false) {
+        margin-right: $st-pagination-icon-boundary-margin;
+      }
+    }
+
+    @include m('first') {
+      margin-right: $st-pagination-control-boundary-margin;
+
+      @include e('label', $root, false) {
+        margin-left: $st-pagination-icon-boundary-margin;
+      }
+    }
+  }
+
+  @include e('label') {
+    font-size: $st-pagination-label-font-size;
+    text-transform: $st-pagination-label-text-transformation;
+    white-space: nowrap;
+  }
+
+  @include e('pages') {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
