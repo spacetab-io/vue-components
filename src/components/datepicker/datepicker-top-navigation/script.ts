@@ -11,26 +11,26 @@ import StIcon from '../../icon/index.vue';
   },
 })
 export default class StDatepickerTopNavigation extends Vue {
-    @Emit('navigate-left')
+  @Emit('navigate-left')
   emitNavigateLeft(event: MouseEvent) {
     return event;
   }
 
-    @Emit('navigate-right')
-    emitNavigateRight(event: MouseEvent) {
-      return event;
-    }
+  @Emit('navigate-right')
+  emitNavigateRight(event: MouseEvent) {
+    return event;
+  }
 
-    navigateLeft(event: MouseEvent) {
-      event.preventDefault();
-      console.log(event.toElement !== event.relatedTarget);
+  navigateLeft(event: MouseEvent) {
+    event.preventDefault();
+    console.log(event.toElement !== event.relatedTarget);
 
-      this.emitNavigateLeft(event);
-    }
+    this.emitNavigateLeft(event);
+  }
 
-    navigateRight(event: MouseEvent) {
-      event.preventDefault();
+  navigateRight(event: MouseEvent) {
+    event.preventDefault();
 
-      this.emitNavigateRight(event);
-    }
+    this.emitNavigateRight(event);
+  }
 }

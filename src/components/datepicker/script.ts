@@ -22,33 +22,33 @@ import StDatepickerTopNavigation from './datepicker-top-navigation/index.vue';
   },
 })
 export default class StDatepicker extends Vue {
-    @Prop({ required: false, type: Number, default: () => moment().year() })
+  @Prop({ required: false, type: Number, default: () => moment().year() })
   yearRangeStart!: number;
 
-    @Prop({ required: false, type: Number, default: () => moment().month() - 1 })
-    monthRangeStart!: number;
+  @Prop({ required: false, type: Number, default: () => moment().month() - 1 })
+  monthRangeStart!: number;
 
-    @Prop({ required: false, type: Boolean, default: true })
-    isRange!: boolean;
+  @Prop({ required: false, type: Boolean, default: true })
+  isRange!: boolean;
 
-    @Prop({ required: false, type: Number })
-    monthVisible?: number;
+  @Prop({ required: false, type: Number })
+  monthVisible?: number;
 
-    @Prop({ required: false, type: String, default: () => moment().format() })
-    now!: string;
+  @Prop({ required: false, type: String, default: () => moment().format() })
+  now!: string;
 
-    @Prop({ required: false, type: [String, Array] })
-    value?: string | string[];
+  @Prop({ required: false, type: [String, Array] })
+  value?: string | string[];
 
-    @Prop(String)
-    disabledFrom?: string;
+  @Prop(String)
+  disabledFrom?: string;
 
-    @Prop(String)
-    disabledTo?: string;
+  @Prop(String)
+  disabledTo?: string;
 
-    @Prop(String)
-    disabledBefore?: string;
+  @Prop(String)
+  disabledBefore?: string;
 
-    @Prop(String)
-    disabledAfter?: string;
+  @Prop(String)
+  disabledAfter?: string;
 }

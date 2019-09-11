@@ -25,94 +25,94 @@ interface PanelConfig {
   },
 })
 export default class StDatepickerSingle extends Vue {
-    @Prop({ required: false, type: Number, default: () => moment().year() })
+  @Prop({ required: false, type: Number, default: () => moment().year() })
   yearRangeStart!: number;
 
-    @Prop({ required: false, type: Number, default: () => moment().month() - 4 })
-    monthRangeStart!: number;
+  @Prop({ required: false, type: Number, default: () => moment().month() - 4 })
+  monthRangeStart!: number;
 
-    @Prop({ required: false, type: Number })
-    monthVisible?: number;
+  @Prop({ required: false, type: Number })
+  monthVisible?: number;
 
-    @Prop(String)
-    disabledFrom?: string;
+  @Prop(String)
+  disabledFrom?: string;
 
-    @Prop(String)
-    disabledTo?: string;
+  @Prop(String)
+  disabledTo?: string;
 
-    @Prop(String)
-    disabledBefore?: string;
+  @Prop(String)
+  disabledBefore?: string;
 
-    @Prop(String)
-    disabledAfter?: string;
+  @Prop(String)
+  disabledAfter?: string;
 
-    @Prop({ required: false, type: String, default: () => moment().format() })
-    now!: string;
+  @Prop({ required: false, type: String, default: () => moment().format() })
+  now!: string;
 
-    @Prop({ required: false, type: [String] })
-    value?: string | string[];
+  @Prop({ required: false, type: [String] })
+  value?: string | string[];
 
-    @Emit('input')
-    emitInput(date?: string) {
-      return date;
-    }
+  @Emit('input')
+  emitInput(date?: string) {
+    return date;
+  }
 
-    monthOffset: number = 0;
+  monthOffset: number = 0;
 
-    onDaySelected(day: Moment): void {
-      this.emitInput(day.format());
-    }
+  onDaySelected(day: Moment): void {
+    this.emitInput(day.format());
+  }
 
-    getPanelSpacePriority(panelIndex: number) {
-      if (panelIndex + 1 === this.panelsCount) {
-        return SpacePriority.BOTTOM;
-      }
-
-      if (panelIndex === 0) {
-        return SpacePriority.TOP;
-      }
-
+  getPanelSpacePriority(panelIndex: number) {
+    if (panelIndex + 1 === this.panelsCount) {
       return SpacePriority.BOTTOM;
     }
 
-    stringToMomentOrUndef(date: string) {
-      return date ? moment(date) : void 0;
+    if (panelIndex === 0) {
+      return SpacePriority.TOP;
     }
 
-    get panelsCount() {
-      return this.monthVisible || 1;
+    return SpacePriority.BOTTOM;
+  }
+
+  stringToMomentOrUndef(date: string) {
+    return date ? moment(date) : void 0;
+  }
+
+  get panelsCount() {
+    return this.monthVisible || 1;
+  }
+
+  get panelsConfig(): PanelConfig[] {
+    const panels: PanelConfig[] = [];
+    const rangeStartMonth = this.startDate.clone();
+
+    if (this.monthOffset < 0) {
+      rangeStartMonth.subtract(this.monthOffset * -1, 'month');
+    } else if (this.monthOffset > 0) {
+      rangeStartMonth.add(this.monthOffset, 'month');
     }
 
-    get panelsConfig(): PanelConfig[] {
-      const panels: PanelConfig[] = [];
-      const rangeStartMonth = this.startDate.clone();
+    for (let i = 0; i < this.panelsCount; i++) {
+      const panelMonth = rangeStartMonth.clone().add(i, 'month');
 
-      if (this.monthOffset < 0) {
-        rangeStartMonth.subtract(this.monthOffset * -1, 'month');
-      } else if (this.monthOffset > 0) {
-        rangeStartMonth.add(this.monthOffset, 'month');
-      }
-
-      for (let i = 0; i < this.panelsCount; i++) {
-        const panelMonth = rangeStartMonth.clone().add(i, 'month');
-
-        panels.push({
-          month: panelMonth.month(),
-          year: panelMonth.year(),
-        });
-      }
-
-      return panels;
-    }
-
-    get nowMoment() {
-      return moment(this.now);
-    }
-
-    get startDate(): Moment {
-      return moment({
-        year: this.yearRangeStart,
-        month: this.monthRangeStart,
+      panels.push({
+        month: panelMonth.month(),
+        year: panelMonth.year(),
       });
     }
+
+    return panels;
+  }
+
+  get nowMoment() {
+    return moment(this.now);
+  }
+
+  get startDate(): Moment {
+    return moment({
+      year: this.yearRangeStart,
+      month: this.monthRangeStart,
+    });
+  }
 }
