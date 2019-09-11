@@ -1,5 +1,5 @@
 <div class="st-pagination"
-     :class="{'st-pagination--hidden': !showEmpty && totalPages <= 1}">
+     :class="{'st-pagination--hidden': isPaginationHidden}">
   <div class="st-pagination__boundary st-pagination__boundary--first"
        :class="{'st-pagination__boundary--disabled': currentPage === 1}"
        v-if="showBoundary"

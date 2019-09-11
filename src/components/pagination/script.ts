@@ -6,6 +6,7 @@ import {
 } from 'vue-property-decorator';
 
 import StIcon from '../icon/index.vue';
+import { PaginationEvent } from './types';
 
 
 enum PageType {
@@ -13,15 +14,9 @@ enum PageType {
   seperator,
 }
 
-export interface Page {
+interface Page {
   type: PageType;
   number?: number;
-}
-
-export interface PaginationEvent {
-  page: number;
-  offset: number;
-  limit: number;
 }
 
 @Component({
@@ -83,6 +78,10 @@ export default class StPagination extends Vue {
   currentPage: number = 0;
 
   pages: Page[] = [];
+
+  get isPaginationHidden(): boolean {
+    return !this.showEmpty && this.totalPages <= 1;
+  }
 
   @Watch('groupedPages')
   onGroupedPagesChange(): void {
