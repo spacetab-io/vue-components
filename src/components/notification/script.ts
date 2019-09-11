@@ -1,8 +1,4 @@
-import {
-  Component,
-  Prop,
-  Vue,
-} from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
 import StIcon from '../icon/index.vue';
 import { NOTIFICATION_TYPES } from './types';
@@ -27,6 +23,9 @@ export default class StNotification extends Vue {
   @Prop({ type: String, default: NOTIFICATION_TYPES.INFO })
   type!: NOTIFICATION_TYPES;
 
+  @Prop(String)
+  customType!: string;
+
   @Prop({ type: Boolean, default: true })
   closeable!: boolean;
 
@@ -39,6 +38,10 @@ export default class StNotification extends Vue {
   timer: ReturnType<typeof setTimeout> = 0;
 
   visible = false;
+
+  get typeName(): string {
+    return this.type === NOTIFICATION_TYPES.CUSTOM ? this.customType : this.type;
+  }
 
   mounted() {
     this.$nextTick(this.initialize);

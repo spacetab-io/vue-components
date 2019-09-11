@@ -10,7 +10,7 @@ import {
 @Component({
   name: 'StIcon',
 })
-export default class Icon extends Vue {
+export default class StIcon extends Vue {
   @Prop({ type: String, required: true })
   name!: string;
 

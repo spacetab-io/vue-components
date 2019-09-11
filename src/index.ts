@@ -1,5 +1,6 @@
 import { VueConstructor } from 'vue';
 
+import StBadge from './components/badge/index.vue';
 import StButtonGroup from './components/button-group/index.vue';
 import StButton from './components/button/index.vue';
 import StCheckbox from './components/checkbox/index.vue';
@@ -13,6 +14,7 @@ import StRow from './components/row/index.vue';
 import StTextarea from './components/textarea/index.vue';
 
 const install = (Vue: VueConstructor) => {
+  Vue.component('st-badge', StBadge);
   Vue.component('st-button', StButton);
   Vue.component('st-button-group', StButtonGroup);
   Vue.component('st-checkbox', StCheckbox);
@@ -30,6 +32,7 @@ const install = (Vue: VueConstructor) => {
 
 export default {
   install,
+  StBadge,
   StButton,
   StButtonGroup,
   StCheckbox,

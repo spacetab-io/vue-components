@@ -7,7 +7,7 @@ storiesOf('Components|{{PASCAL_NAME}}', module).add('Default', () => ({
   template,
   props: {},
   data() {
-    return {},
+    return {}
   },
 }), {
   notes: { markdown: documentation },
