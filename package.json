@@ -85,12 +85,9 @@
     "not ie <= 8"
   ],
   "files": [
-    "dist/*",
-    "src/*",
-    "public/*",
-    "*.json",
-    "*.js"
+    "src/*"
   ],
+  "main": "src/index.ts",
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
