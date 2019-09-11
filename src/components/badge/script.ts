@@ -1,6 +1,10 @@
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import {
+  Component,
+  Prop,
+  Vue,
+} from 'vue-property-decorator';
 
-import { BADGE_FILL, BADGE_TYPES } from './types';
+import { BadgeFill, BadgeTypes } from './types';
 
 
 @Component({
@@ -13,19 +17,19 @@ export default class StBadge extends Vue {
   @Prop(String)
   icon!: string;
 
-  @Prop({ type: String, default: BADGE_TYPES.BLOCK })
-  type!: BADGE_TYPES;
+  @Prop({ type: String, default: BadgeTypes.block })
+  type!: BadgeTypes;
 
   @Prop(String)
   customType!: string;
 
-  @Prop({ type: String, default: BADGE_FILL.FULL })
-  fill!: BADGE_FILL;
+  @Prop({ type: String, default: BadgeFill.full })
+  fill!: BadgeFill;
 
   @Prop(Boolean)
   round!: boolean;
 
   get typeName(): string {
-    return this.type === BADGE_TYPES.CUSTOM ? this.customType : this.type;
+    return this.type === BadgeTypes.custom ? this.customType : this.type;
   }
 }

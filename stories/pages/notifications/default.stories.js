@@ -11,18 +11,18 @@ import {
   iconsList,
   withoutCustomEntity,
 } from '../../utils/props-options';
-import { NOTIFICATION_TYPES } from '../../../src/components/notification/types';
-import { NOTIFICATIONS_GROUP_POSITION } from '../../../src/components/notifications-group/types';
+import { NotificationTypes } from '../../../src/components/notification/types';
+import { NotificationsGroupPosition } from '../../../src/components/notifications-group/types';
 
 
 storiesOf('Components|Notifications', module).add('Default', () => ({
   template,
   props: {
     position: {
-      default: select('Position', Object.values(NOTIFICATIONS_GROUP_POSITION), NOTIFICATIONS_GROUP_POSITION.BOTTOM_RIGHT),
+      default: select('Position', Object.values(NotificationsGroupPosition), NotificationsGroupPosition.bottomRight),
     },
     type: {
-      default: select('Type', withoutCustomEntity(Object.values(NOTIFICATION_TYPES)), NOTIFICATION_TYPES.INFO),
+      default: select('Type', withoutCustomEntity(Object.values(NotificationTypes)), NotificationTypes.info),
     },
     title: {
       default: text('Title', 'Notification title'),

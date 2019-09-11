@@ -12,15 +12,15 @@ import {
   withoutCustomEntity,
 } from '../../utils/props-options';
 import {
-  BADGE_FILL,
-  BADGE_TYPES,
+  BadgeFill,
+  BadgeTypes,
 } from '../../../src/components/badge/types';
 
 storiesOf('Components|Badge', module).add('Default', () => ({
   template,
   props: {
     type: {
-      default: select('Type', withoutCustomEntity(Object.values(BADGE_TYPES)), BADGE_TYPES.BLOCK),
+      default: select('Type', withoutCustomEntity(Object.values(BadgeTypes)), BadgeTypes.block),
     },
     text: {
       default: text('Text', 'Badge text'),
@@ -29,7 +29,7 @@ storiesOf('Components|Badge', module).add('Default', () => ({
       default: select('Icon', iconsList, iconsList[0]),
     },
     fill: {
-      default: radios('Fill', Object.values(BADGE_FILL), BADGE_FILL.FULL),
+      default: radios('Fill', Object.values(BadgeFill), BadgeFill.full),
     },
     round: {
       default: boolean('Round', false),

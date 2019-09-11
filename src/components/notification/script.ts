@@ -1,7 +1,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 import StIcon from '../icon/index.vue';
-import { NOTIFICATION_TYPES } from './types';
+import { NotificationTypes } from './types';
 
 
 @Component({
@@ -20,8 +20,8 @@ export default class StNotification extends Vue {
   @Prop({ type: String, required: true })
   message!: string;
 
-  @Prop({ type: String, default: NOTIFICATION_TYPES.INFO })
-  type!: NOTIFICATION_TYPES;
+  @Prop({ type: String, default: NotificationTypes.info })
+  type!: NotificationTypes;
 
   @Prop(String)
   customType!: string;
@@ -40,7 +40,7 @@ export default class StNotification extends Vue {
   visible = false;
 
   get typeName(): string {
-    return this.type === NOTIFICATION_TYPES.CUSTOM ? this.customType : this.type;
+    return this.type === NotificationTypes.custom ? this.customType : this.type;
   }
 
   mounted() {
