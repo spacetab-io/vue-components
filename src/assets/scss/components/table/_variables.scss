@@ -1,1 +1,14 @@
 @import '../../utils/variables';
+
+$st-table-transition: opacity 0.25 easing;
+$st-table-sort-icon-transition: transform 0.5 easing, opacity 0.25 easing;
+
+$st-table-border-radius: 0;
+$st-table-font-weight: 0;
+$st-table-current-sort-font-weight: bold;
+$st-table-border-color: $st-color-pastel-gray;
+$st-table-current-sort-border-color: $st-color-pastel-gray;
+
+$st-table-sortable-hover-border-color: $st-color-pastel-gray;
+$st-table-sortable-hover-border-color-light: $st-color-white-smoke;
+$st-table-sortable-hover-border-color-light: $st-color-white-smoke;

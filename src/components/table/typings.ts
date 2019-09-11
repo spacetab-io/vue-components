@@ -1,5 +1,7 @@
 
 export interface ConfigItem {
   label: string,
-  key: string,
+  field: string | Function,
+  sortable: boolean,
+  renderHtml: boolean,
 }

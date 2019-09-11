@@ -1,6 +1,145 @@
 @import '../../assets/scss/utils/mixins';
-@import '../../assets/scss/components/table/_variables';
+@import '../../assets/scss/components/table/variables';
 
 @include b('table') {
   $root: &;
+}
+
+.table-wrapper {
+  .table {
+    margin-bottom: 0;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.b-table {
+  transition: $st-table-transition;
+
+  .icon {
+    transition: $st-table-sort-icon-transition;
+
+    &.is-desc {
+      transform: rotate(180deg);
+    }
+
+    &.is-expanded {
+      transform: rotate(90deg);
+    }
+  }
+
+  .table {
+    width: 100%;
+    color: #363636;
+    border-collapse: separate;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: $st-table-border-radius;
+
+    td,
+    th {
+      padding: .5em .75em;
+      vertical-align: top;
+      border: 1px solid #dbdbdb;
+      border-width: 0 0 1px;
+    }
+
+    th {
+      font-weight: $st-table-font-weight;
+      color: #363636;
+
+      &:not([align]) {
+        text-align: left;
+      }
+
+      .th-wrap {
+        display: flex;
+        align-items: center;
+
+        .icon {
+          margin-right: 0;
+          margin-left: 0.5rem;
+          font-size: 1rem;
+        }
+
+        &.is-numeric {
+          flex-direction: row-reverse;
+          text-align: right;
+
+          .icon {
+            margin-right: 0.5rem;
+            margin-left: 0;
+          }
+        }
+
+        &.is-centered {
+          justify-content: center;
+          text-align: center;
+        }
+      }
+
+      &.is-current-sort {
+        &.is-current-sort {
+          font-weight: $st-table-current-sort-font-weight;
+          border-color: $st-table-current-sort-border-color;
+        }
+      }
+
+      &.is-sortable {
+        &,
+        .th-wrap {
+          cursor: pointer;
+        }
+
+        &:hover {
+          border-color: $st-table-sortable-hover-border-color;
+        }
+      }
+    }
+
+    thead,
+    tfoot {
+      background-color: transparent;
+
+      td,
+      th {
+        color: #363636;
+        border-width: 0 0 2px;
+      }
+    }
+
+    tbody {
+      background-color: transparent;
+
+      tr:last-child {
+        td,
+        th {
+          border-bottom-width: 0;
+        }
+      }
+    }
+
+    &.is-bordered {
+      td,
+      th {
+        border-width: 1px;
+      }
+
+      tr:last-child td,
+      tr:last-child th {
+        border-bottom-width: 1px;
+      }
+    }
+
+    // Modifiers
+    &.is-bordered {
+      th.is-current-sort,
+      th.is-sortable:hover {
+        background: $st-table-sortable-hover-border-color;
+        border-color: $st-table-sortable-hover-border-color;
+      }
+    }
+  }
 }
