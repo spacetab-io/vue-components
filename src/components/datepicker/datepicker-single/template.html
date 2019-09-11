@@ -1,0 +1,19 @@
+<div class="st-datepicker-single">
+    <st-datepicker-top-navigation @navigate-left="monthOffset -= 1"
+                                  @navigate-right="monthOffset += 1"></st-datepicker-top-navigation>
+    <st-datepicker-month-grid v-for="(panel, index) in panelsConfig"
+                              :year="panel.year"
+                              :month="panel.month"
+                              :space-priority="getPanelSpacePriority(index)"
+                              :selected-from="stringToMomentOrUndef(value)"
+                              :selected-to="stringToMomentOrUndef(value)"
+                              :disabled-before="stringToMomentOrUndef(disabledBefore)"
+                              :disabled-after="stringToMomentOrUndef(disabledAfter)"
+                              :disabled-from="stringToMomentOrUndef(disabledFrom)"
+                              :disabled-to="stringToMomentOrUndef(disabledTo)"
+                              :remove-needless-rows="panelsCount < 2"
+                              :now="nowMoment"
+                              :key="index"
+                              @day-selected="onDaySelected"
+                              :add-missing-row="false"></st-datepicker-month-grid>
+</div>

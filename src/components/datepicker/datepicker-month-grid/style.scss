@@ -1,0 +1,158 @@
+@import '../../../assets/scss/utils/mixins';
+@import '../../../assets/scss/components/datepicker/_variables';
+
+@include b('datepicker-month-grid') {
+  $root: &;
+
+  font-size: 12px;
+
+  @include e('top-badge') {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 24px;
+    color: #1e1e28;
+    letter-spacing: -0.1px;
+  }
+
+  @include e('top-badge-month') {
+    margin-right: 4px;
+  }
+
+  @include e('row') {
+    display: flex;
+  }
+
+  @include e('label') {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 32px;
+    cursor: default;
+  }
+
+  @include e('item') {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    margin-bottom: 3px;
+    cursor: pointer;
+
+    @include m('current-day') {
+      font-weight: bold;
+      color: rgb(93, 195, 118);
+
+      #{ m('selected') } {
+        color: #fff;
+      }
+    }
+
+    @include m('not-current-month') {
+      color: #909090;
+    }
+
+    @include m('selected') {
+      color: #fff;
+
+      #{ e('item-content', $root) } {
+        background: #5dc376;
+      }
+    }
+
+    @include m('in-select-range') {
+      &::before {
+        position: absolute;
+        top: 0;
+        right: 50%;
+        bottom: 0;
+        left: 0;
+        content: '';
+        background: rgba(93, 195, 118, 0.3);
+      }
+
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 50%;
+        content: '';
+        background: rgba(93, 195, 118, 0.3);
+      }
+    }
+
+    @include m('selection-left-rounded') {
+      &::before {
+        left: auto;
+        width: 14px;
+        border-radius: 16px 0 0 16px;
+      }
+    }
+
+    @include m('selection-right-rounded') {
+      &::after {
+        right: auto;
+        width: 14px;
+        border-radius: 0 16px 16px 0;
+      }
+    }
+
+    @include m('disabled') {
+      color: #c0c4cc;
+      cursor: not-allowed;
+      background-color: #f5f7fa;
+      opacity: 1;
+    }
+
+    @include m('selection-start') {
+      &::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 50%;
+        z-index: 1;
+        content: '';
+        background: rgba(93, 195, 118, 0.3);
+      }
+    }
+
+    @include m('selection-end') {
+      &::before {
+        position: absolute;
+        top: 0;
+        right: 50%;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        content: '';
+        background: rgba(93, 195, 118, 0.3);
+      }
+    }
+
+    &:hover:not(#{ m('not-current-month') }):not(#{ m('selected') }):not(#{ m('disabled') }) {
+      color: #fff;
+
+      #{ e('item-content', $root) } {
+        background: rgba(93, 195, 118, 0.5);
+      }
+    }
+  }
+
+  @include e('item-content') {
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    font-weight: inherit;
+    color: inherit;
+    border-radius: 50%;
+  }
+}

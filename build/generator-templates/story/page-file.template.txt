@@ -8,6 +8,7 @@ storiesOf('Components|{{PASCAL_NAME}}', module).add('Default', () => ({
     props: {
     },
     data() {
+        return {};
     },
 }), {
     notes,

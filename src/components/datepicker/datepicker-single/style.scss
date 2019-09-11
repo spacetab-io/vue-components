@@ -1,0 +1,13 @@
+@import '../../../assets/scss/utils/mixins';
+@import '../../../assets/scss/components/datepicker/_variables';
+
+@include b('datepicker-single') {
+  $root: &;
+
+  position: relative;
+  display: inline-flex;
+
+  #{ b('datepicker-month-grid') } + #{ b('datepicker-month-grid') } {
+    margin-left: 15px;
+  }
+}

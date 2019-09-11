@@ -1,0 +1,24 @@
+<div class="st-datepicker">
+    <st-datepicker-single v-if="!isRange"
+                          :year-range-start="yearRangeStart"
+                          :month-range-start="monthRangeStart"
+                          :month-visible="monthVisible"
+                          :disabled-from="disabledFrom"
+                          :disabled-to="disabledTo"
+                          :disabled-before="disabledBefore"
+                          :disabled-after="disabledAfter"
+                          :now="now"
+                          :value="value"
+                          @input="$emit('input', $event)"></st-datepicker-single>
+    <st-datepicker-range v-else
+                         :year-range-start="yearRangeStart"
+                         :month-range-start="monthRangeStart"
+                         :month-visible="monthVisible"
+                         :disabled-from="disabledFrom"
+                         :disabled-to="disabledTo"
+                         :disabled-before="disabledBefore"
+                         :disabled-after="disabledAfter"
+                         :now="now"
+                         :value="value"
+                         @input="$emit('input', $event)"></st-datepicker-range>
+</div>
