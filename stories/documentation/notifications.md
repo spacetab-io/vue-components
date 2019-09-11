@@ -33,6 +33,7 @@ this.$stNotification({
 | Name | Description | Required | Type | Default value | Possible values |
 | --- | --- | --- | --- | --- | --- |
 | type | Defines notification's type | - | string | info | info / success / warning / error |
+| custom-type | Use this property when prop `type` is 'custom' | - | String | - | * |
 | title | Defines notification's title | - | string | - | * |
 | message | Defines notification's message | true | string | - | * |
 | closeable | Defines rendering of close button in notification | - | boolean | true | false / true |

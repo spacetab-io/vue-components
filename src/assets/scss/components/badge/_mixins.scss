@@ -1,0 +1,48 @@
+@import '../../utils/mixins';
+@import '../../utils/variables';
+@import "variables";
+
+@mixin status-type-fill-none($background-color, $text-color) {
+  color: $text-color;
+
+  #{ b('icon') } {
+    color: $text-color;
+  }
+
+  &:hover {
+    color: $st-color-white;
+    background: $background-color;
+
+    #{ b('icon') } {
+      color: $st-color-white;
+    }
+  }
+}
+
+@mixin status-type-fill-half($background-color, $text-color) {
+  color: $text-color;
+  background: mix($background-color, $st-color-white, 25%);
+  border-color: $st-badge-border-color;
+
+  #{ b('icon') } {
+    color: $text-color;
+  }
+}
+
+@mixin status-type-fill-full($background-color, $text-color) {
+  color: $st-color-white;
+  background: $background-color;
+
+  #{ b('icon') } {
+    color: $st-color-white;
+  }
+
+  &:hover {
+    color: $text-color;
+    background: transparent;
+
+    #{ b('icon') } {
+      color: $text-color;
+    }
+  }
+}

@@ -37,12 +37,10 @@ export const template = `
         </code>
       </pre>
       
-      3. Import component's styles file in themes
-      <b>Important!</b> Import them in every theme.
+      3. Import component's styles file in themes via terminal
       <pre>
-      <span class="storybook-customization__file-link">src/assets/scss/themes/%theme_name%.theme.scss</span>
-      <code class="language-scss">
-          @import "../../../components/%component_name%/style";
+        <code class="language-sh">
+          npm run generator:themes
         </code>
       </pre>
     </div>

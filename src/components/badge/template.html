@@ -1,0 +1,15 @@
+<div class="st-badge"
+     :class="[
+       {
+         'st-badge--round': round,
+       },
+       `st-badge--fill-${fill}`,
+       `st-badge--${typeName}`,
+     ]">
+  <slot>
+    <st-icon v-if="icon"
+             class="st-badge__icon"
+             :name="icon" />
+    <span class="st-badge__text">{{ text }}</span>
+  </slot>
+</div>

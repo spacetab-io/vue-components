@@ -1,4 +1,3 @@
-
 export enum PLACEMENTS {
   AUTO = 'auto',
   AUTO_START = 'auto-start',

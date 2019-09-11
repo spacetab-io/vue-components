@@ -4,8 +4,11 @@
 
 ### Features
 * Added `Radio` component to `Offers` theme
+* Added new component: `Switch`
 * Added new component: `Notifications`
 * Added new component: `Scrollbar`
+* Added new component: `Popover`
+* Added new component: `Badge`
 
 ### Maintenance
 * Fixed `Offers` theme for `Button` component

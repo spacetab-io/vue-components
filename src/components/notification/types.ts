@@ -1,15 +1,15 @@
-export enum NOTIFICATION_TYPES {
-  INFO = 'info',
-  SUCCESS = 'success',
-  WARNING = 'warning',
-  ERROR = 'error',
-  CUSTOM = 'custom',
+export enum NotificationTypes {
+  info = 'info',
+  success = 'success',
+  warning = 'warning',
+  error = 'error',
+  custom = 'custom',
 }
 
 export interface NotificationOptions {
   title?: string;
   message: string;
-  type: NOTIFICATION_TYPES;
+  type: NotificationTypes;
   closeable?: boolean;
   duration?: number;
   icon?: string;

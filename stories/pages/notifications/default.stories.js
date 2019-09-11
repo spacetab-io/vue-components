@@ -1,32 +1,28 @@
 import { storiesOf } from '@storybook/vue'
-import { boolean, text, array, select, number } from '@storybook/addon-knobs';
+import {
+  boolean,
+  text,
+  select,
+  number,
+} from '@storybook/addon-knobs';
 import { template } from '../../templates/notifications/default.template';
 import notificationsDocumentation from '../../documentation/notifications.md'
-import { iconsList } from '../../utils/props-options';
+import {
+  iconsList,
+  withoutCustomEntity,
+} from '../../utils/props-options';
+import { NotificationTypes } from '../../../src/components/notification/types';
+import { NotificationsGroupPosition } from '../../../src/components/notifications-group/types';
 
-const notificationTypes = [
-  'info',
-  'warning',
-  'success',
-  'error',
-];
-const positionValues = [
-  'top-left',
-  'top-center',
-  'top-right',
-  'bottom-left',
-  'bottom-center',
-  'bottom-right',
-];
 
 storiesOf('Components|Notifications', module).add('Default', () => ({
   template,
   props: {
     position: {
-      default: select('Position', positionValues, 'bottom-right'),
+      default: select('Position', Object.values(NotificationsGroupPosition), NotificationsGroupPosition.bottomRight),
     },
     type: {
-      default: select('Type', notificationTypes, notificationTypes[0]),
+      default: select('Type', withoutCustomEntity(Object.values(NotificationTypes)), NotificationTypes.info),
     },
     title: {
       default: text('Title', 'Notification title'),
