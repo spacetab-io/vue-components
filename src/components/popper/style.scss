@@ -4,6 +4,7 @@
 @include b('popper') {
   $root: &;
 
+  z-index: $st-popper-z-index;
   display: flex;
   padding: $st-popper-padding;
   background: $st-popper-background-color;
