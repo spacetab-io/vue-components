@@ -1,0 +1,73 @@
+@import '../../assets/scss/utils/mixins';
+@import '../../assets/scss/components/tabs/_variables';
+
+@include b('tabs') {
+  $root: &;
+
+  @include e('list') {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  @include e('item') {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: $st-tabs-item-padding-vertical $st-tabs-item-padding-horizontal;
+    font-size: $st-tabs-item-font-size;
+    color: $st-tabs-item-text-color;
+    text-align: center;
+    cursor: pointer;
+    border-bottom: $st-tabs-item-border-width $st-tabs-item-border-style $st-tabs-item-border-color;
+
+    &:hover {
+      #{ e('item-close', $root) } {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    &:not(#{ m('active') }):hover {
+      color: $st-tabs-item-hovered-text-color;
+      border-bottom-color: $st-tabs-item-hovered-border-color;
+      border-bottom-width: $st-tabs-item-hovered-border-width;
+    }
+
+    @include m('active') {
+      color: $st-tabs-item-active-text-color;
+      border-bottom-color: $st-tabs-item-active-border-color;
+      border-bottom-width: $st-tabs-item-active-border-width;
+    }
+  }
+
+  @include e('item-icon') {
+    width: $st-tabs-item-icon-size;
+    height: $st-tabs-item-icon-size;
+    margin-right: $st-tabs-item-icon-margin;
+    color: currentColor;
+  }
+
+  @include e('item-label') {
+    color: currentColor;
+  }
+
+  @include e('item-close') {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: $st-tabs-item-close-size;
+    height: $st-tabs-item-close-size;
+    padding: $st-tabs-item-close-padding;
+    margin-top: -($st-tabs-item-border-width / 2);
+    color: $st-tabs-item-close-color;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: $st-tabs-item-close-opacity;
+    transform: translateY(-50%);
+
+    &:hover {
+      color: $st-tabs-item-close-color-hovered;
+    }
+  }
+}

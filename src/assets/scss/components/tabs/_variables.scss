@@ -1,0 +1,28 @@
+@import '../../utils/variables';
+
+$st-tabs-active-color: $st-color-blueberry;
+
+// Tabs item
+$st-tabs-item-padding-vertical: 2px !default;
+$st-tabs-item-padding-horizontal: 18px !default;
+
+$st-tabs-item-border-color: transparent !default;
+$st-tabs-item-border-width: 3px !default;
+$st-tabs-item-border-style: solid !default;
+$st-tabs-item-font-size: 14px !default;
+$st-tabs-item-text-color: $st-text-color-regular !default;
+$st-tabs-item-icon-size: 12px !default;
+$st-tabs-item-icon-margin: 3px !default;
+$st-tabs-item-close-size: 10px !default;
+$st-tabs-item-close-color: $st-color-pastel-gray !default;
+$st-tabs-item-close-color-hovered: $st-color-taupe-gray !default;
+$st-tabs-item-close-padding: 2px !default;
+$st-tabs-item-close-opacity: 0 !default;
+
+$st-tabs-item-hovered-border-color: $st-color-pastel-gray !default;
+$st-tabs-item-hovered-border-width: $st-tabs-item-border-width !default;
+$st-tabs-item-hovered-text-color: $st-tabs-item-text-color !default;
+
+$st-tabs-item-active-border-color: $st-tabs-active-color !default;
+$st-tabs-item-active-border-width: $st-tabs-item-border-width !default;
+$st-tabs-item-active-text-color: $st-tabs-active-color !default;

@@ -2,6 +2,9 @@
 
 ## 0.2.4
 
+### Features
+* Added new component: `Tabs`
+
 ### Maintenance
 * Added pre-commit script
 * EOL symbol in generators was updated

@@ -1,0 +1,22 @@
+<div class="st-tabs">
+  <div class="st-tabs__list">
+    <div class="st-tabs__item"
+         v-for="(item, index) in tabs"
+         :key="index"
+         :class="{
+           'st-tabs__item--active': item.active
+         }"
+         @click="$emit('select', item)">
+      <slot name="tab" v-bind:tab="item">
+        <st-icon v-if="item.icon"
+                 class="st-tabs__item-icon"
+                 :name="item.icon" />
+        <span class="st-tabs__item-label">{{ item.label }}</span>
+        <st-icon v-if="item.closeable"
+                 class="st-tabs__item-close"
+                 name="cross"
+                 @click.stop="$emit('close', item)" />
+      </slot>
+    </div>
+  </div>
+</div>

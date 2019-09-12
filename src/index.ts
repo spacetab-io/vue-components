@@ -15,6 +15,7 @@ import StRadio from './components/radio/index.vue';
 import StRow from './components/row/index.vue';
 import StScrollbar from './components/scrollbar/index.vue';
 import StSwitch from './components/switch/index.vue';
+import StTabs from './components/tabs/index.vue';
 import StTextarea from './components/textarea/index.vue';
 
 const install = (Vue: VueConstructor) => {
@@ -33,6 +34,7 @@ const install = (Vue: VueConstructor) => {
   Vue.component('st-switch', StSwitch);
   Vue.component('st-pagination', StPagination);
   Vue.component('st-popper', StPopper);
+  Vue.component('st-tabs', StTabs);
 
   /* eslint-disable-next-line no-param-reassign */
   Vue.prototype.$stNotification = StNotificationService;
@@ -52,4 +54,5 @@ export default {
   StTextarea,
   StPagination,
   StPopper,
+  StTabs,
 };
