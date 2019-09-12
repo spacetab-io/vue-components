@@ -17,13 +17,6 @@ export default {
       newKey: this.customKey || this.label,
     };
   },
-  computed: {
-    rootClasses() {
-      return {
-        'has-text-centered': this.centered,
-      };
-    },
-  },
   methods: {
     addRefToTable() {
       /* eslint-disable-next-line */
@@ -33,8 +26,8 @@ export default {
       }
 
       if (this.internal) return;
-      const repeated = this.$parent.newColumns.some(({ newKey }) => newKey === this.newKey);
-      if (!repeated) this.$parent.newColumns.push(this);
+      const repeated = this.$parent.columns.some(({ newKey }) => newKey === this.newKey);
+      if (!repeated) this.$parent.columns.push(this);
     },
   },
   beforeMount() {
@@ -44,8 +37,8 @@ export default {
     this.addRefToTable();
   },
   beforeDestroy() {
-    const index = this.$parent.newColumns.map(column => column.newKey).indexOf(this.newKey);
+    const index = this.$parent.columns.map(column => column.newKey).indexOf(this.newKey);
 
-    if (index >= 0) this.$parent.newColumns.splice(index, 1);
+    if (index >= 0) this.$parent.columns.splice(index, 1);
   },
 };

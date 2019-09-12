@@ -9,7 +9,7 @@ import documentation from '../../documentation/table.md'
 const columns = [
   { label: '#', name: '#', field: (row, col, index) => index + 1, class: 'col-class-#' },
   { label: 'ID', name: 'id', field: 'id', class: 'col-class-id' },
-  { label: 'Label 1', name: 'name_1', field: 'key_1', class: 'col-class-name_1' },
+  { label: 'Label 1', name: 'name_1', field: 'key_1', sortable: true, class: 'col-class-name_1' },
   { label: 'Label 2', name: 'name_2', field: 'key_2', sortable: true },
   { label: 'Label 3', name: 'name_3', field: 'key_3', centered: true, class: 'col-class-name_3' },
   { label: 'Label 4', name: 'name_4', field: 'key_4', style: { color: 'green' }, renderHtml: true },
@@ -47,7 +47,10 @@ storiesOf('Components|Table', module).add('Default', () => ({
   },
   methods: {
     rowClass(row, index) {
-      return `row-class-${index}`;
+      return [
+        `row-class-${index}`,
+        { 'is-selected': row === this.selected },
+      ];
     },
   },
 }), {

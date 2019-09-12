@@ -34,65 +34,30 @@ export default {
   },
   data() {
     return {
-      newColumns: [...this.columns],
       newData: this.data,
-      newDataTotal: this.data.length,
-      currentSortColumn: {},
+      currentSortCol: {},
       isAsc: true,
       firstTimeSort: true, // Used by first time initSort
       _isTable: true, // Used by TableColumn
     };
   },
-  computed: {
-    tableClasses() {
-      return {
-        'is-bordered': this.bordered,
-      };
-    },
-    visibleData() {
-      return this.newData;
-    },
-    visibleColumns() {
-      if (!this.newColumns) return this.newColumns;
-      return this.newColumns.filter(({ visible }) => visible !== false);
-    },
-    hasSortablenewColumns() {
-      return this.newColumns.some(_ => _.sortable);
-    },
-    columnCount() {
-      return this.newColumns.length;
-    },
-  },
   watch: {
     data(value) {
-      const { newColumns } = this;
-      this.newColumns = [];
       this.newData = value;
-
-      // Prevent table from being headless, data could change and created hook
-      // on column might not trigger
-      this.$nextTick(() => {
-        if (!this.newColumns.length) this.newColumns = newColumns;
-      });
-
-      this.sort(this.currentSortColumn, true);
-      this.newDataTotal = value.length;
+      this.sort(this.currentSortCol, true);
     },
-    columns(value) {
-      this.newColumns = [...value];
-    },
-    newColumns: 'checkSort',
+    columns: 'checkSort',
   },
   mounted() {
     this.checkSort();
   },
   methods: {
-    getRowValue(row, column, index) {
-      if (typeof column.field === 'function') {
-        return column.field.call(this.$parent, row, column, index);
+    getRowValue(row, col, index) {
+      if (typeof col.field === 'function') {
+        return col.field.call(this.$parent, row, col, index);
       }
 
-      return get(row, column.field);
+      return get(row, col.field);
     },
     sortBy(array, key, fn, isAsc) {
       if (fn && typeof fn === 'function') {
@@ -125,38 +90,38 @@ export default {
 
       return sorted;
     },
-    sort(column, updatingData = false) {
-      if (!column || !column.sortable) return;
+    sort(col, updatingData = false) {
+      if (!col || !col.sortable) return;
 
       if (!updatingData) {
-        this.isAsc = column === this.currentSortColumn
+        this.isAsc = col === this.currentSortCol
           ? !this.isAsc
           : (this.defaultSortDirection.toLowerCase() !== 'desc');
       }
 
       if (!this.firstTimeSort) {
-        this.$emit('sort', column.field, this.isAsc ? 'asc' : 'desc');
+        this.$emit('sort', col.field, this.isAsc ? 'asc' : 'desc');
       }
 
       this.newData = this.sortBy(
         this.newData,
-        column.field,
-        column.sort,
+        col.field,
+        col.sort,
         this.isAsc,
       );
 
-      this.currentSortColumn = column;
+      this.currentSortCol = col;
     },
     checkSort() {
-      if (this.newColumns.length && this.firstTimeSort) {
+      if (this.columns.length && this.firstTimeSort) {
         this.initSort();
         this.firstTimeSort = false;
-      } else if (this.newColumns.length) {
-        if (!this.currentSortColumn.field) return;
+      } else if (this.columns.length) {
+        if (!this.currentSortCol.field) return;
 
-        for (let i = 0; i < this.newColumns.length; i++) {
-          if (this.newColumns[i].field === this.currentSortColumn.field) {
-            this.currentSortColumn = this.newColumns[i];
+        for (let i = 0; i < this.columns.length; i++) {
+          if (this.columns[i].field === this.currentSortCol.field) {
+            this.currentSortCol = this.columns[i];
           }
         }
       }
@@ -188,7 +153,7 @@ export default {
         sortField = this.defaultSort;
       }
 
-      this.newColumns.forEach((column) => {
+      this.columns.forEach((column) => {
         if (column.field === sortField) {
           this.isAsc = sortDirection.toLowerCase() !== 'desc';
           this.sort(column, true);

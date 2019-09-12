@@ -3,123 +3,98 @@
 
 @include b('table') {
   $root: &;
-}
 
-.b-table {
-  transition: $st-table-transition;
+  @include e(table) {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    border: $st-table-border-width solid transparent;
 
-  .icon {
-    transition: $st-table-sort-icon-transition;
-
-    &.is-desc {
-      transform: rotate(180deg);
-    }
-
-    &.is-expanded {
-      transform: rotate(90deg);
+    @include m(bordered) {
+      #{$root}__td,
+      #{$root}__th {
+        border-width: $st-table-border-width;
+      }
     }
   }
 
-  .table {
-    width: 100%;
-    color: #363636;
-    border-collapse: separate;
-    background-color: #fff;
-    border: 1px solid transparent;
-    border-radius: $st-table-border-radius;
+  @include e(td) {
+    padding: $st-table-td-padding;
+    vertical-align: top;
+    border: $st-table-border-width solid $st-table-border-color;
+    border-width: 0 0 $st-table-border-width;
+  }
 
-    td,
-    th {
-      padding: .5em .75em;
-      vertical-align: top;
-      border: 1px solid #dbdbdb;
-      border-width: 0 0 1px;
-    }
+  @include e(th) {
+    padding: $st-table-td-padding;
+    vertical-align: top;
+    border: $st-table-border-width solid $st-table-border-color;
+    border-width: 0 0 $st-table-border-width;
 
-    th {
-      font-weight: $st-table-font-weight;
-      color: #363636;
+    @include e(wrap) {
+      display: flex;
+      align-items: center;
 
-      &:not([align]) {
-        text-align: left;
-      }
-
-      .th-wrap {
-        display: flex;
-        align-items: center;
-
-        .icon {
-          margin-right: 0;
-          margin-left: 0.5rem;
-          font-size: 1rem;
-        }
-
-        &.is-centered {
-          justify-content: center;
-          text-align: center;
-        }
-      }
-
-      &.is-current-sort {
-        &.is-current-sort {
-          font-weight: $st-table-current-sort-font-weight;
-          border-color: $st-table-current-sort-border-color;
-        }
-      }
-
-      &.is-sortable {
-        &,
-        .th-wrap {
-          cursor: pointer;
-        }
-
-        &:hover {
-          border-color: $st-table-sortable-hover-border-color;
-        }
+      @include m(centered) {
+        justify-content: center;
+        text-align: center;
       }
     }
 
-    thead,
-    tfoot {
-      background-color: transparent;
+    @include e(sortable) {
+      cursor: pointer;
 
-      td,
-      th {
-        color: #363636;
-        border-width: 0 0 2px;
+      &:hover {
+        border-bottom-color: $st-table-sortable-hover-border-color;
+      }
+
+      @include m(current) {
+        border-bottom-color: $st-table-sortable-current-border-color;
       }
     }
+  }
 
-    tbody {
-      background-color: transparent;
-
-      tr:last-child {
-        td,
-        th {
-          border-bottom-width: 0;
-        }
-      }
+  @include e(thead) {
+    #{$root}__th {
+      border-bottom-width: $st-table-header-border-width;
     }
+  }
 
-    &.is-bordered {
-      td,
-      th {
-        border-width: 1px;
-      }
-
-      tr:last-child td,
-      tr:last-child th {
-        border-bottom-width: 1px;
-      }
+  @include e(tfoot) {
+    #{$root}__th {
+      border-width: $st-table-footer-border-width 0 0;
     }
+  }
 
-    // Modifiers
-    &.is-bordered {
-      th.is-current-sort,
-      th.is-sortable:hover {
-        background: $st-table-sortable-hover-border-color;
-        border-color: $st-table-sortable-hover-border-color;
-      }
+  @include e(tbody) {
+    #{$root}__tr:last-child #{$root}__td,
+    #{$root}__tr:last-child #{$root}__th {
+      border-bottom-width: 0;
+    }
+  }
+
+  @include e(sortable) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @include e(sortable-arrow) {
+    display: flex;
+    width: $st-table-sortable-icon-size;
+    height: $st-table-sortable-icon-size;
+    margin-left: 8px;
+    color: $st-table-sortable-icon-color;
+
+    @include m(up) {
+      transform: rotate(180deg);
+    }
+  }
+
+  @include e(sortable-current) {
+    transition: 0.2s;
+
+    @include m(desc) {
+      transform: rotate(180deg);
     }
   }
 }

@@ -1,65 +1,86 @@
-<div class="b-table">
-  <table class="table"
-         :class="tableClasses">
-    <thead v-if="newColumns.length">
-      <tr>
-        <th v-for="(column, index) in visibleColumns"
+<div class="st-table">
+  <table class="st-table__table"
+         :class="{
+           'st-table__table--bordered': bordered,
+          }">
+    <thead v-if="columns.length"
+           class="st-table__thead">
+      <tr class="st-table__tr">
+        <th v-for="(col, index) in columns"
             :key="index"
             :class="{
-                'is-current-sort': currentSortColumn === column,
-                'is-sortable': column.sortable
+                'st-table__th__sortable--current': currentSortCol === col,
+                'st-table__th__sortable': col.sortable
             }"
             :style="{
-                width: column.width === void 0 ? null : column.width + 'px'
+              width: col.width === void 0
+                ? null
+                : col.width === +col.width
+                  ? col.width
+                  : col.width + 'px'
             }"
-            @click.stop="sort(column)">
-            <div class="th-wrap"
-                :class="{ 'is-centered': column.centered }">
-                <template v-if="column.$scopedSlots && column.$scopedSlots.header">
-                    <b-slot-component :component="column"
-                                      :props="{ column, index }"
+            class="st-table__th"
+            @click.stop="sort(col)">
+            <div class="st-table__th__wrap"
+                :class="{ 'st-table__th__wrap--centered': col.centered }">
+                <template v-if="col.$scopedSlots && col.$scopedSlots.header">
+                    <b-slot-component :component="col"
+                                      :props="{ col, index }"
                                       name="header"
                                       scoped />
                 </template>
                 <template v-else-if="$scopedSlots.header">
                     <slot
                         name="header"
-                        :column="column"
+                        :col="col"
                         :index="index"
                     />
                 </template>
-                <template v-else>{{ column.label }}</template>
+                <template v-else>{{ col.label }}</template>
 
-                <b-icon
-                    v-show="currentSortColumn === column"
-                    both
-                    :class="{ 'is-desc': !isAsc }"/>
+                <div v-if="col.sortable"
+                     class="st-table__sortable">
+                  <st-icon name="arrow-down"
+                           v-if="currentSortCol !== col"
+                           class="st-table__sortable-arrow st-table__sortable-arrow--up" />
+
+                  <st-icon name="arrow-down"
+                           :class="[currentSortCol === col ? {
+                             'st-table__sortable-current': true,
+                             'st-table__sortable-current--asc': isAsc,
+                             'st-table__sortable-current--desc': !isAsc
+                          } : null]"
+                           class="st-table__sortable-arrow st-table__sortable-arrow--down" />
+                </div>
             </div>
         </th>
       </tr>
     </thead>
 
-    <tbody v-if="newData.length">
+    <tbody v-if="newData.length"
+           class="st-table__tbody">
       <template v-for="(row, index) in newData">
         <tr :key="customRowKey ? row[customRowKey] : index"
             :class="rowClass(row, index)"
+            class="st-table__tr"
             @click="selectRow(row)">
             <slot v-if="$scopedSlots.default"
                   :row="row"
                   :index="index" />
 
             <template v-else>
-              <st-table-column v-for="column in newColumns"
-                               v-bind="column"
-                               :key="column.name"
-                               :value="value = getRowValue(row, column, index)"
+              <st-table-column v-for="col in columns"
+                               v-bind="col"
+                               :key="col.name"
+                               :value="value = getRowValue(row, col, index)"
+                               class="st-table__th"
                                internal>
-                  <slot :name="column.name"
+                  <slot :name="col.name"
                         :index="index"
                         :row="row"
-                        :column="column"
+                        :col="col"
                         :value="value">
-                    <span v-if="column.renderHtml"
+                    <span v-if="col.renderHtml"
                           v-html="value" />
                     <template v-else>{{ value }}</template>
                   </slot>
@@ -69,20 +90,24 @@
       </template>
     </tbody>
 
-    <tbody v-else>
-      <tr>
-        <td :colspan="columnCount">
+    <tbody v-else
+           class="st-table__tbody">
+      <tr class="st-table__tr st-table__tr--empty">
+        <td :colspan="columns.length"
+        class="st-table__td">
           <slot name="empty" />
         </td>
       </tr>
     </tbody>
 
-    <tfoot v-if="$slots.footer !== void 0">
-      <tr>
+    <tfoot v-if="$slots.footer !== void 0"
+           class="st-table__tfoot">
+      <tr st-table__tr>
         <slot v-if="hasCustomFooterSlot()"
               name="footer" />
         <th v-else
-            :colspan="columnCount">
+            :colspan="columns.length"
+            class="st-table__th">
             <slot name="footer" />
         </th>
       </tr>

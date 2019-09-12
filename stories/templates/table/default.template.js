@@ -8,13 +8,13 @@ export const template = `
               :default-sort-direction="defaultSortDirection"
               :row-class="rowClass">
 
-      <template v-slot:header="{ column, index }">
+      <template v-slot:header="{ col, index }">
         <div v-if="index === 2"
              style="color: red">
-             <span>{{ column.label }}</span>
+             <span>{{ col.label }}</span>
         </div>
         <template v-else>
-        <span>{{ column.label }}</span>
+        <span>{{ col.label }}</span>
         </template>
       </template>
 
