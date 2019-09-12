@@ -35,7 +35,7 @@ export default class StNotification extends Vue {
   @Prop(String)
   icon?: string;
 
-  timer: ReturnType<typeof setTimeout> = 0;
+  timer: number = 0;
 
   visible = false;
 
