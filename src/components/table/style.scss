@@ -5,16 +5,6 @@
   $root: &;
 }
 
-.table-wrapper {
-  .table {
-    margin-bottom: 0;
-  }
-
-  &:not(:last-child) {
-    margin-bottom: 1.5rem;
-  }
-}
-
 .b-table {
   transition: $st-table-transition;
 
@@ -62,16 +52,6 @@
           margin-right: 0;
           margin-left: 0.5rem;
           font-size: 1rem;
-        }
-
-        &.is-numeric {
-          flex-direction: row-reverse;
-          text-align: right;
-
-          .icon {
-            margin-right: 0.5rem;
-            margin-left: 0;
-          }
         }
 
         &.is-centered {

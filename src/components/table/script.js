@@ -1,4 +1,5 @@
 import get from 'lodash/get';
+
 import StSlotComponent from './StSlotComponent';
 import StTableColumn from './StTableColumn.vue';
 
@@ -94,7 +95,6 @@ export default {
       return get(row, column.field);
     },
     sortBy(array, key, fn, isAsc) {
-      // Sorting without mutating original data
       if (fn && typeof fn === 'function') {
         return [...array].sort((a, b) => fn(a, b, isAsc));
       }
@@ -141,7 +141,7 @@ export default {
       this.newData = this.sortBy(
         this.newData,
         column.field,
-        column.customSort,
+        column.sort,
         this.isAsc,
       );
 

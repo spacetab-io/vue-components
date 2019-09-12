@@ -1,31 +1,36 @@
 export const template = `
   <div>
     <st-table :columns="columns"
-              :data="data">
+              :data="data"
+              :bordered="bordered"
+              :selected.sync="selected"
+              :default-sort="defaultSort"
+              :default-sort-direction="defaultSortDirection"
+              :row-class="rowClass">
 
       <template v-slot:header="{ column, index }">
         <div v-if="index === 2"
              style="color: red">
-          {{ column.label }}
+             <span>{{ column.label }}</span>
         </div>
         <template v-else>
-          {{ column.label }}
+        <span>{{ column.label }}</span>
         </template>
       </template>
 
-      <template v-slot:key_1="{ value, index }">
-        {{ value }}
+      <template v-slot:name_1="{ value, index }">
+        <span>{{ value }}</span>
         <st-icon name="check"
                  v-if="index === 3"
                  style="color: blue" />
       </template>
 
-      <template v-slot:key_3="{ value, index }">
-      {{ value }}
-      <st-icon name="cross-bold"
-               v-if="index === 6"
-               style="color: pink" />
-    </template>
+      <template v-slot:name_3="{ value, index }">
+      <span>{{ value }}</span>
+        <st-icon name="cross-bold"
+                 v-if="index === 6"
+                 style="color: yellow" />
+      </template>
 
       <template v-slot:footer>
         <div>
@@ -39,6 +44,13 @@ export const template = `
         </div>
       </template>
 
+      <template v-slot:empty>
+        <span>Data is empty</span>
+      </template>
+
     </st-table>
+
+    <h4>Selected</h4>
+    <pre>{{ selected }}</pre>
   </div>
 `;

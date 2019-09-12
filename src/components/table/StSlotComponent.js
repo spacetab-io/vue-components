@@ -16,14 +16,10 @@ export default {
     props: {
       type: Object,
     },
-    tag: {
-      type: String,
-      default: 'div',
-    },
     event: {
       type: String,
       default: 'hook:updated',
-    }
+    },
   },
   created() {
     if (this.isVueComponent()) {
@@ -42,7 +38,7 @@ export default {
       ? this.component.$scopedSlots[this.name](this.props)
       : this.component.$slots[this.name];
 
-    return createElement(this.tag, {}, childrens);
+    return createElement(childrens);
   },
   methods: {
     refresh() {

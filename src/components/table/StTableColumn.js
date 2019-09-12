@@ -5,17 +5,11 @@ export default {
   props: {
     label: String,
     customKey: [String, Number],
-    // field: String,
-    // meta: [String, Number, Boolean, Function, Object, Array],
-    // width: [Number, String],
-    // numeric: Boolean,
     centered: Boolean,
-    // sortable: Boolean,
     visible: {
       type: Boolean,
       default: true,
     },
-    // customSort: Function,
     internal: Boolean,
   },
   data() {
@@ -52,6 +46,6 @@ export default {
   beforeDestroy() {
     const index = this.$parent.newColumns.map(column => column.newKey).indexOf(this.newKey);
 
-    if (index >= 0) this.$parent.newColumns.splice(index, 1)
+    if (index >= 0) this.$parent.newColumns.splice(index, 1);
   },
 };
