@@ -20,6 +20,7 @@
     "@spacetab/svg-sprite-loader": "github:spacetabs/svg-sprite-loader#master",
     "core-js": "^2.6.9",
     "lodash": "^4.17.15",
+    "popper.js": "^1.15.0",
     "v-tooltip": "^2.0.2",
     "vue": "^2.6.10",
     "vue-class-component": "^7.1.0",

@@ -11,6 +11,7 @@ import StNotification from './notification/index.vue';
 import StNotificationsGroup from './notifications-group/index.vue';
 import StPagination from './pagination/index.vue';
 import StPopover from './popover/index.vue';
+import StPopper from './popper/index.vue';
 import StRadio from './radio/index.vue';
 import StRow from './row/index.vue';
 import StScrollbar from './scrollbar/index.vue';
@@ -29,6 +30,7 @@ const Components = {
   StNotificationsGroup,
   StPagination,
   StPopover,
+  StPopper,
   StRadio,
   StRow,
   StScrollbar,
