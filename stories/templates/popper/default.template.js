@@ -7,6 +7,7 @@ export const template = `
              :trigger="trigger"
              :with-border="withBorder"
              :arrow-visible="arrowVisible"
+             :width="width"
              :placement="placement">
     <div class="content">
       {{ key }} Lorem ipsum dolor sit amet

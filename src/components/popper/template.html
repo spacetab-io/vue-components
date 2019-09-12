@@ -5,6 +5,7 @@
                 @after-leave="doDestroy">
       <span class="st-popper"
             :class="popperClasses"
+            :style="popperStyles"
             ref="popper"
             v-show="!disabled && showPopper">
           <slot>{{ content }}</slot>

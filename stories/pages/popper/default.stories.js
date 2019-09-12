@@ -21,36 +21,19 @@ storiesOf('Components|Popper', module).add('Default', () => ({
       default: number('Delay on mouse out', 100),
     },
     placement: {
-      default: select('Placement', [
-        'auto-start',
-        'auto',
-        'auto-end',
-        'top-start',
-        'top',
-        'top-end',
-        'right-start',
-        'right',
-        'right-end',
-        'bottom-end',
-        'bottom',
-        'bottom-start',
-        'left-end',
-        'left',
-        'left-start',
-      ], 'bottom')
+      default: select('Placement', Object.values(PopperPlacement), PopperPlacement.Auto)
     },
     trigger: {
-      default: select('Trigger', [
-        'click',
-        'hover',
-        'focus',
-      ], 'click')
+      default: select('Trigger', Object.values(TriggerType), TriggerType.Click)
     },
     arrowVisible: {
       default: boolean('Arrow visible', true)
     },
     withBorder: {
       default: boolean('With border', false)
+    },
+    width: {
+      default: number('Width', 0)
     },
   },
   data() {

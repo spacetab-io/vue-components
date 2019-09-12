@@ -25,6 +25,9 @@ export default class StPopper extends Vue {
   @Prop({ type: Number, default: 100 })
   delayOnMouseOver!: number;
 
+  @Prop(Number)
+  width?: number;
+
   @Prop({ type: Number, default: 100 })
   delayOnMouseOut!: number;
 
@@ -299,6 +302,14 @@ export default class StPopper extends Vue {
       'st-popper--bordered': this.withBorder,
       'st-popper--with-arrow': this.arrowVisible,
       [`${this.popperClass}`]: !!this.popperClass,
+    };
+  }
+
+  get popperStyles() {
+    if (!this.width) return {};
+
+    return {
+      width: `${this.width}px`,
     };
   }
 }
