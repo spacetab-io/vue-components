@@ -1,10 +1,20 @@
 # Changelog
 
+## 0.2.4
+
+### Maintenance
+* Added pre-commit script
+* EOL symbol in generators was updated
+
+
+
 ## 0.2.3
 
 ### Features
 * Added new component: `Popper`
-* Added new icons. Return, Luggage, No-Return, No-Luggage.
+* Added new icons: Return, Luggage, No-Return, No-Luggage
+
+
 
 ## 0.2.1
 
