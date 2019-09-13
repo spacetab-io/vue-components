@@ -8,6 +8,7 @@ export const template = `
              :with-border="withBorder"
              :arrow-visible="arrowVisible"
              :width="width"
+             v-model="value"
              :placement="placement">
     <div class="content">
       {{ key }} Lorem ipsum dolor sit amet

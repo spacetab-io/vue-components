@@ -35,6 +35,9 @@ storiesOf('Components|Popper', module).add('Default', () => ({
     width: {
       default: number('Width', 0)
     },
+    value: {
+      default: boolean('Manual value', false),
+    },
   },
   data() {
     return {

@@ -2,6 +2,7 @@ export enum TriggerType {
   Click = 'click',
   Hover = 'hover',
   Focus = 'focus',
+  Manual = 'manual',
 }
 
 export enum PopperPlacement {

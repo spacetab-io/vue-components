@@ -1,13 +1,7 @@
-import Popper, {
-  Placement,
-  PopperOptions,
-} from 'popper.js';
+import Popper, { Placement, PopperOptions } from 'popper.js';
 import { VNode } from 'vue';
 import {
-  Component,
-  Prop,
-  Vue,
-  Watch,
+  Component, Prop, Vue, Watch,
 } from 'vue-property-decorator';
 
 import { PopperPlacement, TriggerType } from './types';
@@ -75,6 +69,21 @@ export default class StPopper extends Vue {
 
   @Prop(String)
   content?: string;
+
+  @Prop(Boolean)
+  value!: boolean;
+
+  @Watch('value')
+  onValueChanged(val: boolean) {
+    if (this.trigger !== TriggerType.Manual) return;
+
+    if (val) {
+      this.doShow();
+      return;
+    }
+
+    this.doClose();
+  }
 
   @Watch('showPopper')
   onShowPopperChange(val: boolean) {

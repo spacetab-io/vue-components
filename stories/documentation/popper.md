@@ -4,6 +4,7 @@
 
 | Name | Description | Required | Type | Default value | Possible values |
 | --- | --- | --- | --- | --- | --- |
+| v-model | manual popper trigger | false | boolean | - | - |
 | content | popper raw content | false | string | - | - |
 | width | popper width | false | number | - | - |
 | tag | html tag for root element | false | string | span | - |
