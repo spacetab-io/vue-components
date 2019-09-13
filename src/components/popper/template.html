@@ -1,0 +1,15 @@
+<component :is="tag">
+    <transition :name="transition"
+                :enter-active-class="enterActiveClass"
+                :leave-active-class="leaveActiveClass"
+                @after-leave="doDestroy">
+      <span class="st-popper"
+            :class="popperClasses"
+            :style="popperStyles"
+            ref="popper"
+            v-show="!disabled && showPopper">
+          <slot>{{ content }}</slot>
+      </span>
+    </transition>
+    <slot name="reference"></slot>
+</component>
