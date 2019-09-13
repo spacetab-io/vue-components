@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.2
+
+### Features
+* Added new icons. Return, Luggage, No-Return, No-Luggage.
+
 ## 0.2.1
 
 ### Features
@@ -13,7 +18,7 @@
 
 ### Maintenance
 * Fixed `Offers` theme for `Button` component
-* Fixed `Checkbox` value type 
+* Fixed `Checkbox` value type
 * Added components generator. If you are about to make a new component just run `npm run generator:component` and follow the instructions.
 * Prepared for publishing
 * Linter dependencies were updated
@@ -36,7 +41,7 @@
 * Generated icons files were renamed:
     * `icons.json` to `_icons.generated.json` at `src/assets/icons`
     * `src/utils/icons.ts` to `src/components/icon/_icons.generated.ts`
-* All icons' symbol ids have got prefix `st-` 
+* All icons' symbol ids have got prefix `st-`
 * Added theme generator. Since now you can build your theme's files - use `npm run generator:themes`.
 
 
