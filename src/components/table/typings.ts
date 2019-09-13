@@ -1,5 +1,5 @@
 
-export interface ConfigItem {
+export interface Column {
   name: string,
   label: string,
   field: string | Function,
@@ -7,7 +7,7 @@ export interface ConfigItem {
   sort?: Function,
   centered?: boolean,
   renderHtml?: boolean,
-  width?: number,
+  width?: number | string,
   class?: any[] | object | string,
   style?: any[] | object | string,
 }

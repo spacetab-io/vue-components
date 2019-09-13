@@ -50,18 +50,6 @@
     }
   }
 
-  @include e(thead) {
-    #{$root}__th {
-      border-bottom-width: $st-table-header-border-width;
-    }
-  }
-
-  @include e(tfoot) {
-    #{$root}__th {
-      border-width: $st-table-footer-border-width 0 0;
-    }
-  }
-
   @include e(tbody) {
     #{$root}__tr:last-child #{$root}__td,
     #{$root}__tr:last-child #{$root}__th {
@@ -77,6 +65,18 @@
         border-width: $st-table-border-width;
         border-bottom-width: $st-table-border-width;
       }
+    }
+  }
+
+  @include e(thead) {
+    #{$root}__th {
+      border-bottom-width: $st-table-header-border-width;
+    }
+  }
+
+  @include e(tfoot) {
+    #{$root}__th {
+      border-width: $st-table-footer-border-width 0 0;
     }
   }
 

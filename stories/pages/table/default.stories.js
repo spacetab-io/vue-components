@@ -61,6 +61,7 @@ storiesOf('Components|Table', module).add('Default', () => ({
     onSort(field, direction) {
       this.sortDirection = direction;
       this.sortBy = field;
+      debugger
     },
   },
 }), {
