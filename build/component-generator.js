@@ -2,7 +2,7 @@ const readline = require('readline');
 const fs = require('fs');
 const GeneratorLogger = require('./utils/generator-logger');
 const render = require('json-templater/string');
-const printEol = require('./utils/print-eol');
+const printEol = require('./utils/end-of-line').printConsoleLine;
 
 const logger = new GeneratorLogger();
 const generatorLogger = new GeneratorLogger('Component Generator');
