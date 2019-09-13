@@ -37,7 +37,7 @@ export default class StPopper extends Vue {
   @Prop({ type: String, default: '' })
   transition!: string;
 
-  @Prop({ type: String, default: PopperPlacement.Auto })
+  @Prop({ type: String, default: PopperPlacement.auto })
   placement!: string;
 
   @Prop({ type: Boolean, default: false })
@@ -46,7 +46,7 @@ export default class StPopper extends Vue {
   @Prop({ type: Object })
   reference?: Element;
 
-  @Prop({ type: String, default: TriggerType.Hover })
+  @Prop({ type: String, default: TriggerType.hover })
   trigger!: TriggerType;
 
   @Prop({ type: Boolean, default: false })
@@ -75,7 +75,7 @@ export default class StPopper extends Vue {
 
   @Watch('value')
   onValueChanged(val: boolean) {
-    if (this.trigger !== TriggerType.Manual) return;
+    if (this.trigger !== TriggerType.manual) return;
 
     if (val) {
       this.doShow();
@@ -155,17 +155,17 @@ export default class StPopper extends Vue {
     this.popper = this.$refs.popper as Element;
 
     switch (this.trigger) {
-      case TriggerType.Click:
+      case TriggerType.click:
         this.referenceElement.addEventListener('click', this.doToggle);
         document.addEventListener('click', this.handleDocumentClick);
         break;
-      case TriggerType.Hover:
+      case TriggerType.hover:
         this.referenceElement.addEventListener('mouseover', this.onMouseOver);
         this.referenceElement.addEventListener('mouseout', this.onMouseOut);
         this.popper.addEventListener('mouseover', this.onMouseOver);
         this.popper.addEventListener('mouseout', this.onMouseOut);
         break;
-      case TriggerType.Focus:
+      case TriggerType.focus:
         this.referenceElement.addEventListener('focus', this.onMouseOver);
         this.referenceElement.addEventListener('blur', this.onMouseOut);
         this.popper.addEventListener('focus', this.onMouseOver);

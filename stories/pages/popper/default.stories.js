@@ -5,10 +5,10 @@ import documentation from '../../documentation/popper.md'
 import {PopperPlacement, TriggerType} from "../../../src/components/popper/types";
 
 let notes = documentation;
-notes = notes.replace('{{DEFAULT_PLACEMENT}}', PopperPlacement.Auto);
+notes = notes.replace('{{DEFAULT_PLACEMENT}}', PopperPlacement.auto);
 notes = notes.replace('{{AVAILABLE_PLACEMENTS}}', Object.values(PopperPlacement).join(' , '));
 
-notes = notes.replace('{{DEFAULT_TRIGGER}}', TriggerType.Hover);
+notes = notes.replace('{{DEFAULT_TRIGGER}}', TriggerType.hover);
 notes = notes.replace('{{AVAILABLE_TRIGGERS}}', Object.values(TriggerType).join(' , '));
 
 storiesOf('Components|Popper', module).add('Default', () => ({
@@ -21,10 +21,10 @@ storiesOf('Components|Popper', module).add('Default', () => ({
       default: number('Delay on mouse out', 100),
     },
     placement: {
-      default: select('Placement', Object.values(PopperPlacement), PopperPlacement.Auto)
+      default: select('Placement', Object.values(PopperPlacement), PopperPlacement.auto)
     },
     trigger: {
-      default: select('Trigger', Object.values(TriggerType), TriggerType.Click)
+      default: select('Trigger', Object.values(TriggerType), TriggerType.click)
     },
     arrowVisible: {
       default: boolean('Arrow visible', true)
@@ -36,7 +36,7 @@ storiesOf('Components|Popper', module).add('Default', () => ({
       default: number('Width', 0)
     },
     value: {
-      default: boolean('Manual value', false),
+      default: boolean('manual value', false),
     },
   },
   data() {
