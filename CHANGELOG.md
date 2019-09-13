@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.2.2
+## 0.2.3
 
 ### Features
 * Added new icons. Return, Luggage, No-Return, No-Luggage.
