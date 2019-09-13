@@ -10,9 +10,11 @@ import StInput from './components/input/index.vue';
 import { StNotificationService } from './components/notification/service';
 import StNotificationsGroup from './components/notifications-group/index.vue';
 import StPagination from './components/pagination/index.vue';
-// import StPopover from './components/popover/index.vue';
 import StPopper from './components/popper/index.vue';
+import StRadio from './components/radio/index.vue';
 import StRow from './components/row/index.vue';
+import StScrollbar from './components/scrollbar/index.vue';
+import StSwitch from './components/switch/index.vue';
 import StTextarea from './components/textarea/index.vue';
 
 const install = (Vue: VueConstructor) => {
@@ -24,9 +26,11 @@ const install = (Vue: VueConstructor) => {
   Vue.component('st-icon', StIcon);
   Vue.component('st-input', StInput);
   Vue.component('st-notifications-group', StNotificationsGroup);
-  // Vue.component('st-popover', StPopover);
   Vue.component('st-row', StRow);
   Vue.component('st-textarea', StTextarea);
+  Vue.component('st-radio', StRadio);
+  Vue.component('st-scrollbar', StScrollbar);
+  Vue.component('st-switch', StSwitch);
   Vue.component('st-pagination', StPagination);
   Vue.component('st-popper', StPopper);
 
@@ -44,7 +48,6 @@ export default {
   StIcon,
   StInput,
   StNotificationsGroup,
-  // StPopover,
   StRow,
   StTextarea,
   StPagination,
