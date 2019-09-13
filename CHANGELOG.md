@@ -3,6 +3,7 @@
 ## 0.2.3
 
 ### Features
+* Added new component: `Popper`
 * Added new icons. Return, Luggage, No-Return, No-Luggage.
 
 ## 0.2.1
