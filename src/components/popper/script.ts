@@ -315,7 +315,9 @@ export default class StPopper extends Vue {
   }
 
   get popperStyles() {
-    if (!this.width) return {};
+    if (!this.width) {
+      return {};
+    }
 
     return {
       width: `${this.width}px`,
