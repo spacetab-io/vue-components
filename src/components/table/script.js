@@ -2,7 +2,7 @@ import get from 'lodash/get';
 
 import StSlotComponent from './StSlotComponent';
 import StTableColumn from './StTableColumn.vue';
-
+import { SortDirections } from './typings';
 
 export default {
   name: 'StTable',
@@ -21,10 +21,12 @@ export default {
     },
     bordered: Boolean,
     selected: Object,
-    defaultSort: [String, Array],
-    defaultSortDirection: {
+    sortBy: String,
+    clientSorting: Boolean,
+    sortDirection: {
       type: String,
-      default: 'asc',
+      default: SortDirections.asc,
+      validate: prop => Object.values(SortDirections).includes(prop),
     },
     rowClass: {
       type: Function,
@@ -34,9 +36,9 @@ export default {
   },
   data() {
     return {
+      isAsc: this.sortDirection !== SortDirections.desc,
       newData: this.data,
-      currentSortCol: {},
-      isAsc: true,
+      currentSortColumn: {},
       firstTimeSort: true, // Used by first time initSort
       _isTable: true, // Used by TableColumn
     };
@@ -44,7 +46,13 @@ export default {
   watch: {
     data(value) {
       this.newData = value;
-      this.sort(this.currentSortCol, true);
+      this.sort(this.currentSortColumn, true);
+    },
+    sortBy(value) {
+      this.currentSortColumn = this.columns.find(_ => _.field === value) || {};
+    },
+    sortDirection(value) {
+      this.isAsc = value !== SortDirections.desc;
     },
     columns: 'checkSort',
   },
@@ -59,9 +67,11 @@ export default {
 
       return get(row, col.field);
     },
-    sortBy(array, key, fn, isAsc) {
+    sortedBy(array, key, fn, isAsc) {
       if (fn && typeof fn === 'function') {
-        return [...array].sort((a, b) => fn(a, b, isAsc));
+        return [...array].sort((a, b) => (
+          fn(get(a, key), get(b, key), a, b, this.sortDirection)
+        ));
       }
 
       const sorted = [...array].sort((a, b) => {
@@ -93,38 +103,51 @@ export default {
     sort(col, updatingData = false) {
       if (!col || !col.sortable) return;
 
+      const isAsc = col === this.currentSortColumn
+        ? !this.isAsc
+        : (this.sortDirection.toLowerCase() !== SortDirections.desc);
+
+      if (!this.clientSorting) {
+        const sortDirection = isAsc ? SortDirections.asc : SortDirections.desc;
+        this.$emit('sort', col.field, sortDirection);
+        return;
+      }
+
       if (!updatingData) {
-        this.isAsc = col === this.currentSortCol
-          ? !this.isAsc
-          : (this.defaultSortDirection.toLowerCase() !== 'desc');
+        this.isAsc = isAsc;
       }
 
-      if (!this.firstTimeSort) {
-        this.$emit('sort', col.field, this.isAsc ? 'asc' : 'desc');
-      }
-
-      this.newData = this.sortBy(
+      this.newData = this.sortedBy(
         this.newData,
         col.field,
         col.sort,
         this.isAsc,
       );
 
-      this.currentSortCol = col;
+      this.currentSortColumn = col;
     },
     checkSort() {
+      if (!this.clientSorting) return;
+
       if (this.columns.length && this.firstTimeSort) {
         this.initSort();
         this.firstTimeSort = false;
       } else if (this.columns.length) {
-        if (!this.currentSortCol.field) return;
+        if (!this.currentSortColumn.field) return;
 
         for (let i = 0; i < this.columns.length; i++) {
-          if (this.columns[i].field === this.currentSortCol.field) {
-            this.currentSortCol = this.columns[i];
+          if (this.columns[i].field === this.currentSortColumn.field) {
+            this.currentSortColumn = this.columns[i];
           }
         }
       }
+    },
+    initSort() {
+      if (!this.clientSorting) return;
+
+      if (!this.sortBy) return;
+      const column = this.columns.find(_ => _.field === this.sortBy);
+      this.sort(column, true);
     },
     selectRow(row) {
       this.$emit('click', row);
@@ -136,29 +159,6 @@ export default {
       if (this.$slots.footer.length > 1) return true;
       const { tag } = this.$slots.footer[0];
       return ['th', 'td'].includes(tag);
-    },
-    initSort() {
-      if (!this.defaultSort) return;
-
-      let sortField = '';
-      let sortDirection = this.defaultSortDirection;
-      if (Array.isArray(this.defaultSort)) {
-        /* eslint-disable-next-line */
-        sortField = this.defaultSort[0];
-        if (this.defaultSort[1]) {
-        /* eslint-disable-next-line */
-        sortDirection = this.defaultSort[1];
-        }
-      } else {
-        sortField = this.defaultSort;
-      }
-
-      this.columns.forEach((column) => {
-        if (column.field === sortField) {
-          this.isAsc = sortDirection.toLowerCase() !== 'desc';
-          this.sort(column, true);
-        }
-      });
     },
   },
 };

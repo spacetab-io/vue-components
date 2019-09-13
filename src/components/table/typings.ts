@@ -3,7 +3,7 @@ export interface ConfigItem {
   name: string,
   label: string,
   field: string | Function,
-  sortable?: boolean | Function,
+  sortable?: boolean,
   sort?: Function,
   centered?: boolean,
   renderHtml?: boolean,

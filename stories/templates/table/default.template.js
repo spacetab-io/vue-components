@@ -4,35 +4,40 @@ export const template = `
               :data="data"
               :bordered="bordered"
               :selected.sync="selected"
-              :default-sort="defaultSort"
-              :default-sort-direction="defaultSortDirection"
-              :row-class="rowClass">
+              :sort-by="sortBy"
+              :sort-direction="sortDirection"
+              :row-class="rowClass"
+              custom-row-key="id"
+              client-sorting
+              @sort="onSort">
 
-      <template v-slot:header="{ col, index }">
-        <div v-if="index === 2"
-             style="color: red">
-             <span>{{ col.label }}</span>
+      <template v-slot:th-key_2="{ col, index }">
+        <div style="color: red">
+          <span>{{ col.label }}</span>
         </div>
-        <template v-else>
-        <span>{{ col.label }}</span>
-        </template>
       </template>
 
-      <template v-slot:name_1="{ value, index }">
+      <template v-slot:td-id="{ value }">
+        <div style="padding: 2px 4px; background: red; border-radius: 4px; color: white; text-align: center;">
+        {{ value }}
+        </div>
+      </template>
+
+      <template v-slot:td-name_1="{ value, index }">
         <span>{{ value }}</span>
         <st-icon name="check"
                  v-if="index === 3"
                  style="color: blue" />
       </template>
 
-      <template v-slot:name_3="{ value, index }">
+      <template v-slot:td-name_3="{ value, index }">
       <span>{{ value }}</span>
         <st-icon name="cross-bold"
                  v-if="index === 6"
                  style="color: yellow" />
       </template>
 
-      <template v-slot:footer>
+      <template v-slot:footer v-if="hasFooter">
         <div>
           <st-icon name="arrow-left-long"
                    style="color: red" />

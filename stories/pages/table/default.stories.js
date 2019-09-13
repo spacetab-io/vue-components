@@ -30,19 +30,25 @@ storiesOf('Components|Table', module).add('Default', () => ({
     bordered: {
       default: boolean('bordered', false),
     },
-    empty: {
-      default: boolean('empty', false),
+    'empty slot': {
+      default: boolean('empty slot', false),
+    },
+    'footer slot': {
+      default: boolean('footer slot', false),
     },
   },
   data: () => ({
     columns,
     selected: null,
-    defaultSort: 'key_2',
-    defaultSortDirection: 'desc',
+    sortBy: 'key_2',
+    sortDirection: 'desc',
   }),
   computed: {
     data() {
-      return this.empty ? [] : data;
+      return this['empty slot'] ? [] : data;
+    },
+    hasFooter() {
+      return this['footer slot']
     },
   },
   methods: {
@@ -51,6 +57,10 @@ storiesOf('Components|Table', module).add('Default', () => ({
         `row-class-${index}`,
         { 'is-selected': row === this.selected },
       ];
+    },
+    onSort(field, direction) {
+      this.sortDirection = direction;
+      this.sortBy = field;
     },
   },
 }), {

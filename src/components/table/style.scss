@@ -4,18 +4,14 @@
 @include b('table') {
   $root: &;
 
+  font-size: $st-table-font-size;
+  color: $st-table-color;
+
   @include e(table) {
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
     border: $st-table-border-width solid transparent;
-
-    @include m(bordered) {
-      #{$root}__td,
-      #{$root}__th {
-        border-width: $st-table-border-width;
-      }
-    }
   }
 
   @include e(td) {
@@ -70,6 +66,17 @@
     #{$root}__tr:last-child #{$root}__td,
     #{$root}__tr:last-child #{$root}__th {
       border-bottom-width: 0;
+    }
+  }
+
+  @include e(table) {
+    @include m(bordered) {
+      #{$root}__th,
+      #{$root}__td,
+      #{$root}__tr:last-child #{$root}__td {
+        border-width: $st-table-border-width;
+        border-bottom-width: $st-table-border-width;
+      }
     }
   }
 
