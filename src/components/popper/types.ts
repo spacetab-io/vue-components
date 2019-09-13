@@ -19,6 +19,6 @@ export enum PopperPlacement {
   bottom = 'bottom',
   bottomStart = 'bottom-start',
   leftEnd = 'left-end',
-  lEft = 'left',
+  left = 'left',
   leftStart = 'left-start',
 }
