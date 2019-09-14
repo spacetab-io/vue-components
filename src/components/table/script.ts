@@ -7,18 +7,14 @@ import {
   Watch,
 } from 'vue-property-decorator';
 
-import StSlotComponent from './StSlotComponent';
-import StTableColumn from './StTableColumn.vue';
 import { Column, SortDirections } from './typings';
 
+
+export * from './typings';
 
 @Component({
   name: 'StTable',
   inheritAttrs: false,
-  components: {
-    StSlotComponent,
-    StTableColumn,
-  },
 })
 export default class StTable extends Vue {
   @Prop({ type: Array, default: () => [] })
@@ -59,8 +55,6 @@ export default class StTable extends Vue {
   currentSortColumn: any = {};
 
   firstTimeSort: boolean = true; // Used by first time initSort
-
-  _isTable: boolean = true; // Used by TableColumn
 
   @Watch('data')
   onDataChange(value: any[]) {

@@ -64,28 +64,20 @@
             :class="rowClass(row, index)"
             class="st-table__tr"
             @click="selectRow(row)">
-            <slot v-if="$scopedSlots.default"
+          <td v-for="col in columns"
+              :key="col.name"
+              :value="value = getRowValue(row, col, index)"
+              class="st-table__td">
+            <slot :name="`td-${col.name}`"
+                  :index="index"
                   :row="row"
-                  :index="index" />
-
-            <template v-else>
-              <st-table-column v-for="col in columns"
-                               v-bind="col"
-                               :key="col.name"
-                               :value="value = getRowValue(row, col, index)"
-                               class="st-table__td"
-                               internal>
-                  <slot :name="`td-${col.name}`"
-                        :index="index"
-                        :row="row"
-                        :col="col"
-                        :value="value">
-                    <span v-if="col.renderHtml"
-                          v-html="value" />
-                    <template v-else>{{ value }}</template>
-                  </slot>
-              </st-table-column>
-            </template>
+                  :col="col"
+                  :value="value">
+              <span v-if="col.renderHtml"
+                    v-html="value" />
+              <template v-else>{{ value }}</template>
+            </slot>
+          </td>
         </tr>
       </template>
     </tbody>
