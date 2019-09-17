@@ -134,48 +134,48 @@ export default class StTable extends Vue {
   sort(col: Column) {
     if (!col || !col.sortable) return;
 
-    const isAsc = col === this.currentSortColumn
-      ? !this.isAsc
-      : (this.sortDirection.toLowerCase() !== SortDirections.desc);
-
-    if (!this.clientSorting) {
-      const sortDirection = isAsc ? SortDirections.asc : SortDirections.desc;
-      this.$emit('sort', col.field, sortDirection);
-      return;
+    let sortDirection;
+    if (col !== this.currentSortColumn) {
+      this.isAsc = true;
+      sortDirection = SortDirections.asc;
+      this.currentSortColumn = col;
+    } else if (this.isAsc) {
+      this.isAsc = false;
+      sortDirection = SortDirections.desc;
+      this.currentSortColumn = col;
+    } else {
+      this.isAsc = true;
+      this.currentSortColumn = {};
     }
 
-    this.isAsc = isAsc;
-
-    this.newData = this.sortedBy(
-      this.newData,
-      col.field,
-      col.sort,
-      this.isAsc,
-    );
-
-    this.currentSortColumn = col;
+    if (!this.clientSorting) {
+      const field = sortDirection && col.field;
+      this.$emit('sort', field, sortDirection);
+    } else if (sortDirection) {
+      this.newData = this.sortedBy(
+        this.newData,
+        col.field,
+        col.sort,
+        this.isAsc,
+      );
+    } else {
+      this.newData = this.data;
+    }
   }
 
   checkSort() {
-    if (!this.clientSorting) return;
-
     if (this.columns.length && this.firstTimeSort) {
       this.initSort();
       this.firstTimeSort = false;
     } else if (this.columns.length) {
       if (!this.currentSortColumn.field) return;
 
-      for (let i = 0; i < this.columns.length; i++) {
-        if (this.columns[i].field === this.currentSortColumn.field) {
-          this.currentSortColumn = this.columns[i];
-        }
-      }
+      const column = this.columns.find(_ => _.field === this.currentSortColumn.field);
+      this.currentSortColumn = column;
     }
   }
 
   initSort() {
-    if (!this.clientSorting) return;
-
     if (!this.sortBy) return;
     const column = this.columns.find(_ => _.field === this.sortBy);
     if (column) this.sort(column);
