@@ -188,6 +188,14 @@ export default class StTable extends Vue {
     this.$emit('update:selected', row);
   }
 
+  getWidth(col: Column): string {
+    if (col.width === void 0) return '';
+
+    return typeof col.width === 'string'
+      ? col.width
+      : `${col.width}px`;
+  }
+
   hasCustomFooterSlot() {
     const footer = (this.$slots.footer as any);
     if (footer.length > 1) return true;

@@ -12,13 +12,7 @@
                 'st-table__th__sortable--current': currentSortColumn === col,
                 'st-table__th__sortable': col.sortable
             }"
-            :style="{
-              width: col.width === void 0
-                ? null
-                : col.width === +col.width
-                  ? col.width
-                  : col.width + 'px'
-            }"
+            :style="{ width: getWidth(col) }"
             class="st-table__th"
             @click.stop="sort(col)">
             <div class="st-table__th__wrap"
