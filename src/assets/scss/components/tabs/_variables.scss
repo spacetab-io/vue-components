@@ -1,6 +1,6 @@
 @import '../../utils/variables';
 
-$st-tabs-active-color: $st-color-blueberry;
+$st-tabs-active-color: $st-color-blueberry !default;
 
 // Tabs item
 $st-tabs-item-padding-vertical: 2px !default;

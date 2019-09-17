@@ -4,13 +4,8 @@ import {
   Vue,
 } from 'vue-property-decorator';
 
+import { Tab } from '@/components/tabs/types';
 
-interface Tab {
-  label: string;
-  icon?: string;
-  closeable?: boolean;
-  active?: boolean;
-}
 
 @Component({
   name: 'StTabs',
