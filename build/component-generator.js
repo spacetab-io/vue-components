@@ -224,8 +224,8 @@ generateStory = () => {
     const pascalName = config.componentPascalName;
 
     let componentName = config.componentName.replace('-', ' ');
-    let letter = componentName.slice(1).toUpperCase();
-    componentName = letter + componentName;
+    let firstLetter = componentName.charAt(0).toUpperCase();
+    componentName = firstLetter + componentName.slice(1, componentName.length);
 
     renderFileFromTemplate(
         `${DIRECTORIES.generator.templates.story}documentation-file.template.txt`,
