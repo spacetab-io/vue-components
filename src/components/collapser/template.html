@@ -1,0 +1,55 @@
+<div class="st-collapser">
+  <div :class="['st-collapser__list', listClass]"
+       ref="list">
+    <div :class="[
+           'st-collapser__item',
+            elementClass,
+            {
+              [item.className]: !!item.className,
+            },
+         ]"
+         v-for="(item, index) in elements"
+         :key="index"
+         @click="$emit('element-click', item)">
+      <slot name="element"
+            v-bind:element="item">
+        {{ item }}
+      </slot>
+    </div>
+  </div>
+  <div class="st-collapser__control"
+       ref="control">
+    <st-popper class="st-collapser__popper"
+               ref="popper"
+               trigger="hover"
+               :arrow-visible="false"
+               v-model="popperModel">
+      <div slot="reference"
+           class="st-collapser__control-label"
+           v-show="hiddenElements.length">
+        <slot name="control"
+              v-bind:amount="hiddenElements.length">
+          +{{ hiddenElements.length }}
+        </slot>
+      </div>
+      <div :class="['st-collapser__hidden-list', hiddenListClass]">
+        <div :class="[
+               'st-collapser__hidden-item',
+                hiddenElementClass,
+                {
+                  [item.className]: !!item.className,
+                },
+             ]"
+             v-for="(item, index) in hiddenElements"
+             :key="index"
+             @click="$emit('hidden-element-click', item)">
+          <slot name="hiddenElement"
+                v-bind:element="item">
+            {{ item }}
+          </slot>
+        </div>
+      </div>
+    </st-popper>
+
+  </div>
+</div>

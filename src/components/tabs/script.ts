@@ -4,7 +4,7 @@ import {
   Vue,
 } from 'vue-property-decorator';
 
-import { Tab } from '@/components/tabs/types';
+import { Tab } from './types';
 
 
 @Component({
