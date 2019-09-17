@@ -3,6 +3,8 @@
 $st-table-font-size: $st-font-size !default;
 $st-table-color: $st-text-color-regular !default;
 $st-table-border-color: $st-color-pastel-gray !default;
+$st-table-th-vertical-align: top !default;
+$st-table-td-vertical-align: $st-table-th-vertical-align !default;
 $st-table-td-padding: 0.5em 0.75em !default;
 
 $st-table-border-width: 1px !default;

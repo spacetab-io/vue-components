@@ -16,14 +16,14 @@
 
   @include e(td) {
     padding: $st-table-td-padding;
-    vertical-align: top;
+    vertical-align: $st-table-td-vertical-align;
     border: $st-table-border-width solid $st-table-border-color;
     border-width: 0 0 $st-table-border-width;
   }
 
   @include e(th) {
     padding: $st-table-td-padding;
-    vertical-align: top;
+    vertical-align: $st-table-th-vertical-align;
     border: $st-table-border-width solid $st-table-border-color;
     border-width: 0 0 $st-table-border-width;
 

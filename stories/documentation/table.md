@@ -1,6 +1,6 @@
 # Documentation
 
-## TABLE attributes
+## Table attributes
 
 | Name | Description | Required | Type | Default value | Possible values |
 | --- | --- | --- | --- | --- | --- |
