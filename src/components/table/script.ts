@@ -10,8 +10,6 @@ import {
 import { Column, SortDirections } from './typings';
 
 
-export * from './typings';
-
 @Component({
   name: 'StTable',
   inheritAttrs: false,
