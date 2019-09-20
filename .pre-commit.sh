@@ -1,11 +1,12 @@
-# Lint check
-npm run lint
+# run lint
+npm run lint &&
+# run generators
+npm run generator:icons &&
+npm run generator:themes &&
+# add generated files
+git add src/assets/icons &&
+git add src/components/icon/_icons.generated.ts &&
+git add src/assets/scss/themes &&
+exit 0
 
-# Icons generating
-npm run generator:icons
-# Themes generating
-npm run generator:themes
-# Adding generated files
-git add src/assets/icons
-git add src/components/icon/_icons.generated.ts
-git add src/assets/scss/themes
+exit 1

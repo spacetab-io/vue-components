@@ -22,3 +22,27 @@ export enum PopperPlacement {
   left = 'left',
   leftStart = 'left-start',
 }
+
+export interface PopperBindProperties {
+  tag?: string;
+  enterActiveClass?: string;
+  delayOnMouseOver?: number;
+  width?: number;
+  delayOnMouseOut?: number;
+  boundariesSelector?: string;
+  arrowVisible?: boolean;
+  leaveActiveClass?: string;
+  transition?: string;
+  placement?: string;
+  appendToBody?: boolean;
+  reference?: Element;
+  trigger?: TriggerType;
+  stopPropagation?: boolean;
+  preventDefault?: boolean;
+  forceShow?: boolean;
+  disabled?: boolean;
+  withBorder?: boolean;
+  popperClass?: string;
+  content?: string;
+  value?: boolean;
+}

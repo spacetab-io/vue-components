@@ -1,0 +1,54 @@
+@import '../../assets/scss/utils/mixins';
+@import '../../assets/scss/components/collapser/_variables';
+
+@include b('collapser') {
+  $root: &;
+
+  display: flex;
+  align-items: center;
+  justify-content: $st-collapser-justify-content;
+
+  @include e('list') {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+
+    @include m('calculator') {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      opacity: 0;
+    }
+  }
+
+  @include e('item') {
+    margin-right: $st-collapser-item-margin;
+    font-size: $st-collapser-item-font-size;
+    color: $st-collapser-item-color;
+    white-space: nowrap;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  @include e('control') {
+    margin-left: $st-collapser-control-margin;
+    font-size: $st-collapser-item-font-size;
+  }
+
+  @include e('control-label') {
+    color: $st-collapser-control-color;
+    cursor: default;
+
+    @include m('with-hover') {
+      cursor: pointer;
+
+      &:hover {
+        color: $st-collapser-control-color-hover;
+      }
+    }
+  }
+}

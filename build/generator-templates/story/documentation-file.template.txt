@@ -1,11 +1,19 @@
 # Documentation
 
+Tell us about this component, please..
+
 ## Example of Usage
 
-Explain how to use it, please
+Explain how to use it, please..
 
 ## Attributes
 
 | Name | Description | Required | Type | Default value | Possible values |
 | --- | --- | --- | --- | --- | --- |
 | - | - | - | - | - | - |
+
+## Events
+
+| Name | Description | Arguments |
+| --- | --- | --- |
+| - | - | - |

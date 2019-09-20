@@ -5,6 +5,7 @@ import StButtonGroup from './button-group/index.vue';
 import StButton from './button/index.vue';
 import StCheckbox from './checkbox/index.vue';
 import StCol from './col/index.vue';
+import StCollapser from './collapser/index.vue';
 import StIcon from './icon/index.vue';
 import StInput from './input/index.vue';
 import StNotification from './notification/index.vue';
@@ -24,6 +25,7 @@ const Components = {
   StButtonGroup,
   StCheckbox,
   StCol,
+  StCollapser,
   StIcon,
   StInput,
   StNotification,
