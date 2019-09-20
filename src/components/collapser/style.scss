@@ -41,10 +41,14 @@
 
   @include e('control-label') {
     color: $st-collapser-control-color;
-    cursor: pointer;
+    cursor: default;
 
-    &:hover {
-      color: $st-collapser-control-color-hover;
+    @include m('with-hover') {
+      cursor: pointer;
+
+      &:hover {
+        color: $st-collapser-control-color-hover;
+      }
     }
   }
 }

@@ -79,7 +79,7 @@ And also you can change control block via `control` slot:
 | element-class | Defines additional class name for list's element | - | String | - | - |
 | hidden-list-class | Defines additional class name for hidden list | - | String | - | - |
 | hidden-element-class | Defines additional class name for hidden list's element | - | String | - | - |
-| popper-trigger | Defines trigger which will make popper visible | - | String | hover | CHECK POPPER COMPONENT DOCUMENTATION |
+| popper-props | Popper's component properties | - | Object | arrowVisible: false, placement: bottom, trigger: hover, boundariesSelector: 'body' | CHECK POPPER COMPONENT DOCUMENTATION |
 
 ## Events
 

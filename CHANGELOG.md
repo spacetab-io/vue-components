@@ -4,6 +4,8 @@
 
 ### Features
 * Added new component: `Tabs`
+* Added new component: `Collapser`
+* Added `PopperBindProperties` interface for component `Popper`
 
 ### Maintenance
 * Added pre-commit script

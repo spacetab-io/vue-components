@@ -1,4 +1,5 @@
 import debounce from 'lodash/debounce';
+import merge from 'lodash/merge';
 import {
   Component,
   Prop,
@@ -6,7 +7,11 @@ import {
   Watch,
 } from 'vue-property-decorator';
 
-import { TriggerType } from '../popper/types';
+import {
+  PopperBindProperties,
+  PopperPlacement,
+  TriggerType,
+} from '../popper/types';
 
 
 const CALCULATOR_LIST_CLASS_NAME = 'st-collapser__list--calculator';
@@ -31,12 +36,19 @@ export default class StCollapser extends Vue {
   @Prop({ type: String, default: '' })
   hiddenElementClass!: string;
 
-  @Prop({ type: String, default: TriggerType.hover })
-  popperTrigger!: TriggerType;
+  @Prop({ type: Object, default: () => {} })
+  popperProps!: PopperBindProperties;
 
   hiddenElements: any[] = [];
 
   popperModel = false;
+
+  extendedPopperProps: PopperBindProperties = {
+    arrowVisible: false,
+    placement: PopperPlacement.bottom,
+    trigger: TriggerType.hover,
+    boundariesSelector: 'body',
+  };
 
   @Watch('elements', { deep: true })
   onElementsChange() {
@@ -54,6 +66,10 @@ export default class StCollapser extends Vue {
 
   beforeDestroy() {
     window.removeEventListener('resize', this.debounceCollapse);
+  }
+
+  beforeMount() {
+    merge(this.extendedPopperProps, this.popperProps);
   }
 
   mounted() {

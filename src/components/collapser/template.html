@@ -21,11 +21,13 @@
        ref="control">
     <st-popper class="st-collapser__popper"
                ref="popper"
-               trigger="hover"
-               :arrow-visible="false"
+               v-bind="extendedPopperProps"
                v-model="popperModel">
       <div slot="reference"
-           class="st-collapser__control-label"
+           :class="{
+             'st-collapser__control-label': true,
+             'st-collapser__control-label--with-hover': !extendedPopperProps.disabled,
+           }"
            v-show="hiddenElements.length">
         <slot name="control"
               v-bind:amount="hiddenElements.length">
