@@ -10,9 +10,15 @@ export interface Column {
   width?: number | string,
   class?: any[] | object | string,
   style?: any[] | object | string,
+  [key: string]: any,
 }
 
-export enum SortDirections {
+export enum SortDirection {
   asc = 'asc',
   desc = 'desc',
+}
+
+export interface SortEvent {
+  sortBy?: string,
+  direction?: SortDirection,
 }

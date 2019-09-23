@@ -7,7 +7,7 @@ import {
   Watch,
 } from 'vue-property-decorator';
 
-import { Column, SortDirections } from './typings';
+import { Column, SortDirection, SortEvent } from './types';
 
 
 @Component({
@@ -35,10 +35,10 @@ export default class StTable extends Vue {
 
   @Prop({
     type: String,
-    default: SortDirections.asc,
-    validator: prop => values(SortDirections).includes(prop),
+    default: SortDirection.asc,
+    validator: prop => values(SortDirection).includes(prop),
   })
-  sortDirection!: SortDirections;
+  sortDirection!: SortDirection;
 
   @Prop({ type: Function, default: () => '' })
   rowClass!: () => string;
@@ -67,7 +67,7 @@ export default class StTable extends Vue {
 
   @Watch('sortDirection')
   onSortDirectionChange(value: string) {
-    this.isAsc = value !== SortDirections.desc;
+    this.isAsc = value !== SortDirection.desc;
   }
 
   @Watch('columns')
@@ -76,12 +76,12 @@ export default class StTable extends Vue {
   }
 
   created() {
-    this.isAsc = this.sortDirection !== SortDirections.desc;
+    this.isAsc = this.sortDirection !== SortDirection.desc;
     this.newData = this.data;
     this.checkSort();
   }
 
-  getRowValue(row: {}, col: Column, index: number) {
+  getRowValue(row: any, col: Column, index: number) {
     if (typeof col.field === 'function') {
       return col.field.call(this.$parent, row, col, index);
     }
@@ -135,11 +135,11 @@ export default class StTable extends Vue {
     let sortDirection;
     if (col !== this.currentSortColumn) {
       this.isAsc = true;
-      sortDirection = SortDirections.asc;
+      sortDirection = SortDirection.asc;
       this.currentSortColumn = col;
     } else if (this.isAsc) {
       this.isAsc = false;
-      sortDirection = SortDirections.desc;
+      sortDirection = SortDirection.desc;
       this.currentSortColumn = col;
     } else {
       this.isAsc = true;
@@ -147,8 +147,9 @@ export default class StTable extends Vue {
     }
 
     if (!this.clientSorting) {
-      const field = sortDirection && col.field;
-      this.$emit('sort', field, sortDirection);
+      const sortBy = sortDirection && col.name;
+      const event: SortEvent = { sortBy, direction: sortDirection };
+      this.$emit('sort', event, col);
     } else if (sortDirection) {
       this.newData = this.sortedBy(
         this.newData,

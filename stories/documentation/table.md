@@ -58,10 +58,10 @@ columns: [ // array of Objects
 
 | Name | Description |
 | --- | --- |
-| sort | Emitted 2 values `(field, direction)` when clicked sortable header |
+| sort | Emitted 2 values `({ sortBy, direction }: SortEvent, col: Column)` when clicked sortable header |
 | click | Emitted `row` data when clicked on any row |
-| select | Emitted 2 values `(row, direselectedction)` data when clicked on not selected row |
-| update:selected | Emitted `row` data when clicked on not selected row |
+| select | Emitted 2 values `(row: Column, selected: boolean)` data when clicked on not selected row |
+| update:selected | Emitted `row: Column` data when clicked on not selected row |
 
 ## Slots
 

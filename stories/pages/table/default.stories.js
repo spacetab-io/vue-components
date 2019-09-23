@@ -58,9 +58,9 @@ storiesOf('Components|Table', module).add('Default', () => ({
         { 'is-selected': row === this.selected },
       ];
     },
-    onSort(field, direction) {
+    onSort({ sortBy, direction }) {
       this.sortDirection = direction;
-      this.sortBy = field;
+      this.sortBy = sortBy;
     },
   },
 }), {
