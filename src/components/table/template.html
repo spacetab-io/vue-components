@@ -8,11 +8,12 @@
       <tr class="st-table__tr">
         <th v-for="(col, index) in columns"
             :key="index"
-            :class="{
+            :align="col.centered ? 'center' : ''"
+            :class="[{
                 'st-table__th__sortable--current': currentSortColumn === col,
                 'st-table__th__sortable': col.sortable
-            }"
-            :style="{ width: getWidth(col) }"
+            }, col.class]"
+            :style="[{ width: getWidth(col) }, col.style]"
             class="st-table__th"
             @click.stop="sort(col)">
             <div class="st-table__th__wrap"
@@ -60,7 +61,10 @@
             @click="selectRow(row)">
           <td v-for="col in columns"
               :key="col.name"
-              :value="value = getRowValue(row, col, index)"
+              :value="(value = getRowValue(row, col, index)) && null"
+              :class="col.class"
+              :style="col.style"
+              :align="col.centered ? 'center' : ''"
               class="st-table__td">
             <slot :name="`td-${col.name}`"
                   :index="index"
