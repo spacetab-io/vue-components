@@ -57,7 +57,10 @@ export default class StTable extends Vue {
   @Watch('data')
   onDataChange(value: any[]) {
     this.newData = value;
-    this.sort(this.currentSortColumn);
+
+    if (this.clientSorting) {
+      this.sort(this.currentSortColumn);
+    }
   }
 
   @Watch('sortBy')
