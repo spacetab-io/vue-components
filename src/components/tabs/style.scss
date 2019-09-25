@@ -28,16 +28,16 @@
       }
     }
 
-    &:not(#{ m('active') }):hover {
+    &:not(#{ m('selected') }):hover {
       color: $st-tabs-item-hovered-text-color;
       border-bottom-color: $st-tabs-item-hovered-border-color;
       border-bottom-width: $st-tabs-item-hovered-border-width;
     }
 
-    @include m('active') {
-      color: $st-tabs-item-active-text-color;
-      border-bottom-color: $st-tabs-item-active-border-color;
-      border-bottom-width: $st-tabs-item-active-border-width;
+    @include m('selected') {
+      color: $st-tabs-item-selected-text-color;
+      border-bottom-color: $st-tabs-item-selected-border-color;
+      border-bottom-width: $st-tabs-item-selected-border-width;
     }
   }
 

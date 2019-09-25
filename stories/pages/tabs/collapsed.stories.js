@@ -1,10 +1,10 @@
 import { storiesOf } from '@storybook/vue'
 import { boolean, text, array, select } from '@storybook/addon-knobs';
-import { template } from '../../templates/tabs/default.template';
-import documentation from '../../documentation/tabs.md'
+import { template } from '../../templates/tabs/collapsed.template';
+import documentation from '../../documentation/tabs-collapsed.md'
 import { iconsList } from '../../utils/props-options';
 
-storiesOf('Components|Tabs', module).add('Default', () => ({
+storiesOf('Components|Tabs', module).add('Collapsed', () => ({
   template,
   props: {
     icon: {
@@ -29,6 +29,14 @@ storiesOf('Components|Tabs', module).add('Default', () => ({
         {
           id: 'tab-3',
           label: 'Tab 3',
+        },
+        {
+          id: 'tab-4',
+          label: 'Tab 4',
+        },
+        {
+          id: 'tab-5',
+          label: 'Tab 5',
         },
       ]
     }

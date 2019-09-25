@@ -1,0 +1,36 @@
+<st-collapser class="st-tabs st-tabs--collapsed"
+              list-class="st-tabs__list"
+              hidden-list-class="st-tabs__hidden-list"
+              :elements="copiedTabs"
+              :element-class="elementClassName"
+              :hidden-element-class="hiddenElementClassName"
+              :popper-props="popperProps"
+              @element-click="$event => select($event)"
+              @hidden-element-click="$event => select($event)">
+  <template v-slot:element="{ element }">
+    <slot name="tab"
+          v-bind:tab="element">
+      <st-icon v-if="element.icon"
+               class="st-tabs__item-icon"
+               :name="element.icon" />
+      <span class="st-tabs__item-label">{{ element.label }}</span>
+      <st-icon v-if="element.closeable"
+               class="st-tabs__item-close"
+               name="cross"
+               @click.stop="close(element)" />
+    </slot>
+  </template>
+  <template v-slot:hiddenElement="{ element }">
+    <slot name="hiddenTab"
+          v-bind:tab="element">
+      <st-icon v-if="element.icon"
+               class="st-tabs__hidden-item-icon"
+               :name="element.icon" />
+      <span class="st-tabs__hidden-item-label">{{ element.label }}</span>
+      <st-icon v-if="element.closeable"
+               class="st-tabs__hidden-item-close"
+               name="cross"
+               @click.stop="close(element)" />
+    </slot>
+  </template>
+</st-collapser>

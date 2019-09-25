@@ -1,0 +1,66 @@
+@import '../../assets/scss/utils/mixins';
+@import '../../assets/scss/components/tabs/_variables';
+@import '../../assets/scss/components/tabs-collapsed/_variables';
+@import "../tabs/style";
+
+@include b('tabs') {
+  $root: &;
+
+  @include m('collapsed') {
+    #{ e('item', $root) } {
+      margin: 0;
+    }
+
+    #{ b('collapser__control') } {
+      border-bottom: $st-tabs-item-border-width solid transparent;
+    }
+
+    #{ b('collapser__popper') } {
+      #{ b('popper') } {
+        padding: $st-tabs-collapsed-popper-padding;
+      }
+    }
+  }
+
+  @include e('hidden-list') {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @include e('hidden-item') {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: $st-tabs-collapsed-hidden-item-padding-vertical $st-tabs-collapsed-hidden-item-padding-horizontal;
+    cursor: $st-tabs-collapsed-hidden-item-cursor;
+
+    &:hover {
+      background: $st-tabs-collapsed-hidden-item-background-hover;
+
+      #{ e('hidden-item-close', $root) } {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    @include m('selected') {
+      color: $st-tabs-collapsed-hidden-item-color-selected;
+      background: $st-tabs-collapsed-hidden-item-background-selected;
+    }
+  }
+
+  @include e('hidden-item-icon') {
+    @extend .st-tabs__item-icon;
+  }
+
+  @include e('hidden-item-label') {
+    @extend .st-tabs__item-label;
+  }
+
+  @include e('hidden-item-close') {
+    @extend .st-tabs__item-close;
+
+    right: $st-tabs-collapsed-hidden-item-close-right;
+  }
+}

@@ -64,11 +64,11 @@ And also you can change control block via `control` slot:
 
 ## Slots
 
-| Name | Description |
-| --- | --- |
-| element | Defines list's element content |
-| hiddenElement | Defines hidden list's element content |
-| control | Defines block uses for show hidden elements |
+| Name | Description | Prop name |
+| --- | --- | --- |
+| element | Defines list's element content | element |
+| hiddenElement | Defines hidden list's element content | element |
+| control | Defines block for showing hidden elements | amount |
 
 ## Attributes
 
@@ -76,9 +76,9 @@ And also you can change control block via `control` slot:
 | --- | --- | --- | --- | --- | --- |
 | elements | Elements to render | True | String[]/Any[] | [] | - |
 | list-class | Defines additional class name for list | - | String | - | - |
-| element-class | Defines additional class name for list's element | - | String | - | - |
+| element-class | Defines function for additional class name of list's element | - | (element: Object | string, index: Number): String | - | - |
 | hidden-list-class | Defines additional class name for hidden list | - | String | - | - |
-| hidden-element-class | Defines additional class name for hidden list's element | - | String | - | - |
+| hidden-element-class | Defines function for additional class name of hidden list's element | - | (element: Object | string, index: Number): String | - | - |
 | popper-props | Popper's component properties | - | Object | arrowVisible: false, placement: bottom, trigger: hover, boundariesSelector: 'body' | CHECK POPPER COMPONENT DOCUMENTATION |
 
 ## Events

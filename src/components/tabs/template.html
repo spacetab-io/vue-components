@@ -1,12 +1,12 @@
 <div class="st-tabs">
   <div class="st-tabs__list">
     <div class="st-tabs__item"
-         v-for="(item, index) in tabs"
+         v-for="(item, index) in copiedTabs"
          :key="index"
          :class="{
-           'st-tabs__item--active': item.active
+           'st-tabs__item--selected': item.id === selectedTabId
          }"
-         @click="$emit('select', item)">
+         @click="select(item)">
       <slot name="tab" v-bind:tab="item">
         <st-icon v-if="item.icon"
                  class="st-tabs__item-icon"
@@ -15,7 +15,7 @@
         <st-icon v-if="item.closeable"
                  class="st-tabs__item-close"
                  name="cross"
-                 @click.stop="$emit('close', item)" />
+                 @click.stop="close(item)" />
       </slot>
     </div>
   </div>

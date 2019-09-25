@@ -1,6 +1,6 @@
 @import '../../utils/variables';
 
-$st-tabs-active-color: $st-color-blueberry !default;
+$st-tabs-selected-color: $st-color-blueberry !default;
 
 // Tabs item
 $st-tabs-item-padding-vertical: 2px !default;
@@ -23,6 +23,6 @@ $st-tabs-item-hovered-border-color: $st-color-pastel-gray !default;
 $st-tabs-item-hovered-border-width: $st-tabs-item-border-width !default;
 $st-tabs-item-hovered-text-color: $st-tabs-item-text-color !default;
 
-$st-tabs-item-active-border-color: $st-tabs-active-color !default;
-$st-tabs-item-active-border-width: $st-tabs-item-border-width !default;
-$st-tabs-item-active-text-color: $st-tabs-active-color !default;
+$st-tabs-item-selected-border-color: $st-tabs-selected-color !default;
+$st-tabs-item-selected-border-width: $st-tabs-item-border-width !default;
+$st-tabs-item-selected-text-color: $st-tabs-selected-color !default;

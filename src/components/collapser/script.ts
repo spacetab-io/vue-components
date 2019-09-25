@@ -27,21 +27,21 @@ export default class StCollapser extends Vue {
   @Prop({ type: String, default: '' })
   listClass!: string;
 
-  @Prop({ type: String, default: '' })
-  elementClass!: string;
+  @Prop({ type: Function, default: () => '' })
+  elementClass!: () => string;
 
   @Prop({ type: String, default: '' })
   hiddenListClass!: string;
 
-  @Prop({ type: String, default: '' })
-  hiddenElementClass!: string;
+  @Prop({ type: Function, default: () => '' })
+  hiddenElementClass!: () => string;
 
   @Prop({ type: Object, default: () => {} })
   popperProps!: PopperBindProperties;
 
   hiddenElements: any[] = [];
 
-  popperModel = false;
+  popperVisible = false;
 
   extendedPopperProps: PopperBindProperties = {
     arrowVisible: false,

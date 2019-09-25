@@ -1,0 +1,12 @@
+@import '../../utils/variables';
+@import '../tabs/variables';
+
+$st-tabs-collapsed-popper-padding: 0;
+
+$st-tabs-collapsed-hidden-item-padding-horizontal: 20px;
+$st-tabs-collapsed-hidden-item-padding-vertical: 10px;
+$st-tabs-collapsed-hidden-item-cursor: pointer;
+$st-tabs-collapsed-hidden-item-color-selected: $st-tabs-item-selected-text-color;
+$st-tabs-collapsed-hidden-item-background-hover: $st-color-white;
+$st-tabs-collapsed-hidden-item-background-selected: $st-color-white;
+$st-tabs-collapsed-hidden-item-close-right: 3px;

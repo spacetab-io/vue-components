@@ -3,10 +3,7 @@
        ref="list">
     <div :class="[
            'st-collapser__item',
-            elementClass,
-            {
-              [item.className]: !!item.className,
-            },
+            elementClass(item, index),
          ]"
          v-for="(item, index) in elements"
          :key="index"
@@ -22,12 +19,16 @@
     <st-popper class="st-collapser__popper"
                ref="popper"
                v-bind="extendedPopperProps"
-               v-model="popperModel">
+               @show="popperVisible = true"
+               @hide="popperVisible = false">
       <div slot="reference"
-           :class="{
-             'st-collapser__control-label': true,
-             'st-collapser__control-label--with-hover': !extendedPopperProps.disabled,
-           }"
+           :class="[
+             'st-collapser__control-label',
+             {
+               'st-collapser__control-label--with-hover': !extendedPopperProps.disabled,
+               'st-collapser__control-label--hovered': popperVisible,
+             }
+           ]"
            v-show="hiddenElements.length">
         <slot name="control"
               v-bind:amount="hiddenElements.length">
@@ -37,10 +38,7 @@
       <div :class="['st-collapser__hidden-list', hiddenListClass]">
         <div :class="[
                'st-collapser__hidden-item',
-                hiddenElementClass,
-                {
-                  [item.className]: !!item.className,
-                },
+                hiddenElementClass(item, index),
              ]"
              v-for="(item, index) in hiddenElements"
              :key="index"
@@ -52,6 +50,5 @@
         </div>
       </div>
     </st-popper>
-
   </div>
 </div>

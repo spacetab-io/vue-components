@@ -22,19 +22,22 @@ onClose(tab) {
 ```
 
 ```html
-<st-tabs :tabs="tabsElements"
-         @select="onSelect" 
-         @close="onClose" />
+<st-tabs-collapsed :tabs="tabsElements"
+                   @select="onSelect" 
+                   @close="onClose" />
 ```
 
 Or, if you want to make your tabs look as you want you can use slots there.
 
 ```html
-<st-tabs :tabs="tabsElements"
-         @select="onSelect" 
-         @close="onClose">
+<st-tabs-collapsed :tabs="tabsElements"
+                   @select="onSelect" 
+                   @close="onClose">
     <template v-slot:tab="{ tab }">
       wow! {{ tab.label }}
+    </template>
+    <template v-slot:hiddenTab="{ tab }">
+      hidden! {{ tab.label }}
     </template>
 </st-tabs>
 ```
@@ -44,6 +47,7 @@ Or, if you want to make your tabs look as you want you can use slots there.
 | Name | Description | Prop name |
 | --- | --- | --- |
 | tab | Defines list's element content | tab |
+| hiddenTab | Defines hidden list's element content | tab |
 
 ## Attributes
 
@@ -51,6 +55,7 @@ Or, if you want to make your tabs look as you want you can use slots there.
 | --- | --- | --- | --- | --- | --- |
 | tabs | Tabs list | true | Array | - | - |
 | default-selected-tab-id | Id of default selected tab | false | String | - | - |
+| popper-props | Collapser's popper props | false | Object | - | CHECK POPPER COMPONENT |
 
 ## Tab (tabs list item) attributes
 
