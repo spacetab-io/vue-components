@@ -1,36 +1,34 @@
-<st-collapser class="st-tabs st-tabs--collapsed"
-              list-class="st-tabs__list"
-              hidden-list-class="st-tabs__hidden-list"
+<st-collapser class="st-tabs-collapsed"
+              list-class="st-tabs-collapsed__list"
+              hidden-list-class="st-tabs-collapsed__hidden-list"
+              control-class="st-tabs-collapsed__control"
+              popper-class="st-tabs-collapsed__popper"
               :elements="copiedTabs"
-              :element-class="elementClassName"
-              :hidden-element-class="hiddenElementClassName"
-              :popper-props="popperProps"
-              @element-click="$event => select($event)"
-              @hidden-element-click="$event => select($event)">
-  <template v-slot:element="{ element }">
-    <slot name="tab"
-          v-bind:tab="element">
-      <st-icon v-if="element.icon"
-               class="st-tabs__item-icon"
-               :name="element.icon" />
-      <span class="st-tabs__item-label">{{ element.label }}</span>
-      <st-icon v-if="element.closeable"
-               class="st-tabs__item-close"
-               name="cross"
-               @click.stop="close(element)" />
-    </slot>
+              :popper-props="popperProps">
+  <template v-slot:list="{ elements }">
+    <st-tab-item v-for="tab in elements"
+                 :key="tab.id"
+                 class-name="st-tabs-collapsed__item"
+                 :selected="tab.id === selectedTabId"
+                 :icon="tab.icon"
+                 :label="tab.label"
+                 :closeable="tab.closeable"
+                 @close="close(tab)"
+                 @click.native="select(tab)">
+      <slot name="tab" v-bind:tab="tab"></slot>
+    </st-tab-item>
   </template>
-  <template v-slot:hiddenElement="{ element }">
-    <slot name="hiddenTab"
-          v-bind:tab="element">
-      <st-icon v-if="element.icon"
-               class="st-tabs__hidden-item-icon"
-               :name="element.icon" />
-      <span class="st-tabs__hidden-item-label">{{ element.label }}</span>
-      <st-icon v-if="element.closeable"
-               class="st-tabs__hidden-item-close"
-               name="cross"
-               @click.stop="close(element)" />
-    </slot>
+  <template v-slot:hiddenList="{ hiddenElements }">
+    <st-tab-item v-for="tab in hiddenElements"
+                 :key="tab.id"
+                 class-name="st-tabs-collapsed__item"
+                 :selected="tab.id === selectedTabId"
+                 :icon="tab.icon"
+                 :label="tab.label"
+                 :closeable="tab.closeable"
+                 @close="close(tab)"
+                 @click.native="select(tab)">
+      <slot name="hiddenTab" v-bind:tab="tab"></slot>
+    </st-tab-item>
   </template>
 </st-collapser>

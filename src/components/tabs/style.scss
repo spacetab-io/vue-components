@@ -11,6 +11,8 @@
   }
 
   @include e('item') {
+    $tabRoot: &;
+
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -18,14 +20,14 @@
     font-size: $st-tabs-item-font-size;
     color: $st-tabs-item-text-color;
     text-align: center;
+    white-space: nowrap;
     cursor: pointer;
     border-bottom: $st-tabs-item-border-width $st-tabs-item-border-style $st-tabs-item-border-color;
 
-    &:hover {
-      #{ e('item-close', $root) } {
-        visibility: visible;
-        opacity: 1;
-      }
+    @include m('selected') {
+      color: $st-tabs-item-selected-text-color;
+      border-bottom-color: $st-tabs-item-selected-border-color;
+      border-bottom-width: $st-tabs-item-selected-border-width;
     }
 
     &:not(#{ m('selected') }):hover {
@@ -34,40 +36,41 @@
       border-bottom-width: $st-tabs-item-hovered-border-width;
     }
 
-    @include m('selected') {
-      color: $st-tabs-item-selected-text-color;
-      border-bottom-color: $st-tabs-item-selected-border-color;
-      border-bottom-width: $st-tabs-item-selected-border-width;
+    .tab-icon {
+      width: $st-tabs-item-icon-size;
+      height: $st-tabs-item-icon-size;
+      margin-right: $st-tabs-item-icon-margin;
+      color: currentColor;
     }
-  }
 
-  @include e('item-icon') {
-    width: $st-tabs-item-icon-size;
-    height: $st-tabs-item-icon-size;
-    margin-right: $st-tabs-item-icon-margin;
-    color: currentColor;
-  }
+    .tab-label {
+      color: currentColor;
+    }
 
-  @include e('item-label') {
-    color: currentColor;
-  }
+    .tab-close-btn {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: $st-tabs-item-close-size;
+      height: $st-tabs-item-close-size;
+      padding: $st-tabs-item-close-padding;
+      margin-top: -($st-tabs-item-border-width / 2);
+      color: $st-tabs-item-close-color;
+      cursor: pointer;
+      visibility: hidden;
+      opacity: $st-tabs-item-close-opacity;
+      transform: translateY(-50%);
 
-  @include e('item-close') {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    width: $st-tabs-item-close-size;
-    height: $st-tabs-item-close-size;
-    padding: $st-tabs-item-close-padding;
-    margin-top: -($st-tabs-item-border-width / 2);
-    color: $st-tabs-item-close-color;
-    cursor: pointer;
-    visibility: hidden;
-    opacity: $st-tabs-item-close-opacity;
-    transform: translateY(-50%);
+      &:hover {
+        color: $st-tabs-item-close-color-hovered;
+      }
+    }
 
     &:hover {
-      color: $st-tabs-item-close-color-hovered;
+      .tab-close-btn {
+        visibility: visible;
+        opacity: 1;
+      }
     }
   }
 }

@@ -1,0 +1,12 @@
+<div :class="componentClassName">
+  <slot>
+    <st-icon v-if="icon"
+             class="tab-icon"
+             :name="icon" />
+    <span class="tab-label">{{ label }}</span>
+    <st-icon v-if="closeable"
+             class="tab-close-btn"
+             name="cross"
+             @click.stop="$emit('close')" />
+  </slot>
+</div>

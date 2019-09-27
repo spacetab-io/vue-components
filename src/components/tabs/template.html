@@ -1,22 +1,14 @@
 <div class="st-tabs">
   <div class="st-tabs__list">
-    <div class="st-tabs__item"
-         v-for="(item, index) in copiedTabs"
-         :key="index"
-         :class="{
-           'st-tabs__item--selected': item.id === selectedTabId
-         }"
-         @click="select(item)">
-      <slot name="tab" v-bind:tab="item">
-        <st-icon v-if="item.icon"
-                 class="st-tabs__item-icon"
-                 :name="item.icon" />
-        <span class="st-tabs__item-label">{{ item.label }}</span>
-        <st-icon v-if="item.closeable"
-                 class="st-tabs__item-close"
-                 name="cross"
-                 @click.stop="close(item)" />
-      </slot>
-    </div>
+    <st-tab-item v-for="item in copiedTabs"
+                 :key="item.id"
+                 :selected="item.id === selectedTabId"
+                 :icon="item.icon"
+                 :label="item.label"
+                 :closeable="item.closeable"
+                 @close="close(item)"
+                 @click.native="select(item)">
+      <slot name="tab" v-bind:tab="item"></slot>
+    </st-tab-item>
   </div>
 </div>

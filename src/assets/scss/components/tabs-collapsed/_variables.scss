@@ -1,12 +1,41 @@
 @import '../../utils/variables';
 @import '../tabs/variables';
 
-$st-tabs-collapsed-popper-padding: 0;
+$st-tabs-collapsed-selected-color: $st-tabs-selected-color !default;
 
-$st-tabs-collapsed-hidden-item-padding-horizontal: 20px;
-$st-tabs-collapsed-hidden-item-padding-vertical: 10px;
-$st-tabs-collapsed-hidden-item-cursor: pointer;
-$st-tabs-collapsed-hidden-item-color-selected: $st-tabs-item-selected-text-color;
-$st-tabs-collapsed-hidden-item-background-hover: $st-color-white;
-$st-tabs-collapsed-hidden-item-background-selected: $st-color-white;
-$st-tabs-collapsed-hidden-item-close-right: 3px;
+// Tabs popper
+$st-tabs-collapsed-popper-padding: 0 !default;
+
+// Tabs item
+$st-tabs-collapsed-item-padding-vertical: $st-tabs-item-padding-vertical !default;
+$st-tabs-collapsed-item-padding-horizontal: $st-tabs-item-padding-horizontal !default;
+
+$st-tabs-collapsed-item-border-color: $st-tabs-item-border-color !default;
+$st-tabs-collapsed-item-border-width: $st-tabs-item-border-width !default;
+$st-tabs-collapsed-item-border-style: $st-tabs-item-border-style !default;
+$st-tabs-collapsed-item-font-size: $st-tabs-item-font-size !default;
+$st-tabs-collapsed-item-text-color: $st-tabs-item-text-color !default;
+$st-tabs-collapsed-item-icon-size: $st-tabs-item-icon-size !default;
+$st-tabs-collapsed-item-icon-margin: $st-tabs-item-icon-margin !default;
+$st-tabs-collapsed-item-close-size: $st-tabs-item-close-size !default;
+$st-tabs-collapsed-item-close-color: $st-tabs-item-close-color !default;
+$st-tabs-collapsed-item-close-color-hovered: $st-tabs-item-close-color-hovered !default;
+$st-tabs-collapsed-item-close-padding: $st-tabs-item-close-padding !default;
+$st-tabs-collapsed-item-close-opacity: $st-tabs-item-close-opacity !default;
+
+$st-tabs-collapsed-item-hovered-border-color: $st-tabs-item-hovered-border-color !default;
+$st-tabs-collapsed-item-hovered-border-width: $st-tabs-item-hovered-border-width !default;
+$st-tabs-collapsed-item-hovered-text-color: $st-tabs-item-hovered-text-color !default;
+
+$st-tabs-collapsed-item-selected-border-color: $st-tabs-item-selected-border-color !default;
+$st-tabs-collapsed-item-selected-border-width: $st-tabs-item-selected-border-width !default;
+$st-tabs-collapsed-item-selected-text-color: $st-tabs-item-selected-text-color !default;
+
+// Tabs hidden item
+$st-tabs-collapsed-hidden-item-padding-horizontal: 20px !default;
+$st-tabs-collapsed-hidden-item-padding-vertical: 10px !default;
+$st-tabs-collapsed-hidden-item-cursor: pointer !default;
+$st-tabs-collapsed-hidden-item-color-selected: $st-tabs-collapsed-item-selected-text-color !default;
+$st-tabs-collapsed-hidden-item-background-hover: $st-color-white !default;
+$st-tabs-collapsed-hidden-item-background-selected: $st-color-white !default;
+$st-tabs-collapsed-hidden-item-close-right: 3px !default;

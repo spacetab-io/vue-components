@@ -5,18 +5,22 @@ import {
   Watch,
 } from 'vue-property-decorator';
 
+import StTabItem from './_tab/index.vue';
 import { Tab } from './types';
 
 
 @Component({
   name: 'StTabs',
+  components: {
+    StTabItem,
+  },
 })
 export default class StTabs extends Vue {
   @Prop(Array)
   tabs!: Tab[];
 
   @Prop(String)
-  defaultSelectedTabId!: string;
+  value!: string;
 
   copiedTabs: Tab[] = [];
 
@@ -27,14 +31,14 @@ export default class StTabs extends Vue {
     this.setCopiedTabs();
   }
 
-  @Watch('defaultSelectedTabId')
-  onActiveIdChange() {
-    this.setSelectedTab();
+  @Watch('value')
+  onValueChange(value: string) {
+    this.selectedTabId = value;
   }
 
   mounted() {
-    this.setSelectedTab();
     this.setCopiedTabs();
+    this.setSelectedTab();
   }
 
   setCopiedTabs() {
@@ -42,17 +46,17 @@ export default class StTabs extends Vue {
   }
 
   setSelectedTab() {
-    const tabsList = this.copiedTabs.length
-      ? this.copiedTabs
-      : this.tabs;
-    this.selectedTabId = this.defaultSelectedTabId
-      ? this.defaultSelectedTabId
-      : tabsList[0].id;
+    if (this.value) {
+      this.selectedTabId = this.value;
+    } else {
+      this.select(this.copiedTabs[0]);
+    }
   }
 
   select(tab: Tab) {
     this.selectedTabId = tab.id;
     this.$emit('select', tab);
+    this.$emit('input', this.selectedTabId);
   }
 
   close(closedTab: Tab) {

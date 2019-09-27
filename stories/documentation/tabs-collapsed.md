@@ -54,7 +54,7 @@ Or, if you want to make your tabs look as you want you can use slots there.
 | Name | Description | Required | Type | Default value | Possible values |
 | --- | --- | --- | --- | --- | --- |
 | tabs | Tabs list | true | Array | - | - |
-| default-selected-tab-id | Id of default selected tab | false | String | - | - |
+| v-model | Defines selected tab's id | false | String | - | - |
 | popper-props | Collapser's popper props | false | Object | - | CHECK POPPER COMPONENT |
 
 ## Tab (tabs list item) attributes

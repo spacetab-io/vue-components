@@ -1,23 +1,93 @@
 @import '../../assets/scss/utils/mixins';
-@import '../../assets/scss/components/tabs/_variables';
 @import '../../assets/scss/components/tabs-collapsed/_variables';
-@import "../tabs/style";
 
-@include b('tabs') {
+@include b('tabs-collapsed') {
   $root: &;
+  $tabRoot: #{ e('item') };
 
-  @include m('collapsed') {
+  @include e('control') {
+    border-bottom: $st-tabs-collapsed-item-border-width solid transparent;
+  }
+
+  @include e('popper') {
+    @include b('popper') {
+      padding: $st-tabs-collapsed-popper-padding;
+    }
+  }
+
+  @include e('item') {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    font-size: $st-tabs-collapsed-item-font-size;
+    color: $st-tabs-collapsed-item-text-color;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+
+    @include m('selected') {
+      color: $st-tabs-collapsed-item-selected-text-color;
+    }
+
+    &:not(#{ m('selected', $tabRoot) }):hover {
+      color: $st-tabs-collapsed-item-hovered-text-color;
+    }
+
+    .tab-icon {
+      width: $st-tabs-collapsed-item-icon-size;
+      height: $st-tabs-collapsed-item-icon-size;
+      margin-right: $st-tabs-collapsed-item-icon-margin;
+      color: currentColor;
+    }
+
+    .tab-label {
+      color: currentColor;
+    }
+
+    .tab-close-btn {
+      position: absolute;
+      top: 50%;
+      right: $st-tabs-collapsed-hidden-item-close-right;
+      width: $st-tabs-collapsed-item-close-size;
+      height: $st-tabs-collapsed-item-close-size;
+      padding: $st-tabs-collapsed-item-close-padding;
+      margin-top: -($st-tabs-collapsed-item-border-width / 2);
+      color: $st-tabs-collapsed-item-close-color;
+      cursor: pointer;
+      visibility: hidden;
+      opacity: $st-tabs-collapsed-item-close-opacity;
+      transform: translateY(-50%);
+
+      &:hover {
+        color: $st-tabs-collapsed-item-close-color-hovered;
+      }
+    }
+
+    &:hover {
+      .tab-close-btn {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+
+  @include e('list') {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+
     #{ e('item', $root) } {
-      margin: 0;
-    }
+      padding: $st-tabs-collapsed-item-padding-vertical $st-tabs-collapsed-item-padding-horizontal;
+      border-bottom: $st-tabs-collapsed-item-border-width $st-tabs-collapsed-item-border-style $st-tabs-collapsed-item-border-color;
 
-    #{ b('collapser__control') } {
-      border-bottom: $st-tabs-item-border-width solid transparent;
-    }
+      @include m('selected') {
+        border-bottom-color: $st-tabs-collapsed-item-selected-border-color;
+        border-bottom-width: $st-tabs-collapsed-item-selected-border-width;
+      }
 
-    #{ b('collapser__popper') } {
-      #{ b('popper') } {
-        padding: $st-tabs-collapsed-popper-padding;
+      &:not(#{ m('selected', $tabRoot) }):hover {
+        border-bottom-color: $st-tabs-collapsed-item-hovered-border-color;
+        border-bottom-width: $st-tabs-collapsed-item-hovered-border-width;
       }
     }
   }
@@ -26,41 +96,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
 
-  @include e('hidden-item') {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    padding: $st-tabs-collapsed-hidden-item-padding-vertical $st-tabs-collapsed-hidden-item-padding-horizontal;
-    cursor: $st-tabs-collapsed-hidden-item-cursor;
+    #{ e('item', $root) } {
+      padding: $st-tabs-collapsed-hidden-item-padding-vertical $st-tabs-collapsed-hidden-item-padding-horizontal;
 
-    &:hover {
-      background: $st-tabs-collapsed-hidden-item-background-hover;
+      @include m('selected') {
+        background: $st-tabs-collapsed-hidden-item-background-selected;
+      }
 
-      #{ e('hidden-item-close', $root) } {
-        visibility: visible;
-        opacity: 1;
+      &:not(#{ m('selected', $tabRoot) }):hover {
+        background: $st-tabs-collapsed-hidden-item-background-hover;
       }
     }
-
-    @include m('selected') {
-      color: $st-tabs-collapsed-hidden-item-color-selected;
-      background: $st-tabs-collapsed-hidden-item-background-selected;
-    }
-  }
-
-  @include e('hidden-item-icon') {
-    @extend .st-tabs__item-icon;
-  }
-
-  @include e('hidden-item-label') {
-    @extend .st-tabs__item-label;
-  }
-
-  @include e('hidden-item-close') {
-    @extend .st-tabs__item-close;
-
-    right: $st-tabs-collapsed-hidden-item-close-right;
   }
 }
