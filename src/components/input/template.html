@@ -32,7 +32,7 @@
          @focus="handleFocus"
          @blur="handleBlur"
          @change="handleChange">
-  <div v-if="suffixIcon || showCloseIcon || loading"
+  <div v-if="$slots.suffix || suffixIcon || showCloseIcon || loading"
        class="st-input__suffix">
     <template v-if="!$slots.suffix">
       <st-icon v-if="loading"
