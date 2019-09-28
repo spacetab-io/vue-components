@@ -7,8 +7,8 @@ export const template = `
               :sort-by="sortBy"
               :sort-direction="sortDirection"
               :row-class="rowClass"
+              :client-sorting="clientSorting"
               custom-row-key="id"
-              client-sorting
               @sort="onSort">
 
       <template v-slot:th-key_2="{ col, index }">

@@ -52,8 +52,6 @@ export default class StTable extends Vue {
 
   currentSortColumn: any = {};
 
-  firstTimeSort: boolean = true; // Used by first time initSort
-
   @Watch('data')
   onDataChange(value: any[]) {
     this.newData = value;
@@ -65,26 +63,29 @@ export default class StTable extends Vue {
 
   @Watch('sortBy')
   onSortByChange(value: string) {
-    this.currentSortColumn = this.columns.find(_ => _.field === value) || {};
+    const col = this.columns.find(_ => _.name === value) || {};
+    this.currentSortColumn = col;
   }
 
   @Watch('sortDirection')
-  onSortDirectionChange(value: string) {
+  onSortDirectionChange(value: SortDirection) {
     this.isAsc = value !== SortDirection.desc;
   }
 
   @Watch('columns')
   onColumnsChange() {
-    this.checkSort();
+    if (!this.sortBy || !this.columns.length) return;
+    const column = this.columns.find(_ => _.name === this.sortBy);
+    if (column) this.sort(column);
   }
 
   created() {
     this.isAsc = this.sortDirection !== SortDirection.desc;
     this.newData = this.data;
-    this.checkSort();
+    this.onColumnsChange();
   }
 
-  getRowValue(row: any, col: Column, index: number) {
+  getRowValue(row: any, col: Column, index: number): any {
     if (typeof col.field === 'function') {
       return col.field.call(this.$parent, row, col, index);
     }
@@ -92,7 +93,7 @@ export default class StTable extends Vue {
     return get(row, col.field);
   }
 
-  sortedBy(array: any[], field: string | Function, fn?: Function, isAsc: boolean = false) {
+  sortedBy(array: any[], field: string | Function, fn?: Function, isAsc: boolean = false): any[] {
     const isFnField: boolean = typeof field === 'function';
 
     if (fn && typeof fn === 'function') {
@@ -165,24 +166,6 @@ export default class StTable extends Vue {
     }
   }
 
-  checkSort() {
-    if (this.columns.length && this.firstTimeSort) {
-      this.initSort();
-      this.firstTimeSort = false;
-    } else if (this.columns.length) {
-      if (!this.currentSortColumn.field) return;
-
-      const column = this.columns.find(_ => _.field === this.currentSortColumn.field);
-      this.currentSortColumn = column;
-    }
-  }
-
-  initSort() {
-    if (!this.sortBy) return;
-    const column = this.columns.find(_ => _.field === this.sortBy);
-    if (column) this.sort(column);
-  }
-
   selectRow(row: any) {
     this.$emit('click', row);
     if (this.selected === row) return;
@@ -198,10 +181,20 @@ export default class StTable extends Vue {
       : `${col.width}px`;
   }
 
-  hasCustomFooterSlot() {
+  hasCustomFooterSlot(): boolean {
     const footer = (this.$slots.footer as any);
     if (footer.length > 1) return true;
     const { tag } = footer[0];
     return tag && ['th', 'td'].includes(tag);
+  }
+
+  getSortIconClasses(col: Column) {
+    if (this.currentSortColumn !== col) return '';
+
+    return {
+      'st-table__sortable-current': true,
+      'st-table__sortable-current--asc': this.isAsc,
+      'st-table__sortable-current--desc': !this.isAsc,
+    };
   }
 }

@@ -30,6 +30,9 @@ storiesOf('Components|Table', module).add('Default', () => ({
     bordered: {
       default: boolean('bordered', false),
     },
+    clientSorting: {
+      default: boolean('client-sorting', true),
+    },
     'empty slot': {
       default: boolean('empty slot', false),
     },
@@ -40,7 +43,7 @@ storiesOf('Components|Table', module).add('Default', () => ({
   data: () => ({
     columns,
     selected: null,
-    sortBy: 'key_2',
+    sortBy: 'name_2',
     sortDirection: 'desc',
   }),
   computed: {

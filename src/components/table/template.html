@@ -40,11 +40,7 @@
                            class="st-table__sortable-arrow st-table__sortable-arrow--up" />
 
                   <st-icon name="arrow-down"
-                           :class="[currentSortColumn === col ? {
-                             'st-table__sortable-current': true,
-                             'st-table__sortable-current--asc': isAsc,
-                             'st-table__sortable-current--desc': !isAsc
-                          } : null]"
+                           :class="getSortIconClasses(col)"
                            class="st-table__sortable-arrow st-table__sortable-arrow--down" />
                 </div>
             </div>
