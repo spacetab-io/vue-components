@@ -3,7 +3,7 @@
 
 @include b('tabs-collapsed') {
   $root: &;
-  $tabRoot: #{ e('item') };
+  $tabRoot: #{ b('tab-item') };
 
   @include e('control') {
     border-bottom: $st-tabs-collapsed-item-border-width solid transparent;
@@ -15,7 +15,7 @@
     }
   }
 
-  @include e('item') {
+  #{ b('tab-item') } {
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -33,18 +33,18 @@
       color: $st-tabs-collapsed-item-hovered-text-color;
     }
 
-    .tab-icon {
+    @include e('icon') {
       width: $st-tabs-collapsed-item-icon-size;
       height: $st-tabs-collapsed-item-icon-size;
       margin-right: $st-tabs-collapsed-item-icon-margin;
       color: currentColor;
     }
 
-    .tab-label {
+    @include e('label') {
       color: currentColor;
     }
 
-    .tab-close-btn {
+    @include e('close-btn') {
       position: absolute;
       top: 50%;
       right: $st-tabs-collapsed-hidden-item-close-right;
@@ -64,7 +64,7 @@
     }
 
     &:hover {
-      .tab-close-btn {
+      #{ e('close-btn', $tabRoot) } {
         visibility: visible;
         opacity: 1;
       }
@@ -76,7 +76,7 @@
     flex-wrap: nowrap;
     align-items: center;
 
-    #{ e('item', $root) } {
+    #{ b('tab-item') } {
       padding: $st-tabs-collapsed-item-padding-vertical $st-tabs-collapsed-item-padding-horizontal;
       border-bottom: $st-tabs-collapsed-item-border-width $st-tabs-collapsed-item-border-style $st-tabs-collapsed-item-border-color;
 
@@ -97,7 +97,7 @@
     flex-direction: column;
     align-items: center;
 
-    #{ e('item', $root) } {
+    #{ b('tab-item') } {
       padding: $st-tabs-collapsed-hidden-item-padding-vertical $st-tabs-collapsed-hidden-item-padding-horizontal;
 
       @include m('selected') {

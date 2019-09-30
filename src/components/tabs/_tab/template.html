@@ -1,11 +1,14 @@
-<div :class="componentClassName">
+<div class="st-tab-item"
+     :class="{
+       'st-tab-item--selected': selected,
+     }">
   <slot>
     <st-icon v-if="icon"
-             class="tab-icon"
+             class="st-tab-item__icon"
              :name="icon" />
-    <span class="tab-label">{{ label }}</span>
+    <span class="st-tab-item__label">{{ label }}</span>
     <st-icon v-if="closeable"
-             class="tab-close-btn"
+             class="st-tab-item__close-btn"
              name="cross"
              @click.stop="$emit('close')" />
   </slot>

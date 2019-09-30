@@ -2,6 +2,7 @@
   <div class="st-tabs__list">
     <st-tab-item v-for="item in copiedTabs"
                  :key="item.id"
+                 class="st-tabs__item"
                  :selected="item.id === selectedTabId"
                  :icon="item.icon"
                  :label="item.label"

@@ -8,7 +8,7 @@
   <template v-slot:list="{ elements }">
     <st-tab-item v-for="tab in elements"
                  :key="tab.id"
-                 class-name="st-tabs-collapsed__item"
+                 class="st-tabs-collapsed__item"
                  :selected="tab.id === selectedTabId"
                  :icon="tab.icon"
                  :label="tab.label"
@@ -21,7 +21,7 @@
   <template v-slot:hiddenList="{ hiddenElements }">
     <st-tab-item v-for="tab in hiddenElements"
                  :key="tab.id"
-                 class-name="st-tabs-collapsed__item"
+                 class="st-tabs-collapsed__item"
                  :selected="tab.id === selectedTabId"
                  :icon="tab.icon"
                  :label="tab.label"

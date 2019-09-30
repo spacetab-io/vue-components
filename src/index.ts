@@ -17,8 +17,8 @@ import StRow from './components/row/index.vue';
 import StScrollbar from './components/scrollbar/index.vue';
 import StSwitch from './components/switch/index.vue';
 import StTable from './components/table/index.vue';
-import StTabs from './components/tabs/index.vue';
 import StTabsCollapsed from './components/tabs-collapsed/index.vue';
+import StTabs from './components/tabs/index.vue';
 import StTextarea from './components/textarea/index.vue';
 
 const install = (Vue: VueConstructor) => {
