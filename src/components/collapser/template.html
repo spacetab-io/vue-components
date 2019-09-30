@@ -1,33 +1,37 @@
 <div class="st-collapser">
   <div :class="['st-collapser__list', listClass]"
        ref="list">
-    <div :class="[
-           'st-collapser__item',
-            elementClass,
-            {
-              [item.className]: !!item.className,
-            },
-         ]"
-         v-for="(item, index) in elements"
-         :key="index"
-         @click="$emit('element-click', item)">
-      <slot name="element"
-            v-bind:element="item">
-        {{ item }}
-      </slot>
-    </div>
+    <slot name="list"
+          v-bind:elements="elements">
+      <div :class="[
+             'st-collapser__item',
+              elementClass,
+           ]"
+           v-for="(item, index) in elements"
+           :key="index"
+           @click="$emit('element-click', item)">
+        <slot name="element"
+              v-bind:element="item">
+          {{ item }}
+        </slot>
+      </div>
+    </slot>
   </div>
-  <div class="st-collapser__control"
+  <div :class="['st-collapser__control', controlClass]"
        ref="control">
-    <st-popper class="st-collapser__popper"
+    <st-popper :class="['st-collapser__popper', popperClass]"
                ref="popper"
                v-bind="extendedPopperProps"
-               v-model="popperModel">
+               @show="popperVisible = true"
+               @hide="popperVisible = false">
       <div slot="reference"
-           :class="{
-             'st-collapser__control-label': true,
-             'st-collapser__control-label--with-hover': !extendedPopperProps.disabled,
-           }"
+           :class="[
+             'st-collapser__control-label',
+             {
+               'st-collapser__control-label--with-hover': !extendedPopperProps.disabled,
+               'st-collapser__control-label--hovered': popperVisible,
+             }
+           ]"
            v-show="hiddenElements.length">
         <slot name="control"
               v-bind:amount="hiddenElements.length">
@@ -35,23 +39,21 @@
         </slot>
       </div>
       <div :class="['st-collapser__hidden-list', hiddenListClass]">
-        <div :class="[
-               'st-collapser__hidden-item',
-                hiddenElementClass,
-                {
-                  [item.className]: !!item.className,
-                },
-             ]"
-             v-for="(item, index) in hiddenElements"
-             :key="index"
-             @click="$emit('hidden-element-click', item)">
-          <slot name="hiddenElement"
-                v-bind:element="item">
-            {{ item }}
-          </slot>
-        </div>
+        <slot name="hiddenList" v-bind:hiddenElements="hiddenElements">
+          <div :class="[
+                 'st-collapser__hidden-item',
+                  hiddenElementClass,
+               ]"
+               v-for="(item, index) in hiddenElements"
+               :key="index"
+               @click="$emit('hidden-element-click', item)">
+            <slot name="hiddenElement"
+                  v-bind:hiddenElement="item">
+              {{ item }}
+            </slot>
+          </div>
+        </slot>
       </div>
     </st-popper>
-
   </div>
 </div>

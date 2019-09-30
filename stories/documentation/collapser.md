@@ -64,11 +64,13 @@ And also you can change control block via `control` slot:
 
 ## Slots
 
-| Name | Description |
-| --- | --- |
-| element | Defines list's element content |
-| hiddenElement | Defines hidden list's element content |
-| control | Defines block uses for show hidden elements |
+| Name | Description | Prop name |
+| --- | --- | --- |
+| list | Defines list's content | elements |
+| element | Defines list element's content | element |
+| hiddenList | Defines hidden list content | hiddenElements |
+| hiddenElement | Defines hidden list element's content | hiddenElement |
+| control | Defines block for showing hidden elements | amount |
 
 ## Attributes
 
@@ -79,6 +81,8 @@ And also you can change control block via `control` slot:
 | element-class | Defines additional class name for list's element | - | String | - | - |
 | hidden-list-class | Defines additional class name for hidden list | - | String | - | - |
 | hidden-element-class | Defines additional class name for hidden list's element | - | String | - | - |
+| control-class | Defines additional class name for control's element (+n) | - | String | - | - |
+| popper-class | Defines additional class name for popper's wrapper | - | String | - | - |
 | popper-props | Popper's component properties | - | Object | arrowVisible: false, placement: bottom, trigger: hover, boundariesSelector: 'body' | CHECK POPPER COMPONENT DOCUMENTATION |
 
 ## Events

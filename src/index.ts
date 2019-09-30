@@ -17,6 +17,7 @@ import StRow from './components/row/index.vue';
 import StScrollbar from './components/scrollbar/index.vue';
 import StSwitch from './components/switch/index.vue';
 import StTable from './components/table/index.vue';
+import StTabsCollapsed from './components/tabs-collapsed/index.vue';
 import StTabs from './components/tabs/index.vue';
 import StTextarea from './components/textarea/index.vue';
 
@@ -31,14 +32,15 @@ const install = (Vue: VueConstructor) => {
   Vue.component('st-input', StInput);
   Vue.component('st-notifications-group', StNotificationsGroup);
   Vue.component('st-row', StRow);
-  Vue.component('st-table', StTable);
   Vue.component('st-textarea', StTextarea);
   Vue.component('st-radio', StRadio);
   Vue.component('st-scrollbar', StScrollbar);
   Vue.component('st-switch', StSwitch);
   Vue.component('st-pagination', StPagination);
   Vue.component('st-popper', StPopper);
+  Vue.component('st-table', StTable);
   Vue.component('st-tabs', StTabs);
+  Vue.component('st-tabs-collapsed', StTabsCollapsed);
 
   /* eslint-disable-next-line no-param-reassign */
   Vue.prototype.$stNotification = StNotificationService;
@@ -59,5 +61,7 @@ export default {
   StTextarea,
   StPagination,
   StPopper,
+  StTable,
   StTabs,
+  StTabsCollapsed,
 };

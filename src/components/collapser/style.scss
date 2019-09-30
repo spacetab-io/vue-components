@@ -50,5 +50,9 @@
         color: $st-collapser-control-color-hover;
       }
     }
+
+    @include m('hovered') {
+      color: $st-collapser-control-color-hover;
+    }
   }
 }

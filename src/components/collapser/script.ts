@@ -31,6 +31,12 @@ export default class StCollapser extends Vue {
   elementClass!: string;
 
   @Prop({ type: String, default: '' })
+  controlClass!: string;
+
+  @Prop({ type: String, default: '' })
+  popperClass!: string;
+
+  @Prop({ type: String, default: '' })
   hiddenListClass!: string;
 
   @Prop({ type: String, default: '' })
@@ -41,7 +47,7 @@ export default class StCollapser extends Vue {
 
   hiddenElements: any[] = [];
 
-  popperModel = false;
+  popperVisible = false;
 
   extendedPopperProps: PopperBindProperties = {
     arrowVisible: false,
