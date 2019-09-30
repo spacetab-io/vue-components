@@ -37,6 +37,7 @@
     "@storybook/theming": "^5.1.9",
     "@storybook/vue": "^5.1.9",
     "@types/chai": "^4.2.2",
+    "@types/lodash": "^4.14.138",
     "@types/mocha": "^5.2.7",
     "@types/node": "^10.12.12",
     "@typescript-eslint/eslint-plugin": "^1.13.0",
