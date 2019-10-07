@@ -90,7 +90,7 @@ export default class StTable extends Vue {
       return col.field.call(this.$parent, row, col, index);
     }
 
-    return get(row, col.field);
+    return col.field && get(row, col.field);
   }
 
   sortedBy(array: any[], field: string | Function, fn?: Function, isAsc: boolean = false): any[] {
@@ -155,12 +155,12 @@ export default class StTable extends Vue {
       const event: SortEvent = { sortBy, direction: sortDirection };
       this.$emit('sort', event, col);
     } else if (sortDirection) {
-      this.newData = this.sortedBy(
+      this.newData = col.field ? this.sortedBy(
         this.newData,
         col.field,
         col.sort,
         this.isAsc,
-      );
+      ) : this.newData;
     } else {
       this.newData = this.data;
     }

@@ -2,7 +2,7 @@
 export interface Column {
   name: string,
   label: string,
-  field: string | Function,
+  field?: string | Function,
   sortable?: boolean,
   sort?: Function,
   centered?: boolean,
