@@ -278,7 +278,7 @@ const getComponentNameByKebab = (name) => {
     const scriptFilePath = pathGenerator.component.script(name);
 
     const fileContents = fs.readFileSync(scriptFilePath, { encoding: 'utf8' });
-    const regexp = new RegExp(/export default class (.*) extends Vue/);
+    const regexp = new RegExp(/export default class (.*) extends/);
     const regResult = regexp.exec(fileContents.toString('utf8'));
 
     return regResult[1];

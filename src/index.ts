@@ -15,6 +15,7 @@ import StPopper from './components/popper/index.vue';
 import StRadio from './components/radio/index.vue';
 import StRow from './components/row/index.vue';
 import StScrollbar from './components/scrollbar/index.vue';
+import StSelect from './components/select/index.vue';
 import StSwitch from './components/switch/index.vue';
 import StTable from './components/table/index.vue';
 import StTabsCollapsed from './components/tabs-collapsed/index.vue';
@@ -34,10 +35,11 @@ const install = (Vue: VueConstructor) => {
   Vue.component('st-row', StRow);
   Vue.component('st-textarea', StTextarea);
   Vue.component('st-radio', StRadio);
-  Vue.component('st-scrollbar', StScrollbar);
-  Vue.component('st-switch', StSwitch);
   Vue.component('st-pagination', StPagination);
   Vue.component('st-popper', StPopper);
+  Vue.component('st-select', StSelect);
+  Vue.component('st-scrollbar', StScrollbar);
+  Vue.component('st-switch', StSwitch);
   Vue.component('st-table', StTable);
   Vue.component('st-tabs', StTabs);
   Vue.component('st-tabs-collapsed', StTabsCollapsed);
@@ -61,6 +63,9 @@ export default {
   StTextarea,
   StPagination,
   StPopper,
+  StSelect,
+  StScrollbar,
+  StSwitch,
   StTable,
   StTabs,
   StTabsCollapsed,

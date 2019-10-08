@@ -1,0 +1,46 @@
+<st-select-dropdown class="st-select-single"
+                    :class="[
+                      this.size ? `st-select-single--${this.size}` : '',
+                      {
+                         'st-select-single--disabled': disabled,
+                         'st-select-single--readonly': readonly,
+                      }
+                    ]"
+                    :options="options"
+                    :disabled="disabled"
+                    :readonly="readonly"
+                    :selected-values="[value]"
+                    option-class="st-select-single__dropdown-option"
+                    @select="select">
+  <st-select-content slot="reference"
+                     :value="selectedLabel"
+                     :prefix-icon="prefixIcon"
+                     :suffix-icon="suffixIcon"
+                     :placeholder="placeholder"
+                     :loading="loading"
+                     :disabled="disabled"
+                     :readonly="readonly"
+                     :required="required"
+                     :clearable="clearable"
+                     @clear="clear">
+    <template v-slot:prefix>
+      <slot name="content-prefix" />
+    </template>
+    <template v-slot:suffix>
+      <slot name="content-suffix" />
+    </template>
+  </st-select-content>
+  <template v-slot:default="{ options }">
+    <slot name="dropdown-list"
+          :options="options"></slot>
+  </template>
+  <template v-slot:option="{ option }">
+    <slot name="dropdown-option"
+          :option="option">
+      {{ option.label }}
+      <st-icon v-if="option.value === value"
+               class="st-select-single__dropdown-option-icon"
+               name="check" />
+    </slot>
+  </template>
+</st-select-dropdown>

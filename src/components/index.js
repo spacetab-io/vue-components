@@ -15,6 +15,7 @@ import StPopper from './popper/index.vue';
 import StRadio from './radio/index.vue';
 import StRow from './row/index.vue';
 import StScrollbar from './scrollbar/index.vue';
+import StSelect from './select/index.vue';
 import StSwitch from './switch/index.vue';
 import StTable from './table/index.vue';
 import StTabsCollapsed from './tabs-collapsed/index.vue';
@@ -37,6 +38,7 @@ const Components = {
   StRadio,
   StRow,
   StScrollbar,
+  StSelect,
   StSwitch,
   StTable,
   StTabs,

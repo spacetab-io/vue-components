@@ -4,20 +4,23 @@ import { template } from '../../templates/checkbox/default.template';
 import checkboxNotes from '../../documentation/checkbox.md'
 
 storiesOf('Components|Checkbox', module).add('Default', () => ({
-    template,
-    props: {
-        disabled: {
-            default: boolean('Disabled', false),
-        },
-        innerText: {
-            default: text('Label', 'Checkbox'),
-        }
+  template,
+  props: {
+    disabled: {
+        default: boolean('Disabled', false),
     },
-    data() {
-        return {
-            isChecked: false,
-        };
+    readonly: {
+      default: boolean('Readonly', false),
     },
+    innerText: {
+      default: text('Label', 'Checkbox'),
+    }
+  },
+  data() {
+    return {
+      isChecked: false,
+    };
+  },
 }), {
-    notes: checkboxNotes,
+  notes: checkboxNotes,
 });

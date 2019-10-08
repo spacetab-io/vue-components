@@ -1,0 +1,53 @@
+<div class="st-select">
+  <component :is="componentName"
+             :value="value"
+             :options="options"
+             :placeholder="placeholder"
+             :disabled="disabled"
+             :readonly="readonly"
+             :required="required"
+             :clearable="clearable"
+             :loading="loading"
+             :size="size"
+             :prefix-icon="prefixIcon"
+             :suffix-icon="suffixIcon"
+             @input="$event => $emit('input', $event)"
+             @select="$event => $emit('select', $event)"
+             @clear="$emit('clear')">
+    <template v-slot:content-prefix>
+      <slot name="prefix" />
+    </template>
+    <template v-slot:content-suffix>
+      <slot name="suffix" />
+    </template>
+    <template v-slot:dropdown-list="{ options }">
+      <slot name="list"
+            :options="options" />
+    </template>
+    <template v-slot:dropdown-option="{ option }">
+      <slot name="option"
+            :option="option" />
+    </template>
+
+    <template v-slot:collapser-control="{ amount }">
+      <slot name="collapser-control"
+            :amount="amount" />
+    </template>
+    <template v-slot:collapser-list="{ elements }">
+      <slot name="collapser-list"
+            :elements="elements" />
+    </template>
+    <template v-slot:collapser-element="{ element }">
+      <slot name="collapser-element"
+            :element="element" />
+    </template>
+    <template v-slot:collapser-hidden-list="{ hiddenElements }">
+      <slot name="collapser-hidden-list"
+            :hidden-elements="hiddenElements" />
+    </template>
+    <template v-slot:collapser-hidden-element="{ hiddenElement }">
+      <slot name="collapser-hidden-element"
+            :hidden-element="hiddenElement" />
+    </template>
+  </component>
+</div>

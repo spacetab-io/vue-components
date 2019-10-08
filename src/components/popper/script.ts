@@ -261,7 +261,7 @@ export default class StPopper extends Vue {
     if (this.preventDefault) {
       event.preventDefault();
     }
-    if (!this.forceShow) {
+    if (!this.forceShow && !this.disabled) {
       this.showPopper = !this.showPopper;
     }
   }

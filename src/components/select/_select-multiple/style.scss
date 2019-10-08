@@ -1,0 +1,91 @@
+@import '../../../assets/scss/components/select/_variables';
+
+.st-select-multiple {
+  &__input {
+    color: transparent;
+  }
+
+  &__collapser {
+    position: absolute;
+    top: 0;
+    right: $st-select-padding-right;
+    bottom: 0;
+    left: $st-select-padding-left;
+  }
+
+  .st-select-content {
+    &--with-prefix {
+      .st-select-multiple__collapser {
+        left: $st-select-padding-left-with-prefix;
+      }
+    }
+
+    &--clearable,
+    &--with-suffix {
+      .st-select-multiple__collapser {
+        right: $st-select-padding-left-with-suffix;
+      }
+    }
+  }
+
+  &__collapser-item {
+    margin-right: $st-select-multiple-collapser-item-margin;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  &__collapser-dropdown {
+    &.st-popper {
+      padding: $st-select-multiple-collapser-dropdown-padding;
+      font-size: $st-select-multiple-collapser-dropdown-font-size;
+      background: $st-select-multiple-collapser-dropdown-background;
+      box-shadow: $st-select-multiple-collapser-dropdown-box-shadow;
+    }
+
+    &[x-placement^="bottom"] {
+      margin-top: 19px;
+
+      .st-popper__arrow {
+        border-bottom-color: $st-select-multiple-collapser-dropdown-background;
+      }
+    }
+
+    &[x-placement^="top"] {
+      margin-bottom: 19px;
+
+      .st-popper__arrow {
+        border-top-color: $st-select-multiple-collapser-dropdown-background;
+      }
+    }
+  }
+
+  &--disabled {
+    .st-select-multiple__collapser-item {
+      color: $st-select-multiple-disabled-collapser-item-color;
+    }
+  }
+
+  &--readonly {
+    .st-select-multiple__collapser-item {
+      color: $st-select-multiple-readonly-collapser-item-color;
+    }
+
+    .st-select-multiple__collapser-item-checkbox {
+      cursor: default;
+    }
+  }
+
+  &__dropdown-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &.st-select-dropdown__option--disabled {
+      .st-select-multiple__collapser-item-checkbox {
+        cursor: $st-select-dropdown-disabled-option-cursor;
+      }
+    }
+  }
+}

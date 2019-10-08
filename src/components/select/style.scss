@@ -1,0 +1,12 @@
+@import '../../assets/scss/components/select/_variables';
+@import "_select-content/style";
+@import "_select-dropdown/style";
+@import '_select-single/style';
+@import '_select-multiple/style';
+
+.st-select {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  font-size: $st-select-font-size;
+}
