@@ -1,31 +1,8 @@
 @import '../../../assets/scss/components/select/_variables';
 
 .st-select-multiple {
-  &__input {
-    color: transparent;
-  }
-
   &__collapser {
-    position: absolute;
-    top: 0;
-    right: $st-select-padding-right;
-    bottom: 0;
-    left: $st-select-padding-left;
-  }
-
-  .st-select-content {
-    &--with-prefix {
-      .st-select-multiple__collapser {
-        left: $st-select-padding-left-with-prefix;
-      }
-    }
-
-    &--clearable,
-    &--with-suffix {
-      .st-select-multiple__collapser {
-        right: $st-select-padding-left-with-suffix;
-      }
-    }
+    width: 100%;
   }
 
   &__collapser-item {
@@ -37,11 +14,12 @@
   }
 
   &__collapser-dropdown {
+    font-size: $st-select-multiple-collapser-dropdown-font-size;
+    background: $st-select-multiple-collapser-dropdown-background;
+    box-shadow: $st-select-multiple-collapser-dropdown-box-shadow;
+
     &.st-popper {
       padding: $st-select-multiple-collapser-dropdown-padding;
-      font-size: $st-select-multiple-collapser-dropdown-font-size;
-      background: $st-select-multiple-collapser-dropdown-background;
-      box-shadow: $st-select-multiple-collapser-dropdown-box-shadow;
     }
 
     &[x-placement^="bottom"] {
@@ -71,21 +49,21 @@
     .st-select-multiple__collapser-item {
       color: $st-select-multiple-readonly-collapser-item-color;
     }
-
-    .st-select-multiple__collapser-item-checkbox {
-      cursor: default;
-    }
   }
 
   &__dropdown-option {
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
 
-    &.st-select-dropdown__option--disabled {
-      .st-select-multiple__collapser-item-checkbox {
-        cursor: $st-select-dropdown-disabled-option-cursor;
-      }
+  &__dropdown-option-checkbox {
+    &--readonly {
+      cursor: $st-select-dropdown-readonly-option-cursor;
+    }
+
+    &--disabled {
+      cursor: $st-select-dropdown-disabled-option-cursor;
     }
   }
 }

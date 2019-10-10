@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: space-between;
 
-    &.st-select-dropdown__option--selected {
+    &--selected {
       font-weight: $st-select-single-dropdown-selected-option-font-weight;
     }
   }

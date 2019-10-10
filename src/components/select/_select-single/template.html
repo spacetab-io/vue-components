@@ -6,14 +6,19 @@
                          'st-select-single--readonly': readonly,
                       }
                     ]"
+                    ref="dropdown"
                     :options="options"
                     :disabled="disabled"
                     :readonly="readonly"
                     :selected-values="[value]"
                     option-class="st-select-single__dropdown-option"
-                    @select="select">
+                    :popper-props="dropdownPopperProps"
+                    @select="select"
+                    @dropdown-show="dropdownVisible = true; $emit('dropdown-show')"
+                    @dropdown-hide="dropdownVisible = false; $emit('dropdown-hide')">
   <st-select-content slot="reference"
                      :value="selectedLabel"
+                     :is-active="dropdownVisible"
                      :prefix-icon="prefixIcon"
                      :suffix-icon="suffixIcon"
                      :placeholder="placeholder"
@@ -22,7 +27,9 @@
                      :readonly="readonly"
                      :required="required"
                      :clearable="clearable"
-                     @clear="clear">
+                     @clear="clear"
+                     @open-popper="openPopper"
+                     @close-popper="closePopper">
     <template v-slot:prefix>
       <slot name="content-prefix" />
     </template>

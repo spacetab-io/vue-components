@@ -1,11 +1,10 @@
 <st-popper :popper-class="popperClassName"
+           ref="popper"
            tag="div"
-           trigger="click"
-           :arrow-visible="false"
            :disabled="disabled"
-           placement="bottom"
-           boundaries-selector="body"
-           ref="popper">
+           v-bind="extendedPopperProps"
+           @show="$emit('dropdown-show')"
+           @hide="$emit('dropdown-hide')">
   <template slot="reference">
     <slot name="reference"></slot>
   </template>
@@ -17,6 +16,7 @@
                optionClass,
                {
                  'st-select-dropdown__option--selected': selectedValues && selectedValues.includes(option.value),
+                 [`${optionClass}--selected`]: optionClass && selectedValues && selectedValues.includes(option.value),
                  'st-select-dropdown__option--disabled': option.disabled,
                  'st-select-dropdown__option--readonly': readonly,
                }

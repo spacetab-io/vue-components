@@ -1,10 +1,20 @@
-import Popper, { Placement, PopperOptions } from 'popper.js';
+import Popper, {
+  Placement,
+  PopperOptions,
+} from 'popper.js';
 import { VNode } from 'vue';
 import {
-  Component, Prop, Vue, Watch,
+  Component,
+  Prop,
+  Vue,
+  Watch,
 } from 'vue-property-decorator';
 
-import { PopperPlacement, TriggerType } from './types';
+import {
+  PopperPlacement,
+  TriggerType,
+} from './types';
+
 
 @Component({
   name: 'StPopper',

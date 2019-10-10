@@ -44,10 +44,8 @@ export default class StSelectContent extends Vue {
   @Prop(Boolean)
   clearable!: boolean;
 
-  @Prop(String)
-  inputClass!: string;
-
-  isHovered = false;
+  @Prop(Boolean)
+  isActive!: boolean;
 
   isFocused = false;
 

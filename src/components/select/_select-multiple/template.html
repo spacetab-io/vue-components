@@ -6,15 +6,20 @@
                          'st-select-multiple--readonly': readonly,
                       }
                     ]"
+                    ref="dropdown"
                     :options="options"
                     :disabled="disabled"
                     :readonly="readonly"
                     :selected-values="value"
                     :close-on-select="false"
+                    :popper-props="dropdownPopperProps"
                     option-class="st-select-multiple__dropdown-option"
-                    @select="select">
+                    @select="select"
+                    @dropdown-show="dropdownVisible = true; $emit('dropdown-show')"
+                    @dropdown-hide="dropdownVisible = false; $emit('dropdown-hide')">
   <st-select-content slot="reference"
                      :value="selectedValues.join(',')"
+                     :is-active="dropdownVisible"
                      :prefix-icon="prefixIcon"
                      :suffix-icon="suffixIcon"
                      :placeholder="placeholder"
@@ -24,16 +29,17 @@
                      :required="required"
                      :clearable="clearable"
                      multiple
-                     input-class="st-select-multiple__input"
-                     @clear="clear">
+                     @clear="clear"
+                     @open-popper="openPopper"
+                     @close-popper="closePopper">
     <template v-slot:prefix>
       <slot name="content-prefix" />
     </template>
     <st-collapser class="st-select-multiple__collapser"
-                  popper-class="st-select-multiple__collapser-dropdown"
+                  :popper-class="collapserPopperClass"
                   :elements="selectedLabels"
                   element-class="st-select-multiple__collapser-item"
-                  :popper-props="{arrowVisible: true, placement: 'top'}">
+                  :popper-props="extendedCollapserPopperProps">
       <template v-slot:control="{ amount }">
         <slot name="collapser-control"
               :amount="amount" />
@@ -69,7 +75,11 @@
     <slot name="dropdown-option"
           :option="option">
       {{ option.label }}
-      <st-checkbox class="st-select-multiple__collapser-item-checkbox"
+      <st-checkbox class="st-select-multiple__dropdown-option-checkbox"
+                   :class="{
+                     'st-select-multiple__dropdown-option-checkbox--readonly': readonly,
+                     'st-select-multiple__dropdown-option-checkbox--disabled': option.disabled,
+                   }"
                    readonly
                    :value="isOptionSelected(option.value)" />
     </slot>

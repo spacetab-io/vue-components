@@ -1,5 +1,9 @@
-import { Prop, Vue } from 'vue-property-decorator';
+import {
+  Prop,
+  Vue,
+} from 'vue-property-decorator';
 
+import { PopperBindProperties } from '../popper/types';
 import { SelectOption } from './types';
 
 export default class StSelectBase extends Vue {
@@ -32,4 +36,10 @@ export default class StSelectBase extends Vue {
 
   @Prop(String)
   suffixIcon!: string;
+
+  @Prop({ type: Object, default: () => {} })
+  dropdownPopperProps!: PopperBindProperties;
+
+  @Prop({ type: Object, default: () => {} })
+  collapserPopperProps!: PopperBindProperties;
 }

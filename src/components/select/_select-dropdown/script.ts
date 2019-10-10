@@ -1,3 +1,4 @@
+import merge from 'lodash/merge';
 import {
   Component,
   Prop,
@@ -5,6 +6,12 @@ import {
 } from 'vue-property-decorator';
 
 import StPopper from '../../popper/index.vue';
+import StPopperScript from '../../popper/script';
+import {
+  PopperBindProperties,
+  PopperPlacement,
+  TriggerType,
+} from '../../popper/types';
 import { SelectOption } from '../types';
 
 
@@ -36,8 +43,27 @@ export default class StSelectDropdown extends Vue {
   @Prop(Boolean)
   readonly!: boolean;
 
+  @Prop({ type: Object, default: () => {} })
+  popperProps!: PopperBindProperties;
+
+  extendedPopperProps: PopperBindProperties = {
+    arrowVisible: false,
+    placement: PopperPlacement.bottom,
+    trigger: TriggerType.click,
+    boundariesSelector: 'body',
+    stopPropagation: true,
+  };
+
   get popperClassName(): string {
-    return ['st-select-dropdown', this.popperClass].filter(Boolean).join(' ');
+    return [
+      'st-select-dropdown',
+      this.popperClass,
+      this.extendedPopperProps.popperClass,
+    ].filter(Boolean).join(' ');
+  }
+
+  beforeMount() {
+    merge(this.extendedPopperProps, this.popperProps);
   }
 
   select(option: SelectOption) {
@@ -48,7 +74,11 @@ export default class StSelectDropdown extends Vue {
     }
   }
 
+  openPopper() {
+    (this.$refs.popper as StPopperScript).doShow();
+  }
+
   closePopper() {
-    (this.$refs.popper as any).doClose();
+    (this.$refs.popper as StPopperScript).doClose();
   }
 }

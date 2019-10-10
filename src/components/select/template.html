@@ -13,7 +13,9 @@
              :suffix-icon="suffixIcon"
              @input="$event => $emit('input', $event)"
              @select="$event => $emit('select', $event)"
-             @clear="$emit('clear')">
+             @clear="$emit('clear')"
+             @dropdown-show="$emit('dropdown-show')"
+             @dropdown-hide="$emit('dropdown-hide')">
     <template v-slot:content-prefix>
       <slot name="prefix" />
     </template>

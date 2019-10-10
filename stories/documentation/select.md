@@ -81,6 +81,8 @@ You can find out more about this component slots in the bottom of documentation.
 | size | Defines component's size | - | String | - | mini / small / medium / large / extra-large |
 | prefixIcon | Defines prefix icon name (at the left side) | - | String | - | CHECK ICON COMPONENT |
 | suffixIcon | Defines suffix icon name (at the right side) | - | String | - | CHECK ICON COMPONENT |
+| dropdown-popper-props | Dropdown popper's component properties | - | Object | arrowVisible: false, placement: bottom, trigger: click, boundariesSelector: 'body' | CHECK POPPER COMPONENT DOCUMENTATION |
+| collapser-popper-props | **(Multiple Select only)** Collapser popper's component properties | - | Object | arrowVisible: true, placement: top, trigger: hover, boundariesSelector: 'body' | CHECK POPPER COMPONENT DOCUMENTATION |
 
 ## Events
 
@@ -89,6 +91,8 @@ You can find out more about this component slots in the bottom of documentation.
 | input | Fires when value changed | Value's result (v-model) |
 | select | Fires when any option was selected | Option |
 | clear | Fires when clear button was clicked | - |
+| dropdown-show | Fires on dropdown show | - |
+| dropdown-hide | Fires on dropdown hide | - |
 
 ## Slots (for every Select)
 
@@ -98,15 +102,8 @@ You can find out more about this component slots in the bottom of documentation.
 | suffix | Defines suffix content in select (at the right as default) | - |
 | list | Defines select dropdown's list | { options } |
 | option | Defines select dropdown option's content | { option } |
-
-## Slots (extra slots for Multiple Select only)
-
-Multiple select use the same default slots (check it above), but have some extra slots: 
-
-| Name | Description | Prop name |
-| --- | --- | --- |
-| collapser-control | Defines collapser control's block content | { amount } |
-| collapser-list | Defines collapser list's content | { elements } |
-| collapser-element | Defines collapser list element's content | { element } |
-| collapser-hidden-list | Defines collapser hidden list's content | { hiddenElements } |
-| collapser-hidden-element | Defines collapser hidden list element's content | { hiddenElement } |
+| collapser-control | **(Multiple Select only)** Defines collapser control's block content | { amount } |
+| collapser-list | **(Multiple Select only)** Defines collapser list's content | { elements } |
+| collapser-element | **(Multiple Select only)** Defines collapser list element's content | { element } |
+| collapser-hidden-list | **(Multiple Select only)** Defines collapser hidden list's content | { hiddenElements } |
+| collapser-hidden-element | **(Multiple Select only)** Defines collapser hidden list element's content | { hiddenElement } |

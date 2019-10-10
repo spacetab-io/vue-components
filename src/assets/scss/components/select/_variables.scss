@@ -5,9 +5,7 @@ $st-select-font-size: $st-font-size !default;
 
 // Content block
 $st-select-padding-left: 15px !default;
-$st-select-padding-right: 18px !default;
-$st-select-padding-left-with-prefix: 40px !default;
-$st-select-padding-left-with-suffix: 50px !default;
+$st-select-padding-right: 12px !default;
 
 $st-select-border: $st-border !default;
 $st-select-border-radius: $st-border-radius !default;
@@ -66,6 +64,7 @@ $st-select-dropdown-option-background: transparent !default;
 $st-select-dropdown-option-hovered-background: $st-color-white-smoke !default;
 $st-select-dropdown-option-disabled-opacity: 0.4 !default;
 
+$st-select-dropdown-readonly-option-cursor: default !default;
 $st-select-dropdown-disabled-option-cursor: default !default;
 $st-select-dropdown-readonly-option-opacity: 0.4 !default;
 

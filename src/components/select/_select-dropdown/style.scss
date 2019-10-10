@@ -1,6 +1,7 @@
 @import '../../../assets/scss/components/select/_variables';
 
 .st-select-dropdown {
+  box-sizing: border-box;
   width: $st-select-dropdown-width;
   background: $st-select-dropdown-background;
   border: $st-select-dropdown-border;
