@@ -18,15 +18,9 @@
             @click.stop="sort(col)">
             <div class="st-table__th__wrap"
                 :class="{ 'st-table__th__wrap--centered': col.centered }">
-                <template v-if="col.$scopedSlots && col.$scopedSlots[`th-${col.field}`]">
-                    <b-slot-component :component="col"
-                                      :props="{ col, index }"
-                                      name="header"
-                                      scoped />
-                </template>
-                <template v-else-if="$scopedSlots[`th-${col.field}`]">
+                 <template v-if="$scopedSlots[`th-${col.name}`]">
                     <slot
-                        :name="`th-${col.field}`"
+                        :name="`th-${col.name}`"
                         :col="col"
                         :index="index"
                     />
