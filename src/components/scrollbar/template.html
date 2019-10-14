@@ -2,16 +2,28 @@
      :class="rootClasses"
      ref="root">
     <div class="st-scrollbar__vertical-scroll-container"
+         :class="{
+            'st-scrollbar__vertical-scroll-container--hidden': !verticalScrollData.isVisible
+         }"
          @click="onScrollContainerClicked($event, true)"
          ref="verticalScrollContainer">
         <div class="st-scrollbar__vertical-scroll"
+             :class="{
+                'st-scrollbar__vertical-scroll--active': verticalScrollData.isDrag,
+             }"
              ref="verticalScroll"
              :style="verticalScrollStyles"></div>
     </div>
     <div class="st-scrollbar__horizontal-scroll-container"
+         :class="{
+            'st-scrollbar__horizontal-scroll-container--hidden': !horizontalScrollData.isVisible
+         }"
          @click="onScrollContainerClicked($event, false)"
          ref="horizontalScrollContainer">
         <div class="st-scrollbar__horizontal-scroll"
+             :class="{
+                'st-scrollbar__horizontal-scroll--active': horizontalScrollData.isDrag,
+             }"
              ref="horizontalScroll"
              :style="horizontalScrollStyles"></div>
     </div>
