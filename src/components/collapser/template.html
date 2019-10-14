@@ -2,7 +2,7 @@
   <div :class="['st-collapser__list', listClass]"
        ref="list">
     <slot name="list"
-          v-bind:elements="elements">
+          :elements="elements">
       <div :class="[
              'st-collapser__item',
               elementClass,
@@ -11,7 +11,7 @@
            :key="index"
            @click="$emit('element-click', item)">
         <slot name="element"
-              v-bind:element="item">
+              :element="item">
           {{ item }}
         </slot>
       </div>
@@ -19,7 +19,8 @@
   </div>
   <div :class="['st-collapser__control', controlClass]"
        ref="control">
-    <st-popper :class="['st-collapser__popper', popperClass]"
+    <st-popper :class="['st-collapser__popper-wrapper', popperWrapperClass]"
+               :popper-class="popperClassName"
                ref="popper"
                v-bind="extendedPopperProps"
                @show="popperVisible = true"
@@ -34,12 +35,13 @@
            ]"
            v-show="hiddenElements.length">
         <slot name="control"
-              v-bind:amount="hiddenElements.length">
+              :amount="hiddenElements.length">
           +{{ hiddenElements.length }}
         </slot>
       </div>
       <div :class="['st-collapser__hidden-list', hiddenListClass]">
-        <slot name="hiddenList" v-bind:hiddenElements="hiddenElements">
+        <slot name="hidden-list"
+              :hidden-elements="hiddenElements">
           <div :class="[
                  'st-collapser__hidden-item',
                   hiddenElementClass,
@@ -47,8 +49,8 @@
                v-for="(item, index) in hiddenElements"
                :key="index"
                @click="$emit('hidden-element-click', item)">
-            <slot name="hiddenElement"
-                  v-bind:hiddenElement="item">
+            <slot name="hidden-element"
+                  :hidden-element="item">
               {{ item }}
             </slot>
           </div>

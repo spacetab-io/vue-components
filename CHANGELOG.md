@@ -3,9 +3,11 @@
 ## 0.2.4
 
 ### Features
+* Added new component: `Select`
 * Added new component: `Tabs`
 * Added new component: `Collapser`
 * Added `PopperBindProperties` interface for component `Popper`
+* Added `readonly` prop for component `Checkbox`
 
 ### Maintenance
 * Added pre-commit script

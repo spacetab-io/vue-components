@@ -1,0 +1,85 @@
+@import '../../utils/variables';
+
+$st-select-height: 38px !default;
+$st-select-font-size: $st-font-size !default;
+
+// Content block
+$st-select-padding-left: 15px !default;
+$st-select-padding-right: 12px !default;
+
+$st-select-border: $st-border !default;
+$st-select-border-radius: $st-border-radius !default;
+
+$st-select-side-offset: 12px !default;
+$st-select-prefix-offset: $st-select-side-offset !default;
+$st-select-suffix-offset: $st-select-side-offset !default;
+
+$st-select-color: $st-text-color-regular !default;
+$st-select-background: $st-color-white !default;
+$st-select-placeholder-color: $st-text-color-placeholder !default;
+$st-select-border-transition: $st-border-transition !default;
+$st-select-disabled-color: $st-disabled-color !default;
+$st-select-readonly-color: $st-disabled-color !default;
+
+$st-select-icon-color: $st-color-pastel-gray !default;
+$st-select-hovered-icon-color: $st-color-taupe-gray !default;
+$st-select-active-icon-color: $st-color-blueberry !default;
+$st-select-icon-color-transition: $st-color-transition !default;
+
+$st-select-clear-icon-size: 10px !default;
+$st-select-clear-icon-width: $st-select-clear-icon-size !default;
+$st-select-clear-icon-height: $st-select-clear-icon-size !default;
+$st-select-clear-icon-font-size: $st-select-clear-icon-size !default;
+$st-select-clear-icon-padding: 4px !default;
+
+$st-select-arrow-icon-size: 12px !default;
+$st-select-arrow-icon-width: $st-select-arrow-icon-size !default;
+$st-select-arrow-icon-height: $st-select-arrow-icon-size !default;
+$st-select-arrow-icon-font-size: $st-select-arrow-icon-size !default;
+
+$st-select-side-icon-size: 18px !default;
+$st-select-prefix-icon-size: $st-select-side-icon-size !default;
+$st-select-prefix-icon-width: $st-select-prefix-icon-size !default;
+$st-select-prefix-icon-height: $st-select-prefix-icon-size !default;
+$st-select-prefix-icon-font-size: $st-select-prefix-icon-size !default;
+$st-select-suffix-icon-size: $st-select-side-icon-size !default;
+$st-select-suffix-icon-width: $st-select-suffix-icon-size !default;
+$st-select-suffix-icon-height: $st-select-suffix-icon-size !default;
+$st-select-suffix-icon-font-size: $st-select-suffix-icon-size !default;
+
+// Dropdown block
+$st-select-dropdown-width: 100% !default;
+$st-select-dropdown-list-max-height: 150px !default;
+$st-select-dropdown-background: $st-color-white !default;
+$st-select-dropdown-border: $st-select-border !default;
+$st-select-dropdown-border-radius: $st-select-border-radius !default;
+$st-select-dropdown-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.08) !default;
+
+$st-select-dropdown-option-padding-vertical: 18px !default;
+$st-select-dropdown-option-padding-horizontal: 15px !default;
+$st-select-dropdown-option-font-size: $st-select-font-size !default;
+$st-select-dropdown-option-color: $st-select-color !default;
+$st-select-dropdown-option-border-bottom: $st-border-width $st-border-style $st-border-color !default;
+$st-select-dropdown-option-background: transparent !default;
+$st-select-dropdown-option-hovered-background: $st-color-white-smoke !default;
+$st-select-dropdown-option-disabled-opacity: 0.4 !default;
+
+$st-select-dropdown-readonly-option-cursor: default !default;
+$st-select-dropdown-disabled-option-cursor: default !default;
+$st-select-dropdown-readonly-option-opacity: 0.4 !default;
+
+// Single Select block
+$st-select-single-dropdown-selected-option-font-weight: 600 !default;
+$st-select-single-dropdown-option-icon-size: 12px !default;
+$st-select-single-dropdown-option-icon-width: $st-select-single-dropdown-option-icon-size !default;
+$st-select-single-dropdown-option-icon-height: $st-select-single-dropdown-option-icon-size !default;
+$st-select-single-dropdown-option-icon-font-size: $st-select-single-dropdown-option-icon-size !default;
+
+// Multiple Select block
+$st-select-multiple-disabled-collapser-item-color: $st-disabled-color !default;
+$st-select-multiple-readonly-collapser-item-color: $st-disabled-color !default;
+$st-select-multiple-collapser-item-margin: 3px !default;
+$st-select-multiple-collapser-dropdown-background: $st-color-white !default;
+$st-select-multiple-collapser-dropdown-padding: 20px !default;
+$st-select-multiple-collapser-dropdown-font-size: 12px !default;
+$st-select-multiple-collapser-dropdown-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.24) !default;

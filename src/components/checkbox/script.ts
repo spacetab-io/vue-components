@@ -7,32 +7,36 @@ import {
 
 @Component
 export default class StCheckbox extends Vue {
-    @Prop(Boolean)
+  @Prop(Boolean)
   readonly disabled!: boolean;
 
-    @Prop(Boolean)
-    readonly value!: boolean;
+  @Prop(Boolean)
+  readonly readonly!: boolean;
 
-    @Prop(String)
-    readonly label!: string;
+  @Prop(Boolean)
+  readonly value!: boolean;
 
-    @Emit('input')
-    emmitInput(newValue: boolean) {
-      return newValue;
+  @Prop(String)
+  readonly label!: string;
+
+  @Emit('input')
+  emmitInput(newValue: boolean) {
+    return newValue;
+  }
+
+  toggleCheckbox() {
+    if (this.disabled || this.readonly) {
+      return;
     }
 
-    toggleCheckbox() {
-      if (this.disabled) {
-        return;
-      }
+    this.emmitInput(!this.value);
+  }
 
-      this.emmitInput(!this.value);
-    }
-
-    get checkboxMods() {
-      return {
-        'st-checkbox--checked': this.value,
-        'st-checkbox--disabled': this.disabled,
-      };
-    }
+  get checkboxMods() {
+    return {
+      'st-checkbox--checked': this.value,
+      'st-checkbox--disabled': this.disabled,
+      'st-checkbox--readonly': this.readonly,
+    };
+  }
 }

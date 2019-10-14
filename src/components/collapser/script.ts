@@ -1,17 +1,10 @@
 import debounce from 'lodash/debounce';
 import merge from 'lodash/merge';
 import {
-  Component,
-  Prop,
-  Vue,
-  Watch,
+  Component, Prop, Vue, Watch,
 } from 'vue-property-decorator';
 
-import {
-  PopperBindProperties,
-  PopperPlacement,
-  TriggerType,
-} from '../popper/types';
+import { PopperBindProperties, PopperPlacement, TriggerType } from '../popper/types';
 
 
 const CALCULATOR_LIST_CLASS_NAME = 'st-collapser__list--calculator';
@@ -34,6 +27,9 @@ export default class StCollapser extends Vue {
   controlClass!: string;
 
   @Prop({ type: String, default: '' })
+  popperWrapperClass!: string;
+
+  @Prop({ type: String, default: '' })
   popperClass!: string;
 
   @Prop({ type: String, default: '' })
@@ -54,6 +50,7 @@ export default class StCollapser extends Vue {
     placement: PopperPlacement.bottom,
     trigger: TriggerType.hover,
     boundariesSelector: 'body',
+    stopPropagation: true,
   };
 
   @Watch('elements', { deep: true })
@@ -63,11 +60,18 @@ export default class StCollapser extends Vue {
 
   @Watch('hiddenElements', { deep: true })
   onHiddenElementsChange(value: any[]) {
+    if (!value.length) {
+      this.closePopper();
+    }
     this.$emit('hidden-elements-change', value.length);
   }
 
   get debounceCollapse() {
     return debounce(this.collapse, DEBOUNCE_DELAY);
+  }
+
+  get popperClassName(): string {
+    return ['st-collapser__popper', this.popperClass].filter(Boolean).join(' ');
   }
 
   beforeDestroy() {
@@ -91,7 +95,9 @@ export default class StCollapser extends Vue {
   }
 
   collapse() {
+    this.closePopper();
     if (!this.elements.length) {
+      this.hiddenElements = [];
       return;
     }
 
@@ -122,8 +128,16 @@ export default class StCollapser extends Vue {
   getControlWidth(): number {
     const control = this.$refs.control as HTMLElement;
     const { offsetWidth } = control;
-    const { marginLeft, marginRight } = window.getComputedStyle(control);
-    return offsetWidth + parseFloat(marginLeft || '0') + parseFloat(marginRight || '0');
+    const {
+      marginLeft,
+      marginRight,
+      borderLeftWidth,
+      borderRightWidth,
+    } = window.getComputedStyle(control);
+    const stylesWidthSum = [marginLeft, marginRight, borderLeftWidth, borderRightWidth].reduce(
+      (acc: number, item: string|null) => acc + (item ? parseFloat(item) : 0), 0,
+    );
+    return offsetWidth + stylesWidthSum;
   }
 
   createCalculationElement(): HTMLElement {
@@ -140,5 +154,9 @@ export default class StCollapser extends Vue {
       const child = list.children[i] as HTMLElement;
       child.style.display = 'none';
     }
+  }
+
+  closePopper() {
+    (this.$refs.popper as any).doClose();
   }
 }

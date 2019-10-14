@@ -1,10 +1,20 @@
-import Popper, { Placement, PopperOptions } from 'popper.js';
+import Popper, {
+  Placement,
+  PopperOptions,
+} from 'popper.js';
 import { VNode } from 'vue';
 import {
-  Component, Prop, Vue, Watch,
+  Component,
+  Prop,
+  Vue,
+  Watch,
 } from 'vue-property-decorator';
 
-import { PopperPlacement, TriggerType } from './types';
+import {
+  PopperPlacement,
+  TriggerType,
+} from './types';
+
 
 @Component({
   name: 'StPopper',
@@ -261,7 +271,7 @@ export default class StPopper extends Vue {
     if (this.preventDefault) {
       event.preventDefault();
     }
-    if (!this.forceShow) {
+    if (!this.forceShow && !this.disabled) {
       this.showPopper = !this.showPopper;
     }
   }
