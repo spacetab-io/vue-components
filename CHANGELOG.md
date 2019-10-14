@@ -1,10 +1,27 @@
 # Changelog
 
+## 0.2.4
+
+### Features
+* Added new component: `Select`
+* Added new component: `Tabs`
+* Added new component: `Collapser`
+* Added `PopperBindProperties` interface for component `Popper`
+* Added `readonly` prop for component `Checkbox`
+
+### Maintenance
+* Added pre-commit script
+* EOL symbol in generators was updated
+
+
+
 ## 0.2.3
 
 ### Features
 * Added new component: `Popper`
-* Added new icons. Return, Luggage, No-Return, No-Luggage.
+* Added new icons: Return, Luggage, No-Return, No-Luggage
+
+
 
 ## 0.2.1
 

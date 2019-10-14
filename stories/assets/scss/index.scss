@@ -6,8 +6,10 @@ body, html {
 }
 
 body {
+  min-height: 100vh;
   padding: 10px;
   margin: 0;
+  box-sizing: border-box;
 }
 
 input, textarea, select, button, meter, progress {
@@ -24,9 +26,11 @@ code {
 @import "badge";
 @import "button";
 @import "icon";
+@import "collapser";
 @import "customization";
 @import "radio";
 @import "scrollbar";
+@import "tabs";
 
 // TODO: Продумать возможность переключения тем
 @import "theme-import.temp";

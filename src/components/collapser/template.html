@@ -1,0 +1,61 @@
+<div class="st-collapser">
+  <div :class="['st-collapser__list', listClass]"
+       ref="list">
+    <slot name="list"
+          :elements="elements">
+      <div :class="[
+             'st-collapser__item',
+              elementClass,
+           ]"
+           v-for="(item, index) in elements"
+           :key="index"
+           @click="$emit('element-click', item)">
+        <slot name="element"
+              :element="item">
+          {{ item }}
+        </slot>
+      </div>
+    </slot>
+  </div>
+  <div :class="['st-collapser__control', controlClass]"
+       ref="control">
+    <st-popper :class="['st-collapser__popper-wrapper', popperWrapperClass]"
+               :popper-class="popperClassName"
+               ref="popper"
+               v-bind="extendedPopperProps"
+               @show="popperVisible = true"
+               @hide="popperVisible = false">
+      <div slot="reference"
+           :class="[
+             'st-collapser__control-label',
+             {
+               'st-collapser__control-label--with-hover': !extendedPopperProps.disabled,
+               'st-collapser__control-label--hovered': popperVisible,
+             }
+           ]"
+           v-show="hiddenElements.length">
+        <slot name="control"
+              :amount="hiddenElements.length">
+          +{{ hiddenElements.length }}
+        </slot>
+      </div>
+      <div :class="['st-collapser__hidden-list', hiddenListClass]">
+        <slot name="hidden-list"
+              :hidden-elements="hiddenElements">
+          <div :class="[
+                 'st-collapser__hidden-item',
+                  hiddenElementClass,
+               ]"
+               v-for="(item, index) in hiddenElements"
+               :key="index"
+               @click="$emit('hidden-element-click', item)">
+            <slot name="hidden-element"
+                  :hidden-element="item">
+              {{ item }}
+            </slot>
+          </div>
+        </slot>
+      </div>
+    </st-popper>
+  </div>
+</div>

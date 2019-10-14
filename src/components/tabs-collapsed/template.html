@@ -1,0 +1,34 @@
+<st-collapser class="st-tabs-collapsed"
+              list-class="st-tabs-collapsed__list"
+              hidden-list-class="st-tabs-collapsed__hidden-list"
+              control-class="st-tabs-collapsed__control"
+              popper-class="st-tabs-collapsed__popper"
+              :elements="copiedTabs"
+              :popper-props="popperProps">
+  <template v-slot:list="{ elements }">
+    <st-tab-item v-for="tab in elements"
+                 :key="tab.id"
+                 class="st-tabs-collapsed__item"
+                 :selected="tab.id === selectedTabId"
+                 :icon="tab.icon"
+                 :label="tab.label"
+                 :closeable="tab.closeable"
+                 @close="close(tab)"
+                 @click.native="select(tab)">
+      <slot name="tab" v-bind:tab="tab"></slot>
+    </st-tab-item>
+  </template>
+  <template v-slot:hiddenList="{ hiddenElements }">
+    <st-tab-item v-for="tab in hiddenElements"
+                 :key="tab.id"
+                 class="st-tabs-collapsed__item"
+                 :selected="tab.id === selectedTabId"
+                 :icon="tab.icon"
+                 :label="tab.label"
+                 :closeable="tab.closeable"
+                 @close="close(tab)"
+                 @click.native="select(tab)">
+      <slot name="hiddenTab" v-bind:tab="tab"></slot>
+    </st-tab-item>
+  </template>
+</st-collapser>

@@ -5,6 +5,7 @@ import StButtonGroup from './button-group/index.vue';
 import StButton from './button/index.vue';
 import StCheckbox from './checkbox/index.vue';
 import StCol from './col/index.vue';
+import StCollapser from './collapser/index.vue';
 import StIcon from './icon/index.vue';
 import StInput from './input/index.vue';
 import StNotification from './notification/index.vue';
@@ -14,7 +15,11 @@ import StPopper from './popper/index.vue';
 import StRadio from './radio/index.vue';
 import StRow from './row/index.vue';
 import StScrollbar from './scrollbar/index.vue';
+import StSelect from './select/index.vue';
 import StSwitch from './switch/index.vue';
+import StTable from './table/index.vue';
+import StTabsCollapsed from './tabs-collapsed/index.vue';
+import StTabs from './tabs/index.vue';
 import StTextarea from './textarea/index.vue';
 
 const Components = {
@@ -23,6 +28,7 @@ const Components = {
   StButtonGroup,
   StCheckbox,
   StCol,
+  StCollapser,
   StIcon,
   StInput,
   StNotification,
@@ -32,7 +38,11 @@ const Components = {
   StRadio,
   StRow,
   StScrollbar,
+  StSelect,
   StSwitch,
+  StTable,
+  StTabs,
+  StTabsCollapsed,
   StTextarea,
 };
 

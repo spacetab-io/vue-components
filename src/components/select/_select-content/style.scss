@@ -1,0 +1,129 @@
+@import '../../../assets/scss/components/select/_variables';
+
+.st-select-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: $st-select-height;
+  padding-right: $st-select-padding-right;
+  padding-left: $st-select-padding-left;
+  color: $st-select-color;
+  background: $st-select-background;
+  border: $st-select-border;
+  border-radius: $st-select-border-radius;
+  transition: $st-select-border-transition;
+
+  &__input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    font-size: inherit;
+    color: transparent;
+    border: 0;
+    border-radius: $st-select-border-radius;
+    opacity: 0;
+  }
+
+  &__placeholder {
+    width: 100%;
+    overflow: hidden;
+    color: $st-select-placeholder-color;
+    white-space: nowrap;
+    cursor: default;
+  }
+
+  &__value {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  &__prefix,
+  &__suffix {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+  }
+
+  &__prefix {
+    justify-content: flex-start;
+    margin-right: 10px;
+  }
+
+  &__suffix {
+    justify-content: flex-end;
+  }
+
+  &__prefix-icon {
+    width: $st-select-prefix-icon-width;
+    height: $st-select-prefix-icon-height;
+    font-size: $st-select-prefix-icon-font-size;
+  }
+
+  &__suffix-icon {
+    width: $st-select-suffix-icon-width;
+    height: $st-select-suffix-icon-height;
+    margin-right: -2px;
+    margin-left: 4px;
+    font-size: $st-select-suffix-icon-font-size;
+  }
+
+  &__arrow-icon {
+    width: $st-select-arrow-icon-width;
+    height: $st-select-arrow-icon-height;
+    font-size: $st-select-arrow-icon-font-size;
+  }
+
+  &__clear-icon {
+    position: relative;
+    z-index: 1;
+    width: $st-select-clear-icon-width;
+    height: $st-select-clear-icon-height;
+    padding: $st-select-clear-icon-padding;
+    margin-right: -$st-select-clear-icon-padding;
+    font-size: $st-select-clear-icon-font-size;
+    cursor: pointer;
+  }
+
+  &__icon {
+    color: $st-select-icon-color;
+    transition: $st-select-icon-color-transition;
+  }
+
+  &--inactive:hover {
+    .st-select-content__icon {
+      color: $st-select-hovered-icon-color;
+    }
+  }
+
+  &--active {
+    .st-select-content__icon--clickable {
+      color: $st-select-hovered-icon-color;
+
+      &:hover {
+        color: $st-select-active-icon-color;
+      }
+    }
+
+    .st-select-content__icon--static {
+      color: $st-select-active-icon-color;
+    }
+  }
+
+  &--disabled {
+    color: $st-select-disabled-color;
+  }
+
+  &--readonly {
+    color: $st-select-readonly-color;
+  }
+}

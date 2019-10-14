@@ -2,7 +2,7 @@ const GeneratorLogger = require('./utils/generator-logger');
 
 const fs = require('fs');
 const render = require('json-templater/string');
-const endOfLine = require('os').EOL;
+const endOfLine = require('./utils/end-of-line').EOL;
 
 const generatorLogger = new GeneratorLogger('Icon Generator');
 

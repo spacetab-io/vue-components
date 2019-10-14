@@ -2,7 +2,7 @@ const readline = require('readline');
 const fs = require('fs');
 const GeneratorLogger = require('./utils/generator-logger');
 const render = require('json-templater/string');
-const printEol = require('./utils/print-eol');
+const printEol = require('./utils/end-of-line').printConsoleLine;
 
 const logger = new GeneratorLogger();
 const generatorLogger = new GeneratorLogger('Component Generator');
@@ -224,8 +224,8 @@ generateStory = () => {
     const pascalName = config.componentPascalName;
 
     let componentName = config.componentName.replace('-', ' ');
-    let letter = componentName.slice(1).toUpperCase();
-    componentName = letter + componentName;
+    let firstLetter = componentName.charAt(0).toUpperCase();
+    componentName = firstLetter + componentName.slice(1, componentName.length);
 
     renderFileFromTemplate(
         `${DIRECTORIES.generator.templates.story}documentation-file.template.txt`,
@@ -278,7 +278,7 @@ const getComponentNameByKebab = (name) => {
     const scriptFilePath = pathGenerator.component.script(name);
 
     const fileContents = fs.readFileSync(scriptFilePath, { encoding: 'utf8' });
-    const regexp = new RegExp(/export default class (.*) extends Vue/);
+    const regexp = new RegExp(/export default class (.*) extends/);
     const regResult = regexp.exec(fileContents.toString('utf8'));
 
     return regResult[1];
