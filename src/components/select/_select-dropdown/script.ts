@@ -12,6 +12,7 @@ import {
   PopperPlacement,
   TriggerType,
 } from '../../popper/types';
+import StScrollbar from '../../scrollbar/index.vue';
 import { SelectOption } from '../types';
 
 
@@ -19,6 +20,7 @@ import { SelectOption } from '../types';
   name: 'StSelectDropdown',
   components: {
     StPopper,
+    StScrollbar,
   },
 })
 export default class StSelectDropdown extends Vue {

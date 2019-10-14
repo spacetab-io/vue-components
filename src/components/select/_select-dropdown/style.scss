@@ -3,6 +3,7 @@
 .st-select-dropdown {
   box-sizing: border-box;
   width: $st-select-dropdown-width;
+  max-height: $st-select-dropdown-list-max-height;
   background: $st-select-dropdown-background;
   border: $st-select-dropdown-border;
   border-radius: $st-select-dropdown-border-radius;
@@ -10,11 +11,6 @@
 
   &__content {
     width: 100%;
-  }
-
-  &__options-list {
-    max-height: $st-select-dropdown-list-max-height;
-    overflow-y: auto;
   }
 
   &__option {

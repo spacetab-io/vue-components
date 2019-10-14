@@ -9,7 +9,7 @@
     <slot name="reference"></slot>
   </template>
   <div class="st-select-dropdown__content">
-    <div class="st-select-dropdown__options-list">
+    <st-scrollbar class="st-select-dropdown__options-list">
       <slot :options="options">
         <div :class="[
                'st-select-dropdown__option',
@@ -30,6 +30,6 @@
           </slot>
         </div>
       </slot>
-    </div>
+    </st-scrollbar>
   </div>
 </st-popper>
