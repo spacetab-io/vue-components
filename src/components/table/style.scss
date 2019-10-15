@@ -1,64 +1,18 @@
-@import '../../assets/scss/utils/mixins';
 @import '../../assets/scss/components/table/variables';
 
-@include b('table') {
+.st-table {
   $root: &;
 
   font-size: $st-table-font-size;
   color: $st-table-color;
 
-  @include e(table) {
+  &__table {
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
     border: $st-table-border-width solid transparent;
-  }
 
-  @include e(td) {
-    padding: $st-table-td-padding;
-    vertical-align: $st-table-td-vertical-align;
-    border: $st-table-border-width solid $st-table-border-color;
-    border-width: 0 0 $st-table-border-width;
-  }
-
-  @include e(th) {
-    padding: $st-table-td-padding;
-    vertical-align: $st-table-th-vertical-align;
-    border: $st-table-border-width solid $st-table-border-color;
-    border-width: 0 0 $st-table-border-width;
-
-    @include e(wrap) {
-      display: flex;
-      align-items: center;
-
-      @include m(centered) {
-        justify-content: center;
-        text-align: center;
-      }
-    }
-
-    @include e(sortable) {
-      cursor: pointer;
-
-      &:hover {
-        border-bottom-color: $st-table-sortable-hover-border-color;
-      }
-
-      @include m(current) {
-        border-bottom-color: $st-table-sortable-current-border-color;
-      }
-    }
-  }
-
-  @include e(tbody) {
-    #{$root}__tr:last-child #{$root}__td,
-    #{$root}__tr:last-child #{$root}__th {
-      border-bottom-width: 0;
-    }
-  }
-
-  @include e(table) {
-    @include m(bordered) {
+    &--bordered {
       #{$root}__th,
       #{$root}__td,
       #{$root}__tr:last-child #{$root}__td {
@@ -68,39 +22,82 @@
     }
   }
 
-  @include e(thead) {
+  &__td {
+    padding: $st-table-td-padding;
+    vertical-align: $st-table-td-vertical-align;
+    border: $st-table-border-width solid $st-table-border-color;
+    border-width: 0 0 $st-table-border-width;
+  }
+
+  &__th {
+    padding: $st-table-td-padding;
+    vertical-align: $st-table-th-vertical-align;
+    border: $st-table-border-width solid $st-table-border-color;
+    border-width: 0 0 $st-table-border-width;
+  }
+
+  &__th-wrap {
+    display: flex;
+    align-items: center;
+
+    &--centered {
+      justify-content: center;
+      text-align: center;
+    }
+  }
+
+  &__th-sortable {
+    cursor: pointer;
+
+    &:hover {
+      border-bottom-color: $st-table-sortable-hover-border-color;
+    }
+
+    &--current {
+      border-bottom-color: $st-table-sortable-current-border-color;
+    }
+  }
+
+  &__tbody {
+    #{$root}__tr:last-child #{$root}__td,
+    #{$root}__tr:last-child #{$root}__th {
+      border-bottom-width: 0;
+    }
+  }
+
+  &__thead {
     #{$root}__th {
       border-bottom-width: $st-table-header-border-width;
     }
   }
 
-  @include e(tfoot) {
+  &__tfoot {
     #{$root}__th {
       border-width: $st-table-footer-border-width 0 0;
     }
   }
 
-  @include e(sortable) {
+  &__sortable {
     display: flex;
     flex-direction: column;
   }
 
-  @include e(sortable-arrow) {
+  &__sortable-arrow {
     display: flex;
     width: $st-table-sortable-icon-size;
     height: $st-table-sortable-icon-size;
     margin-left: 8px;
     color: $st-table-sortable-icon-color;
 
-    @include m(up) {
+    &--up {
       transform: rotate(180deg);
     }
   }
 
-  @include e(sortable-current) {
+  &__sortable-current {
     transition: 0.2s;
 
-    @include m(desc) {
+    &--desc {
       transform: rotate(180deg);
     }
   }

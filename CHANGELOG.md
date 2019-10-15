@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.5
+
+### Maintenance
+* Weird mixins and functions in scss files were removed
+
+
+
 ## 0.2.4
 
 ### Features

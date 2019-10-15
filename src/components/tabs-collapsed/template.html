@@ -18,7 +18,7 @@
       <slot name="tab" v-bind:tab="tab"></slot>
     </st-tab-item>
   </template>
-  <template v-slot:hiddenList="{ hiddenElements }">
+  <template v-slot:hidden-list="{ hiddenElements }">
     <st-tab-item v-for="tab in hiddenElements"
                  :key="tab.id"
                  class="st-tabs-collapsed__item"

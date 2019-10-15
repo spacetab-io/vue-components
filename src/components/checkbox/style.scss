@@ -1,7 +1,6 @@
-@import '../../assets/scss/utils/mixins';
 @import '../../assets/scss/components/checkbox/variables';
 
-@include b('checkbox') {
+.st-checkbox {
   $root: &;
 
   display: flex;
@@ -9,23 +8,19 @@
   justify-content: flex-start;
   cursor: pointer;
 
-  @include m('disabled') {
-    cursor: not-allowed;
-  }
-
-  &:hover:not(.st-checkbox--readonly) {
-    @include e('inner', $root, false) {
+  &:not(&--readonly):hover {
+    #{$root}__inner {
       border: $st-border-style $st-checkbox-common-border-width $st-color-dark-gunmetal;
     }
   }
 
-  @include e('input') {
+  &__input {
     line-height: 1;
     white-space: nowrap;
     outline: none;
   }
 
-  @include e('inner') {
+  &__inner {
     position: relative;
     box-sizing: border-box;
     display: inline-block;
@@ -51,7 +46,7 @@
     }
   }
 
-  @include e('original-input') {
+  &__original-input {
     position: absolute;
     left: -999px;
     width: 0;
@@ -61,15 +56,19 @@
     opacity: 0;
   }
 
-  @include e('label') {
+  &__label {
     display: inline-block;
     padding: $st-checkbox-label-padding;
     font-size: $st-checkbox-label-font-size;
     transition: $st-checkbox-label-transition;
   }
 
-  @include state('checked') {
-    @include e('inner', $root, false) {
+  &--readonly {
+    cursor: default;
+  }
+
+  &--checked {
+    #{$root}__inner {
       background-color: $st-checkbox-checked-background-color;
       border-color: $st-checkbox-checked-border-color;
 
@@ -78,32 +77,34 @@
       }
     }
 
-    &:hover:not(.st-checkbox--readonly) {
-      @include e('inner', $root, false) {
+    &:not(#{$root}--readonly):hover {
+      #{$root}__inner {
         border-color: $st-checkbox-checked-border-color;
       }
     }
   }
 
-  @include state('disabled') {
-    @include e('inner', $root, false) {
+  &--disabled {
+    cursor: not-allowed;
+
+    #{$root}__inner {
       background-color: $st-checkbox-disabled-background-color;
       border-color: $st-checkbox-disabled-border-color;
     }
 
-    @include e('label', $root, false) {
+    #{$root}__label {
       color: $st-checkbox-disabled-color;
     }
 
-    &:hover:not(.st-checkbox--readonly) {
-      @include e('inner', $root, false) {
+    &:not(#{$root}--readonly):hover {
+      #{$root}__inner {
         border-color: $st-checkbox-disabled-border-color;
       }
     }
   }
 
-  @include dblState('disabled', 'checked') {
-    @include e('inner', $root, false) {
+  &--disabled#{$root}--checked {
+    #{$root}__inner {
       background-color: $st-checkbox-checked-disabled-background-color;
       border-color: $st-checkbox-checked-disabled-border-color;
     }
