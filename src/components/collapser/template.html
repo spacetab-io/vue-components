@@ -3,10 +3,7 @@
        ref="list">
     <slot name="list"
           :elements="elements">
-      <div :class="[
-             'st-collapser__item',
-              elementClass,
-           ]"
+      <div :class="getElementClassName(index)"
            v-for="(item, index) in elements"
            :key="index"
            @click="$emit('element-click', item)">
@@ -31,9 +28,9 @@
              {
                'st-collapser__control-label--with-hover': !extendedPopperProps.disabled,
                'st-collapser__control-label--hovered': popperVisible,
+               'st-collapser__control-label--hidden': !hiddenElements.length,
              }
-           ]"
-           v-show="hiddenElements.length">
+           ]">
         <slot name="control"
               :amount="hiddenElements.length">
           +{{ hiddenElements.length }}

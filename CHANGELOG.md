@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.5
+
+### Features
+* Improved view of `Collapser` component
+
+
+
 ## 0.2.4
 
 ### Features
