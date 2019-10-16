@@ -1,5 +1,5 @@
 export interface PaginationEvent {
-  page: number;
+  currentPage: number;
+  perPage: number;
   offset: number;
-  limit: number;
 }

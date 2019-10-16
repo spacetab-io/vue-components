@@ -1,5 +1,6 @@
 import {
   Component,
+  Model,
   Prop,
   Vue,
   Watch,
@@ -11,13 +12,22 @@ import { PaginationEvent } from './types';
 
 enum PageType {
   page,
-  seperator,
+  separator,
 }
 
 interface Page {
   type: PageType;
   number?: number;
 }
+
+interface RangeOptions {
+  hasFirstSeparator: boolean;
+  hasLastSeparator: boolean;
+  minRange: number;
+  maxRange: number;
+}
+
+const ELLIPSIS_ELEMENTS_LIMIT = 3; // page + ellipsis + page
 
 @Component({
   name: 'StPagination',
@@ -26,6 +36,18 @@ interface Page {
   },
 })
 export default class StPagination extends Vue {
+  @Model('change', { type: Number, required: true, default: 1 })
+  currentPage!: number;
+
+  @Prop(Number)
+  total!: number;
+
+  @Prop({ type: Number, default: 10 })
+  perPage!: number;
+
+  @Prop({ type: Number, default: 3 })
+  groupedPages!: number;
+
   @Prop(Boolean)
   showEmpty!: boolean;
 
@@ -34,18 +56,6 @@ export default class StPagination extends Vue {
 
   @Prop({ type: Boolean, default: true })
   showStep!: boolean;
-
-  @Prop({ type: Array, default: [] })
-  list!: any[];
-
-  @Prop({ type: Number, default: 10 })
-  limit!: number;
-
-  @Prop({ type: Number, default: 3 })
-  groupedPages!: number;
-
-  @Prop({ type: Number, default: 1 })
-  initialPage!: number;
 
   @Prop({ type: String, default: 'arrow-left-soft' })
   prevStepIcon!: string;
@@ -75,12 +85,62 @@ export default class StPagination extends Vue {
 
   totalPages: number = 0;
 
-  currentPage: number = 0;
-
   pages: Page[] = [];
 
   get isPaginationHidden(): boolean {
     return !this.showEmpty && this.totalPages <= 1;
+  }
+
+  get rangeOptions(): RangeOptions {
+    const pagesOffset = Math.floor((this.groupedPages - 1) / 2);
+    const boundaryVisibleElementsAmount = ELLIPSIS_ELEMENTS_LIMIT + (pagesOffset * 2);
+
+    const boundarySecondFirstPage = 2;
+    const boundarySecondLastPage = this.totalPages - 1;
+
+    const firstBoundarySplit = Math.min(
+      boundarySecondLastPage,
+      boundaryVisibleElementsAmount,
+    );
+    const lastBoundarySplit = Math.max(
+      boundarySecondFirstPage,
+      this.totalPages - boundaryVisibleElementsAmount + 1,
+    );
+
+    const separatedMinRange = this.currentPage - pagesOffset;
+    const separatedMaxRange = this.currentPage + pagesOffset;
+
+    const needSeparators = firstBoundarySplit <= lastBoundarySplit + pagesOffset;
+    const hasFirstSeparator = needSeparators
+      ? separatedMinRange - ELLIPSIS_ELEMENTS_LIMIT >= 1
+      : false;
+    const hasLastSeparator = needSeparators
+      ? separatedMaxRange + ELLIPSIS_ELEMENTS_LIMIT <= this.totalPages
+      : false;
+
+    let minRange = separatedMinRange;
+    let maxRange = separatedMaxRange;
+    if (!hasFirstSeparator || !hasLastSeparator) {
+      const minRangeWithSeparator = this.currentPage > lastBoundarySplit
+        ? lastBoundarySplit
+        : separatedMinRange;
+      const minRangeWithoutSeparator = this.currentPage > lastBoundarySplit
+        ? lastBoundarySplit
+        : boundarySecondFirstPage;
+      const maxRangeWithSeparator = this.currentPage < firstBoundarySplit
+        ? firstBoundarySplit
+        : separatedMaxRange;
+
+      minRange = hasFirstSeparator ? minRangeWithSeparator : minRangeWithoutSeparator;
+      maxRange = hasLastSeparator ? maxRangeWithSeparator : boundarySecondLastPage;
+    }
+
+    return {
+      hasFirstSeparator,
+      hasLastSeparator,
+      minRange,
+      maxRange,
+    };
   }
 
   @Watch('groupedPages')
@@ -88,65 +148,68 @@ export default class StPagination extends Vue {
     this.setPages();
   }
 
-  @Watch('initialPage')
-  onInitialPageChange(): void {
-    this.currentPage = this.initialPage;
-    this.setPages();
+  @Watch('currentPage')
+  onCurrentPageChange(): void {
+    this.emitChangeExtended();
   }
 
-  @Watch('list', { immediate: true })
+  @Watch('total', { immediate: true })
   onListChange(): void {
-    this.setTotal();
-    this.currentPage = this.initialPage;
+    this.setTotalPages();
     this.setPages();
   }
 
-  @Watch('limit')
-  onLimitChange(): void {
-    this.setTotal();
-    this.currentPage = 1;
+  @Watch('perPage')
+  onPerPageChange(): void {
+    this.setTotalPages();
     this.setPages();
+    if (this.currentPage === 1) {
+      this.emitChangeExtended();
+    } else {
+      this.updateCurrentPage(1);
+    }
   }
 
-  setTotal(): void {
-    this.totalPages = Math.ceil(this.list.length / this.limit);
+  setTotalPages(): void {
+    this.totalPages = Math.ceil(this.total / this.perPage);
   }
 
   setPages(): void {
     const pages: Page[] = [];
-
-    const offset = Math.floor((this.groupedPages - 1) / 2);
-    const hasFirstSeperator = this.currentPage - offset - 3 >= 1;
-    const hasLastSeperator = this.currentPage + offset + 3 <= this.totalPages;
-    let minRange = hasFirstSeperator ? this.currentPage - offset : 2;
-    const maxRange = hasLastSeperator ? this.currentPage + offset : this.totalPages - 1;
-    const hasRange = maxRange - minRange > -1;
+    const {
+      hasFirstSeparator,
+      hasLastSeparator,
+      minRange,
+      maxRange,
+    } = this.rangeOptions;
+    const isRangeValid = maxRange - minRange > -1;
 
     pages.push({
       type: PageType.page,
       number: 1,
     });
 
-    if (hasFirstSeperator) {
+    if (hasFirstSeparator) {
       pages.push({
-        type: PageType.seperator,
+        type: PageType.separator,
         number: 2,
       });
     }
 
-    if (hasRange) {
-      while (minRange <= maxRange) {
+    if (isRangeValid) {
+      let pageNumber = minRange;
+      while (pageNumber <= maxRange) {
         pages.push({
           type: PageType.page,
-          number: minRange,
+          number: pageNumber,
         });
-        minRange++;
+        pageNumber++;
       }
     }
 
-    if (hasLastSeperator) {
+    if (hasLastSeparator) {
       pages.push({
-        type: PageType.seperator,
+        type: PageType.separator,
         number: this.totalPages - 1,
       });
     }
@@ -179,13 +242,20 @@ export default class StPagination extends Vue {
 
   onPageClick(page: number): void {
     if (page === 0 || page > this.totalPages) return;
-    this.currentPage = page;
-    const event: PaginationEvent = {
-      page: this.currentPage,
-      offset: this.currentPage * this.limit,
-      limit: this.limit,
-    };
-    this.$emit('change', event);
+    this.updateCurrentPage(page);
     this.setPages();
+  }
+
+  updateCurrentPage(pageNumber: number): void {
+    this.$emit('change', pageNumber);
+  }
+
+  emitChangeExtended(): void {
+    const extendedEvent: PaginationEvent = {
+      currentPage: this.currentPage,
+      perPage: this.perPage,
+      offset: this.currentPage * this.perPage,
+    };
+    this.$emit('change:extended', extendedEvent);
   }
 }
