@@ -4,6 +4,7 @@
 
 ### Features
 * Added `indeterminate` prop for component `Checkbox`
+* Added `id` prop for component `Checkbox`
 
 ### Maintenance
 * Weird mixins and functions in scss files were removed

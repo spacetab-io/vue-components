@@ -6,6 +6,7 @@
 | --- | --- | --- | --- | --- | --- |
 | disabled | Disabled state | false | Boolean | - | * |
 | indeterminate | Indeterminate state | false | Boolean | - | * |
+| id | Id state | false | Boolean | - | * |
 | readonly | Readonly state | false | Boolean | - | * |
 | label | Checkbox label | false | String | - | * |
 | v-model | v-model attribute | true | Boolean | - | * |
