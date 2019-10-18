@@ -3,8 +3,8 @@
 $st-pagination-font-size: 13px !default;
 $st-pagination-page-size: 28px !default;
 $st-pagination-page-margin: 14px !default;
-$st-pagination-page-padding: 0 2px !default;
-$st-pagination-page-border-radius: 100% !default;
+$st-pagination-page-padding: 0 5px !default;
+$st-pagination-page-border-radius: $st-pagination-page-size !default;
 $st-pagination-icon-margin: 9px !default;
 $st-pagination-control-margin: 36px !default;
 $st-pagination-text-color: $st-color-dark-gunmetal !default;

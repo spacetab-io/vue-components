@@ -150,6 +150,7 @@ export default class StPagination extends Vue {
 
   @Watch('currentPage')
   onCurrentPageChange(): void {
+    this.setPages();
     this.emitChangeExtended();
   }
 
@@ -162,12 +163,11 @@ export default class StPagination extends Vue {
   @Watch('perPage')
   onPerPageChange(): void {
     this.setTotalPages();
-    this.setPages();
     if (this.currentPage === 1) {
       this.emitChangeExtended();
-    } else {
-      this.updateCurrentPage(1);
     }
+    this.updateCurrentPage(1);
+    this.setPages();
   }
 
   setTotalPages(): void {
@@ -243,7 +243,6 @@ export default class StPagination extends Vue {
   onPageClick(page: number): void {
     if (page === 0 || page > this.totalPages) return;
     this.updateCurrentPage(page);
-    this.setPages();
   }
 
   updateCurrentPage(pageNumber: number): void {
