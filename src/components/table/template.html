@@ -9,15 +9,23 @@
         <th v-for="(col, index) in columns"
             :key="index"
             :align="col.centered ? 'center' : ''"
-            :class="[{
-                'st-table__th__sortable--current': currentSortColumn === col,
-                'st-table__th__sortable': col.sortable
-            }, col.class]"
-            :style="[{ width: getWidth(col) }, col.style]"
+            :class="[
+              col.class,
+              {
+                'st-table__th-sortable--current': currentSortColumn === col,
+                'st-table__th-sortable': col.sortable
+              }
+            ]"
+            :style="[
+              col.style,
+              {
+                width: getWidth(col)
+              }
+            ]"
             class="st-table__th"
             @click.stop="sort(col)">
-            <div class="st-table__th__wrap"
-                :class="{ 'st-table__th__wrap--centered': col.centered }">
+            <div class="st-table__th-wrap"
+                :class="{ 'st-table__th-wrap--centered': col.centered }">
                  <template v-if="$scopedSlots[`th-${col.name}`]">
                     <slot
                         :name="`th-${col.name}`"
@@ -82,7 +90,7 @@
 
     <tfoot v-if="$slots.footer !== void 0"
            class="st-table__tfoot">
-      <tr st-table__tr>
+      <tr class="st-table__tr">
         <slot v-if="hasCustomFooterSlot()"
               name="footer" />
         <th v-else

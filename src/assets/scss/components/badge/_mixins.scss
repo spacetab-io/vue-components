@@ -1,11 +1,10 @@
-@import '../../utils/mixins';
 @import '../../utils/variables';
 @import "variables";
 
 @mixin status-type-fill-none($background-color, $text-color) {
   color: $text-color;
 
-  #{ b('icon') } {
+  .st-badge__icon {
     color: $text-color;
   }
 
@@ -13,7 +12,7 @@
     color: $st-color-white;
     background: $background-color;
 
-    #{ b('icon') } {
+    .st-badge__icon {
       color: $st-color-white;
     }
   }
@@ -24,7 +23,7 @@
   background: mix($background-color, $st-color-white, 25%);
   border-color: $st-badge-border-color;
 
-  #{ b('icon') } {
+  .st-badge__icon {
     color: $text-color;
   }
 }
@@ -33,7 +32,7 @@
   color: $st-color-white;
   background: $background-color;
 
-  #{ b('icon') } {
+  .st-badge__icon {
     color: $st-color-white;
   }
 
@@ -41,7 +40,7 @@
     color: $text-color;
     background: transparent;
 
-    #{ b('icon') } {
+    .st-badge__icon {
       color: $text-color;
     }
   }

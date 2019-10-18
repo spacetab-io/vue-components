@@ -66,6 +66,8 @@ export default class StInput extends Vue {
 
   inputValue = this.value;
 
+  inputHovered = false;
+
   inputFocused = false;
 
   get showCloseIcon() {

@@ -1,65 +1,61 @@
-@import '../../assets/scss/utils/mixins';
 @import '../../assets/scss/components/notification/_variables';
 
-@include b('notifications-group') {
+.st-notifications-group {
   $root: &;
 
   position: absolute;
+  top: $st-notification-margin-window;
+  bottom: $st-notification-margin-window;
   z-index: $st-notification-z-index;
   display: flex;
+  justify-content: flex-end;
   width: $st-notification-width;
   overflow: hidden;
   pointer-events: none;
 
-  #{ b('notification') } {
-    transition: $st-notification-transition;
-  }
-
-  &#{ m('top-left', $root) },
-  &#{ m('top-center', $root) },
-  &#{ m('top-right', $root) } {
-    top: $st-notification-margin-window;
-    bottom: $st-notification-margin-window;
+  &--top-left,
+  &--top-center,
+  &--top-right {
     flex-flow: column-reverse;
 
-    #{ b('notification') } {
+    .st-notification {
       margin-top: $st-notification-margin-item;
-
-      &:last-of-type {
-        margin-top: 0;
-      }
     }
   }
 
-  &#{ m('bottom-left', $root) },
-  &#{ m('bottom-center', $root) },
-  &#{ m('bottom-right', $root) } {
-    bottom: $st-notification-margin-window;
+  &--bottom-left,
+  &--bottom-center,
+  &--bottom-right {
     flex-flow: column;
 
-    #{ b('notification') } {
+    .st-notification {
       margin-bottom: $st-notification-margin-item;
-
-      &:last-of-type {
-        margin-bottom: 0;
-      }
     }
   }
 
-  &#{ m('top-left', $root) },
-  &#{ m('bottom-left', $root) } {
+  &--top-left,
+  &--bottom-left {
     left: $st-notification-margin-window;
   }
 
-  &#{ m('top-right', $root) },
-  &#{ m('bottom-right', $root) } {
+  &--top-right,
+  &--bottom-right {
     right: $st-notification-margin-window;
   }
 
-  &#{ m('top-center', $root) },
-  &#{ m('bottom-center', $root) } {
+  &--top-center,
+  &--bottom-center {
     right: 0;
     left: 0;
     margin: auto;
+  }
+
+  .st-notification {
+    transition: $st-notification-transition;
+
+    &:last-of-type {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
   }
 }
