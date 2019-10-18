@@ -1,7 +1,5 @@
 <div class="st-tab-item"
-     :class="{
-       'st-tab-item--selected': selected,
-     }">
+     :class="`st-tab-item--${selected ? 'selected' : 'regular'}`">
   <slot>
     <st-icon v-if="icon"
              class="st-tab-item__icon"

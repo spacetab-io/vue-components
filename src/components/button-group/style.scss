@@ -1,25 +1,36 @@
-@import '../../assets/scss/utils/mixins';
 @import '../../assets/scss/utils/helper-classes';
 @import '../../assets/scss/components/button/variables';
 
-@include b('button-group') {
+.st-button-group {
+  $root: &;
+
   @include utils-clearfix;
 
   display: inline-block;
   vertical-align: middle;
 
-  #{ b('button') } {
+  .st-button {
     position: relative;
     float: left;
     min-width: 150px;
 
-    + #{ b(button) } {
+    + .st-button {
       margin-left: 0;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      z-index: 1;
     }
 
     &:first-child {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
+    }
+
+    &:not(:last-child) {
+      margin-right: -1px;
     }
 
     &:last-child {
@@ -47,23 +58,13 @@
       border-radius: 0;
     }
 
-    &:not(:last-child) {
-      margin-right: -1px;
-    }
-
-    &:hover,
-    &:focus,
-    &:active {
-      z-index: 1;
-    }
-
-    @include m('active') {
+    &--active {
       z-index: 1;
     }
   }
 
   @each $type in ('primary', 'success', 'warning', 'danger', 'info') {
-    #{ m($type, b('button')) } {
+    .st-button--#{$type} {
       &:first-child {
         border-right-color: rgba($st-color-white, 0.5);
       }

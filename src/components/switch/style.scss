@@ -1,7 +1,6 @@
-@import '../../assets/scss/utils/mixins';
 @import "../../assets/scss/components/switch/variables";
 
-@include b('switch') {
+.st-switch {
   $root: &;
 
   $core-width: ($st-switch-core-circle-width * 2) + ($st-switch-core-circle-spacing * 2);
@@ -9,7 +8,7 @@
 
   display: flex;
 
-  @include e('core') {
+  &__core {
     position: relative;
     width: $core-width;
     height: $core-height;
@@ -32,30 +31,30 @@
     }
   }
 
-  @include e('inactive-label') {
+  &__inactive-label {
     margin-right: $st-switch-labels-margin;
     font-size: $st-switch-labels-size;
     cursor: pointer;
   }
 
-  @include e('active-label') {
+  &__active-label {
     margin-left: $st-switch-labels-margin;
     font-size: $st-switch-labels-size;
     cursor: pointer;
   }
 
-  @include notState('active') {
-    @include e('inactive-label', $root, false) {
+  &:not(&--active) {
+    #{$root}__inactive-label {
       color: $st-switch-active-color;
     }
   }
 
-  @include state('active') {
-    @include e('active-label', $root, false) {
+  &--active {
+    #{$root}__active-label {
       color: $st-switch-active-color;
     }
 
-    @include e('core', $root, false) {
+    #{$root}__core {
       background: $st-switch-active-color;
 
       &::after {
@@ -64,19 +63,19 @@
     }
   }
 
-  @include state('disabled') {
+  &--disabled {
     cursor: not-allowed;
     opacity: 0.6;
 
-    @include e('core', $root, false) {
+    #{$root}__core {
       cursor: not-allowed;
     }
 
-    @include e('inactive-label', $root, false) {
+    #{$root}__inactive-label {
       cursor: not-allowed;
     }
 
-    @include e('active-label', $root, false) {
+    #{$root}__active-label {
       cursor: not-allowed;
     }
   }

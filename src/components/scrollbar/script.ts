@@ -305,7 +305,7 @@ export default class StScrollbar extends Vue {
 
   get rootClasses() {
     return {
-      'st-scrollbar--hovered': this.verticalScrollData.isDrag || this.horizontalScrollData.isDrag,
+      'st-scrollbar--dragged': this.verticalScrollData.isDrag || this.horizontalScrollData.isDrag,
       'st-scrollbar--vertical-scrollable': this.verticalScrollData.isVisible,
       'st-scrollbar--horizontal-scrollable': this.horizontalScrollData.isVisible,
     };

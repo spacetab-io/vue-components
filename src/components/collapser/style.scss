@@ -1,20 +1,19 @@
-@import '../../assets/scss/utils/mixins';
 @import '../../assets/scss/components/collapser/_variables';
 
-@include b('collapser') {
+.st-collapser {
   $root: &;
 
   display: flex;
   align-items: center;
   justify-content: $st-collapser-justify-content;
 
-  @include e('list') {
+  &__list {
     display: inline-flex;
     align-items: center;
     justify-content: flex-start;
     overflow: hidden;
 
-    @include m('calculator') {
+    &--calculator {
       position: absolute;
       top: 0;
       left: 0;
@@ -23,7 +22,7 @@
     }
   }
 
-  @include e('item') {
+  &__item {
     margin-right: $st-collapser-item-margin;
     font-size: $st-collapser-item-font-size;
     color: $st-collapser-item-color;
@@ -34,16 +33,16 @@
     }
   }
 
-  @include e('control') {
+  &__control {
     margin-left: $st-collapser-control-margin;
     font-size: $st-collapser-item-font-size;
   }
 
-  @include e('control-label') {
+  &__control-label {
     color: $st-collapser-control-color;
     cursor: default;
 
-    @include m('with-hover') {
+    &--with-hover {
       cursor: pointer;
 
       &:hover {
@@ -51,7 +50,7 @@
       }
     }
 
-    @include m('hovered') {
+    &--hovered {
       color: $st-collapser-control-color-hover;
     }
   }
