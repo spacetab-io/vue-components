@@ -7,7 +7,7 @@ import {
 } from 'vue-property-decorator';
 
 import StIcon from '../icon/index.vue';
-import { PaginationEvent } from './types';
+import { PaginationChangeExtendedEvent } from './types';
 
 
 enum PageType {
@@ -250,7 +250,7 @@ export default class StPagination extends Vue {
   }
 
   emitChangeExtended(): void {
-    const extendedEvent: PaginationEvent = {
+    const extendedEvent: PaginationChangeExtendedEvent = {
       currentPage: this.currentPage,
       perPage: this.perPage,
       offset: this.currentPage * this.perPage,

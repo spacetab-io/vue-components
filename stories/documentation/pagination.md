@@ -56,4 +56,4 @@ onPageChange({ currentPage, perPage, offset }) {
 | Name | Description | Arguments |
 | --- | --- | --- |
 | change | **(v-model)** Triggers on current page change | number |
-| change:extended | Triggers on paging data changed | PaginationEvent |
+| change:extended | Triggers on paging data changed | PaginationChangeExtendedEvent |
