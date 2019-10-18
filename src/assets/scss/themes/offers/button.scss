@@ -1,7 +1,7 @@
 // Import default component's file with styles
 @import '../../../../components/button/style';
 
-@include b(button) {
+.st-button {
   $root: &;
 
   height: 42px;
@@ -64,7 +64,7 @@
     }
   }
 
-  @include m('success') {
+  &--success {
     color: $st-color-success;
     border-color: $st-color-success;
 
@@ -82,7 +82,7 @@
     }
   }
 
-  @include m('info') {
+  &--info {
     color: $st-color-primary;
     border-color: $st-color-primary;
 
@@ -99,23 +99,23 @@
       border-color: mix($st-color-black, $st-color-primary, 20);
     }
 
-    &:not(#{ m('disabled', $root) }):focus {
+    &:not(#{$root}--disabled):focus {
       color: $st-color-white;
       background-color: $st-color-primary;
       border-color: $st-color-primary;
 
-      #{ b('icon') } {
+      #{$root}__icon {
         color: $st-color-primary;
       }
     }
 
-    &:not(#{ m('disabled', $root) }):hover {
+    &:not(#{$root}--disabled):hover {
       background-color: $st-color-primary;
       border-color: $st-color-primary;
     }
   }
 
-  @include m('warning') {
+  &--warning {
     color: $st-color-warning;
     border-color: $st-color-warning;
 
@@ -133,7 +133,7 @@
     }
   }
 
-  @include m('danger') {
+  &--danger {
     color: $st-color-error;
     border-color: $st-color-error;
 
@@ -151,7 +151,7 @@
     }
   }
 
-  @include m('remove') {
+  &--remove {
     color: $st-color-error;
     border-color: $st-color-error;
 
@@ -169,7 +169,7 @@
     }
   }
 
-  @include m('cancel') {
+  &--cancel {
     color: $st-color-dark-gray;
     border-color: $st-color-dark-gray;
 
@@ -192,33 +192,33 @@
     height: 32px;
   }
 
-  @include m('text') {
+  &--text {
     padding: 0;
     border: none;
 
-    &:not(#{ m('disabled', $root) }):hover,
-    &:not(#{ m('disabled', $root) }):focus {
+    &:not(#{$root}--disabled):hover,
+    &:not(#{$root}--disabled):focus {
       color: $st-color-primary-hover;
 
-      #{ b('icon') } {
+      #{$root}__icon {
         color: $st-color-primary-hover;
       }
     }
 
-    &:not(#{ m('disabled', $root) }):active {
+    &:not(#{$root}--disabled):active {
       color: $st-color-primary-hover;
 
-      #{ b('icon') } {
+      #{$root}__icon {
         color: $st-color-primary-hover;
       }
     }
   }
 
-  @include e('icon') {
+  &__icon {
     margin-right: 5px;
   }
 
-  @include m('circle') {
+  &--circle {
     width: 42px;
     padding: 0;
 

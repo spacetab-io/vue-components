@@ -7,7 +7,7 @@ $st-icon-height: 22px;
 $st-icon-color: $st-color-orangered;
 
 // Add new style things if you want to
-@include b('icon') {
+.st-icon {
   // New properties here
   padding: 10px;
   background: $st-color-turquoise;

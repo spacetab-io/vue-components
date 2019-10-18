@@ -1,25 +1,25 @@
 // Import default component's file with styles
 @import '../../../../components/radio/style';
 
-@include b(radio) {
+.st-radio {
   $root: &;
 
-  @include e('inner') {
+  &__inner {
     position: relative;
     border-width: 1px;
   }
 
-  @include notDblState('disabled', 'selected') {
+  &:not(&--disabled):not(&--selected) {
     &:hover {
-      @include e('inner', $root, false) {
+      #{$root}__inner {
         border-color: $st-color-royal-blue;
         border-width: 1px;
       }
     }
   }
 
-  @include m('selected') {
-    #{ e('inner', $root) } {
+  &--selected {
+    #{$root}__inner {
       border-color: $st-color-royal-blue;
       border-width: 1px;
 

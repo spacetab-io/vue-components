@@ -1,13 +1,13 @@
 // Import default component's file with styles
 @import '../../../../components/textarea/style';
 
-@include b(textarea) {
+.st-textarea {
   $root: &;
 
   font-size: 14px;
   line-height: 1;
 
-  @include e('inner') {
+  &__inner {
     background: inherit;
     border-color: $st-color-pink-swan;
     border-radius: 2px;
@@ -24,8 +24,8 @@
     }
   }
 
-  @include m('disabled') {
-    #{ e('inner', $root) } {
+  &--disabled {
+    #{$root}__inner {
       background-color: $st-color-alabaster;
       border-color: $st-color-pink-swan;
       opacity: 0.6;

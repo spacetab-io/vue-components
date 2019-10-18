@@ -1,10 +1,10 @@
 // Import default component's file with styles
 @import '../../../../components/input/style';
 
-@include b(input) {
+.st-input {
   $root: &;
 
-  @include e('inner') {
+  &__inner {
     height: 42px;
     font-size: 14px;
     line-height: 1;
@@ -24,24 +24,24 @@
     }
   }
 
-  @include e('suffix') {
+  &__suffix {
     right: 15px;
   }
 
-  @include m('focused') {
-    #{ e('prefix', $root) } .st-icon {
+  &--focused {
+    #{$root}__prefix .st-icon {
       color: $st-color-primary;
     }
   }
 
-  @include m('small') {
-    #{ e('inner', $root) } {
+  &--small {
+    #{$root}__inner {
       height: 32px;
     }
   }
 
-  @include m('disabled') {
-    #{ e('inner', $root) } {
+  &--disabled {
+    #{$root}__inner {
       background-color: $st-color-alabaster;
       border-color: $st-color-pink-swan;
       opacity: 0.6;
