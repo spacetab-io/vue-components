@@ -2,10 +2,11 @@
 
 ## 0.2.5
 
+### Features
+* Added `indeterminate` prop for component `Checkbox`
+
 ### Maintenance
 * Weird mixins and functions in scss files were removed
-
-
 
 ## 0.2.4
 

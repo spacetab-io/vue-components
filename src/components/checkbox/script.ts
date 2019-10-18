@@ -16,6 +16,9 @@ export default class StCheckbox extends Vue {
   @Prop(Boolean)
   readonly value!: boolean;
 
+  @Prop(Boolean)
+  readonly indeterminate!: boolean;
+
   @Prop(String)
   readonly label!: string;
 
@@ -35,6 +38,7 @@ export default class StCheckbox extends Vue {
   get checkboxMods() {
     return {
       'st-checkbox--checked': this.value,
+      'st-checkbox--indeterminate': this.indeterminate,
       'st-checkbox--disabled': this.disabled,
       'st-checkbox--readonly': this.readonly,
     };
