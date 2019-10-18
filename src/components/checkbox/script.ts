@@ -8,19 +8,19 @@ import {
 @Component
 export default class StCheckbox extends Vue {
   @Prop(Boolean)
-  readonly disabled!: boolean;
+  readonly disabled?: boolean;
 
   @Prop(Boolean)
-  readonly readonly!: boolean;
+  readonly readonly?: boolean;
 
   @Prop(Boolean)
-  readonly value!: boolean;
+  readonly value?: boolean;
 
   @Prop(Boolean)
-  readonly indeterminate!: boolean;
+  readonly indeterminate?: boolean;
 
   @Prop([String, Number])
-  readonly id!: string | number;
+  readonly id?: string | number;
 
   @Emit('input')
   emmitInput(newValue: boolean) {
