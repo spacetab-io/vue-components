@@ -3,7 +3,8 @@
 ## 0.2.5
 
 ### Features
-* `Pagination` component was improved:
+* Improved view of `Collapser` component
+* `Pagination` component was updated:
     * Prop `limit` was renamed to `perPage`
     * Prop `list` was changed to `total`
     * Prop `initialPage` was renamed to `currentPage` and now it uses for **v-model**
