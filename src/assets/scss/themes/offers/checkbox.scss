@@ -1,22 +1,22 @@
 // Import default component's file with styles
 @import '../../../../components/checkbox/style';
 
-@include b(checkbox) {
+.st-checkbox {
   $root: &;
 
-  @include e('inner') {
+  &__inner {
     border-radius: 1px;
     transition: none;
   }
 
-  @include m('checked') {
-    #{ e('inner', $root) } {
+  &--checked {
+    #{$root}__inner {
       background-color: $st-color-royal-blue;
       border-color: $st-color-royal-blue;
     }
 
     &:hover {
-      #{ e('inner', $root) } {
+      #{$root}__inner {
         background-color: $st-color-cerulean-blue;
         border-color: $st-color-cerulean-blue;
       }
@@ -24,18 +24,18 @@
   }
 
   &:hover {
-    #{ e('inner', $root) } {
+    #{$root}__inner {
       border-color: $st-color-royal-blue;
     }
   }
 
-  @include m('disabled') {
+  &--disabled {
     &:not(.st-checkbox--checked) .st-checkbox__inner {
       background-color: $st-color-white;
       border-color: $st-color-light-gray;
     }
 
-    #{ e('label', $root) } {
+    #{$root}__label {
       color: $st-color-black;
     }
   }
