@@ -24,9 +24,9 @@
     <div class="st-pagination__page"
          v-for="(page, index) in pages"
          :class="{
-         'st-pagination__page--current': currentPage === page.number,
-         'st-pagination__page--seperator': page.type === PageType.seperator
-       }"
+           'st-pagination__page--current': currentPage === page.number,
+           'st-pagination__page--separator': page.type === PageType.separator
+         }"
          :key="index"
          @click="onPageClick(page.number)">
       <template v-if="page.type === PageType.page">

@@ -12,8 +12,10 @@
   }
 
   &__page {
-    width: $st-pagination-page-size;
+    box-sizing: border-box;
+    min-width: $st-pagination-page-size;
     height: $st-pagination-page-size;
+    padding: $st-pagination-page-padding;
     margin-right: $st-pagination-page-margin;
     font-size: $st-pagination-page-font-size;
     font-weight: 500;
@@ -41,11 +43,11 @@
       }
     }
 
-    &--seperator {
-      background-color: $st-pagination-seperator-bg-color;
+    &--separator {
+      background-color: $st-pagination-separator-bg-color;
 
       &:hover {
-        background-color: $st-pagination-seperator-bg-color;
+        background-color: $st-pagination-separator-bg-color;
       }
     }
   }

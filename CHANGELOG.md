@@ -2,6 +2,15 @@
 
 ## 0.2.5
 
+### Features
+* `Pagination` component was improved:
+    * Prop `limit` was renamed to `perPage`
+    * Prop `list` was changed to `total`
+    * Prop `initialPage` was renamed to `currentPage` and now it uses for **v-model**
+    * Interface `PaginationEvent` was renamed to `PaginationChangeExtendedEvent`
+    * Pages with big numbers (for example 1000) displays correctly now
+    * Calculating pages for group (`groupedPages`) works correctly now
+
 ### Maintenance
 * Weird mixins and functions in scss files were removed
 
