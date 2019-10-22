@@ -1,11 +1,8 @@
-@import '../../assets/scss/utils/mixins';
-@import '../../assets/scss/utils/functions';
 @import '../../assets/scss/utils/helper-classes';
-@import '../../assets/scss/components/button/button-mixins';
+@import '../../assets/scss/components/button/mixins';
 @import '../../assets/scss/components/button/variables';
 
-@include b('button') {
-
+.st-button {
   $root: &;
 
   box-sizing: border-box;
@@ -25,15 +22,14 @@
   transition: 0.1s;
 
   @include utils-user-select(none);
-
-  & + & {
-    margin-left: 10px;
-  }
-
   @include button-size(0, $st-button-padding-horizontal, $st-button-font-size, $st-button-border-radius, $root);
 
   &::-moz-focus-inner {
     border: 0;
+  }
+
+  & + & {
+    margin-left: 10px;
   }
 
   &:hover,
@@ -48,18 +44,18 @@
     outline: none;
   }
 
-  [class*='#{ b('icon', true, false) }'] {
+  &__icon {
     width: 16px;
     height: 16px;
     line-height: 16px;
 
-    + span {
+    + #{$root}__content {
       margin-left: 5px;
       vertical-align: top;
     }
   }
 
-  @include m('plain') {
+  &--plain {
     background-color: $st-color-white-smoke;
 
     &:hover,
@@ -76,12 +72,12 @@
     }
   }
 
-  @include m('default') {
+  &--default {
     @include button-variant($st-button-default-color, $st-button-default-fill, $st-button-default-border, $root);
 
     min-width: 192px;
 
-    &#{ m('plain', $root) } {
+    &#{$root}--plain {
       color: $st-color-taupe-gray;
       border-color: $st-color-white-smoke;
 
@@ -91,60 +87,60 @@
       }
     }
 
-    &#{ m('disabled', $root) },
-    &#{ m('disabled', $root) }:hover {
+    &#{$root}--disabled,
+    &#{$root}--disabled:hover {
       color: mix($st-color-taupe-gray, $st-color-white);
       border-color: mix($st-color-white-smoke, $st-color-white);
 
-      &#{ m('plain', $root) } {
+      &#{$root}--plain {
         color: mix($st-color-taupe-gray, $st-color-white);
         background-color: $st-button-default-fill;
         border-color: mix($st-color-white-smoke, $st-color-white);
       }
 
-      #{ b('icon') } {
+      #{$root}__icon {
         color: mix($st-color-taupe-gray, $st-color-white);
       }
     }
 
     &:hover,
-    &#{ m('plain') }:hover {
+    &#{$root}--plain:hover {
       color: $st-color-taupe-gray;
       background-color: $st-color-white;
       border-color: $st-color-white-smoke;
     }
 
-    #{ b('icon') } {
+    #{$root}__icon {
       color: $st-color-taupe-gray;
     }
   }
 
-  @include m('primary') {
+  &--primary {
     min-width: 226px;
     height: 48px;
 
     @include button-variant($st-button-primary-color, $st-button-primary-fill, $st-button-primary-border, $root);
 
     &:hover,
-    &#{ m('plain', $root) }:hover {
+    &#{$root}--plain:hover {
       color: $st-color-mantis;
       background-color: $st-color-white;
 
-      #{ b('icon') } {
+      #{$root}__icon {
         color: $st-color-mantis;
       }
     }
 
-    #{ b('icon') } {
+    #{$root}__icon {
       color: $st-color-white;
     }
   }
 
-  @include m('secondary') {
+  &--secondary {
     min-width: 192px;
     border-radius: $st-button-secondary-border-radius;
 
-    #{ b('icon') } {
+    #{$root}__icon {
       color: $st-color-mantis;
     }
 
@@ -152,7 +148,7 @@
       color: $st-color-white;
       background-color: mix($st-color-mantis, $st-color-white, 80%);
 
-      #{ b('icon') } {
+      #{$root}__icon {
         color: $st-color-white;
       }
     }
@@ -161,52 +157,52 @@
       color: $st-color-white;
       background-color: $st-color-mantis;
 
-      #{ b('icon') } {
+      #{$root}__icon {
         color: $st-color-white;
       }
     }
 
-    &#{ m('plain', $root) } {
-      &#{ m('disabled', $root) } {
+    &#{$root}--plain {
+      &#{$root}--disabled {
         background-color: mix($st-color-white-smoke, $st-color-white, 20%);
       }
     }
 
-    &#{ m('disabled', $root) } {
-      #{ b('icon') } {
+    &#{$root}--disabled {
+      #{$root}__icon {
         color: mix($st-color-mantis, $st-color-white, 50%);
       }
     }
 
-    &#{ m('approve', $root) } {
-      #{ b('icon') } {
+    &#{$root}__approve {
+      #{$root}__icon {
         color: $st-color-mantis;
       }
 
-      &:not(#{ m('disabled', $root) }):hover,
-      &:not(#{ m('disabled', $root) }):focus {
-        #{ b('icon') } {
+      &:not(#{$root}--disabled):hover,
+      &:not(#{$root}--disabled):focus {
+        #{$root}__icon {
           color: $st-color-white;
         }
       }
 
-      &#{ m('disabled', $root) } {
+      &#{$root}--disabled {
         &,
         &:hover,
         &:focus {
-          #{ b('icon') } {
+          #{$root}__icon {
             color: mix($st-color-mantis, $st-color-white);
           }
         }
       }
     }
 
-    @include m('cancel', $root) {
+    &#{$root}--cancel {
       color: $st-color-taupe-gray;
       border-color: $st-color-pastel-gray;
 
-      &:not(#{ m('disabled', $root) }) {
-        #{ b('icon') } {
+      &:not(#{$root}--disabled) {
+        #{$root}__icon {
           color: $st-color-pastel-gray;
         }
 
@@ -214,7 +210,7 @@
         &:hover {
           color: $st-color-white;
 
-          #{ b('icon') } {
+          #{$root}__icon {
             color: $st-color-white;
           }
         }
@@ -229,113 +225,113 @@
         }
       }
 
-      &#{ m('plain', $root) } {
+      &#{$root}--plain {
         background-color: mix($st-color-pastel-gray, $st-color-white, 10%);
       }
 
-      &#{ m('disabled', $root) } {
+      &#{$root}--disabled {
         &,
         &:hover,
         &:focus {
           color: mix($st-color-taupe-gray, $st-color-white);
           border-color: mix($st-color-pastel-gray, $st-color-white);
 
-          #{ b('icon') } {
+          #{$root}__icon {
             color: mix($st-color-taupe-gray, $st-color-white);
           }
         }
 
-        &#{ m('plain', $root) } {
+        &#{$root}--plain {
           background-color: mix($st-color-pastel-gray, $st-color-white, 10%);
         }
       }
 
-      #{ b('icon') } {
+      #{$root}__icon {
         color: $st-color-taupe-gray;
       }
     }
 
-    @include m('remove', $root) {
+    &#{$root}--remove {
       color: $st-color-sunset-orange;
       border-color: $st-color-sunset-orange;
 
-      #{ b('icon') } {
+      #{$root}__icon {
         color: $st-color-sunset-orange;
       }
 
-      &:not(#{ m('disabled', $root) }):focus {
+      &:not(#{$root}--disabled):focus {
         color: $st-color-white;
         background-color: mix($st-color-sunset-orange, $st-color-white, 80%);
 
-        #{ b('icon') } {
+        #{$root}__icon {
           color: $st-color-white;
         }
       }
 
-      &:not(#{ m('disabled', $root) }):hover {
+      &:not(#{$root}--disabled):hover {
         color: $st-color-white;
         background-color: $st-color-sunset-orange;
         border-color: $st-color-sunset-orange;
 
-        #{ b('icon') } {
+        #{$root}__icon {
           color: $st-color-white;
         }
       }
 
-      &#{ m('plain', $root) } {
+      &#{$root}--plain {
         background-color: mix($st-color-sunset-orange, $st-color-white, 10%);
       }
 
-      &#{ m('disabled', $root) } {
+      &#{$root}--disabled {
         &,
         &:hover,
         &:focus {
           color: mix($st-color-sunset-orange, $st-color-white);
           border-color: mix($st-color-sunset-orange, $st-color-white);
 
-          #{ b('icon') } {
+          #{$root}__icon {
             color: mix($st-color-sunset-orange, $st-color-white);
           }
         }
 
-        &#{ m('plain', $root) } {
+        &#{$root}--plain {
           background-color: mix($st-color-sunset-orange, $st-color-white, 10%);
         }
       }
     }
   }
 
-  @include m('success') {
+  &--success {
     @include button-variant($st-button-success-color, $st-button-success-fill, $st-button-success-border, $root);
   }
 
-  @include m('warning') {
+  &--warning {
     @include button-variant($st-button-warning-color, $st-button-warning-fill, $st-button-warning-border, $root);
   }
 
-  @include m('danger') {
+  &--danger {
     @include button-variant($st-button-danger-color, $st-button-danger-fill, $st-button-danger-border, $root);
   }
 
-  @include m('info') {
+  &--info {
     @include button-variant($st-button-info-color, $st-button-info-fill, $st-button-info-border, $root);
 
-    &:not(#{ m('disabled', $root) }):focus {
+    &:not(#{$root}--disabled):focus {
       color: mix($st-color-blueberry, $st-color-white, 80%);
       background-color: $st-color-white;
       border-color: mix($st-color-blueberry, $st-color-white, 40%);
 
-      #{ b('icon') } {
+      #{$root}__icon {
         color: mix($st-color-blueberry, $st-color-white, 80%);
       }
     }
 
-    &:not(#{ m('disabled', $root) }):hover {
+    &:not(#{$root}--disabled):hover {
       background-color: $st-color-white;
       border-color: $st-color-blueberry;
     }
 
-    &#{ m('disabled', $root) } {
+    &#{$root}--disabled {
       &,
       &:hover {
         color: mix($st-color-blueberry, $st-color-white, 50%);
@@ -343,19 +339,19 @@
         border-color: transparent;
       }
 
-      #{ b('icon') } {
+      #{$root}__icon {
         color: mix($st-color-blueberry, $st-color-white, 50%);
       }
 
-      &#{ m('plain', $root) },
-      &#{ m('plain', $root) }:hover {
+      &#{$root}--plain,
+      &#{$root}--plain:hover {
         color: mix($st-color-blueberry, $st-color-white, 40%);
         background-color: mix($st-color-blueberry, $st-color-white, 10%);
         border-color: mix($st-color-blueberry, $st-color-white, 30%);
       }
     }
 
-    &:not(#{ m('disabled', $root) })#{ m('plain', $root) } {
+    &:not(#{$root}--disabled)#{$root}--plain {
       color: $st-color-blueberry;
       background-color: mix($st-color-blueberry, $st-color-white, 20%);
       border-color: mix($st-color-blueberry, $st-color-white, 40%);
@@ -366,12 +362,12 @@
       }
     }
 
-    #{ b('icon') } {
+    #{$root}__icon {
       color: $st-button-info-color;
     }
   }
 
-  @include m('extra-large') {
+  &--extra-large {
     min-width: 322px;
     height: 48px;
     line-height: 48px;
@@ -379,7 +375,7 @@
     @include button-size(0, 27px, 15px, $st-button-large-border-radius, $root);
   }
 
-  @include m('large') {
+  &--large {
     min-width: 322px;
     height: 40px;
     line-height: 40px;
@@ -387,68 +383,68 @@
     @include button-size(0, $st-button-large-padding-horizontal, $st-button-large-font-size, $st-button-large-border-radius, $root);
   }
 
-  @include m('medium') {
+  &--medium {
     min-width: 226px;
 
     @include button-size($st-button-medium-padding-vertical, $st-button-medium-padding-horizontal, $st-button-medium-font-size, $st-button-medium-border-radius, $root);
   }
 
-  @include m('small') {
+  &--small {
     min-width: 192px;
 
     @include button-size($st-button-small-padding-vertical, $st-button-small-padding-horizontal, $st-button-small-font-size, $st-button-small-border-radius, $root);
   }
 
-  @include m('mini') {
+  &--mini {
     min-width: 166px;
 
     @include button-size($st-button-mini-padding-vertical, $st-button-mini-padding-horizontal, $st-button-mini-font-size, $st-button-mini-border-radius, $root);
   }
 
-  @include m('text') {
+  &--text {
     padding-right: 0;
     padding-left: 0;
     color: mix($st-color-taupe-gray, $st-color-white, 50%);
     background: transparent;
     border-color: transparent;
 
-    &:not(#{ m('disabled', $root) }):hover,
-    &:not(#{ m('disabled', $root) }):focus {
+    &:not(#{$root}--disabled):hover,
+    &:not(#{$root}--disabled):focus {
       color: mix($st-color-taupe-gray, $st-color-white, 80%);
       background-color: transparent;
       border-color: transparent;
 
-      #{ b('icon') } {
+      #{$root}__icon {
         color: mix($st-color-taupe-gray, $st-color-white, 80%);
       }
     }
 
-    &:not(#{ m('disabled', $root) }):active {
+    &:not(#{$root}--disabled):active {
       color: $st-color-taupe-gray;
       background-color: transparent;
       border-color: transparent;
 
-      #{ b('icon') } {
+      #{$root}__icon {
         color: $st-color-taupe-gray;
       }
     }
 
-    &#{ m('disabled', $root) },
-    &#{ m('disabled', $root) }:hover,
-    &#{ m('disabled', $root) }:focus {
+    &#{$root}--disabled,
+    &#{$root}--disabled:hover,
+    &#{$root}--disabled:focus {
       color: mix($st-color-taupe-gray, $st-color-white, 40%);
       border-color: transparent;
 
-      #{ b('icon') } {
+      #{$root}__icon {
         color: mix($st-color-taupe-gray, $st-color-white, 40%);
       }
     }
 
-    &:not(#{ m('disabled', $root) })#{ m('search', $root) } {
+    &:not(#{$root}--disabled)#{$root}--search {
       &:focus {
         color: mix($st-text-color-regular, $st-color-white, 40%);
 
-        #{ b('icon') } {
+        #{$root}__icon {
           color: mix($st-text-color-regular, $st-color-white, 40%);
         }
       }
@@ -456,7 +452,7 @@
       &:hover {
         color: $st-color-blueberry;
 
-        #{ b('icon') } {
+        #{$root}__icon {
           color: $st-color-blueberry;
         }
       }
@@ -464,23 +460,23 @@
       &:active {
         color: $st-text-color-regular;
 
-        #{ b('icon') } {
+        #{$root}__icon {
           color: $st-text-color-regular;
         }
       }
     }
 
-    #{ b('icon') } {
+    #{$root}__icon {
       color: mix($st-color-taupe-gray, $st-color-white, 50%);
     }
   }
 
-  @include m('active') {
+  &--active {
     color: mix($st-color-black, $st-color-primary, $st-button-active-shade-percent);
     border-color: mix($st-color-black, $st-color-primary, $st-button-active-shade-percent);
   }
 
-  @include m('disabled') {
+  &--disabled {
     &,
     &:hover,
     &:focus {
@@ -491,12 +487,12 @@
       border-color: mix($st-color-white, $st-color-primary, 50%);
     }
 
-    &#{ m('text', $root) } {
+    &#{$root}--text {
       background-color: transparent;
     }
   }
 
-  @include m('loading') {
+  &--loading {
     position: relative;
     min-width: 192px;
     padding-top: 11px;
@@ -516,17 +512,17 @@
     }
   }
 
-  @include m('round') {
+  &--round {
     padding: 12px 23px;
     border-radius: 20px;
 
-    &#{ m('primary', $root) } {
+    &#{$root}--primary {
       padding-top: 16px;
       padding-bottom: 16px;
     }
   }
 
-  @include m('circle') {
+  &--circle {
     width: 40px;
     min-width: auto;
     padding: 0;
@@ -534,7 +530,7 @@
     text-align: center;
     border-radius: $st-border-radius-circle;
 
-    #{ b('icon') } {
+    #{$root}__icon {
       width: 18px;
       height: 18px;
       font-size: 24px;
@@ -542,7 +538,7 @@
     }
   }
 
-  @include m('bold-border') {
+  &--bold-border {
     line-height: 36px;
     border-width: 2px;
   }

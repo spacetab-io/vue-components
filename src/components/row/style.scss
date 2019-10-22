@@ -1,13 +1,12 @@
-@import '../../assets/scss/utils/mixins';
 @import '../../assets/scss/utils/helper-classes';
 
-@include b(row) {
+.st-row {
   position: relative;
   box-sizing: border-box;
 
   @include utils-clearfix;
 
-  @include m(flex) {
+  &--flex {
     display: flex;
 
     &::before,
@@ -15,27 +14,27 @@
       display: none;
     }
 
-    @include m(justify-center) {
+    &--justify-center {
       justify-content: center;
     }
 
-    @include m(justify-end) {
+    &--justify-end {
       justify-content: flex-end;
     }
 
-    @include m(justify-space-between) {
+    &--justify-space-between {
       justify-content: space-between;
     }
 
-    @include m(justify-space-around) {
+    &--justify-space-around {
       justify-content: space-around;
     }
 
-    @include m(align-middle) {
+    &--align-middle {
       align-items: center;
     }
 
-    @include m(align-bottom) {
+    &--align-bottom {
       align-items: flex-end;
     }
   }

@@ -1,15 +1,14 @@
 import { storiesOf } from '@storybook/vue'
 import { boolean, text, array } from '@storybook/addon-knobs';
 import { template } from '../../templates/{{KEBAB_NAME}}/default.template';
-import notes from '../../documentation/{{KEBAB_NAME}}.md'
+import documentation from '../../documentation/{{KEBAB_NAME}}.md'
 
 storiesOf('Components|{{PASCAL_NAME}}', module).add('Default', () => ({
-    template,
-    props: {
-    },
-    data() {
-        return {};
-    },
+  template,
+  props: {},
+  data() {
+    return {}
+  },
 }), {
-    notes,
+  notes: { markdown: documentation },
 });

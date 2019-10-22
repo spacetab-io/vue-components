@@ -1,0 +1,16 @@
+<component :is="tag">
+    <transition v-if="!disabled"
+                :name="transition"
+                :enter-active-class="enterActiveClass"
+                :leave-active-class="leaveActiveClass"
+                @after-leave="doDestroy">
+      <span v-show="showPopper"
+            class="st-popper"
+            :class="popperClasses"
+            :style="popperStyles"
+            ref="popper">
+          <slot v-if="showPopper">{{ content }}</slot>
+      </span>
+    </transition>
+    <slot name="reference"></slot>
+</component>

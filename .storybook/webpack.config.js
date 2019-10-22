@@ -4,6 +4,11 @@ const srcPath = '../src';
 const storiesPath = '../stories';
 
 module.exports = ({ config }) => {
+  config.resolve.alias = {
+    ...config.resolve.alias,
+    "@": path.resolve(__dirname, srcPath),
+  };
+
   config.module.rules.push({
     test: /\.(ts|tsx)$/,
     use: [

@@ -2,7 +2,7 @@ const readline = require('readline');
 const fs = require('fs');
 const GeneratorLogger = require('./utils/generator-logger');
 const render = require('json-templater/string');
-const printEol = require('./utils/print-eol');
+const printEol = require('./utils/end-of-line').printConsoleLine;
 
 const logger = new GeneratorLogger();
 const generatorLogger = new GeneratorLogger('Component Generator');
@@ -52,6 +52,10 @@ const pathGenerator = {
         variables: {
             dir: (name) => `${DIRECTORIES.variables}${name}/`,
             file: (name) => `${pathGenerator.component.variables.dir(name)}_variables.scss`,
+        },
+        index: {
+          dir: () => `${DIRECTORIES.components}`,
+          file: () => `${pathGenerator.component.index.dir()}index.js`,
         },
     },
 };
@@ -207,6 +211,8 @@ const generateComponent = () => {
             pathGenerator.component.variables.file(name),
         );
     }
+
+    renderIndexComponentsFile();
 };
 
 generateStory = () => {
@@ -218,8 +224,8 @@ generateStory = () => {
     const pascalName = config.componentPascalName;
 
     let componentName = config.componentName.replace('-', ' ');
-    let letter = componentName.slice(1).toUpperCase();
-    componentName = letter + componentName;
+    let firstLetter = componentName.charAt(0).toUpperCase();
+    componentName = firstLetter + componentName.slice(1, componentName.length);
 
     renderFileFromTemplate(
         `${DIRECTORIES.generator.templates.story}documentation-file.template.txt`,
@@ -245,36 +251,34 @@ generateStory = () => {
             KEBAB_NAME: name,
         },
     );
-
-    renderIndexStoriesFile();
 };
 
-const renderIndexStoriesFile = () => {
-    const components = fs.readdirSync(DIRECTORIES.components).filter(item => item.indexOf('.') === -1);
+const renderIndexComponentsFile = () => {
+  const components = fs.readdirSync(DIRECTORIES.components).filter(item => item.indexOf('.') === -1);
 
-    const formatted = components.map(item => ({
-        kebabName: item,
-        pascalName: getComponentNameByKebab(item),
-    }));
+  const formatted = components.map(item => ({
+    kebabName: item,
+    pascalName: getComponentNameByKebab(item),
+  }));
 
-    const COMPONENTS_IMPORTS = formatted.map(item => `import ${item.pascalName} from '../src/components/${item.kebabName}/index.vue';`).join('\n');
-    const COMPONENTS_REGISTER = formatted.map(item => `Vue.component('st-${item.kebabName}', ${item.pascalName});`).join('\n');
+  const COMPONENTS_IMPORTS = formatted.map(item => `import ${item.pascalName} from './${item.kebabName}/index.vue';`).join('\n');
+  const COMPONENTS_LIST = formatted.map(item => `  ${item.pascalName},`).join('\n');
 
-    renderFileFromTemplate(
-        `${DIRECTORIES.generator.templates.story}index-file.template.txt`,
-        pathGenerator.stories.index.file(),
-        {
-            COMPONENTS_IMPORTS,
-            COMPONENTS_REGISTER,
-        },
-    );
+  renderFileFromTemplate(
+    `${DIRECTORIES.generator.templates.component}index-file.template.txt`,
+    pathGenerator.component.index.file(),
+    {
+      COMPONENTS_IMPORTS,
+      COMPONENTS_LIST,
+    },
+  );
 };
 
 const getComponentNameByKebab = (name) => {
     const scriptFilePath = pathGenerator.component.script(name);
 
     const fileContents = fs.readFileSync(scriptFilePath, { encoding: 'utf8' });
-    const regexp = new RegExp(/export default class (.*) extends Vue/);
+    const regexp = new RegExp(/export default class (.*) extends/);
     const regResult = regexp.exec(fileContents.toString('utf8'));
 
     return regResult[1];

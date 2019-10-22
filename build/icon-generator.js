@@ -2,7 +2,7 @@ const GeneratorLogger = require('./utils/generator-logger');
 
 const fs = require('fs');
 const render = require('json-templater/string');
-const endOfLine = require('os').EOL;
+const endOfLine = require('./utils/end-of-line').EOL;
 
 const generatorLogger = new GeneratorLogger('Icon Generator');
 
@@ -27,7 +27,7 @@ fs.readdirSync(iconsSvgDirectory).forEach(file => {
   iconsList.push(fileName);
 
   importIconList.push(render(
-    `import '!@spacetab/svg-sprite-loader?symbolId=st-[name]!${iconsImportPath}/{{icon}}.svg';`,
+    `import '!@spacetabs/svg-sprite-loader?symbolId=st-[name]!${iconsImportPath}/{{icon}}.svg';`,
     {
       icon: fileName
     }

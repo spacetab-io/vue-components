@@ -13,6 +13,7 @@
            class="st-button__icon"
            @click="handleInnerClick"></st-icon>
   <span v-if="$slots.default"
+        class="st-button__content"
         @click="handleInnerClick">
       <slot></slot>
     </span>

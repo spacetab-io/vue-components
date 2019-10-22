@@ -1,0 +1,66 @@
+@import '../../assets/scss/components/collapser/_variables';
+
+.st-collapser {
+  $root: &;
+
+  display: flex;
+  align-items: center;
+  justify-content: $st-collapser-justify-content;
+
+  &__list {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+
+    &--calculator {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      opacity: 0;
+    }
+  }
+
+  &__item {
+    margin-left: $st-collapser-item-margin;
+    font-size: $st-collapser-item-font-size;
+    color: $st-collapser-item-color;
+    white-space: nowrap;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__control {
+    margin-left: $st-collapser-control-margin;
+    font-size: $st-collapser-item-font-size;
+  }
+
+  &__control-label {
+    color: $st-collapser-control-color;
+    cursor: default;
+    visibility: visible;
+
+    &--with-hover {
+      cursor: pointer;
+
+      &:hover {
+        color: $st-collapser-control-color-hover;
+      }
+    }
+
+    &--hovered {
+      color: $st-collapser-control-color-hover;
+    }
+
+    &--hidden {
+      visibility: hidden;
+    }
+  }
+}

@@ -1,0 +1,172 @@
+@import '../../assets/scss/components/badge/variables';
+@import '../../assets/scss/components/badge/mixins';
+
+.st-badge {
+  $root: &;
+
+  display: $st-badge-display;
+  min-width: $st-badge-min-width;
+  height: $st-badge-height;
+  padding: $st-badge-padding-vertical $st-badge-padding-horizontal;
+  font-size: $st-badge-font-size;
+  line-height: $st-badge-line-height;
+  text-align: $st-badge-text-align;
+  border: $st-badge-border-width $st-badge-border-style $st-badge-border-color;
+  border-radius: $st-badge-border-radius;
+
+  &__icon {
+    width: $st-badge-icon-width;
+    height: $st-badge-icon-height;
+    margin-right: $st-badge-icon-margin;
+  }
+
+  &__text {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &--round {
+    border-radius: $st-badge-border-radius-round;
+  }
+
+  &--fill-none {
+    border-width: $st-badge-border-width-fill;
+
+    &#{$root}--block {
+      color: $st-badge-color-block;
+      border-color: $st-badge-color-block;
+
+      #{$root}__icon {
+        color: $st-badge-color-block;
+      }
+
+      &:hover {
+        color: $st-badge-color-block-hover;
+        border-color: $st-badge-color-block-hover;
+
+        #{$root}__icon {
+          color: $st-badge-color-block-hover;
+        }
+      }
+    }
+
+    &#{$root}--info {
+      @include status-type-fill-none($st-badge-background-info, $st-badge-color-info);
+    }
+
+    &#{$root}--cancel {
+      @include status-type-fill-none($st-badge-background-cancel, $st-badge-color-cancel);
+    }
+
+    &#{$root}--success {
+      @include status-type-fill-none($st-badge-background-success, $st-badge-color-success);
+    }
+
+    &#{$root}--warning {
+      @include status-type-fill-none($st-badge-background-warning, $st-badge-color-warning);
+    }
+
+    &#{$root}--error {
+      @include status-type-fill-none($st-badge-background-error, $st-badge-color-error);
+    }
+  }
+
+  &--fill-half {
+    border-width: $st-badge-border-width-fill;
+
+    &#{$root}--block {
+      color: $st-badge-color-block;
+      background: mix($st-badge-background-block, $st-color-white, 25%);
+
+      #{$root}__icon {
+        color: $st-badge-color-block;
+      }
+
+      &:hover {
+        color: $st-badge-color-block-hover;
+        background: mix($st-badge-background-block-hover, $st-color-white, 25%);
+
+        #{$root}__icon {
+          color: $st-badge-color-block-hover;
+        }
+      }
+    }
+
+    &#{$root}--info {
+      @include status-type-fill-half($st-badge-background-info, $st-badge-color-info);
+    }
+
+    &#{$root}--cancel {
+      @include status-type-fill-half($st-badge-background-cancel, $st-badge-color-cancel);
+    }
+
+    &#{$root}--success {
+      @include status-type-fill-half($st-badge-background-success, $st-badge-color-success);
+    }
+
+    &#{$root}--warning {
+      @include status-type-fill-half($st-badge-background-warning, $st-badge-background-warning);
+    }
+
+    &#{$root}--error {
+      @include status-type-fill-half($st-badge-background-error, $st-badge-background-error);
+    }
+  }
+
+  &--fill-full {
+    border-width: $st-badge-border-width-fill;
+
+    &#{$root}--block {
+      color: $st-color-white;
+      background: $st-badge-background-block;
+
+      #{$root}__icon {
+        color: $st-color-white;
+      }
+
+      &:hover {
+        background: $st-badge-background-block-hover;
+      }
+    }
+
+    &#{$root}--info {
+      @include status-type-fill-full($st-badge-background-info, $st-badge-color-info);
+    }
+
+    &#{$root}--cancel {
+      @include status-type-fill-full($st-badge-background-cancel, $st-badge-color-cancel);
+    }
+
+    &#{$root}--success {
+      @include status-type-fill-full($st-badge-background-success, $st-badge-color-success);
+    }
+
+    &#{$root}--warning {
+      @include status-type-fill-full($st-badge-background-warning, $st-badge-color-warning);
+    }
+
+    &#{$root}--error {
+      @include status-type-fill-full($st-badge-background-error, $st-badge-color-error);
+    }
+  }
+
+  &--info {
+    border-color: $st-badge-background-info;
+  }
+
+  &--cancel {
+    border-color: $st-badge-background-cancel;
+  }
+
+  &--success {
+    border-color: $st-badge-background-success;
+  }
+
+  &--warning {
+    border-color: $st-badge-background-warning;
+  }
+
+  &--error {
+    border-color: $st-badge-background-error;
+  }
+}

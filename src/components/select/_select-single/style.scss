@@ -1,0 +1,19 @@
+@import '../../../assets/scss/components/select/_variables';
+
+.st-select-single {
+  &__dropdown-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &--selected {
+      font-weight: $st-select-single-dropdown-selected-option-font-weight;
+    }
+  }
+
+  &__dropdown-option-icon {
+    width: $st-select-single-dropdown-option-icon-width;
+    height: $st-select-single-dropdown-option-icon-height;
+    font-size: $st-select-single-dropdown-option-icon-font-size;
+  }
+}

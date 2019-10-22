@@ -1,7 +1,19 @@
 # Documentation
 
-## {{COMPONENT_NAME}} attributes
+Tell us about this component, please..
+
+## Example of Usage
+
+Explain how to use it, please..
+
+## Attributes
 
 | Name | Description | Required | Type | Default value | Possible values |
 | --- | --- | --- | --- | --- | --- |
 | - | - | - | - | - | - |
+
+## Events
+
+| Name | Description | Arguments |
+| --- | --- | --- |
+| - | - | - |

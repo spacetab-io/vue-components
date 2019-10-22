@@ -1,0 +1,61 @@
+@import '../../assets/scss/components/notification/_variables';
+
+.st-notifications-group {
+  $root: &;
+
+  position: absolute;
+  top: $st-notification-margin-window;
+  bottom: $st-notification-margin-window;
+  z-index: $st-notification-z-index;
+  display: flex;
+  justify-content: flex-end;
+  width: $st-notification-width;
+  overflow: hidden;
+  pointer-events: none;
+
+  &--top-left,
+  &--top-center,
+  &--top-right {
+    flex-flow: column-reverse;
+
+    .st-notification {
+      margin-top: $st-notification-margin-item;
+    }
+  }
+
+  &--bottom-left,
+  &--bottom-center,
+  &--bottom-right {
+    flex-flow: column;
+
+    .st-notification {
+      margin-bottom: $st-notification-margin-item;
+    }
+  }
+
+  &--top-left,
+  &--bottom-left {
+    left: $st-notification-margin-window;
+  }
+
+  &--top-right,
+  &--bottom-right {
+    right: $st-notification-margin-window;
+  }
+
+  &--top-center,
+  &--bottom-center {
+    right: 0;
+    left: 0;
+    margin: auto;
+  }
+
+  .st-notification {
+    transition: $st-notification-transition;
+
+    &:last-of-type {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+}

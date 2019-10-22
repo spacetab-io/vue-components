@@ -1,0 +1,17 @@
+@import '../../utils/variables';
+
+$st-table-font-size: $st-font-size !default;
+$st-table-color: $st-text-color-regular !default;
+$st-table-border-color: $st-color-pastel-gray !default;
+$st-table-th-vertical-align: top !default;
+$st-table-td-vertical-align: $st-table-th-vertical-align !default;
+$st-table-td-padding: 0.5em 0.75em !default;
+
+$st-table-border-width: 1px !default;
+$st-table-header-border-width: 2px !default;
+$st-table-footer-border-width: $st-table-header-border-width !default;
+
+$st-table-sortable-hover-border-color: $st-color-taupe-gray !default;
+$st-table-sortable-current-border-color: $st-table-sortable-hover-border-color !default;
+$st-table-sortable-icon-size: 8px !default;
+$st-table-sortable-icon-color: currentColor !default;

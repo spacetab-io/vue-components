@@ -1,11 +1,11 @@
 import {
-    Component,
-    Prop,
-    Vue,
+  Component,
+  Prop,
+  Vue,
 } from 'vue-property-decorator';
 
 
 @Component({
-    name: '{{COMPONENT_NAME}}',
+  name: '{{COMPONENT_NAME}}',
 })
 export default class {{COMPONENT_NAME}} extends Vue {}

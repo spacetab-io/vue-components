@@ -1,0 +1,89 @@
+@import '../../assets/scss/components/notification/_variables';
+
+.st-notification {
+  $root: &;
+
+  position: relative;
+  box-sizing: border-box;
+  width: $st-notification-width;
+  padding: $st-notification-padding;
+  pointer-events: all;
+  border-radius: $st-notification-border-radius;
+  opacity: $st-notification-opacity;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &--info {
+    background: $st-notification-background-info;
+  }
+
+  &--success {
+    background: $st-notification-background-success;
+  }
+
+  &--warning {
+    background: $st-notification-background-warning;
+  }
+
+  &--error {
+    background: $st-notification-background-error;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    width: $st-notification-icon-width;
+    height: $st-notification-icon-height;
+    font-size: $st-notification-icon-font;
+    color: $st-notification-icon-color;
+    transform: translateY(-50%);
+
+    + #{$root}__content {
+      margin-left: 10px;
+    }
+  }
+
+  &__title {
+    margin-bottom: $st-notification-title-margin-bottom;
+    font-size: $st-notification-title-font-size;
+    color: $st-notification-title-color;
+  }
+
+  &__message {
+    font-size: $st-notification-message-font-size;
+    color: $st-notification-message-color;
+  }
+
+  &__close-btn {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    width: $st-notification-close-icon-width;
+    height: $st-notification-close-icon-height;
+    padding: $st-notification-close-icon-padding;
+    font-size: $st-notification-close-icon-font;
+    color: $st-notification-icon-color;
+    cursor: pointer;
+    opacity: 0.5;
+    transform: translateY(-50%);
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.st-transition-notification-enter-active,
+.st-transition-notification-leave-active,
+.st-transition-notification-move {
+  opacity: $st-notification-opacity;
+  transition: $st-notification-transition;
+}
+
+.st-transition-notification-enter,
+.st-transition-notification-leave-to {
+  opacity: 0;
+}

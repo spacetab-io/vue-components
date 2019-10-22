@@ -1,0 +1,47 @@
+@import '../../utils/variables';
+@import "variables";
+
+@mixin status-type-fill-none($background-color, $text-color) {
+  color: $text-color;
+
+  .st-badge__icon {
+    color: $text-color;
+  }
+
+  &:hover {
+    color: $st-color-white;
+    background: $background-color;
+
+    .st-badge__icon {
+      color: $st-color-white;
+    }
+  }
+}
+
+@mixin status-type-fill-half($background-color, $text-color) {
+  color: $text-color;
+  background: mix($background-color, $st-color-white, 25%);
+  border-color: $st-badge-border-color;
+
+  .st-badge__icon {
+    color: $text-color;
+  }
+}
+
+@mixin status-type-fill-full($background-color, $text-color) {
+  color: $st-color-white;
+  background: $background-color;
+
+  .st-badge__icon {
+    color: $st-color-white;
+  }
+
+  &:hover {
+    color: $text-color;
+    background: transparent;
+
+    .st-badge__icon {
+      color: $text-color;
+    }
+  }
+}

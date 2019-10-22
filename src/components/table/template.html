@@ -1,0 +1,104 @@
+<div class="st-table">
+  <table class="st-table__table"
+         :class="{
+           'st-table__table--bordered': bordered,
+          }">
+    <thead v-if="columns.length"
+           class="st-table__thead">
+      <tr class="st-table__tr">
+        <th v-for="(col, index) in columns"
+            :key="index"
+            :align="col.centered ? 'center' : ''"
+            :class="[
+              col.class,
+              {
+                'st-table__th-sortable--current': currentSortColumn === col,
+                'st-table__th-sortable': col.sortable
+              }
+            ]"
+            :style="[
+              col.style,
+              {
+                width: getWidth(col)
+              }
+            ]"
+            class="st-table__th"
+            @click.stop="sort(col)">
+            <div class="st-table__th-wrap"
+                :class="{ 'st-table__th-wrap--centered': col.centered }">
+                 <template v-if="$scopedSlots[`th-${col.name}`]">
+                    <slot
+                        :name="`th-${col.name}`"
+                        :col="col"
+                        :index="index"
+                    />
+                </template>
+                <template v-else>{{ col.label }}</template>
+
+                <div v-if="col.sortable"
+                     class="st-table__sortable">
+                  <st-icon name="arrow-down"
+                           v-if="currentSortColumn !== col"
+                           class="st-table__sortable-arrow st-table__sortable-arrow--up" />
+
+                  <st-icon name="arrow-down"
+                           :class="getSortIconClasses(col)"
+                           class="st-table__sortable-arrow st-table__sortable-arrow--down" />
+                </div>
+            </div>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody v-if="newData.length"
+           class="st-table__tbody">
+      <template v-for="(row, index) in newData">
+        <tr :key="customRowKey ? row[customRowKey] : index"
+            :class="rowClass(row, index)"
+            class="st-table__tr"
+            @click="selectRow(row)">
+          <td v-for="col in columns"
+              :key="col.name"
+              :value="(value = getRowValue(row, col, index)) && null"
+              :class="col.class"
+              :style="col.style"
+              :align="col.centered ? 'center' : ''"
+              class="st-table__td">
+            <slot :name="`td-${col.name}`"
+                  :index="index"
+                  :row="row"
+                  :col="col"
+                  :value="value">
+              <span v-if="col.renderHtml"
+                    v-html="value" />
+              <template v-else>{{ value }}</template>
+            </slot>
+          </td>
+        </tr>
+      </template>
+    </tbody>
+
+    <tbody v-else
+           class="st-table__tbody">
+      <tr class="st-table__tr st-table__tr--empty">
+        <td :colspan="columns.length"
+        class="st-table__td">
+          <slot name="empty" />
+        </td>
+      </tr>
+    </tbody>
+
+    <tfoot v-if="$slots.footer !== void 0"
+           class="st-table__tfoot">
+      <tr class="st-table__tr">
+        <slot v-if="hasCustomFooterSlot()"
+              name="footer" />
+        <th v-else
+            :colspan="columns.length"
+            class="st-table__th">
+            <slot name="footer" />
+        </th>
+      </tr>
+    </tfoot>
+  </table>
+</div>

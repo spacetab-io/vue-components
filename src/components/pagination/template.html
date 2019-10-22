@@ -1,0 +1,60 @@
+<div class="st-pagination"
+     :class="{'st-pagination--hidden': isPaginationHidden}">
+  <div class="st-pagination__boundary st-pagination__boundary--first"
+       :class="{'st-pagination__boundary--disabled': currentPage === 1}"
+       v-if="showBoundary"
+       @click="onFirstClick()">
+    <st-icon class="st-pagination__icon"
+             :name="firstPageIcon"></st-icon>
+    <div class="st-pagination__label">
+      {{ firstPageLabel }}
+    </div>
+  </div>
+  <div class="st-pagination__step st-pagination__step--prev"
+       :class="{'st-pagination__step--disabled': currentPage === 1}"
+       v-if="showStep"
+       @click="onPrevClick()">
+    <st-icon class="st-pagination__icon"
+             :name="prevStepIcon"></st-icon>
+    <div class="st-pagination__label">
+      {{ prevStepLabel }}
+    </div>
+  </div>
+  <div class="st-pagination__pages">
+    <div class="st-pagination__page"
+         v-for="(page, index) in pages"
+         :class="{
+           'st-pagination__page--current': currentPage === page.number,
+           'st-pagination__page--separator': page.type === PageType.separator
+         }"
+         :key="index"
+         @click="onPageClick(page.number)">
+      <template v-if="page.type === PageType.page">
+        {{ page.number }}
+      </template>
+      <template v-else>
+        ...
+      </template>
+    </div>
+  </div>
+  <div class="st-pagination__step st-pagination__step--next"
+       :class="{'st-pagination__step--disabled': currentPage === totalPages}"
+       v-if="showStep"
+       @click="onNextClick()">
+    <div class="st-pagination__label">
+      {{ nextStepLabel }}
+    </div>
+    <st-icon class="st-pagination__icon"
+             :name="nextStepIcon"></st-icon>
+  </div>
+  <div class="st-pagination__boundary st-pagination__boundary--last"
+       :class="{'st-pagination__boundary--disabled': currentPage === totalPages}"
+       v-if="showBoundary"
+       @click="onLastClick()">
+    <div class="st-pagination__label">
+      {{ lastPageLabel }}
+    </div>
+    <st-icon class="st-pagination__icon"
+             :name="lastPageIcon"></st-icon>
+  </div>
+</div>

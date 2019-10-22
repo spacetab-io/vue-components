@@ -11,6 +11,7 @@ interface ScrollParameters {
   scrollContainerSize: number,
   dragStart: number,
   isDrag: boolean,
+  isVisible: boolean,
 }
 
 @Component({
@@ -24,6 +25,7 @@ export default class StScrollbar extends Vue {
     scrollContainerSize: 0,
     dragStart: 0,
     isDrag: false,
+    isVisible: false,
   };
 
   public horizontalScrollData: ScrollParameters = {
@@ -33,6 +35,7 @@ export default class StScrollbar extends Vue {
     scrollContainerSize: 0,
     dragStart: 0,
     isDrag: false,
+    isVisible: false,
   };
 
   public verticalScrollbarSize: number = 0;
@@ -62,9 +65,13 @@ export default class StScrollbar extends Vue {
     this.horizontalScroll.addEventListener('mousedown', this.onHorizontalMouseDown);
     window.addEventListener('mousemove', this.onMouseMove);
     window.addEventListener('mouseup', this.onMouseUp);
+    window.addEventListener('resize', this.recalculateData);
   }
 
   public recalculateData() {
+    this.verticalScrollData.isVisible = this.contentContainer.scrollHeight > this.root.scrollHeight;
+    this.horizontalScrollData.isVisible = this.contentContainer.scrollWidth > this.root.scrollWidth;
+
     this.verticalScrollData.contentSize = this.contentContainer.scrollHeight;
     this.verticalScrollData.scrollContainerSize = this.verticalScrollContainer.clientHeight;
     this.verticalScrollData.scrollSize = this.verticalScrollData.scrollContainerSize
@@ -81,9 +88,12 @@ export default class StScrollbar extends Vue {
   public recalculateScrollPosition() {
     const container = (this.$refs.container as Element);
 
+    this.verticalScrollData.scrollContainerSize = this.verticalScrollContainer.clientHeight;
     this.verticalScrollData.scrollPositionPercent = (
       container.scrollTop / (container.scrollHeight - container.clientHeight)
     ) * 100;
+
+    this.horizontalScrollData.scrollContainerSize = this.horizontalScrollContainer.clientWidth;
     this.horizontalScrollData.scrollPositionPercent = (
       container.scrollLeft / (container.scrollWidth - container.clientWidth)
     ) * 100;
@@ -151,12 +161,12 @@ export default class StScrollbar extends Vue {
 
   public onVerticalMouseDown(event: MouseEvent) {
     this.verticalScrollData.isDrag = true;
-    this.verticalScrollData.dragStart = event.clientY;
+    this.verticalScrollData.dragStart = event.offsetY;
   }
 
   public onHorizontalMouseDown(event: MouseEvent) {
     this.horizontalScrollData.isDrag = true;
-    this.horizontalScrollData.dragStart = event.clientX;
+    this.horizontalScrollData.dragStart = event.offsetX;
   }
 
   public onMouseMove(event: MouseEvent) {
@@ -171,6 +181,7 @@ export default class StScrollbar extends Vue {
         this.verticalScrollContainer.getBoundingClientRect().bottom,
         this.contentContainer.scrollHeight,
         this.verticalScrollContainer.clientHeight,
+        this.verticalScrollData.dragStart,
       );
       this.contentContainer.scroll(scrollTo);
       return;
@@ -187,6 +198,7 @@ export default class StScrollbar extends Vue {
         this.horizontalScrollContainer.getBoundingClientRect().right,
         this.contentContainer.scrollWidth,
         this.horizontalScrollContainer.clientWidth,
+        this.horizontalScrollData.dragStart,
       );
       this.contentContainer.scroll(scrollTo);
     }
@@ -199,31 +211,28 @@ export default class StScrollbar extends Vue {
     maxCursorPosition: number,
     contentScrollSize: number,
     scrollContainerSize: number,
+    cursorOffset: number,
   ): ScrollToOptions {
+    const positionKey = vertical ? 'top' : 'left';
+
     if (currentPosition < minCursorPosition) {
-      return vertical ? {
-        top: 0,
-      } : {
-        left: 0,
+      return {
+        [positionKey]: 0,
       };
     }
 
     if (currentPosition > maxCursorPosition) {
-      return vertical ? {
-        top: contentScrollSize,
-      } : {
-        left: contentScrollSize,
+      return {
+        [positionKey]: contentScrollSize,
       };
     }
 
     const scrollPosition = contentScrollSize / 100 * (
-      (currentPosition - minCursorPosition) / scrollContainerSize * 100
+      (currentPosition - cursorOffset - minCursorPosition) / scrollContainerSize * 100
     );
 
-    return vertical ? {
-      top: scrollPosition,
-    } : {
-      left: scrollPosition,
+    return {
+      [positionKey]: scrollPosition,
     };
   }
 
@@ -296,7 +305,9 @@ export default class StScrollbar extends Vue {
 
   get rootClasses() {
     return {
-      'st-scrollbar--hovered': this.verticalScrollData.isDrag || this.horizontalScrollData.isDrag,
+      'st-scrollbar--dragged': this.verticalScrollData.isDrag || this.horizontalScrollData.isDrag,
+      'st-scrollbar--vertical-scrollable': this.verticalScrollData.isVisible,
+      'st-scrollbar--horizontal-scrollable': this.horizontalScrollData.isVisible,
     };
   }
 

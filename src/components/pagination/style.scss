@@ -1,0 +1,123 @@
+@import '../../assets/scss/components/pagination/variables';
+
+.st-pagination {
+  $root: &;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &--hidden {
+    display: none;
+  }
+
+  &__page {
+    box-sizing: border-box;
+    min-width: $st-pagination-page-size;
+    height: $st-pagination-page-size;
+    padding: $st-pagination-page-padding;
+    margin-right: $st-pagination-page-margin;
+    font-size: $st-pagination-page-font-size;
+    font-weight: 500;
+    line-height: $st-pagination-page-size;
+    color: $st-pagination-page-text-color;
+    text-align: center;
+    cursor: pointer;
+    border-radius: $st-pagination-page-border-radius;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      background-color: $st-pagination-page-hover-bg-color;
+    }
+
+    &--current {
+      color: $st-pagination-current-page-color;
+      cursor: not-allowed;
+      background-color: $st-pagination-current-page-bg-color;
+
+      &:hover {
+        background-color: $st-pagination-current-page-bg-color;
+      }
+    }
+
+    &--separator {
+      background-color: $st-pagination-separator-bg-color;
+
+      &:hover {
+        background-color: $st-pagination-separator-bg-color;
+      }
+    }
+  }
+
+  &__step {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $st-pagination-control-text-color;
+    cursor: pointer;
+
+    &--disabled {
+      cursor: not-allowed;
+    }
+
+    &--next {
+      margin-left: $st-pagination-control-step-margin;
+
+      #{$root}__label {
+        margin-right: $st-pagination-icon-step-margin;
+      }
+    }
+
+    &--prev {
+      margin-right: $st-pagination-control-step-margin;
+
+      #{$root}__label {
+        margin-left: $st-pagination-icon-step-margin;
+      }
+    }
+  }
+
+  &__boundary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $st-pagination-control-text-color;
+    cursor: pointer;
+
+    &--disabled {
+      cursor: not-allowed;
+    }
+
+    &--last {
+      margin-left: $st-pagination-control-boundary-margin;
+
+      #{$root}__label {
+        margin-right: $st-pagination-icon-boundary-margin;
+      }
+    }
+
+    &--first {
+      margin-right: $st-pagination-control-boundary-margin;
+
+      #{$root}__label {
+        margin-left: $st-pagination-icon-boundary-margin;
+      }
+    }
+  }
+
+  &__label {
+    font-size: $st-pagination-label-font-size;
+    text-transform: $st-pagination-label-text-transformation;
+    white-space: nowrap;
+  }
+
+  &__pages {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
