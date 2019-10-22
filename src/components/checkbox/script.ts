@@ -22,6 +22,9 @@ export default class StCheckbox extends Vue {
   @Prop([String, Number])
   readonly id?: string | number;
 
+  @Prop([String, Number])
+  readonly label?: string | number;
+
   @Emit('input')
   emmitInput(newValue: boolean) {
     return newValue;
