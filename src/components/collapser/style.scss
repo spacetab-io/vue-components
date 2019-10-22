@@ -23,13 +23,17 @@
   }
 
   &__item {
-    margin-right: $st-collapser-item-margin;
+    margin-left: $st-collapser-item-margin;
     font-size: $st-collapser-item-font-size;
     color: $st-collapser-item-color;
     white-space: nowrap;
 
-    &:last-of-type {
-      margin-right: 0;
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    &--hidden {
+      display: none;
     }
   }
 
@@ -41,6 +45,7 @@
   &__control-label {
     color: $st-collapser-control-color;
     cursor: default;
+    visibility: visible;
 
     &--with-hover {
       cursor: pointer;
@@ -52,6 +57,10 @@
 
     &--hovered {
       color: $st-collapser-control-color-hover;
+    }
+
+    &--hidden {
+      visibility: hidden;
     }
   }
 }
