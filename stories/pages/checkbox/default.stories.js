@@ -12,6 +12,9 @@ storiesOf('Components|Checkbox', module).add('Default', () => ({
     readonly: {
       default: boolean('Readonly', false),
     },
+    indeterminate: {
+      default: boolean('indeterminate', false),
+    },
     innerText: {
       default: text('Label', 'Checkbox'),
     }
