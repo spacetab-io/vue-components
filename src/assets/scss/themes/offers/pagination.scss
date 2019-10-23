@@ -1,0 +1,85 @@
+// Import default component's file with styles
+@import '../../../../components/pagination/style';
+
+.st-pagination {
+  &__page {
+    position: relative;
+    width: auto;
+    height: auto;
+    padding: 2px 12px;
+    margin: 0;
+    border-radius: 0;
+    transition: all 0.2s;
+
+    &::after {
+      position: absolute;
+      right: 8px;
+      bottom: 0;
+      left: 8px;
+      height: 2px;
+      content: "";
+      background-color: transparent;
+    }
+
+    &--current {
+      font-weight: bold;
+      color: inherit;
+      background-color: transparent;
+
+      &::after {
+        /* stylelint-disable-next-line */
+        background-color: currentColor;
+      }
+    }
+
+    &:hover {
+      color: inherit;
+      background-color: transparent;
+
+      &::after {
+        background-color: currentColor;
+      }
+    }
+  }
+
+  &__label {
+    display: none;
+  }
+
+  &__step {
+    $size: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $size;
+    height: $size;
+    color: $st-color-dark-gray;
+    border: 1px solid $st-color-gray-light;
+    border-radius: 50%;
+    transition: all 0.2s;
+
+    &:not(#{&}--disabled):hover {
+      color: inherit;
+    }
+
+    &--prev {
+      margin-right: 3px;
+    }
+
+    &--next {
+      margin-left: 3px;
+    }
+  }
+
+  &__icon {
+    $size: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $size;
+    height: $size;
+    color: inherit;
+  }
+}

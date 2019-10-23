@@ -3,7 +3,7 @@
 .st-notifications-group {
   $root: &;
 
-  position: absolute;
+  position: fixed;
   top: $st-notification-margin-window;
   bottom: $st-notification-margin-window;
   z-index: $st-notification-z-index;

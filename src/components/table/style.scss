@@ -22,6 +22,11 @@
     }
   }
 
+  &__th,
+  &__td {
+    word-break: break-word;
+  }
+
   &__td {
     padding: $st-table-td-padding;
     vertical-align: $st-table-td-vertical-align;
