@@ -3,6 +3,8 @@
 ## 0.2.5
 
 ### Features
+* Added `indeterminate` prop for component `Checkbox`
+* Added `id` prop for component `Checkbox`
 * Improved view of `Collapser` component
 * `Pagination` component was updated:
     * Prop `limit` was renamed to `perPage`
@@ -14,6 +16,7 @@
 
 ### Maintenance
 * Weird mixins and functions in scss files were removed
+
 
 
 
