@@ -8,6 +8,7 @@ $st-color-alabaster: #f7f7f7;
 $st-color-moon-yellow: #ebc715;
 $st-color-jade: #00c27a;
 $st-color-coral-red: #fb4242;
+$color-tooltip-color: #232f34;
 
 $st-color-primary: $st-color-royal-blue;
 $st-color-primary-hover: $st-color-cerulean-blue;
@@ -17,5 +18,21 @@ $st-color-black: $st-color-night-rider;
 $st-color-warning: $st-color-moon-yellow;
 $st-color-success: $st-color-jade;
 $st-color-error: $st-color-coral-red;
+
+$st-color-blueberry: $st-color-royal-blue;
+$st-table-th-vertical-align: middle;
+
+$st-badge-border-radius: 4px;
+$st-badge-font-size: 11px;
+$st-badge-info-color: mix($st-color-royal-blue, white, 60%);
+$st-badge-border-info: mix($st-color-royal-blue, white, 40%);
+$st-badge-background-info: mix($color-gayser, white, 50%);
+
+$st-badge-error-color: mix($st-color-coral-red, white, 60%);
+$st-badge-border-error: mix($st-color-coral-red, white, 40%);
+$st-badge-background-error: mix(#d7dde7, white, 50%);
+$st-badge-height: 24px;
+
+$st-popper-padding: 0;
 
 @import '../../utils/variables';

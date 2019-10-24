@@ -44,6 +44,7 @@
 
   &__control-label {
     color: $st-collapser-control-color;
+    white-space: nowrap;
     cursor: default;
     visibility: visible;
 
