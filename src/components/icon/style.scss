@@ -1,36 +1,28 @@
-@import '../../assets/scss/utils/mixins';
 @import '../../assets/scss/components/icon/variables';
 
-@keyframes rotating {
-  from {
-    transform: rotateZ(0deg);
-  }
-
-  to {
-    transform: rotateZ(360deg);
-  }
-}
-
-@include b('icon') {
+.st-icon {
   $root: &;
 
-  display: inline-block;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
   width: $st-icon-width;
   height: $st-icon-height;
   line-height: 1;
   color: $st-icon-color;
   vertical-align: middle;
 
-  @include e('svg') {
+  &__svg {
     width: inherit;
     max-width: 100%;
     height: inherit;
     max-height: 100%;
   }
 
-  @include m('loader') {
-    #{ e('svg', $root) } {
-      animation: rotating 2s linear infinite;
+  &--loader {
+    #{$root}__svg {
+      animation: $st-icon-animation;
     }
   }
 }

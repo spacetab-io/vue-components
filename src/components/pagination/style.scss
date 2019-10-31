@@ -1,20 +1,21 @@
-@import '../../assets/scss/utils/mixins';
 @import '../../assets/scss/components/pagination/variables';
 
-@include b('pagination') {
+.st-pagination {
   $root: &;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  @include m('hidden') {
+  &--hidden {
     display: none;
   }
 
-  @include e('page') {
-    width: $st-pagination-page-size;
+  &__page {
+    box-sizing: border-box;
+    min-width: $st-pagination-page-size;
     height: $st-pagination-page-size;
+    padding: $st-pagination-page-padding;
     margin-right: $st-pagination-page-margin;
     font-size: $st-pagination-page-font-size;
     font-weight: 500;
@@ -32,7 +33,7 @@
       background-color: $st-pagination-page-hover-bg-color;
     }
 
-    @include m('current') {
+    &--current {
       color: $st-pagination-current-page-color;
       cursor: not-allowed;
       background-color: $st-pagination-current-page-bg-color;
@@ -42,78 +43,78 @@
       }
     }
 
-    @include m('seperator') {
-      background-color: $st-pagination-seperator-bg-color;
+    &--separator {
+      background-color: $st-pagination-separator-bg-color;
 
       &:hover {
-        background-color: $st-pagination-seperator-bg-color;
+        background-color: $st-pagination-separator-bg-color;
       }
     }
   }
 
-  @include e('step') {
+  &__step {
     display: flex;
     align-items: center;
     justify-content: center;
     color: $st-pagination-control-text-color;
     cursor: pointer;
 
-    @include m('disabled') {
+    &--disabled {
       cursor: not-allowed;
     }
 
-    @include m('next') {
+    &--next {
       margin-left: $st-pagination-control-step-margin;
 
-      @include e('label', $root, false) {
+      #{$root}__label {
         margin-right: $st-pagination-icon-step-margin;
       }
     }
 
-    @include m('prev') {
+    &--prev {
       margin-right: $st-pagination-control-step-margin;
 
-      @include e('label', $root, false) {
+      #{$root}__label {
         margin-left: $st-pagination-icon-step-margin;
       }
     }
   }
 
-  @include e('boundary') {
+  &__boundary {
     display: flex;
     align-items: center;
     justify-content: center;
     color: $st-pagination-control-text-color;
     cursor: pointer;
 
-    @include m('disabled') {
+    &--disabled {
       cursor: not-allowed;
     }
 
-    @include m('last') {
+    &--last {
       margin-left: $st-pagination-control-boundary-margin;
 
-      @include e('label', $root, false) {
+      #{$root}__label {
         margin-right: $st-pagination-icon-boundary-margin;
       }
     }
 
-    @include m('first') {
+    &--first {
       margin-right: $st-pagination-control-boundary-margin;
 
-      @include e('label', $root, false) {
+      #{$root}__label {
         margin-left: $st-pagination-icon-boundary-margin;
       }
     }
   }
 
-  @include e('label') {
+  &__label {
     font-size: $st-pagination-label-font-size;
     text-transform: $st-pagination-label-text-transformation;
     white-space: nowrap;
   }
 
-  @include e('pages') {
+  &__pages {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;

@@ -1,6 +1,17 @@
 @import '../../utils/variables';
 
+@keyframes rotating {
+  from {
+    transform: rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
 $st-icon-size: 14;
 $st-icon-width: $st-icon-size + px !default;
 $st-icon-height: $st-icon-size + px !default;
 $st-icon-color: $st-color-blueberry !default;
+$st-icon-animation: rotating 2s linear infinite !default;

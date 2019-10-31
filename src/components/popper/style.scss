@@ -1,7 +1,6 @@
-@import '../../assets/scss/utils/mixins';
 @import '../../assets/scss/components/popper/_variables';
 
-@include b('popper') {
+.st-popper {
   $root: &;
 
   z-index: $st-popper-z-index;
@@ -11,7 +10,7 @@
   border-radius: $st-popper-border-radius;
   box-shadow: $st-popper-box-shadow;
 
-  @include e('arrow') {
+  &__arrow {
     position: absolute;
     width: 0;
     height: 0;
@@ -22,7 +21,7 @@
   &[x-placement^="bottom"] {
     margin-top: $st-popper-offset;
 
-    @include e('arrow', $root, false) {
+    #{$root}__arrow {
       top: -$st-popper-arrow-size;
       left: calc(50% - #{$st-popper-arrow-size});
       margin-top: 0;
@@ -35,7 +34,7 @@
   &[x-placement^="right"] {
     margin-left: $st-popper-offset;
 
-    @include e('arrow', $root, false) {
+    #{$root}__arrow {
       top: calc(50% - #{$st-popper-arrow-size});
       left: -$st-popper-arrow-size;
       margin-right: 0;
@@ -48,7 +47,7 @@
   &[x-placement^="left"] {
     margin-right: $st-popper-offset;
 
-    @include e('arrow', $root, false) {
+    #{$root}__arrow {
       top: calc(50% - #{$st-popper-arrow-size});
       right: -$st-popper-arrow-size;
       margin-right: 0;
@@ -61,7 +60,7 @@
   &[x-placement^="top"] {
     margin-bottom: $st-popper-offset;
 
-    @include e('arrow', $root, false) {
+    #{$root}__arrow {
       bottom: -$st-popper-arrow-size;
       left: calc(50% - #{$st-popper-arrow-size});
       margin-top: 0;
@@ -71,10 +70,10 @@
     }
   }
 
-  @include m('bordered') {
+  &--bordered {
     border: $st-popper-border-style $st-popper-border-width $st-popper-border-color;
 
-    #{ e('arrow', $root) } {
+    #{$root}__arrow {
       &::before {
         display: block;
         content: '';
@@ -82,7 +81,7 @@
       }
     }
 
-    &#{$root}[x-placement^="right"] #{ e('arrow', $root) } {
+    &#{$root}[x-placement^="right"] #{$root}__arrow {
       border-right-color: $st-popper-border-color;
 
       &::before {
@@ -95,7 +94,7 @@
       }
     }
 
-    &#{$root}[x-placement^="bottom"] #{ e('arrow', $root) } {
+    &#{$root}[x-placement^="bottom"] #{$root}__arrow {
       border-bottom-color: $st-popper-border-color;
 
       &::before {
@@ -108,7 +107,7 @@
       }
     }
 
-    &#{$root}[x-placement^="left"] #{ e('arrow', $root) } {
+    &#{$root}[x-placement^="left"] #{$root}__arrow {
       border-left-color: $st-popper-border-color;
 
       &::before {
@@ -121,7 +120,7 @@
       }
     }
 
-    &#{$root}[x-placement^="top"] #{ e('arrow', $root) } {
+    &#{$root}[x-placement^="top"] #{$root}__arrow {
       border-top-color: $st-popper-border-color;
 
       &::before {
@@ -135,7 +134,7 @@
     }
   }
 
-  @include m('with-arrow') {
+  &--with-arrow {
     &[x-placement^="bottom"] {
       margin-top: $st-popper-with-arrow-offset;
     }

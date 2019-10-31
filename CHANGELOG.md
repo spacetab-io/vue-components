@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.2.5
+
+### Features
+* Added `indeterminate` prop for component `Checkbox`
+* Added `id` prop for component `Checkbox`
+* Improved view of `Collapser` component
+* `Pagination` component was updated:
+    * Prop `limit` was renamed to `perPage`
+    * Prop `list` was changed to `total`
+    * Prop `initialPage` was renamed to `currentPage` and now it uses for **v-model**
+    * Interface `PaginationEvent` was renamed to `PaginationChangeExtendedEvent`
+    * Pages with big numbers (for example 1000) displays correctly now
+    * Calculating pages for group (`groupedPages`) works correctly now
+
+### Maintenance
+* Weird mixins and functions in scss files were removed
+
+
+
+
 ## 0.2.4
 
 ### Features

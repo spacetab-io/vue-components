@@ -6,9 +6,9 @@
   }
 
   &__collapser-item {
-    margin-right: $st-select-multiple-collapser-item-margin;
+    margin-left: $st-select-multiple-collapser-item-margin;
 
-    &:last-of-type {
+    &:first-of-type {
       margin-right: 0;
     }
   }

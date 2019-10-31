@@ -1,17 +1,32 @@
 import debounce from 'lodash/debounce';
 import merge from 'lodash/merge';
 import {
-  Component, Prop, Vue, Watch,
+  Component,
+  Prop,
+  Vue,
+  Watch,
 } from 'vue-property-decorator';
 
-import { PopperBindProperties, PopperPlacement, TriggerType } from '../popper/types';
+import StPopper from '../popper/index.vue';
+import StPopperScript from '../popper/script';
+import {
+  PopperBindProperties,
+  PopperPlacement,
+  TriggerType,
+} from '../popper/types';
 
 
 const CALCULATOR_LIST_CLASS_NAME = 'st-collapser__list--calculator';
-const DEBOUNCE_DELAY = 200;
+const ELEMENT_CLASS_NAME = 'st-collapser__item';
+const HIDDEN_ELEMENT_MODIFIER = 'hidden';
+const HIDDEN_ELEMENT_CLASS_NAME = `${ELEMENT_CLASS_NAME}--${HIDDEN_ELEMENT_MODIFIER}`;
+const DEBOUNCE_DELAY = 150;
 
 @Component({
   name: 'StCollapser',
+  components: {
+    StPopper,
+  },
 })
 export default class StCollapser extends Vue {
   @Prop({ type: Array, default: () => [] })
@@ -41,11 +56,11 @@ export default class StCollapser extends Vue {
   @Prop({ type: Object, default: () => {} })
   popperProps!: PopperBindProperties;
 
-  hiddenElements: any[] = [];
+  public hiddenElements: any[] = [];
 
-  popperVisible = false;
+  public popperVisible = false;
 
-  extendedPopperProps: PopperBindProperties = {
+  public extendedPopperProps: PopperBindProperties = {
     arrowVisible: false,
     placement: PopperPlacement.bottom,
     trigger: TriggerType.hover,
@@ -87,14 +102,11 @@ export default class StCollapser extends Vue {
     this.debounceCollapse();
   }
 
-  initResizeListener() {
-    window.addEventListener(
-      'resize',
-      this.debounceCollapse,
-    );
+  public initResizeListener() {
+    window.addEventListener('resize', this.debounceCollapse);
   }
 
-  collapse() {
+  public collapse() {
     this.closePopper();
     if (!this.elements.length) {
       this.hiddenElements = [];
@@ -111,36 +123,34 @@ export default class StCollapser extends Vue {
     while (calculationElement.offsetWidth < availableListWidth && elementIndex < list.children.length) {
       const child = list.children[elementIndex] as HTMLElement;
       const childClone = child.cloneNode(true) as HTMLElement;
-      childClone.style.display = '';
+      this.showElement(childClone);
       calculationElement.appendChild(childClone);
       if (calculationElement.offsetWidth > availableListWidth) {
-        this.hideListElements(elementIndex);
+        this.hideElements(elementIndex);
         calculationElement.removeChild(childClone);
         break;
       }
-      child.style.display = '';
+      this.showElement(child);
       elementIndex++;
     }
     calculationElement.remove();
     this.hiddenElements = this.elements.slice(elementIndex, this.elements.length);
   }
 
-  getControlWidth(): number {
+  public getControlWidth(): number {
     const control = this.$refs.control as HTMLElement;
     const { offsetWidth } = control;
-    const {
-      marginLeft,
-      marginRight,
-      borderLeftWidth,
-      borderRightWidth,
-    } = window.getComputedStyle(control);
-    const stylesWidthSum = [marginLeft, marginRight, borderLeftWidth, borderRightWidth].reduce(
-      (acc: number, item: string|null) => acc + (item ? parseFloat(item) : 0), 0,
-    );
-    return offsetWidth + stylesWidthSum;
+    const controlStyles = window.getComputedStyle(control);
+    const summedStylesWidth = [
+      controlStyles.marginLeft,
+      controlStyles.marginRight,
+      controlStyles.borderLeftWidth,
+      controlStyles.borderRightWidth,
+    ].reduce((acc: number, item: string|null) => acc + (item ? parseFloat(item) : 0), 0);
+    return offsetWidth + summedStylesWidth;
   }
 
-  createCalculationElement(): HTMLElement {
+  private createCalculationElement(): HTMLElement {
     const $list = this.$refs.list as HTMLElement;
     const calculatorDiv = document.createElement('div');
     calculatorDiv.setAttribute('class', $list.getAttribute('class') || '');
@@ -148,15 +158,45 @@ export default class StCollapser extends Vue {
     return calculatorDiv;
   }
 
-  hideListElements(from: number = 0) {
+  private getElementClassName(index: number): string[] {
+    return [ELEMENT_CLASS_NAME, this.elementClass]
+      .filter(Boolean)
+      .reduce((acc: string[], name: string) => {
+        acc.push(name);
+        if (index !== 0) {
+          acc.push(`${name}--${HIDDEN_ELEMENT_MODIFIER}`);
+        }
+        return acc;
+      }, []);
+  }
+
+  public hideElements(from: number = 0) {
     const list = this.$refs.list as HTMLElement;
     for (let i = from; i < list.children.length; i++) {
       const child = list.children[i] as HTMLElement;
-      child.style.display = 'none';
+      this.hideElement(child);
     }
   }
 
-  closePopper() {
-    (this.$refs.popper as any).doClose();
+  public showElement(child: HTMLElement) {
+    const updatedChild = child;
+    if (child.classList.contains(ELEMENT_CLASS_NAME)) {
+      updatedChild.classList.remove(HIDDEN_ELEMENT_CLASS_NAME);
+    } else {
+      updatedChild.style.display = '';
+    }
+  }
+
+  public hideElement(child: HTMLElement) {
+    const updatedChild = child;
+    if (child.classList.contains(ELEMENT_CLASS_NAME)) {
+      updatedChild.classList.add(HIDDEN_ELEMENT_CLASS_NAME);
+    } else {
+      updatedChild.style.display = 'none';
+    }
+  }
+
+  public closePopper() {
+    (this.$refs.popper as StPopperScript).doClose();
   }
 }

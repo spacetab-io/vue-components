@@ -1,4 +1,5 @@
 @import '../../utils/variables';
+@import '../icon/variables';
 
 $st-input-font-size: $st-font-size !default;
 $st-input-color: $st-text-color-regular !default;
@@ -11,6 +12,9 @@ $st-input-border-color-hover: $st-border-color-hover !default;
 $st-input-fill: $st-color-white !default;
 $st-input-fill-disabled: $st-disabled-fill !default;
 $st-input-color-disabled: $st-disabled-text-color !default;
+$st-input-icon-size: $st-icon-size !default;
+$st-input-icon-width: $st-input-icon-size + px !default;
+$st-input-icon-height: $st-input-icon-size + px !default;
 $st-input-icon-color: $st-border-color !default;
 $st-input-placeholder-color: $st-text-color-placeholder !default;
 $st-input-max-width: 314px !default;

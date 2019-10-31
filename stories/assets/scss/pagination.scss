@@ -1,0 +1,44 @@
+.storybook-components--pagination {
+  padding: 10px 0 0;
+
+  .example-section {
+    font-size: 14px;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 40px;
+
+    &__label {
+      font-size: 14px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    &__block {
+      margin-bottom: 10px;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    .st-button {
+      width: 100%;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    th {
+      background: #f4f5f9;
+    }
+
+    th, td {
+      color: #1e1e28;
+      border: 1px solid #e5e6ec;
+    }
+  }
+}

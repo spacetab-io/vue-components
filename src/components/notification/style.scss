@@ -1,7 +1,6 @@
-@import '../../assets/scss/utils/mixins';
 @import '../../assets/scss/components/notification/_variables';
 
-@include b('notification') {
+.st-notification {
   $root: &;
 
   position: relative;
@@ -16,23 +15,23 @@
     cursor: pointer;
   }
 
-  @include m('info') {
+  &--info {
     background: $st-notification-background-info;
   }
 
-  @include m('success') {
+  &--success {
     background: $st-notification-background-success;
   }
 
-  @include m('warning') {
+  &--warning {
     background: $st-notification-background-warning;
   }
 
-  @include m('error') {
+  &--error {
     background: $st-notification-background-error;
   }
 
-  @include e('icon') {
+  &__icon {
     position: absolute;
     top: 50%;
     left: 10px;
@@ -42,23 +41,23 @@
     color: $st-notification-icon-color;
     transform: translateY(-50%);
 
-    + #{ e('content', $root) } {
+    + #{$root}__content {
       margin-left: 10px;
     }
   }
 
-  @include e('title') {
+  &__title {
     margin-bottom: $st-notification-title-margin-bottom;
     font-size: $st-notification-title-font-size;
     color: $st-notification-title-color;
   }
 
-  @include e('message') {
+  &__message {
     font-size: $st-notification-message-font-size;
     color: $st-notification-message-color;
   }
 
-  @include e('close-btn') {
+  &__close-btn {
     position: absolute;
     top: 50%;
     right: 5px;
@@ -77,14 +76,14 @@
   }
 }
 
-#{ b('transition-notification-enter-active') },
-#{ b('transition-notification-leave-active') },
-#{ b('transition-notification-move') } {
+.st-transition-notification-enter-active,
+.st-transition-notification-leave-active,
+.st-transition-notification-move {
   opacity: $st-notification-opacity;
   transition: $st-notification-transition;
 }
 
-#{ b('transition-notification-enter') },
-#{ b('transition-notification-leave-to') } {
+.st-transition-notification-enter,
+.st-transition-notification-leave-to {
   opacity: 0;
 }

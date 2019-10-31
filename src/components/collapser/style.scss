@@ -1,20 +1,19 @@
-@import '../../assets/scss/utils/mixins';
 @import '../../assets/scss/components/collapser/_variables';
 
-@include b('collapser') {
+.st-collapser {
   $root: &;
 
   display: flex;
   align-items: center;
   justify-content: $st-collapser-justify-content;
 
-  @include e('list') {
+  &__list {
     display: inline-flex;
     align-items: center;
     justify-content: flex-start;
     overflow: hidden;
 
-    @include m('calculator') {
+    &--calculator {
       position: absolute;
       top: 0;
       left: 0;
@@ -23,27 +22,33 @@
     }
   }
 
-  @include e('item') {
-    margin-right: $st-collapser-item-margin;
+  &__item {
+    margin-left: $st-collapser-item-margin;
     font-size: $st-collapser-item-font-size;
     color: $st-collapser-item-color;
     white-space: nowrap;
 
-    &:last-of-type {
-      margin-right: 0;
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    &--hidden {
+      display: none;
     }
   }
 
-  @include e('control') {
+  &__control {
     margin-left: $st-collapser-control-margin;
     font-size: $st-collapser-item-font-size;
   }
 
-  @include e('control-label') {
+  &__control-label {
     color: $st-collapser-control-color;
+    white-space: nowrap;
     cursor: default;
+    visibility: visible;
 
-    @include m('with-hover') {
+    &--with-hover {
       cursor: pointer;
 
       &:hover {
@@ -51,8 +56,12 @@
       }
     }
 
-    @include m('hovered') {
+    &--hovered {
       color: $st-collapser-control-color-hover;
+    }
+
+    &--hidden {
+      visibility: hidden;
     }
   }
 }

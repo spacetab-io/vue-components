@@ -1,16 +1,15 @@
-@import '../../assets/scss/utils/mixins';
 @import '../../assets/scss/components/tabs/_variables';
 
-@include b('tabs') {
+.st-tabs {
   $root: &;
-  $tabRoot: #{ b('tab-item') };
+  $tabRoot: st-tab-item;
 
-  @include e('list') {
+  &__list {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
 
-    #{ b('tab-item') } {
+    .st-tab-item {
       position: relative;
       display: inline-flex;
       align-items: center;
@@ -22,30 +21,30 @@
       cursor: pointer;
       border-bottom: $st-tabs-item-border-width $st-tabs-item-border-style $st-tabs-item-border-color;
 
-      @include m('selected') {
+      &--selected {
         color: $st-tabs-item-selected-text-color;
         border-bottom-color: $st-tabs-item-selected-border-color;
         border-bottom-width: $st-tabs-item-selected-border-width;
       }
 
-      &:not(#{ m('selected', $tabRoot) }):hover {
+      &--regular:hover {
         color: $st-tabs-item-hovered-text-color;
         border-bottom-color: $st-tabs-item-hovered-border-color;
         border-bottom-width: $st-tabs-item-hovered-border-width;
       }
 
-      @include e('icon') {
+      &__icon {
         width: $st-tabs-item-icon-size;
         height: $st-tabs-item-icon-size;
         margin-right: $st-tabs-item-icon-margin;
         color: currentColor;
       }
 
-      @include e('label') {
+      &__label {
         color: currentColor;
       }
 
-      @include e('close-btn') {
+      &__close-btn {
         position: absolute;
         top: 50%;
         right: 0;
@@ -65,7 +64,7 @@
       }
 
       &:hover {
-        #{ e('close-btn', $tabRoot) } {
+        .#{$tabRoot}__close-btn {
           visibility: visible;
           opacity: 1;
         }

@@ -11,57 +11,85 @@ import notes from '../../documentation/pagination.md'
 storiesOf('Components|Pagination', module).add('Default', () => ({
   template,
   props: {
-    size: {
-      default: number('Limit', 1),
+    perPage: {
+      default: number('per-page', 5),
     },
-    listSize: {
-      default: number('List size', 15),
+    total: {
+      default: number('total', 20),
     },
-    pageNumber: {
-      default: number('Page number', 1),
-    },
-    groupSize: {
-      default: number('Grouped page length', 3),
+    groupedPages: {
+      default: number('grouped-pages', 3),
     },
     showEmpty: {
-      default: boolean('Show when empty', false),
+      default: boolean('show-empty', false),
     },
     showBoundary: {
-      default: boolean('Show boundary controls', false),
+      default: boolean('show-boundary', false),
     },
     showStep: {
-      default: boolean('Show step controls', true),
+      default: boolean('show-step', true),
     },
     prevStepIcon: {
-      default: text('prevStepIcon', 'arrow-left-soft'),
+      default: text('prev-step-icon', 'arrow-left-soft'),
     },
     nextStepIcon: {
-      default: text('nextStepIcon', 'arrow-right-soft'),
+      default: text('next-step-icon', 'arrow-right-soft'),
     },
     firstPageIcon: {
-      default: text('firstPageIcon', 'arrow-left-long'),
+      default: text('first-page-icon', 'arrow-left-long'),
     },
     lastPageIcon: {
-      default: text('lastPageIcon', 'arrow-right-long'),
+      default: text('last-page-icon', 'arrow-right-long'),
     },
     prevStepLabel: {
-      default: text('prevStepLabel', 'предыдущая'),
+      default: text('prev-step-label', 'предыдущая'),
     },
     nextStepLabel: {
-      default: text('nextStepLabel', 'следующая'),
+      default: text('next-step-label', 'следующая'),
     },
     firstPageLabel: {
-      default: text('firstPageLabel', 'в начало'),
+      default: text('first-page-label', 'в начало'),
     },
     lastPageLabel: {
-      default: text('lastPageLabel', 'в конец'),
+      default: text('last-page-label', 'в конец'),
     },
   },
   computed: {
-    list() {
-      return new Array(this.listSize);
+    rows() {
+      return new Array(this.total)
+        .fill(null)
+        .map((item, index) => this.createRow(index + 1));
     },
   },
+  data() {
+    return {
+      currentPage: 1,
+      showAllData: false,
+      showPageData: true,
+      currentPageData: [],
+      defaultRow: {
+        number: 0,
+        anyData: 'anyValue',
+      }
+    }
+  },
+  mounted() {
+    this.setCurrentPageData(0, this.perPage);
+  },
+  methods: {
+    createRow(number) {
+      return {
+        ...this.defaultRow,
+        number,
+      }
+    },
+    setCurrentPageData(from, amount) {
+      this.currentPageData = this.rows.slice(from, amount);
+    },
+    onPageSelect(data) {
+      this.setCurrentPageData(data.offset - data.perPage, data.offset);
+    },
+  }
 }), {
   notes,
 });

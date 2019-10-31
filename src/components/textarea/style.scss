@@ -1,7 +1,6 @@
-@import '../../assets/scss/utils/mixins';
 @import '../../assets/scss/components/textarea/variables';
 
-@include b(textarea) {
+.st-textarea {
   $root: &;
 
   position: relative;
@@ -10,7 +9,7 @@
   font-size: $st-font-size;
   vertical-align: bottom;
 
-  @include e(inner) {
+  &__inner {
     box-sizing: border-box;
     display: block;
     width: 100%;
@@ -39,7 +38,7 @@
     }
   }
 
-  @include e(loader) {
+  &__loader {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -47,8 +46,8 @@
     transform: translate(-50%, -50%);
   }
 
-  @include m((disabled)) {
-    #{ e('inner', $root) } {
+  &--disabled {
+    #{$root}__inner {
       color: $st-textarea-disabled-color;
       cursor: not-allowed;
       background-color: $st-textarea-disabled-fill;
@@ -60,29 +59,29 @@
     }
   }
 
-  @include m(resizable) {
-    #{ e('inner', $root) } {
+  &--resizable {
+    #{$root}__inner {
       resize: vertical;
     }
   }
 
-  @include m(extra-large) {
+  &--extra-large {
     font-size: $st-textarea-extra-large-font-size;
   }
 
-  @include m(large) {
+  &--large {
     font-size: $st-textarea-large-font-size;
   }
 
-  @include m(medium) {
+  &--medium {
     font-size: $st-textarea-medium-font-size;
   }
 
-  @include m(small) {
+  &--small {
     font-size: $st-textarea-small-font-size;
   }
 
-  @include m(mini) {
+  &--mini {
     font-size: $st-textarea-mini-font-size;
   }
 }
