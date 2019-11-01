@@ -53,7 +53,7 @@ export default class StPopper extends Vue {
   @Prop({ type: Boolean, default: false })
   appendToBody!: boolean;
 
-  @Prop({ type: Object })
+  @Prop({ type: [Object, Element] })
   reference?: Element;
 
   @Prop({ type: String, default: TriggerType.hover })
@@ -161,7 +161,7 @@ export default class StPopper extends Vue {
   }
 
   mounted() {
-    this.referenceElement = this.reference || (this.$slots.reference as VNode[])[0].elm as Element;
+    this.referenceElement = this.reference || ((this.$slots.reference as VNode[])[0].elm as Element);
     this.popper = this.$refs.popper as Element;
 
     switch (this.trigger) {
@@ -237,11 +237,8 @@ export default class StPopper extends Vue {
         const boundariesElement = document.querySelector(this.boundariesSelector);
 
         if (boundariesElement) {
-          this.popperOptions.modifiers = Object.assign({}, this.popperOptions.modifiers);
-          this.popperOptions.modifiers.preventOverflow = Object.assign(
-            {},
-            this.popperOptions.modifiers.preventOverflow,
-          );
+          this.popperOptions.modifiers = { ...this.popperOptions.modifiers };
+          this.popperOptions.modifiers.preventOverflow = { ...this.popperOptions.modifiers.preventOverflow };
           this.popperOptions.modifiers.preventOverflow.boundariesElement = boundariesElement;
         }
       }
