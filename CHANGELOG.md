@@ -3,6 +3,7 @@
 ## 0.2.5
 
 ### Features
+* Fixed storybook and some logic of `Popper` component
 * Added `indeterminate` prop for component `Checkbox`
 * Added `id` prop for component `Checkbox`
 * Improved view of `Collapser` component
