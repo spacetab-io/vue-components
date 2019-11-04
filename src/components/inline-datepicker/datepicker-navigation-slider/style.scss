@@ -1,0 +1,40 @@
+@import "../../../assets/scss/components/datepicker/variables";
+
+.st-datepicker-navigation-slider {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: $st-datepicker-navigation-slider-padding;
+  border-bottom: $st-datepicker-navigation-slider-border-bottom;
+
+  &:hover {
+    background: $st-datepicker-navigation-slider-hover-background;
+  }
+
+  &__icon {
+    width: $st-datepicker-navigation-slider-icon-width;
+    color: $st-datepicker-navigation-slider-icon-color;
+    cursor: pointer;
+
+    &--disabled {
+      color: $st-datepicker-navigation-slider-icon-disabled-color;
+      cursor: not-allowed;
+    }
+
+    &:not(&--disabled):hover {
+      color: $st-datepicker-navigation-slider-icon-color-hover;
+    }
+  }
+
+  &__text {
+    font-size: $st-datepicker-navigation-slider-label-font-size;
+    font-weight: $st-datepicker-navigation-slider-label-font-weight;
+
+    &--hoverable:hover {
+      color: $st-datepicker-navigation-slider-label-color-hover;
+      cursor: pointer;
+    }
+  }
+}

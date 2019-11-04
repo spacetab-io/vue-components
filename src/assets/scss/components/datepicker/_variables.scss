@@ -1,1 +1,24 @@
 @import '../../utils/variables';
+
+$st-datepicker-width: 230px;
+$st-datepicker-content-padding: 15px;
+$st-datepicker-selected-color: #5dc376;
+$st-datepicker-disabled-color: #c0c4cc;
+
+$st-datepicker-grid-font-size: 12px;
+$st-datepicker-grid-padding: $st-datepicker-content-padding;
+$st-datepicker-grid-item-padding: 20px 0;
+$st-datepicker-grid-item-hover-decoration: underline;
+$st-datepicker-grid-selected-color: $st-datepicker-selected-color;
+$st-datepicker-grid-disabled-color: $st-datepicker-disabled-color;
+
+$st-datepicker-navigation-slider-padding: $st-datepicker-content-padding;
+$st-datepicker-navigation-slider-hover-background: #f4f5f9;
+$st-datepicker-navigation-slider-border-bottom: 1px solid #e4e4e4;
+$st-datepicker-navigation-slider-icon-width: 12px;
+$st-datepicker-navigation-slider-icon-color: #909090;
+$st-datepicker-navigation-slider-icon-disabled-color: $st-datepicker-disabled-color;
+$st-datepicker-navigation-slider-icon-color-hover: $st-datepicker-navigation-slider-icon-color;
+$st-datepicker-navigation-slider-label-font-size: 15px;
+$st-datepicker-navigation-slider-label-font-weight: 500;
+$st-datepicker-navigation-slider-label-color-hover: $st-datepicker-selected-color;

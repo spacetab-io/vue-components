@@ -1,0 +1,15 @@
+@import '../../../assets/scss/utils/mixins';
+@import '../../../assets/scss/components/datepicker/_variables';
+
+.st-datepicker-single {
+  position: relative;
+  display: inline-flex;
+
+  &__grid {
+    display: flex;
+  }
+
+  .st-datepicker-month-grid + .st-datepicker-month-grid {
+    margin-left: 15px;
+  }
+}

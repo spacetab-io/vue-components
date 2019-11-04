@@ -1,0 +1,15 @@
+<div class="st-datepicker-navigation-slider">
+    <st-icon class="st-datepicker-navigation-slider__icon"
+             :class="{'st-datepicker-navigation-slider__icon--disabled': !prevAllowed}"
+             name="arrow-left"
+             @click="prevAllowed && emitPrevClick($event)"></st-icon>
+    <div class="st-datepicker-navigation-slider__text"
+         :class="{'st-datepicker-navigation-slider__text--hoverable': labelHoverable}"
+         @click="emitLabelClick">
+        {{ label }}
+    </div>
+    <st-icon class="st-datepicker-navigation-slider__icon"
+             :class="{'st-datepicker-navigation-slider__icon--disabled': !nextAllowed}"
+             name="arrow-right"
+             @click="nextAllowed && emitNextClick($event)"></st-icon>
+</div>

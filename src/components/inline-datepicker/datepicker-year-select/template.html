@@ -1,0 +1,11 @@
+<div class="st-datepicker-year-select">
+    <st-datepicker-navigation-slider :label-hoverable="false"
+                                     :label="navigationLabel"
+                                     :prev-allowed="nextPageAllowed"
+                                     :next-allowed="prevPageAllowed"
+                                     @prev-click="offset -= 1"
+                                     @next-click="offset += 1"></st-datepicker-navigation-slider>
+    <st-datepicker-simple-grid :value="gridValue"
+                               @input="emitInput"
+                               :items="gridYears"></st-datepicker-simple-grid>
+</div>

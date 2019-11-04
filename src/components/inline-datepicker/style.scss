@@ -1,0 +1,20 @@
+@import '../../assets/scss/utils/mixins';
+@import '../../assets/scss/components/datepicker/variables';
+@import "./datepicker-month-grid/style";
+@import "./datepicker-navigation/style";
+@import "./datepicker-simple-grid/style";
+@import "./datepicker-navigation-slider/style";
+@import "./datepicker-single/style";
+@import "./datepicker-panel/style";
+
+.st-datepicker {
+  $root: &;
+
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+
+  .st-datepicker-month-grid + .st-datepicker-month-grid {
+    margin-left: 15px;
+  }
+}

@@ -7,6 +7,7 @@ import StCheckbox from './checkbox/index.vue';
 import StCol from './col/index.vue';
 import StCollapser from './collapser/index.vue';
 import StIcon from './icon/index.vue';
+import StInlineDatepicker from './inline-datepicker/index.vue';
 import StInput from './input/index.vue';
 import StNotification from './notification/index.vue';
 import StNotificationsGroup from './notifications-group/index.vue';
@@ -30,6 +31,7 @@ const Components = {
   StCol,
   StCollapser,
   StIcon,
+  StInlineDatepicker,
   StInput,
   StNotification,
   StNotificationsGroup,

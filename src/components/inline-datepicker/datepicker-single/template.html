@@ -1,0 +1,20 @@
+<div class="st-datepicker-single">
+    <st-datepicker-top-navigation v-if="isSimpleNavigation"
+                                  @navigate-left="monthOffset -= 1"
+                                  @navigate-right="monthOffset += 1"></st-datepicker-top-navigation>
+    <div class="st-datepicker-single__grid">
+        <template v-for="(panel, index) in panelsConfig">
+            <st-datepicker-panel :key="index"
+                                 :now="now"
+                                 :disabled-ranges="disabledRanges"
+                                 :month-badge-visible="isSimpleNavigation"
+                                 :extended-navigation="isExtendedNavigation"
+                                 :value-month-offset="panel.offset"
+                                 @day-selected="emitInput"
+                                 :space-priority="getPanelSpacePriority"
+                                 :value="value"
+                                 :disabled-to="disabledTo"
+                                 :disabled-from="disabledFrom"></st-datepicker-panel>
+        </template>
+    </div>
+</div>
