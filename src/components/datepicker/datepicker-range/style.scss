@@ -6,8 +6,4 @@
 .st-datepicker {
   position: relative;
   display: inline-flex;
-
-  .st-datepicker-month-grid + .st-datepicker-month-grid {
-    margin-left: 25px;
-  }
 }

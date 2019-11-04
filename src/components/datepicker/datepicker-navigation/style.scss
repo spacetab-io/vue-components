@@ -9,17 +9,17 @@
     cursor: pointer;
 
     .st-icon {
-      width: 10px;
-      height: 14px;
-      color: #ccc;
+      width: $st-datepicker-navigation-icon-width;
+      height: $st-datepicker-navigation-icon-height;
+      color: $st-datepicker-navigation-icon-color;
     }
   }
 
   &__left {
-    left: 6px;
+    left: $st-datepicker-navigation-offset;
   }
 
   &__right {
-    right: 6px;
+    right: $st-datepicker-navigation-offset;
   }
 }
