@@ -8,19 +8,17 @@ export const template = `
              :with-border="withBorder"
              :arrow-visible="arrowVisible"
              :width="width"
+             :disabled="disabled"
              v-model="value"
              :placement="placement">
     <div class="content">
       {{ key }} Lorem ipsum dolor sit amet
       <hr>
-      <st-button :disabled="disabled"
-                 :loading="loading"
-                 :size="size" 
-                 type="success">Success</st-button>
+      <st-button type="success">Success</st-button>
     </div>
     <div style="display: inline-flex;" slot="reference">
       {{ trigger }} me | placement {{ placement }}
     </div>
-  </st-popper>
+    </st-popper>
 </div>
 `;

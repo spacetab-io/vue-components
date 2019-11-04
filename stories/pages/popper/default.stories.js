@@ -38,6 +38,9 @@ storiesOf('Components|Popper', module).add('Default', () => ({
     value: {
       default: boolean('manual value', false),
     },
+    disabled: {
+      default: boolean('Disabled', false),
+    },
   },
   data() {
     return {

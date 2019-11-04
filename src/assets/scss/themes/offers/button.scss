@@ -4,15 +4,9 @@
 .st-button {
   $root: &;
 
+  min-width: auto;
   height: 42px;
-  padding: 0 20px;
-  padding-bottom: 2px;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: normal;
-  font-stretch: normal;
-  line-height: 1.71;
-  color: $st-color-primary;
+  padding: auto;
   text-align: center;
   letter-spacing: normal;
   cursor: pointer;
@@ -37,6 +31,17 @@
   &:disabled {
     cursor: not-allowed;
     opacity: 0.5;
+  }
+
+  &--round {
+    &#{$root}--small {
+      padding: 0 12px;
+    }
+
+    &#{$root}--primary {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
   }
 
   &--default,
@@ -115,6 +120,29 @@
     }
   }
 
+  &--secondary {
+    color: $color-tooltip-color;
+    background-color: $st-color-gray-light;
+    border-color: $st-color-gray-light;
+
+    &:hover {
+      color: $color-tooltip-color;
+      background-color: $st-color-dark-gray;
+      border-color: $st-color-gray-light;
+    }
+
+    &:not(#{$root}--disabled)#{$root}--plain {
+      color: $color-tooltip-color;
+      background-color: transparent;
+      border-color: $st-color-dark-gray;
+
+      &:hover {
+        background-color: $st-color-gray-light;
+        border-color: $st-color-gray-light;
+      }
+    }
+  }
+
   &--warning {
     color: $st-color-warning;
     border-color: $st-color-warning;
@@ -134,7 +162,8 @@
   }
 
   &--danger {
-    color: $st-color-error;
+    color: white;
+    background-color: $st-color-error;
     border-color: $st-color-error;
 
     &:hover,
@@ -214,20 +243,12 @@
     }
   }
 
-  &__icon {
-    margin-right: 5px;
-  }
-
   &--circle {
     width: 42px;
     padding: 0;
 
-    .st-button__icon {
+    #{$root}__icon {
       margin: 0;
     }
-  }
-
-  .st-button__icon {
-    color: inherit;
   }
 }

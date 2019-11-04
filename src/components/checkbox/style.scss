@@ -3,9 +3,11 @@
 .st-checkbox {
   $root: &;
 
-  display: flex;
+  display: inline-flex;
   align-content: center;
+  align-items: center;
   justify-content: flex-start;
+  line-height: 1;
   cursor: pointer;
 
   &:not(&--readonly):hover {
@@ -67,7 +69,8 @@
     cursor: default;
   }
 
-  &--checked {
+  &--checked,
+  &--indeterminate {
     #{$root}__inner {
       background-color: $st-checkbox-checked-background-color;
       border-color: $st-checkbox-checked-border-color;
@@ -80,6 +83,15 @@
     &:not(#{$root}--readonly):hover {
       #{$root}__inner {
         border-color: $st-checkbox-checked-border-color;
+      }
+    }
+  }
+
+  &--indeterminate {
+    #{$root}__inner {
+      &::after {
+        border-bottom: none;
+        transform: rotate(90deg) scaleY(1);
       }
     }
   }

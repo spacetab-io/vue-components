@@ -4,7 +4,7 @@
 @import './offers/_variables';
 
 // Components
-@import '../../../components/badge/style';
+@import './offers/badge';
 @import './offers/button';
 @import '../../../components/button-group/style';
 @import './offers/checkbox';
@@ -13,14 +13,14 @@
 @import '../../../components/datepicker/style';
 @import '../../../components/icon/style';
 @import './offers/input';
-@import '../../../components/notification/style';
+@import './offers/notification';
 @import '../../../components/notifications-group/style';
-@import '../../../components/pagination/style';
+@import './offers/pagination';
 @import '../../../components/popper/style';
 @import './offers/radio';
 @import '../../../components/row/style';
 @import '../../../components/scrollbar/style';
-@import '../../../components/select/style';
+@import './offers/select';
 @import '../../../components/switch/style';
 @import '../../../components/table/style';
 @import '../../../components/tabs/style';

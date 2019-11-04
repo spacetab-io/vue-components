@@ -1,0 +1,22 @@
+// Import default component's file with styles
+@import '../../../../components/notification/style';
+
+.st-notification {
+  padding: 12px 18px;
+  border-radius: 4px;
+
+  &--info {
+    background-color: $color-tooltip-color;
+  }
+
+  &__message {
+    margin-right: 6px;
+    font-size: 12px;
+    line-height: 1.25;
+  }
+
+  &__close-btn {
+    width: 20px;
+    height: 20px;
+  }
+}
