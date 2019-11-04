@@ -1,0 +1,59 @@
+<div class="st-datepicker" :class="{ 'st-datepicker--extended': isExtended }">
+    <template v-if="!inline">
+        <st-input ref="input"
+                  :class="inputClass"
+                  :clearable="clearable"
+                  :value="inputValue"
+                  @change="clear"></st-input>
+    </template>
+    <template v-if="!inline && componentMounted">
+        <st-popper :reference="$refs.input.$refs.input"
+                   :arrow-visible="popperArrowVisible"
+                   :placement="popperPlacement"
+                   :popper-class="popperClass"
+                   :trigger="triggerType">
+            <div>
+                <st-datepicker-single v-if="!isRange"
+                                      :class="datepickerClass"
+                                      :month-visible="monthVisible"
+                                      :disabled-from="disabledFrom"
+                                      :disabled-to="disabledTo"
+                                      :disabled-ranges="disabledRanges"
+                                      :now="now"
+                                      :value="value"
+                                      :navigation-type="navigationType"
+                                      @input="$emit('input', $event)"></st-datepicker-single>
+                <st-datepicker-range v-else
+                                     :class="datepickerClass"
+                                     :month-visible="monthVisible"
+                                     :disabled-from="disabledFrom"
+                                     :disabled-to="disabledTo"
+                                     :disabled-ranges="disabledRanges"
+                                     :now="now"
+                                     :value="value"
+                                     :navigation-type="navigationType"
+                                     @input="$emit('input', $event)"></st-datepicker-range>
+            </div>
+        </st-popper>
+    </template>
+    <template v-else-if="inline">
+        <st-datepicker-single v-if="!isRange"
+                              :month-visible="monthVisible"
+                              :disabled-from="disabledFrom"
+                              :disabled-to="disabledTo"
+                              :disabled-ranges="disabledRanges"
+                              :now="now"
+                              :value="value"
+                              :navigation-type="navigationType"
+                              @input="$emit('input', $event)"></st-datepicker-single>
+        <st-datepicker-range v-else
+                             :month-visible="monthVisible"
+                             :disabled-from="disabledFrom"
+                             :disabled-to="disabledTo"
+                             :disabled-ranges="disabledRanges"
+                             :now="now"
+                             :value="value"
+                             :navigation-type="navigationType"
+                             @input="$emit('input', $event)"></st-datepicker-range>
+    </template>
+</div>
