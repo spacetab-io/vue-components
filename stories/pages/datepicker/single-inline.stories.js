@@ -1,4 +1,4 @@
-import { boolean, date, number, select } from '@storybook/addon-knobs';
+import { date, number, select } from '@storybook/addon-knobs';
 import { template } from '../../templates/datepicker/single-inline.template';
 import notes from '../../documentation/datepicker.md'
 import moment from 'moment';

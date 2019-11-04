@@ -6,6 +6,7 @@
         <template v-for="(panel, index) in panelsConfig">
             <st-datepicker-panel :key="index"
                                  :now="now"
+                                 :remove-needless-rows="panelsConfig.length < 2"
                                  :disabled-ranges="disabledRanges"
                                  :month-badge-visible="!isExtendedNavigation"
                                  :extended-navigation="isExtendedNavigation"
