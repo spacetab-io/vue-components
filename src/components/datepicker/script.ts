@@ -60,7 +60,7 @@ export default class StDatepicker extends Vue {
   @Prop({ type: String, default: 'DD.MM.YYYY' })
   inputFormat!: string;
 
-  @Prop({ type: String, default: TriggerType.click })
+  @Prop({ type: String, default: TriggerType.focus })
   triggerType!: string;
 
   @Prop(String)
@@ -69,13 +69,13 @@ export default class StDatepicker extends Vue {
   @Prop(String)
   datepickerClass?: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean, default: false })
   popperArrowVisible?: boolean;
 
   @Prop({ type: Boolean, default: true })
   clearable!: boolean;
 
-  @Prop({ type: String })
+  @Prop({ type: String, default: PopperPlacement.auto })
   popperPlacement?: PopperPlacement;
 
   @Prop(String)
