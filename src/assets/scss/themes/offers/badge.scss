@@ -1,0 +1,34 @@
+// Import default component's file with styles
+@import '../../../../components/badge/style';
+
+.st-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: auto;
+  border-radius: 4px;
+
+  &__text {
+    overflow: hidden;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  &--fill-half#{&}--error {
+    color: $st-badge-error-color;
+    background-color: $st-badge-background-error;
+    border-color: $st-badge-border-error;
+  }
+
+  &--fill-half#{&}--info {
+    color: $st-badge-info-color;
+    background-color: $st-badge-background-info;
+    border-color: $st-badge-border-info;
+  }
+
+  &:hover {
+    background-color: transparent;
+  }
+}

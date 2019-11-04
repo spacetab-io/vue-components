@@ -3,7 +3,10 @@
 .st-icon {
   $root: &;
 
-  display: inline-block;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
   width: $st-icon-width;
   height: $st-icon-height;
   line-height: 1;

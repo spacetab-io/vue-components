@@ -29,7 +29,8 @@
     </div>
     <div class="st-scrollbar__container"
          :style="containerStyles"
-         ref="container">
+         ref="container"
+         v-on="$listeners || {}">
         <slot></slot>
     </div>
 </div>
