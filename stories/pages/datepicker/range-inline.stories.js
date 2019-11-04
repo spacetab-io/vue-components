@@ -29,9 +29,6 @@ export const rangeInlineStoriesData = {
                     moment().subtract(2, 'year').toDate(),
                 ),
             },
-            clearable: {
-                default: boolean('Clearable', true),
-            },
             now: {
                 default: momentFormatDate('Custom now', void 0),
             },
