@@ -1,35 +1,50 @@
 # Documentation
-Base on [v-tooltip](https://github.com/Akryum/v-tooltip) component
+This is a container element for popper with some styles and additional functionality.
 
-You can use an object instead of a simple string:
+## Example of Usage
+In this component, you have 2 variants of usage.
 
-`<button v-tooltip.bottom="You have new messages.">`
+With raw contents:
 
+```vue
+<st-popper raw-content="Your content">
+  <div>Your reference in default slot</div>
+</st-popper>
+```
 
-Or Object:
+and like common popper element
 
-`<button v-tooltip="{ content: 'You have ' + count + ' new messages.', classes: ['a', 'b'] }">`
+```vue
+<st-popper>
+  <div slot="reference">Your html reference element</div>
+  
+  <div>Tooltip html content in default slot</div>
+</st-popper>
+```
 
-## Attributes
+## Props
 
+All popper props. See popper documentation.
+
+#### Additional tooltip props
 | Name | Description | Required | Type | Default value | Possible values |
 | --- | --- | --- | --- | --- | --- |
-| content | HTML text to be displayed in the tooltip. Can also be a function that returns the content or a Promise | true | String | true | * |
-| classes | - | - | String, Array, Object | - | * |
-| targetClasses | CSS classes added to the target element of the tooltip | - | String, Array, Object | - | * |
-| html | Allow HTML tooltip content | - | Boolean | - | * |
-| delay | Show/Hide delay, or object (ms) | - | Number | Object | { show: 500, hide: 100 } |
-| placement | ou can specify the tooltip position as a modifier | false | String | top | auto, auto-start, auto-end, top, top-start, top-end, right, right-start, right-end, bottom, bottom_start, bottom-end, left, left-start, left-end |
-| trigger | Events triggering the tooltip separated with spaces | false | String | hover focus | hover, focus, click, manual <br> <small>(manual can't be combined with any other event)</small> |
-| show | Boolean to manually open or hide the tooltip | - | Boolean | - | * |
-| offset | Offset of the position (px) | - | Number | - | * |
-| container | Selector: Container where the tooltip will be appended | - | String | - | 'body' |
-| boundariesElement | DOM element for the tooltip boundaries | - | DOM element | - | * |
-| template | HTML template of the tooltip | - | String | - | * |
-| arrowSelector | CSS selector to get the arrow element in the tooltip template | - | String | - | * |
-| innerSelector | CSS selector to get the inner content element in the tooltip template | - | String | - | * |
-| autoHide | Boolean: automatically close the tooltip on mouseover | - | Boolean | - | * |
-| hideOnTargetClick | Boolean: automatically close the tooltip on target click | - | Boolean | - | * |
-| loadingClass | CSS classes added to the tooltip when content is loading | - | String, Array, Object | - | * |
-| loadingContent | Same as content, used when the actual tooltip content is loading | - | String | - | * |
-| popperOptions | Other [Popper.js](https://popper.js.org) options | false | Object | - | * |
+| raw-content | Be care! If you are using this property. The default property becomes a popper reference element. | false | string | - | any string value |
+
+## Events
+All popper events. ( show / hide )
+
+## Slots
+
+As we mentioned upper. We have 2 situations.
+
+#### If you are using `raw-content` property.
+| Name | Description |
+| --- | --- |
+| default | Here you can pass your popper reference element. |
+
+#### If you do not use `raw-content` property.
+| Name | Description |
+| --- | --- |
+| default | Here your popper content |
+| reference | Here your reference element |

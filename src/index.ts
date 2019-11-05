@@ -21,6 +21,7 @@ import StTable from './components/table/index.vue';
 import StTabsCollapsed from './components/tabs-collapsed/index.vue';
 import StTabs from './components/tabs/index.vue';
 import StTextarea from './components/textarea/index.vue';
+import StTooltip from './components/tooltip/index.vue';
 
 const install = (Vue: VueConstructor) => {
   Vue.component('st-badge', StBadge);
@@ -37,6 +38,7 @@ const install = (Vue: VueConstructor) => {
   Vue.component('st-radio', StRadio);
   Vue.component('st-pagination', StPagination);
   Vue.component('st-popper', StPopper);
+  Vue.component('st-tooltip', StTooltip);
   Vue.component('st-select', StSelect);
   Vue.component('st-scrollbar', StScrollbar);
   Vue.component('st-switch', StSwitch);

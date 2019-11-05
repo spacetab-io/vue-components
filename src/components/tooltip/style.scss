@@ -1,0 +1,35 @@
+@import '../../assets/scss/components/tooltip/_variables';
+
+.st-tooltip {
+  $root: &;
+  $popper-class: '.st-popper';
+
+  padding: $st-tooltip-padding;
+  font-size: $st-tooltip-font-size;
+  color: $st-tooltip-text-color;
+  background: $st-tooltip-background-color;
+
+  &[x-placement^="bottom"] {
+    #{$popper-class}__arrow {
+      border-bottom-color: $st-tooltip-background-color;
+    }
+  }
+
+  &[x-placement^="right"] {
+    #{$popper-class}__arrow {
+      border-right-color: $st-tooltip-background-color;
+    }
+  }
+
+  &[x-placement^="left"] {
+    #{$popper-class}__arrow {
+      border-left-color: $st-tooltip-background-color;
+    }
+  }
+
+  &[x-placement^="top"] {
+    #{$popper-class}__arrow {
+      border-top-color: $st-tooltip-background-color;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+<st-popper v-bind="$props"
+           @show="$emit('show', $event)"
+           @hide="$emit('hide', $event)"
+           :popper-class="popperClasses">
+    <template v-if="rawContent">
+        <slot slot="reference"></slot>
+        <div class="st-tooltip__raw-content">
+            {{ rawContent }}
+        </div>
+    </template>
+    <template v-else>
+        <slot name="reference" slot="reference"></slot>
+        <slot></slot>
+    </template>
+</st-popper>
