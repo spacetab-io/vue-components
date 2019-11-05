@@ -17,6 +17,7 @@ type YearGridItem = SimpleGridItem<string>;
 
 
 @Component({
+  name: 'StDatepickerYear',
   components: {
     StDatepickerSimpleGrid,
     StDatepickerNavigationSlider,

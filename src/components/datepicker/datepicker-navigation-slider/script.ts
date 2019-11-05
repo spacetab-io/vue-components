@@ -5,7 +5,9 @@ import {
   Vue,
 } from 'vue-property-decorator';
 
-@Component
+@Component({
+  name: 'StDatepickerNavigationSlider',
+})
 export default class StDatepickerNavigationSlider extends Vue {
   @Prop({ type: Boolean, default: true })
   prevAllowed!: boolean;

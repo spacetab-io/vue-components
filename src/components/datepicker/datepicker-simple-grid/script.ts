@@ -8,7 +8,10 @@ import {
 import { DatepickerUtils } from '../utils';
 import { SimpleGridItem } from './types';
 
-@Component
+
+@Component({
+  name: 'StDatepickerSimpleGrid',
+})
 export default class StDatepickerSimpleGrid extends Vue {
   @Prop({ required: true })
   value!: number;

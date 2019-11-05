@@ -6,8 +6,9 @@ import {
 
 import StIcon from '../../icon/index.vue';
 
+
 @Component({
-  name: 'st-datepicker-navigation',
+  name: 'StDatepickerNavigation',
   components: {
     StIcon,
   },

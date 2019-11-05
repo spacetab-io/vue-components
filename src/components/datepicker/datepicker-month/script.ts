@@ -17,6 +17,7 @@ import { MonthSelectGridItem } from './types';
 
 
 @Component({
+  name: 'StDatepickerMonth',
   components: {
     StDatepickerSimpleGrid,
     StDatepickerNavigationSlider,

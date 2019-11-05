@@ -18,6 +18,7 @@ import { SelectedFromTo } from './types';
 
 
 @Component({
+  name: 'StDatepickerPanel',
   components: {
     StDatepickerYear,
     StDatepickerMonth,
