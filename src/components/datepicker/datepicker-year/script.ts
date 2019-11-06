@@ -139,7 +139,7 @@ export default class StDatepickerYear extends Vue {
     return fromYear.isBefore(this.disabledTo);
   }
 
-  isPageNextAllowed(toYear: Moment) {
+  isPageNextAllowed(toYear: Moment): boolean {
     if (!DatepickerUtils.isDateValid(this.disabledFrom)) {
       return true;
     }
