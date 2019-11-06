@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 import {
   Component,
+  Prop,
   Vue,
 } from 'vue-property-decorator';
 
@@ -14,10 +15,14 @@ interface ScrollParameters {
   isVisible: boolean,
 }
 
+
 @Component({
   name: 'StScrollbar',
 })
 export default class StScrollbar extends Vue {
+  @Prop({ type: Number, default: 40 })
+  minimumScrollSize!: number;
+
   public verticalScrollData: ScrollParameters = {
     contentSize: 0,
     scrollSize: 0,
@@ -74,15 +79,22 @@ export default class StScrollbar extends Vue {
 
     this.verticalScrollData.contentSize = this.contentContainer.scrollHeight;
     this.verticalScrollData.scrollContainerSize = this.verticalScrollContainer.clientHeight;
-    this.verticalScrollData.scrollSize = this.verticalScrollData.scrollContainerSize
-        * this.verticalScrollData.scrollContainerSize
-        / this.verticalScrollData.contentSize;
+    this.verticalScrollData.scrollSize = this.getScrollSize(
+      this.verticalScrollData.scrollContainerSize,
+      this.verticalScrollData.contentSize,
+    );
 
     this.horizontalScrollData.contentSize = this.contentContainer.scrollWidth;
     this.horizontalScrollData.scrollContainerSize = this.horizontalScrollContainer.clientWidth;
-    this.horizontalScrollData.scrollSize = this.horizontalScrollData.scrollContainerSize
-        * this.horizontalScrollData.scrollContainerSize
-        / this.horizontalScrollData.contentSize;
+    this.horizontalScrollData.scrollSize = this.getScrollSize(
+      this.horizontalScrollData.scrollContainerSize,
+      this.horizontalScrollData.contentSize,
+    );
+  }
+
+  public getScrollSize(containerSize: number, contentSize: number) {
+    const size = containerSize * containerSize / contentSize;
+    return size > this.minimumScrollSize ? size : this.minimumScrollSize;
   }
 
   public recalculateScrollPosition() {
@@ -180,7 +192,8 @@ export default class StScrollbar extends Vue {
         this.verticalScrollContainer.getBoundingClientRect().top,
         this.verticalScrollContainer.getBoundingClientRect().bottom,
         this.contentContainer.scrollHeight,
-        this.verticalScrollContainer.clientHeight,
+        this.verticalScrollData.scrollContainerSize,
+        this.verticalScrollData.scrollSize,
         this.verticalScrollData.dragStart,
       );
       this.contentContainer.scroll(scrollTo);
@@ -197,7 +210,8 @@ export default class StScrollbar extends Vue {
         this.horizontalScrollContainer.getBoundingClientRect().left,
         this.horizontalScrollContainer.getBoundingClientRect().right,
         this.contentContainer.scrollWidth,
-        this.horizontalScrollContainer.clientWidth,
+        this.horizontalScrollData.scrollContainerSize,
+        this.horizontalScrollData.scrollSize,
         this.horizontalScrollData.dragStart,
       );
       this.contentContainer.scroll(scrollTo);
@@ -211,6 +225,7 @@ export default class StScrollbar extends Vue {
     maxCursorPosition: number,
     contentScrollSize: number,
     scrollContainerSize: number,
+    scrollSize: number,
     cursorOffset: number,
   ): ScrollToOptions {
     const positionKey = vertical ? 'top' : 'left';
@@ -227,12 +242,19 @@ export default class StScrollbar extends Vue {
       };
     }
 
-    const scrollPosition = contentScrollSize / 100 * (
-      (currentPosition - cursorOffset - minCursorPosition) / scrollContainerSize * 100
-    );
+    const contentPercentPixels = contentScrollSize / 100;
+    const availableScrollContainerSize = scrollContainerSize - scrollSize;
+
+    const topLimit = minCursorPosition + cursorOffset;
+    const bottomLimit = maxCursorPosition - (scrollSize - cursorOffset);
+
+    let scrolledScrollContainerPixels = Math.max(0, currentPosition - topLimit);
+    scrolledScrollContainerPixels = Math.min(bottomLimit - topLimit, scrolledScrollContainerPixels);
+
+    const scrolledScrollContainerPercents = scrolledScrollContainerPixels / (availableScrollContainerSize / 100);
 
     return {
-      [positionKey]: scrollPosition,
+      [positionKey]: contentPercentPixels * scrolledScrollContainerPercents,
     };
   }
 
@@ -312,28 +334,53 @@ export default class StScrollbar extends Vue {
   }
 
   get verticalScrollStyles() {
-    const scrollContainer1Percent = this.verticalScrollData.scrollContainerSize / 100;
-    const scrollTopPosition = scrollContainer1Percent * this.verticalScrollData.scrollPositionPercent;
+    const {
+      scrollContainerSize,
+      scrollSize,
+      scrollPositionPercent,
+    } = this.verticalScrollData;
 
-    const scrollSize1Percent = this.verticalScrollData.scrollSize / 100;
-    const scrollTopOffset = scrollSize1Percent * this.verticalScrollData.scrollPositionPercent;
+    const relativeScrollContainerSize = scrollContainerSize - scrollSize;
+    const scrollContainer1Percent = relativeScrollContainerSize / 100;
+    const scrollTopPosition = scrollContainer1Percent * scrollPositionPercent;
+    const maxPosition = scrollContainerSize - scrollSize;
 
-    return {
-      height: `${this.verticalScrollData.scrollSize}px`,
-      top: `${scrollTopPosition - scrollTopOffset}px`,
-    };
+    return this.scrollStyles(scrollTopPosition, maxPosition, 0, scrollSize, 'top', 'height');
   }
 
   get horizontalScrollStyles() {
-    const scrollContainer1Percent = this.horizontalScrollData.scrollContainerSize / 100;
-    const scrollTopPosition = scrollContainer1Percent * this.horizontalScrollData.scrollPositionPercent;
+    const {
+      scrollContainerSize,
+      scrollSize,
+      scrollPositionPercent,
+    } = this.horizontalScrollData;
 
-    const scrollSize1Percent = this.horizontalScrollData.scrollSize / 100;
-    const scrollTopOffset = scrollSize1Percent * this.horizontalScrollData.scrollPositionPercent;
+    const relativeScrollContainerSize = scrollContainerSize - scrollSize;
+    const scrollContainer1Percent = relativeScrollContainerSize / 100;
+    const scrollTopPosition = scrollContainer1Percent * scrollPositionPercent;
+    const maxPosition = scrollContainerSize - scrollSize;
+
+    return this.scrollStyles(scrollTopPosition, maxPosition, 0, scrollSize, 'left', 'width');
+  }
+
+  scrollStyles(current: number, max: number, min: number, scrollSize: number, position: string, size: string) {
+    if (current < min) {
+      return {
+        [size]: `${scrollSize}px`,
+        [position]: `${min}px`,
+      };
+    }
+
+    if (current > max) {
+      return {
+        [size]: `${scrollSize}px`,
+        [position]: `${max}px`,
+      };
+    }
 
     return {
-      width: `${this.horizontalScrollData.scrollSize}px`,
-      left: `${scrollTopPosition - scrollTopOffset}px`,
+      [size]: `${scrollSize}px`,
+      [position]: `${current}px`,
     };
   }
 }
