@@ -11,6 +11,7 @@ export const template = `
                :center-content="centerContent"
                :close-icon="closeIcon"
                :hide-close-icon="hideCloseIcon"
+               :hide-overlay="hideOverlay"
                :placement="placement">
         <template slot="header">Deleting user "John Hadrik"</template>
         <span>Be care! You can not return this user after deleting!</span>

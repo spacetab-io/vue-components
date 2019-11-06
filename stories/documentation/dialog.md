@@ -27,6 +27,7 @@
 | close-icon | Close icon name | false | string | 'cross' | any available st-icon name |
 | hide-close-icon | Do you need hide close icon? | false | boolean | false | true / false |
 | placement | Dialog placement in window | false | string | 'default' | 'default', 'center', 'top-left', 'top-center', 'top-right', 'center-left', 'center-right', 'bottom-left', 'bottom-center', 'bottom-right' |
+| hide-overlay | Hide dialog overlay | false | boolean | false | true / false |
 | v-model | dialog visibility control point | true | boolean | - | true / false |
 
 ## Slots

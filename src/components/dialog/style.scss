@@ -3,6 +3,7 @@
 .st-dialog {
   position: relative;
   color: $st-dialog-modal-text-color;
+  pointer-events: auto;
   cursor: initial;
   background-color: $st-dialog-modal-background-color;
   border-radius: $st-dialog-border-radius;
@@ -90,6 +91,11 @@
   visibility: hidden;
   background: $st-dialog-root-background-color;
   opacity: 0;
+
+  &--hidden {
+    pointer-events: none;
+    background: transparent;
+  }
 
   &[st-dialog-placement="default"] {
     align-items: center;

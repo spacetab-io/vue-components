@@ -1,4 +1,4 @@
-import tingle from 'tingle.js';
+import tingle, { Modal as ModalInterface } from 'tingle.js';
 import {
   Component,
   Emit,
@@ -41,10 +41,13 @@ export default class StDialog extends Vue {
   @Prop({ type: Boolean, default: false })
   hideCloseIcon!: boolean;
 
+  @Prop({ type: Boolean, default: false })
+  hideOverlay!: boolean;
+
   @Prop({ type: String, default: 'default' })
   placement!: DialogPlacement;
 
-  modal!: typeof tingle.modal;
+  modal!: ModalInterface;
 
   @Watch('value')
   onValueChanged(newVal: boolean) {
@@ -69,6 +72,11 @@ export default class StDialog extends Vue {
     }
 
     this.modal.modalBox.style.width = newVal;
+  }
+
+  @Watch('hideOverlay')
+  onHideOverlayChanged(newVal: boolean) {
+    this.setOverlay(!newVal);
   }
 
   @Emit('input')
@@ -102,5 +110,18 @@ export default class StDialog extends Vue {
 
     this.onWidthChanged(this.width);
     this.onPlacementChanged(this.placement);
+    this.setOverlay(!this.hideOverlay);
+  }
+
+  setOverlay(overlayStatus: boolean) {
+    if (!overlayStatus) {
+      if (!this.modal.modal.classList.contains('st-dialog-root--hidden')) {
+        this.modal.modal.classList.add('st-dialog-root--hidden');
+      }
+
+      return;
+    }
+
+    this.modal.modal.classList.remove('st-dialog-root--hidden');
   }
 }

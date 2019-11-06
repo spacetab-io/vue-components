@@ -29,6 +29,9 @@ storiesOf('Components|Dialog', module).add('Default', () => ({
     placement: {
       default: select('Dialog placement', Object.values(DialogPlacement), 'default'),
     },
+    hideOverlay: {
+      default: boolean('Hide dialog overlay', false),
+    },
     pageLongContent: {
       default: boolean('Page Setting: Is page with long content?', false),
     },
