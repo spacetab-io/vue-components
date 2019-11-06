@@ -22,6 +22,7 @@ import StTable from './table/index.vue';
 import StTabsCollapsed from './tabs-collapsed/index.vue';
 import StTabs from './tabs/index.vue';
 import StTextarea from './textarea/index.vue';
+import StTooltip from './tooltip/index.vue';
 
 const Components = {
   StBadge,
@@ -46,6 +47,7 @@ const Components = {
   StTabs,
   StTabsCollapsed,
   StTextarea,
+  StTooltip,
 };
 
 Object.keys(Components).forEach((name) => {
