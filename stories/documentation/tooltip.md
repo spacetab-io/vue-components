@@ -1,35 +1,73 @@
 # Documentation
-Base on [v-tooltip](https://github.com/Akryum/v-tooltip) component
+This is a container element for popper with some styles and additional functionality.
 
-You can use an object instead of a simple string:
+## Example of Usage
+In this component, you have 2 variants of usage.
 
-`<button v-tooltip.bottom="You have new messages.">`
+With raw contents:
 
+```vue
+<st-popper raw-content="Your content">
+  <div>Your reference in default slot</div>
+</st-popper>
+```
 
-Or Object:
+and like common popper element
 
-`<button v-tooltip="{ content: 'You have ' + count + ' new messages.', classes: ['a', 'b'] }">`
+```vue
+<st-popper>
+  <div slot="reference">Your html reference element</div>
+  
+  <div>Tooltip html content in default slot</div>
+</st-popper>
+```
 
-## Attributes
+## Props
 
+#### Additional tooltip props
 | Name | Description | Required | Type | Default value | Possible values |
 | --- | --- | --- | --- | --- | --- |
-| content | HTML text to be displayed in the tooltip. Can also be a function that returns the content or a Promise | true | String | true | * |
-| classes | - | - | String, Array, Object | - | * |
-| targetClasses | CSS classes added to the target element of the tooltip | - | String, Array, Object | - | * |
-| html | Allow HTML tooltip content | - | Boolean | - | * |
-| delay | Show/Hide delay, or object (ms) | - | Number | Object | { show: 500, hide: 100 } |
-| placement | ou can specify the tooltip position as a modifier | false | String | top | auto, auto-start, auto-end, top, top-start, top-end, right, right-start, right-end, bottom, bottom_start, bottom-end, left, left-start, left-end |
-| trigger | Events triggering the tooltip separated with spaces | false | String | hover focus | hover, focus, click, manual <br> <small>(manual can't be combined with any other event)</small> |
-| show | Boolean to manually open or hide the tooltip | - | Boolean | - | * |
-| offset | Offset of the position (px) | - | Number | - | * |
-| container | Selector: Container where the tooltip will be appended | - | String | - | 'body' |
-| boundariesElement | DOM element for the tooltip boundaries | - | DOM element | - | * |
-| template | HTML template of the tooltip | - | String | - | * |
-| arrowSelector | CSS selector to get the arrow element in the tooltip template | - | String | - | * |
-| innerSelector | CSS selector to get the inner content element in the tooltip template | - | String | - | * |
-| autoHide | Boolean: automatically close the tooltip on mouseover | - | Boolean | - | * |
-| hideOnTargetClick | Boolean: automatically close the tooltip on target click | - | Boolean | - | * |
-| loadingClass | CSS classes added to the tooltip when content is loading | - | String, Array, Object | - | * |
-| loadingContent | Same as content, used when the actual tooltip content is loading | - | String | - | * |
-| popperOptions | Other [Popper.js](https://popper.js.org) options | false | Object | - | * |
+| raw-content | Be care! If you are using this property. The default property becomes a popper reference element. | false | string | - | any string value |
+| tag | html tag for root element | false | string | span | - |
+| enter-active-class | enter transition active class | false | string | - | - |
+| delay-on-mouse-over | delay mouse over on popper in milliseconds | false | number | 100 | - |
+| width | popper width | false | number | - | - |
+| delay-on-mouse-out | delay mouse out of popper in milliseconds | false | number | 100 | - |
+| boundariesSelector | The element which will define the boundaries of the popper position. The popper will never be placed outside of the defined boundaries | false | string | selector | - |
+| arrow-visible | show or hide arrow | false | boolean | true | - |
+| leave-active-class | leave transition active class | false | string | - | - |
+| transition | transition name | false | string | - | - |
+| placement | popover priority placement | false | string | auto | auto-start, auto, auto-end, top-start, top, top-end, right-start, right, right-end, bottom-end, bottom, bottom-start, left-end, left, left-start |
+| append-to-body | append popper to body | false | boolean | false | - |
+| reference | custom reference html element | false | HTMLElement | - | - |
+| trigger | popper trigger type | false | string | hover | click, hover, focus, manual |
+| stop-propagation | run event.stopPropagation function | false | boolean | false | - |
+| prevent-default | run event.preventDefault function | false | boolean | false | - |
+| force-show | force show popper | false | boolean | false | - |
+| disabled | is popper disabled | false | boolean | false | - |
+| with-border | add border to popper | false | boolean | false | - |
+| popper-class | additional popper class | false | string | - | - |
+| content | popper raw content | false | string | - | - |
+| v-model | manual popper trigger | false | boolean | - | - |
+
+## Events
+
+| Name | Description | Contents |
+| --- | --- | --- |
+| show | Triggered when popper is opened | popper component |
+| hide | Triggered when popper is closed | popper component |
+
+## Slots
+
+As we mentioned upper. We have 2 situations.
+
+#### If you are using `raw-content` property.
+| Name | Description |
+| --- | --- |
+| default | Here you can pass your popper reference element. |
+
+#### If you do not use `raw-content` property.
+| Name | Description |
+| --- | --- |
+| default | Here your popper content |
+| reference | Here your reference element |

@@ -6,6 +6,7 @@ import StButton from './components/button/index.vue';
 import StCheckbox from './components/checkbox/index.vue';
 import StCol from './components/col/index.vue';
 import StCollapser from './components/collapser/index.vue';
+import StDialog from './components/dialog/index.vue';
 import StIcon from './components/icon/index.vue';
 import StInput from './components/input/index.vue';
 import { StNotificationService } from './components/notification/service';
@@ -21,6 +22,7 @@ import StTable from './components/table/index.vue';
 import StTabsCollapsed from './components/tabs-collapsed/index.vue';
 import StTabs from './components/tabs/index.vue';
 import StTextarea from './components/textarea/index.vue';
+import StTooltip from './components/tooltip/index.vue';
 
 const install = (Vue: VueConstructor) => {
   Vue.component('st-badge', StBadge);
@@ -28,6 +30,7 @@ const install = (Vue: VueConstructor) => {
   Vue.component('st-button-group', StButtonGroup);
   Vue.component('st-checkbox', StCheckbox);
   Vue.component('st-col', StCol);
+  Vue.component('st-dialog', StDialog);
   Vue.component('st-collapser', StCollapser);
   Vue.component('st-icon', StIcon);
   Vue.component('st-input', StInput);
@@ -37,6 +40,7 @@ const install = (Vue: VueConstructor) => {
   Vue.component('st-radio', StRadio);
   Vue.component('st-pagination', StPagination);
   Vue.component('st-popper', StPopper);
+  Vue.component('st-tooltip', StTooltip);
   Vue.component('st-select', StSelect);
   Vue.component('st-scrollbar', StScrollbar);
   Vue.component('st-switch', StSwitch);
