@@ -2,8 +2,8 @@ import { storiesOf } from '@storybook/vue'
 import { boolean, select, text } from '@storybook/addon-knobs';
 import { template } from '../../templates/dialog/default.template';
 import documentation from '../../documentation/dialog.md'
-import {iconsList} from "../../utils/props-options";
-import {DialogPlacement} from "../../../src/components/dialog/types";
+import { iconsList } from '../../utils/props-options';
+import { DialogPlacement } from '../../../src/components/dialog/types';
 
 storiesOf('Components|Dialog', module).add('Default', () => ({
   template,

@@ -44,6 +44,8 @@ export default class StDialog extends Vue {
   @Prop({ type: String, default: 'default' })
   placement!: DialogPlacement;
 
+  modal!: typeof tingle.modal;
+
   @Watch('value')
   onValueChanged(newVal: boolean) {
     if (newVal) {
@@ -73,8 +75,6 @@ export default class StDialog extends Vue {
   emitInput(newVal: boolean): boolean {
     return newVal;
   }
-
-  modal!: typeof tingle.modal;
 
   beforeDestroy() {
     this.modal.destroy();
