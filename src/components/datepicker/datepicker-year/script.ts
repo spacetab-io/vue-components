@@ -69,7 +69,7 @@ export default class StDatepickerYear extends Vue {
     return item;
   }
 
-  get gridValue() {
+  get gridValue(): string {
     return this.momentCurrent.clone().startOf('year').format();
   }
 

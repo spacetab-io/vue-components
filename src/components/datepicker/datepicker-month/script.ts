@@ -68,7 +68,7 @@ export default class StDatepickerMonth extends Vue {
     this.monthLabels = moment.localeData().monthsShort();
   }
 
-  get momentNow() {
+  get momentNow(): Moment {
     return moment(this.now);
   }
 

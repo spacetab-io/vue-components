@@ -2,7 +2,7 @@ import { boolean, date, number, select } from '@storybook/addon-knobs';
 import { template } from '../../templates/datepicker/range-inline.template';
 import notes from '../../documentation/datepicker.md'
 import moment from 'moment';
-import { NavigationType } from "../../../src/components/datepicker/types";
+import { NavigationType } from '../../../src/components/datepicker/types';
 
 const momentFormatDate = (name, value, group) => {
     const val = date(name, value, group);

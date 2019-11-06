@@ -15,12 +15,12 @@ import StIcon from '../../icon/index.vue';
 })
 export default class StDatepickerNavigation extends Vue {
   @Emit('navigate-left')
-  emitNavigateLeft(event: MouseEvent) {
+  emitNavigateLeft(event: MouseEvent): MouseEvent {
     return event;
   }
 
   @Emit('navigate-right')
-  emitNavigateRight(event: MouseEvent) {
+  emitNavigateRight(event: MouseEvent): MouseEvent {
     return event;
   }
 

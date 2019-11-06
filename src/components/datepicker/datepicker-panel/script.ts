@@ -58,12 +58,12 @@ export default class StDatepickerPanel extends Vue {
   spacePriority!: SpacePriority;
 
   @Emit('day-selected')
-  emitDaySelected(day: string) {
+  emitDaySelected(day: string): string {
     return day;
   }
 
   @Emit('day-hovered')
-  emitDayHovered(day: string) {
+  emitDayHovered(day: string): string {
     return day;
   }
 
@@ -175,7 +175,7 @@ export default class StDatepickerPanel extends Vue {
       .isAfter(this.disabledTo);
   }
 
-  get isNextYearAllowed() {
+  get isNextYearAllowed(): boolean {
     if (!DatepickerUtils.isDateValid(this.disabledFrom)) {
       return true;
     }
@@ -186,7 +186,7 @@ export default class StDatepickerPanel extends Vue {
       .isBefore(this.disabledFrom);
   }
 
-  get isPrevMonthAllowed() {
+  get isPrevMonthAllowed(): boolean {
     if (!DatepickerUtils.isDateValid(this.disabledTo)) {
       return true;
     }
@@ -197,7 +197,7 @@ export default class StDatepickerPanel extends Vue {
       .isAfter(this.disabledTo);
   }
 
-  get isNextMonthAllowed() {
+  get isNextMonthAllowed(): boolean {
     if (!DatepickerUtils.isDateValid(this.disabledFrom)) {
       return true;
     }

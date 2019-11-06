@@ -1,9 +1,9 @@
-import {boolean, text, array, date, number, select} from '@storybook/addon-knobs';
+import { boolean, text, date, number, select } from '@storybook/addon-knobs';
 import { template } from '../../templates/datepicker/range.template';
 import notes from '../../documentation/datepicker.md'
 import moment from 'moment';
-import {PopperPlacement, TriggerType} from "../../../src/components/popper/types";
-import {NavigationType} from "../../../src/components/datepicker/types";
+import { PopperPlacement, TriggerType } from '../../../src/components/popper/types';
+import { NavigationType } from '../../../src/components/datepicker/types';
 
 const momentFormatDate = (name, value, group) => {
     const val = date(name, value, group);

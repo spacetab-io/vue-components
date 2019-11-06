@@ -64,10 +64,7 @@ export default class StDatepickerRange extends Vue {
     return [from, to];
   }
 
-  tempSelection: TempSelection = {
-    date1: void 0,
-    date2: void 0,
-  };
+  tempSelection: TempSelection = {};
 
   monthOffset: number = 0;
 
@@ -155,7 +152,7 @@ export default class StDatepickerRange extends Vue {
       : date2;
   }
 
-  get panelsCount() {
+  get panelsCount(): number {
     return this.monthVisible || 2;
   }
 

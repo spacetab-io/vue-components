@@ -56,7 +56,7 @@ export default class StDatepickerSingle extends Vue {
     this.emitInput(day.format());
   }
 
-  getPanelSpacePriority(panelIndex: number) {
+  getPanelSpacePriority(panelIndex: number): SpacePriority {
     if (panelIndex + 1 === this.panelsCount) {
       return SpacePriority.BOTTOM;
     }
@@ -68,7 +68,7 @@ export default class StDatepickerSingle extends Vue {
     return SpacePriority.BOTTOM;
   }
 
-  get panelsCount() {
+  get panelsCount(): number {
     return this.monthVisible || 1;
   }
 

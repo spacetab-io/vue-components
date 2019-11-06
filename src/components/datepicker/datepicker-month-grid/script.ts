@@ -6,6 +6,7 @@ import {
   Vue,
 } from 'vue-property-decorator';
 
+import { SimpleClassList } from '../../../types/general';
 import { DisabledRange } from '../types';
 import { DatepickerUtils } from '../utils';
 import { SpacePriority } from './types';
@@ -114,7 +115,7 @@ export default class StDatepickerMonthGrid extends Vue {
     return startMonthDay.isSame(day, 'date');
   }
 
-  gridItemClasses(day: Moment) {
+  gridItemClasses(day: Moment): SimpleClassList {
     const isDisabled = this.isDayDisabled(day);
     const isCurrentMonth = this.isCurrentMonth(day);
     const isCurrentDay = isCurrentMonth && this.isCurrentDay(day);
@@ -143,7 +144,7 @@ export default class StDatepickerMonthGrid extends Vue {
     };
   }
 
-  isDayDisabled(day: Moment) {
+  isDayDisabled(day: Moment): boolean {
     return DatepickerUtils.isDateDisabled({
       unit: 'date',
       disabledTo: this.disabledTo,
@@ -169,14 +170,14 @@ export default class StDatepickerMonthGrid extends Vue {
     this.emitDayHovered(day);
   }
 
-  get firstMonthDay() {
+  get firstMonthDay(): Moment {
     return moment({
       year: this.year,
       month: this.month,
     }).startOf('month');
   }
 
-  get lastMonthDay() {
+  get lastMonthDay(): Moment {
     return moment({
       year: this.year,
       month: this.month,
