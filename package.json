@@ -22,6 +22,7 @@
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "popper.js": "^1.15.0",
+    "tingle.js": "^0.15.1",
     "vue": "^2.6.10",
     "vue-class-component": "^7.1.0",
     "vue-property-decorator": "^8.2.2"

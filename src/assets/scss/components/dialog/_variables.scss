@@ -1,0 +1,16 @@
+@import '../../utils/variables';
+
+$st-dialog-root-background-color: rgba(80, 88, 109, 0.3) !default;
+$st-dialog-modal-background-color: $st-color-white !default;
+$st-dialog-modal-text-color: $st-color-black !default;
+$st-dialog-modal-box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.04) !default;
+$st-dialog-modal-close-color: $st-color-pastel-gray !default;
+$st-dialog-modal-close-hover-color: $st-color-edward !default;
+$st-dialog-modal-close-size: 10px !default;
+$st-dialog-z-index: 1000 !default;
+$st-dialog-padding: 25px !default;
+$st-dialog-header-font-size: 17px !default;
+$st-dialog-content-font-size: 13px !default;
+$st-dialog-border-radius: 8px !default;
+$st-dialog-close-offset: 12px !default;
+$st-dialog-default-top-padding: 165px !default;
