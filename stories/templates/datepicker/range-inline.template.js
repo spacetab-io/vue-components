@@ -6,7 +6,6 @@ export const template = `
                        :month-visible="panelsCount"
                        :disabled-from="disabledFrom"
                        :disabled-to="disabledTo"
-                       :disabled-ranges="disabledBefore"
                        :navigation-type="navigationType"
                        inline
                        :now="now"

@@ -5,7 +5,6 @@ export const template = `
         <st-datepicker :month-visible="panelsCount"
                        :disabled-from="disabledFrom"
                        :disabled-to="disabledTo"
-                       :disabled-ranges="disabledBefore"
                        :navigation-type="navigationType"
                        inline
                        :now="now"
