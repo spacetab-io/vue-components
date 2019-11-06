@@ -1,0 +1,27 @@
+<div class="st-dialog">
+    <div v-if="!hideCloseIcon"
+         class="st-dialog__close">
+        <st-icon :name="closeIcon"
+                 class="st-dialog__close-icon"
+                 @click="emitInput(false)"></st-icon>
+    </div>
+    <template v-if="!$slots['html-content']">
+        <div v-if="$slots['header']"
+             class="st-dialog__header"
+             :class="{'st-dialog__header--center': this.centerContent}">
+            <slot name="header"></slot>
+        </div>
+        <div v-if="$slots['default']"
+             class="st-dialog__content"
+             :class="{'st-dialog__content--center': this.centerContent}">
+            <slot></slot>
+        </div>
+        <div v-if="$slots['footer']"
+             class="st-dialog__footer"
+             :class="{'st-dialog__footer--center': this.centerContent}">
+            <slot name="footer"></slot>
+        </div>
+    </template>
+    <slot v-else
+          slot="html-content"></slot>
+</div>
