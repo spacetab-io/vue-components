@@ -1,0 +1,162 @@
+@import '../../assets/scss/components/dialog/_variables';
+
+.st-dialog {
+  position: relative;
+  color: $st-dialog-modal-text-color;
+  pointer-events: auto;
+  cursor: initial;
+  background-color: $st-dialog-modal-background-color;
+  border-radius: $st-dialog-border-radius;
+  box-shadow: $st-dialog-modal-box-shadow;
+
+  &__close {
+    position: absolute;
+    top: $st-dialog-close-offset;
+    right: $st-dialog-close-offset;
+    display: flex;
+    width: $st-dialog-modal-close-size;
+    height: $st-dialog-modal-close-size;
+  }
+
+  #{&}__close-icon {
+    width: $st-dialog-modal-close-size;
+    height: $st-dialog-modal-close-size;
+    color: $st-dialog-modal-close-color;
+
+    &:hover {
+      color: $st-dialog-modal-close-hover-color;
+      cursor: pointer;
+    }
+  }
+
+  &__header {
+    padding: $st-dialog-padding;
+    font-size: $st-dialog-header-font-size;
+
+    &--center {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__content {
+    padding: $st-dialog-padding;
+    font-size: $st-dialog-content-font-size;
+
+    &--center {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__footer {
+    padding: $st-dialog-padding;
+
+    &--center {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__header + &__content {
+    padding-top: 0;
+  }
+
+  &__content + &__footer {
+    padding-top: 0;
+  }
+
+  &__header + &__footer {
+    padding-top: 0;
+  }
+}
+
+.tingle-enabled {
+  position: fixed;
+  right: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.st-dialog-root {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $st-dialog-z-index;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  visibility: hidden;
+  background: $st-dialog-root-background-color;
+  opacity: 0;
+
+  &--hidden {
+    pointer-events: none;
+    background: transparent;
+  }
+
+  &[st-dialog-placement="default"] {
+    align-items: center;
+    padding-top: $st-dialog-default-top-padding;
+  }
+
+  &[st-dialog-placement="center"] {
+    align-items: center;
+    justify-content: center;
+  }
+
+  &[st-dialog-placement^="center-"] {
+    justify-content: center;
+  }
+
+  &[st-dialog-placement^="top-"] {
+    justify-content: flex-start;
+
+    .st-dialog {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+
+  &[st-dialog-placement^="bottom-"] {
+    justify-content: flex-end;
+
+    .st-dialog {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  &[st-dialog-placement$="-center"] {
+    align-items: center;
+  }
+
+  &[st-dialog-placement$="-left"] {
+    align-items: flex-start;
+
+    .st-dialog {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  &[st-dialog-placement$="-right"] {
+    align-items: flex-end;
+
+    .st-dialog {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  &.tingle-modal--visible {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &.tingle-modal--noOverlayClose {
+    cursor: initial;
+  }
+}

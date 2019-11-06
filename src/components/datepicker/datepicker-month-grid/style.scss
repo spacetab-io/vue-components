@@ -1,0 +1,161 @@
+@import '../../../assets/scss/utils/mixins';
+@import '../../../assets/scss/components/datepicker/_variables';
+
+.st-datepicker-month-grid {
+  $root: &;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: $st-datepicker-month-grid-font-size;
+
+  &__top-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: $st-datepicker-month-grid-top-badge-font-size;
+    font-weight: $st-datepicker-month-grid-top-badge-font-weight;
+    line-height: $st-datepicker-month-grid-top-badge-line-height;
+    color: $st-datepicker-month-grid-top-badge-color;
+    letter-spacing: -0.1px;
+  }
+
+  &__top-badge-month {
+    margin-right: 4px;
+  }
+
+  &__row {
+    display: flex;
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $st-datepicker-month-grid-cell-size;
+    height: $st-datepicker-month-grid-cell-size;
+    cursor: default;
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3px;
+    cursor: pointer;
+
+    &--current-day {
+      font-weight: bold;
+      color: $st-datepicker-month-grid-selected-color;
+
+      #{$root}__item--current-day {
+        color: #fff;
+      }
+    }
+
+    &--not-current-month {
+      color: #909090;
+    }
+
+    &--selected {
+      color: #fff;
+
+      #{$root}__item-content {
+        background: $st-datepicker-month-grid-selected-color;
+      }
+    }
+
+    &--in-select-range {
+      &::before {
+        position: absolute;
+        top: 0;
+        right: 50%;
+        bottom: 0;
+        left: 0;
+        content: '';
+        background: $st-datepicker-month-grid-cell-in-select-range-bg;
+      }
+
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 50%;
+        content: '';
+        background: $st-datepicker-month-grid-cell-in-select-range-bg;
+      }
+    }
+
+    &--selection-left-rounded {
+      &::before {
+        left: auto;
+        width: $st-datepicker-month-grid-cell-size / 2;
+        border-radius: ($st-datepicker-month-grid-cell-size / 2) 0 0 ($st-datepicker-month-grid-cell-size / 2);
+      }
+    }
+
+    &--selection-right-rounded {
+      &::after {
+        right: auto;
+        width: $st-datepicker-month-grid-cell-size / 2;
+        border-radius: 0 ($st-datepicker-month-grid-cell-size / 2) ($st-datepicker-month-grid-cell-size / 2) 0;
+      }
+    }
+
+    &--disabled {
+      color: $st-datepicker-month-grid-cell-disabled-color;
+      cursor: not-allowed;
+      background-color: $st-datepicker-month-grid-cell-disabled-background-color;
+      opacity: 1;
+    }
+
+    &--selection-start {
+      &::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 50%;
+        z-index: 1;
+        content: '';
+        background: $st-datepicker-month-grid-cell-in-select-range-bg;
+      }
+    }
+
+    &--selection-end {
+      &::before {
+        position: absolute;
+        top: 0;
+        right: 50%;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        content: '';
+        background: $st-datepicker-month-grid-cell-in-select-range-bg;
+      }
+    }
+
+    &:hover:not(#{$root}__item--not-current-month):not(#{$root}__item--selected):not(#{$root}__item--disabled) {
+      color: $st-datepicker-month-grid-cell-hovered-color;
+
+      #{$root}__item-content {
+        background: $st-datepicker-month-grid-cell-hovered-background-color;
+      }
+    }
+  }
+
+  &__item-content {
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $st-datepicker-month-grid-cell-size;
+    height: $st-datepicker-month-grid-cell-size;
+    font-weight: inherit;
+    color: inherit;
+    border-radius: $st-datepicker-month-grid-cell-border-radius;
+  }
+}

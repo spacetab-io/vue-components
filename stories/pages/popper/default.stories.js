@@ -1,8 +1,8 @@
 import { storiesOf } from '@storybook/vue'
-import {number, boolean, text, array, select, button} from '@storybook/addon-knobs';
+import { number, boolean, select } from '@storybook/addon-knobs';
 import { template } from '../../templates/popper/default.template';
 import documentation from '../../documentation/popper.md'
-import {PopperPlacement, TriggerType} from "../../../src/components/popper/types";
+import { PopperPlacement, TriggerType } from "../../../src/components/popper/types";
 
 let notes = documentation;
 notes = notes.replace('{{DEFAULT_PLACEMENT}}', PopperPlacement.auto);
@@ -37,6 +37,9 @@ storiesOf('Components|Popper', module).add('Default', () => ({
     },
     value: {
       default: boolean('manual value', false),
+    },
+    disabled: {
+      default: boolean('Disabled', false),
     },
   },
   data() {

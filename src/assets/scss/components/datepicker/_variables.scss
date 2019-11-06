@@ -1,0 +1,43 @@
+@import '../../utils/variables';
+
+$st-datepicker-width: 230px !default;
+$st-datepicker-content-padding: 15px !default;
+$st-datepicker-selected-color: $st-color-mantis !default;
+$st-datepicker-disabled-color: $st-color-ghost !default;
+
+$st-datepicker-grid-font-size: 12px !default;
+$st-datepicker-grid-padding: $st-datepicker-content-padding !default;
+$st-datepicker-grid-item-padding: 20px 0 !default;
+$st-datepicker-grid-item-hover-decoration: underline !default;
+$st-datepicker-grid-selected-color: $st-datepicker-selected-color !default;
+$st-datepicker-grid-disabled-color: $st-datepicker-disabled-color !default;
+
+$st-datepicker-navigation-icon-color: $st-color-pastel-gray !default;
+$st-datepicker-navigation-icon-height: 14px !default;
+$st-datepicker-navigation-icon-width: 10px !default;
+$st-datepicker-navigation-offset: 6px !default;
+
+$st-datepicker-navigation-slider-padding: $st-datepicker-content-padding !default;
+$st-datepicker-navigation-slider-hover-background: $st-color-white-smoke !default;
+$st-datepicker-navigation-slider-border-bottom: 1px solid $st-color-mercury !default;
+$st-datepicker-navigation-slider-icon-width: 12px !default;
+$st-datepicker-navigation-slider-icon-color: $st-color-taupe-gray !default;
+$st-datepicker-navigation-slider-icon-disabled-color: $st-datepicker-disabled-color !default;
+$st-datepicker-navigation-slider-icon-color-hover: $st-datepicker-navigation-slider-icon-color !default;
+$st-datepicker-navigation-slider-label-font-size: 15px !default;
+$st-datepicker-navigation-slider-label-font-weight: 500 !default;
+$st-datepicker-navigation-slider-label-color-hover: $st-datepicker-selected-color !default;
+
+$st-datepicker-month-grid-font-size: 12px !default;
+$st-datepicker-month-grid-top-badge-font-size: 15px !default;
+$st-datepicker-month-grid-top-badge-line-height: 24px !default;
+$st-datepicker-month-grid-top-badge-font-weight: 700 !default;
+$st-datepicker-month-grid-top-badge-color: $st-color-dark-gunmetal !default;
+$st-datepicker-month-grid-cell-size: 31px !default;
+$st-datepicker-month-grid-cell-disabled-color: $st-datepicker-disabled-color !default;
+$st-datepicker-month-grid-cell-disabled-background-color: $st-color-catskill-white !default;
+$st-datepicker-month-grid-cell-border-radius: 50% !default;
+$st-datepicker-month-grid-selected-color: $st-datepicker-selected-color !default;
+$st-datepicker-month-grid-cell-hovered-color: $st-color-white !default;
+$st-datepicker-month-grid-cell-hovered-background-color: transparentize($st-datepicker-month-grid-selected-color, 0.7) !default;
+$st-datepicker-month-grid-cell-in-select-range-bg: transparentize($st-datepicker-month-grid-selected-color, 0.7) !default;

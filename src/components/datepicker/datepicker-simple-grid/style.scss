@@ -1,0 +1,39 @@
+@import "../../../assets/scss/components/datepicker/variables";
+
+.st-datepicker-simple-grid {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: $st-datepicker-grid-padding;
+
+  &__row {
+    display: flex;
+    width: 100%;
+  }
+
+  &__item {
+    display: flex;
+    flex-basis: 1px;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    padding: $st-datepicker-grid-item-padding;
+    font-size: $st-datepicker-grid-font-size;
+    cursor: pointer;
+
+    &--disabled {
+      color: $st-datepicker-grid-disabled-color;
+      cursor: not-allowed;
+    }
+
+    &--selected {
+      color: $st-datepicker-grid-selected-color;
+    }
+
+    &:not(&--disabled):hover {
+      color: $st-datepicker-grid-selected-color;
+      text-decoration: $st-datepicker-grid-item-hover-decoration;
+    }
+  }
+}

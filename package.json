@@ -18,10 +18,11 @@
   },
   "dependencies": {
     "@spacetabs/svg-sprite-loader": "github:spacetabs/svg-sprite-loader#master",
-    "@types/lodash": "^4.14.138",
     "core-js": "^2.6.9",
     "lodash": "^4.17.15",
+    "moment": "^2.24.0",
     "popper.js": "^1.15.0",
+    "tingle.js": "^0.15.1",
     "vue": "^2.6.10",
     "vue-class-component": "^7.1.0",
     "vue-property-decorator": "^8.2.2"
@@ -37,7 +38,7 @@
     "@storybook/theming": "^5.1.9",
     "@storybook/vue": "^5.1.9",
     "@types/chai": "^4.2.2",
-    "@types/lodash": "^4.14.138",
+    "@types/lodash": "^4.14.144",
     "@types/mocha": "^5.2.7",
     "@types/node": "^10.12.12",
     "@typescript-eslint/eslint-plugin": "^1.13.0",

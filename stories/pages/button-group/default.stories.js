@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { boolean } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 import { template } from '../../templates/button-group/default.template';
 
 storiesOf('Components|Button', module).add('Button Group', () => ({
@@ -7,6 +7,9 @@ storiesOf('Components|Button', module).add('Button Group', () => ({
   props: {
     disabled: {
       default: boolean('Disabled', false),
-    }
+    },
+    type: {
+      default: select('Type', ['success', 'warning', 'danger', 'info', 'primary', 'default', 'secondary'], 'primary'),
+    },
   },
 }));
