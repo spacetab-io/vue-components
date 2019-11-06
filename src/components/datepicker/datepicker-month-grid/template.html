@@ -1,0 +1,21 @@
+<div class="st-datepicker-month-grid">
+    <div v-if="monthBadgeVisibility"
+         class="st-datepicker-month-grid__top-badge">
+        <div class="st-datepicker-month-grid__top-badge-month">{{ monthName }}</div>
+        <div class="st-datepicker-month-grid__top-badge-year">{{ gridYear }}</div>
+    </div>
+    <div class="st-datepicker-month-grid__row">
+        <div v-for="weekDay in weekDayNames"
+             class="st-datepicker-month-grid__label">{{ weekDay }}</div>
+    </div>
+    <div v-for="week in groupedDays"
+         class="st-datepicker-month-grid__row">
+        <div v-for="day in week"
+             class="st-datepicker-month-grid__item"
+             :class="gridItemClasses(day)"
+             @mouseover="onDayItemMouseOver(day)"
+             @click="onDayItemClicked(day)">
+            <div class="st-datepicker-month-grid__item-content">{{ formatDayCircle(day) }}</div>
+        </div>
+    </div>
+</div>

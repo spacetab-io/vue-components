@@ -1,0 +1,25 @@
+@import '../../../assets/scss/utils/mixins';
+@import '../../../assets/scss/components/datepicker/_variables';
+
+.st-datepicker-navigation {
+  &__left,
+  &__right {
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+
+    .st-icon {
+      width: $st-datepicker-navigation-icon-width;
+      height: $st-datepicker-navigation-icon-height;
+      color: $st-datepicker-navigation-icon-color;
+    }
+  }
+
+  &__left {
+    left: $st-datepicker-navigation-offset;
+  }
+
+  &__right {
+    right: $st-datepicker-navigation-offset;
+  }
+}

@@ -6,6 +6,7 @@ import StButton from './components/button/index.vue';
 import StCheckbox from './components/checkbox/index.vue';
 import StCol from './components/col/index.vue';
 import StCollapser from './components/collapser/index.vue';
+import StDatepicker from './components/datepicker/index.vue';
 import StDialog from './components/dialog/index.vue';
 import StIcon from './components/icon/index.vue';
 import StInput from './components/input/index.vue';
@@ -32,6 +33,7 @@ const install = (Vue: VueConstructor) => {
   Vue.component('st-col', StCol);
   Vue.component('st-dialog', StDialog);
   Vue.component('st-collapser', StCollapser);
+  Vue.component('st-datepicker', StDatepicker);
   Vue.component('st-icon', StIcon);
   Vue.component('st-input', StInput);
   Vue.component('st-notifications-group', StNotificationsGroup);
@@ -60,6 +62,7 @@ export default {
   StCheckbox,
   StCol,
   StCollapser,
+  StDatepicker,
   StIcon,
   StInput,
   StNotificationsGroup,

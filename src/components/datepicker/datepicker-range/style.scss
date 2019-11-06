@@ -1,0 +1,9 @@
+@import "../../../assets/scss/utils/mixins";
+@import "../../../assets/scss/components/datepicker/_variables";
+@import "../datepicker-month-grid/style";
+@import "../datepicker-navigation/style";
+
+.st-datepicker {
+  position: relative;
+  display: inline-flex;
+}

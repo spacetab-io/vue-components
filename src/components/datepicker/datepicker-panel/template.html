@@ -1,0 +1,47 @@
+<div class="st-datepicker-panel">
+    <st-datepicker-year v-if="extendedNavigation && isYearSelect"
+                        v-model="offsetDate"
+                        :disabled-to="disabledTo"
+                        :disabled-from="disabledFrom"
+                        :disabled-ranges="disabledRanges"
+                        :now="now"></st-datepicker-year>
+    <st-datepicker-month v-else-if="extendedNavigation && isMonthSelect"
+                         v-model="offsetDate"
+                         :now="now"
+                         :disabled-to="disabledTo"
+                         :disabled-ranges="disabledRanges"
+                         :disabled-from="disabledFrom"></st-datepicker-month>
+    <template v-else>
+        <st-datepicker-navigation-slider v-if="extendedNavigation"
+                                         label-hoverable
+                                         @prev-click="addYearOffset(-1)"
+                                         @next-click="addYearOffset(1)"
+                                         @label-clicked="onYearLabelClicked"
+                                         :prev-allowed="isPrevYearAllowed"
+                                         :next-allowed="isNextYearAllowed"
+                                         :label="yearNavigationLabel"></st-datepicker-navigation-slider>
+        <st-datepicker-navigation-slider v-if="extendedNavigation"
+                                         label-hoverable
+                                         @prev-click="addMonthOffset(-1)"
+                                         @next-click="addMonthOffset(1)"
+                                         @label-clicked="onMonthLabelClicked"
+                                         :prev-allowed="isPrevMonthAllowed"
+                                         :next-allowed="isNextMonthAllowed"
+                                         :label="monthNavigationLabel"></st-datepicker-navigation-slider>
+        <st-datepicker-month-grid :year="panelYear"
+                                  :month="panelMonth"
+                                  :month-badge-visibility="monthBadgeVisible"
+                                  :selected-from="selectedFromTo.from"
+                                  :selected-to="selectedFromTo.to"
+                                  :disabled-from="disabledFrom"
+                                  :disabled-to="disabledTo"
+                                  :space-priority="spacePriority"
+                                  :remove-needless-rows="removeNeedlessRows"
+                                  :now="now"
+                                  @day-hovered="emitDayHovered"
+                                  @day-selected="onDaySelected"
+                                  :disabled-ranges="disabledRanges"
+                                  :add-missing-row="false">
+        </st-datepicker-month-grid>
+    </template>
+</div>

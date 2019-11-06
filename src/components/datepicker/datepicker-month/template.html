@@ -1,0 +1,22 @@
+<div class="st-datepicker-month-select">
+    <template v-if="yearSelectOpened">
+        <st-datepicker-year-select :value="value"
+                                   @input="emitInput"
+                                   :disabled-to="disabledTo"
+                                   :disabled-from="disabledFrom"
+                                   :now="now"></st-datepicker-year-select>
+    </template>
+
+    <template v-else>
+        <st-datepicker-navigation-slider label-hoverable
+                                         @prev-click="yearOffset -= 1"
+                                         @next-click="yearOffset += 1"
+                                         @label-clicked="onYearLabelClicked"
+                                         :prev-allowed="isPagePrevAllowed"
+                                         :next-allowed="isPageNextAllowed"
+                                         :label="yearNavigationLabel"></st-datepicker-navigation-slider>
+        <st-datepicker-simple-grid :items="gridMonth"
+                                   :value="gridValue"
+                                   @input="emitInput"></st-datepicker-simple-grid>
+    </template>
+</div>
