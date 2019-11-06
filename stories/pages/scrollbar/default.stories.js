@@ -1,14 +1,36 @@
 import { storiesOf } from '@storybook/vue'
-import { boolean, text, array } from '@storybook/addon-knobs';
+import { number } from '@storybook/addon-knobs';
 import { template } from '../../templates/scrollbar/default.template';
 import notes from '../../documentation/scrollbar.md'
 
 storiesOf('Components|Scrollbar', module).add('Default', () => ({
     template,
     props: {
+        minimumScrollSize: {
+            default: number('Minimum scroll size', 40),
+        },
+        rows: {
+            default: number('Test env rows generated', 500),
+        },
+        cols: {
+            default: number('Test env cols generated', 500),
+        },
     },
     data() {
-        return {};
+        return {
+            key: 0,
+        };
+    },
+    watch: {
+        minimumScrollSize() {
+            this.key += 1;
+        },
+        rows() {
+            this.key += 1;
+        },
+        cols() {
+            this.key += 1;
+        },
     },
     methods: {
         createRange(from, to) {
@@ -17,7 +39,7 @@ storiesOf('Components|Scrollbar', module).add('Default', () => ({
                 numbers.push(i);
             }
             return numbers;
-        }
+        },
     },
 }), {
     notes,
