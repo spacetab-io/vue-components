@@ -5,8 +5,11 @@
   $root: &;
 
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
+  height: $st-input-height;
   font-size: $st-font-size;
 
   @include webkit-scrollbar;
@@ -30,10 +33,15 @@
   }
 
   &__inner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
     box-sizing: border-box;
     display: inline-block;
     width: 100%;
-    height: $st-input-height;
     padding: 0 15px;
     font-size: inherit;
     line-height: 1;
@@ -67,12 +75,16 @@
     }
   }
 
+  &__suffix,
+  &__prefix {
+    display: flex;
+    align-items: center;
+  }
+
   &__suffix {
-    position: absolute;
-    top: 0;
-    right: 10px;
-    height: 100%;
-    line-height: $st-input-height - 2;
+    z-index: 2;
+    height: $st-input-icon-height;
+    margin-right: 10px;
     color: $st-input-icon-color;
     text-align: center;
     transition: all 0.3s;
@@ -85,11 +97,9 @@
   }
 
   &__prefix {
-    position: absolute;
-    top: 0;
-    left: 10px;
-    height: 100%;
-    line-height: $st-input-height - 2;
+    z-index: 2;
+    height: $st-input-icon-height;
+    margin-left: 10px;
     color: $st-input-icon-color;
     text-align: center;
     transition: all 0.3s;
@@ -104,6 +114,10 @@
   &__icon {
     text-align: center;
     transition: all 0.3s;
+  }
+
+  &__icon + &__icon {
+    margin-left: 5px;
   }
 
   &--active {
@@ -182,10 +196,6 @@
       padding-right: 30px;
     }
 
-    #{$root}__suffix {
-      right: 10px;
-    }
-
     &#{$root}--state-visible {
       #{$root}__inner {
         padding-right: 40px;
@@ -197,10 +207,11 @@
     #{$root}__inner {
       padding-left: 30px;
     }
+  }
 
-    #{$root}__prefix {
-      left: 10px;
-    }
+  &--state-visible:not(&--with-prefix),
+  &--with-suffix:not(&--with-prefix) {
+    justify-content: flex-end;
   }
 
   &--extra-large {
