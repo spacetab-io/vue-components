@@ -1,4 +1,5 @@
 /* eslint-disable no-param-reassign */
+import { VNode } from 'vue';
 import {
   Component,
   Prop,
@@ -22,6 +23,10 @@ interface ScrollParameters {
 export default class StScrollbar extends Vue {
   @Prop({ type: Number, default: 40 })
   minimumScrollSize!: number;
+
+  $slots!: {
+    default: VNode[],
+  };
 
   public verticalScrollData: ScrollParameters = {
     contentSize: 0,
@@ -47,6 +52,8 @@ export default class StScrollbar extends Vue {
 
   public horizontalScrollbarSize: number = 0;
 
+  public observer!: MutationObserver;
+
   beforeMount() {
     const div = document.createElement('div');
 
@@ -71,6 +78,22 @@ export default class StScrollbar extends Vue {
     window.addEventListener('mousemove', this.onMouseMove);
     window.addEventListener('mouseup', this.onMouseUp);
     window.addEventListener('resize', this.recalculateData);
+
+    // eslint-disable-next-line compat/compat
+    this.observer = new MutationObserver(() => {
+      this.recalculateData();
+    });
+
+    this.observer.observe(this.$el, {
+      attributes: true,
+      childList: true,
+      characterData: true,
+      subtree: true,
+    });
+  }
+
+  destroyed() {
+    this.observer.disconnect();
   }
 
   public recalculateData() {
