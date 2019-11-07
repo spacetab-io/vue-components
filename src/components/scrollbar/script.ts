@@ -1,5 +1,4 @@
 /* eslint-disable no-param-reassign */
-import { VNode } from 'vue';
 import {
   Component,
   Prop,
@@ -23,10 +22,6 @@ interface ScrollParameters {
 export default class StScrollbar extends Vue {
   @Prop({ type: Number, default: 40 })
   minimumScrollSize!: number;
-
-  $slots!: {
-    default: VNode[],
-  };
 
   public verticalScrollData: ScrollParameters = {
     contentSize: 0,
