@@ -1,4 +1,5 @@
-<component :is="tag">
+<component ref="popperRoot"
+           :is="tag">
     <transition v-if="!disabled"
                 :name="transition"
                 :enter-active-class="enterActiveClass"
