@@ -15,7 +15,7 @@
 | popper-class | additional popper class | false | string | - | - |
 | placement | popover priority placement | false | string | {{DEFAULT_PLACEMENT}} | {{AVAILABLE_PLACEMENTS}} |
 | trigger | popper trigger type | false | string | {{DEFAULT_TRIGGER}} | {{AVAILABLE_TRIGGERS}} |
-| append-to-body | append popper to body | false | boolean | false | - |
+| append-to-body | append popper to body | false | boolean | true | - |
 | reference | custom reference html element | false | HTMLElement | - | - |
 | stop-propagation | run event.stopPropagation function | false | boolean | false | - |
 | preventDefault | run event.preventDefault function | false | boolean | false | - |
