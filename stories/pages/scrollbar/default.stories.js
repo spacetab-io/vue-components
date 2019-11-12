@@ -25,12 +25,6 @@ storiesOf('Components|Scrollbar', module).add('Default', () => ({
         minimumScrollSize() {
             this.key += 1;
         },
-        rows() {
-            this.key += 1;
-        },
-        cols() {
-            this.key += 1;
-        },
     },
     methods: {
         createRange(from, to) {
