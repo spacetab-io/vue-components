@@ -167,7 +167,7 @@ export default class StPopper extends Vue {
 
   mounted() {
     this.referenceElement = this.reference || ((this.$slots.reference as VNode[])[0].elm as Element);
-    this.popperParent = (this.$refs.popper && this.$refs.popper.parentElement) || this.$refs.popperRoot;
+    this.popperParent = this.$refs.popper.parentElement || this.$refs.popperRoot;
 
     switch (this.trigger) {
       case TriggerType.click:
@@ -224,11 +224,11 @@ export default class StPopper extends Vue {
 
   createPopper() {
     this.$nextTick(() => {
-      if (this.arrowVisible && this.$refs.popper) {
+      if (this.arrowVisible) {
         this.appendArrow(this.$refs.popper);
       }
 
-      if (this.appendToBody && this.$refs.popper) {
+      if (this.appendToBody) {
         this.appendedToBody = true;
         document.body.append(this.$refs.popper);
       }
@@ -255,9 +255,7 @@ export default class StPopper extends Vue {
         this.$nextTick(this.updatePopper);
       };
 
-      if (!this.disabled) {
-        this.popperJs = new Popper(this.referenceElement, this.$refs.popper, this.popperOptions);
-      }
+      this.popperJs = new Popper(this.referenceElement, this.$refs.popper, this.popperOptions);
     });
   }
 
@@ -305,7 +303,9 @@ export default class StPopper extends Vue {
   onMouseOver() {
     clearTimeout(this.timer);
     this.timer = setTimeout(() => {
-      this.showPopper = true;
+      if (!this.disabled) {
+        this.showPopper = true;
+      }
     }, this.delayOnMouseOver);
   }
 
