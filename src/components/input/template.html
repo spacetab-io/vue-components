@@ -33,6 +33,9 @@
          @blur="handleBlur"
          @mouseenter="inputHovered = true"
          @mouseleave="inputHovered = false"
+         @keyup="handleKeydown"
+         @keydown="handleKeydown"
+         @keypress="handleKeypress"
          @change="handleChange">
   <div v-if="$slots.suffix || suffixIcon || showCloseIcon || loading"
        class="st-input__suffix">
