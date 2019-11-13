@@ -18,6 +18,15 @@ $st-input-icon-height: $st-input-icon-size + px !default;
 $st-input-icon-color: $st-border-color !default;
 $st-input-placeholder-color: $st-text-color-placeholder !default;
 $st-input-max-width: 314px !default;
+$st-input-margin: 10 !default;
+$st-input-margin-px: #{$st-input-margin}px !default;
+$st-input-margin-between: 5px !default;
+$st-input-transition-time: 0.3s !default;
+
+$st-input-suffix-padding: 30px !default;
+$st-input-suffix-padding-state-visible: 40px !default;
+
+$st-input-prefix-padding: 30px !default;
 
 $st-input-hover-border: $st-border-color-hover !default;
 $st-input-clear-hover-color: $st-text-color-secondary !default;
@@ -33,14 +42,21 @@ $st-input-disabled-color: $st-disabled-color !default;
 $st-input-disabled-placeholder-color: $st-text-color-placeholder !default;
 
 $st-input-extra-large-font-size: $st-font-size !default;
+$st-input-extra-large-height: 48px !default;
+$st-input-extra-large-icon-size: 24px !default;
 
 $st-input-large-font-size: $st-font-size !default;
+$st-input-large-height: 40px !default;
+$st-input-large-icon-size: 20px !default;
 
 $st-input-medium-font-size: $st-font-size !default;
 $st-input-medium-height: 36px !default;
+$st-input-medium-icon-size: 14px !default;
 
 $st-input-small-font-size: 13px !default;
 $st-input-small-height: 32px !default;
+$st-input-small-icon-size: 14px !default;
 
 $st-input-mini-font-size: 12px !default;
 $st-input-mini-height: 24px !default;
+$st-input-mini-icon-size: 14px !default;
