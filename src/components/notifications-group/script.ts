@@ -16,7 +16,16 @@ export default class StNotificationsGroup extends Vue {
   @Prop({ type: String, default: NotificationsGroupPosition.bottomRight })
   position!: NotificationsGroupPosition;
 
+  @Prop({ type: Boolean, default: false })
+  requestPermissionOnInit!: boolean;
+
   get id(): string {
     return NOTIFICATIONS_GROUP_ID;
+  }
+
+  mounted() {
+    if (this.requestPermissionOnInit) {
+      Notification.requestPermission();
+    }
   }
 }

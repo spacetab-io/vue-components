@@ -5,8 +5,11 @@
   $root: &;
 
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
+  height: $st-input-height;
   font-size: $st-font-size;
 
   @include webkit-scrollbar;
@@ -30,10 +33,15 @@
   }
 
   &__inner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
     box-sizing: border-box;
     display: inline-block;
     width: 100%;
-    height: $st-input-height;
     padding: 0 15px;
     font-size: inherit;
     line-height: 1;
@@ -67,12 +75,16 @@
     }
   }
 
+  &__suffix,
+  &__prefix {
+    display: flex;
+    align-items: center;
+  }
+
   &__suffix {
-    position: absolute;
-    top: 0;
-    right: 10px;
-    height: 100%;
-    line-height: $st-input-height - 2;
+    z-index: 2;
+    height: $st-input-icon-height;
+    margin-right: $st-input-margin-px;
     color: $st-input-icon-color;
     text-align: center;
     transition: all 0.3s;
@@ -85,14 +97,12 @@
   }
 
   &__prefix {
-    position: absolute;
-    top: 0;
-    left: 10px;
-    height: 100%;
-    line-height: $st-input-height - 2;
+    z-index: 2;
+    height: $st-input-icon-height;
+    margin-left: $st-input-margin-px;
     color: $st-input-icon-color;
     text-align: center;
-    transition: all 0.3s;
+    transition: all $st-input-transition-time;
   }
 
   &__prefix-icon {
@@ -103,7 +113,11 @@
 
   &__icon {
     text-align: center;
-    transition: all 0.3s;
+    transition: all $st-input-transition-time;
+  }
+
+  &__icon + &__icon {
+    margin-left: $st-input-margin-between;
   }
 
   &--active {
@@ -179,109 +193,151 @@
 
   &--with-suffix {
     #{$root}__inner {
-      padding-right: 30px;
-    }
-
-    #{$root}__suffix {
-      right: 10px;
+      padding-right: $st-input-suffix-padding;
     }
 
     &#{$root}--state-visible {
       #{$root}__inner {
-        padding-right: 40px;
+        padding-right: $st-input-suffix-padding-state-visible;
       }
     }
   }
 
   &--with-prefix {
     #{$root}__inner {
-      padding-left: 30px;
-    }
-
-    #{$root}__prefix {
-      left: 10px;
+      padding-left: $st-input-prefix-padding;
     }
   }
 
+  &--state-visible:not(&--with-prefix),
+  &--with-suffix:not(&--with-prefix) {
+    justify-content: flex-end;
+  }
+
   &--extra-large {
+    height: $st-input-extra-large-height;
     font-size: $st-input-extra-large-font-size;
-    line-height: 48px;
-
-    #{$root}__inner {
-      height: 48px;
-      line-height: 48px;
-    }
-
-    #{$root}__prefix,
-    #{$root}__suffix {
-      line-height: 48px;
-    }
 
     #{$root}__icon {
-      width: 24px;
-      height: 24px;
-      font-size: 24px;
+      width: $st-input-extra-large-icon-size;
+      height: $st-input-extra-large-icon-size;
+      font-size: $st-input-extra-large-icon-size;
+    }
+  }
+
+  &--with-suffix#{&}--extra-large {
+    #{$root}__inner {
+      padding-right: ($st-input-margin * 2) + $st-input-extra-large-icon-size;
+    }
+
+    &#{$root}--state-visible {
+      #{$root}__inner {
+        padding-right: ($st-input-margin * 2) + ($st-input-extra-large-icon-size * 2) + $st-input-margin-between;
+      }
+    }
+  }
+
+  &--with-prefix#{&}--extra-large {
+    #{$root}__inner {
+      padding-left: ($st-input-margin * 2) + $st-input-extra-large-icon-size;
     }
   }
 
   &--large {
+    height: $st-input-large-height;
     font-size: $st-input-large-font-size;
-    line-height: 40px;
-
-    #{$root}__inner {
-      height: 40px;
-      line-height: 40px;
-    }
-
-    #{$root}__prefix,
-    #{$root}__suffix {
-      line-height: 40px;
-    }
 
     #{$root}__icon {
-      width: 24px;
-      height: 24px;
-      font-size: 24px;
+      width: $st-input-large-icon-size;
+      height: $st-input-large-icon-size;
+      font-size: $st-input-large-icon-size;
+    }
+  }
+
+  &--with-suffix#{&}--large {
+    #{$root}__inner {
+      padding-right: ($st-input-margin * 2) + $st-input-large-icon-size;
+    }
+
+    &#{$root}--state-visible {
+      #{$root}__inner {
+        padding-right: ($st-input-margin * 2) + ($st-input-large-icon-size * 2) + $st-input-margin-between;
+      }
+    }
+  }
+
+  &--with-prefix#{&}--large {
+    #{$root}__inner {
+      padding-left: ($st-input-margin * 2) + $st-input-large-icon-size;
     }
   }
 
   &--medium {
+    height: $st-input-medium-height;
     font-size: $st-input-medium-font-size;
+  }
 
+  &--with-suffix#{&}--medium {
     #{$root}__inner {
-      height: $st-input-medium-height;
-      line-height: 40px;
+      padding-right: ($st-input-margin * 2) + $st-input-medium-icon-size;
     }
 
-    #{$root}__prefix,
-    #{$root}__suffix {
-      line-height: $st-input-medium-height - 2;
+    &#{$root}--state-visible {
+      #{$root}__inner {
+        padding-right: (($st-input-margin + $st-input-medium-icon-size) * 2) + $st-input-margin-between;
+      }
+    }
+  }
+
+  &--with-prefix#{&}--medium {
+    #{$root}__inner {
+      padding-left: ($st-input-margin * 2) + $st-input-medium-icon-size;
     }
   }
 
   &--small {
+    height: $st-input-small-height;
     font-size: $st-input-small-font-size;
+  }
 
+  &--with-suffix#{&}--small {
     #{$root}__inner {
-      height: $st-input-small-height;
+      padding-right: ($st-input-margin * 2) + $st-input-small-icon-size;
     }
 
-    #{$root}__prefix,
-    #{$root}__suffix {
-      line-height: $st-input-small-height - 2;
+    &#{$root}--state-visible {
+      #{$root}__inner {
+        padding-right: ($st-input-margin * 2) + ($st-input-small-icon-size * 2) + $st-input-margin-between;
+      }
+    }
+  }
+
+  &--with-prefix#{&}--small {
+    #{$root}__inner {
+      padding-left: ($st-input-margin * 2) + $st-input-small-icon-size;
     }
   }
 
   &--mini {
+    height: $st-input-mini-height;
     font-size: $st-input-mini-font-size;
+  }
 
+  &--with-suffix#{&}--mini {
     #{$root}__inner {
-      height: $st-input-mini-height;
+      padding-right: ($st-input-margin * 2) + $st-input-mini-icon-size;
     }
 
-    #{$root}__prefix,
-    #{$root}__suffix {
-      line-height: $st-input-mini-height - 2;
+    &#{$root}--state-visible {
+      #{$root}__inner {
+        padding-right: ($st-input-margin * 2) + ($st-input-mini-icon-size * 2) + $st-input-margin-between;
+      }
+    }
+  }
+
+  &--with-prefix#{&}--mini {
+    #{$root}__inner {
+      padding-left: ($st-input-margin * 2) + $st-input-mini-icon-size;
     }
   }
 }

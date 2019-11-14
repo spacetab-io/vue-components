@@ -13,10 +13,26 @@ class NotificationService {
     if (NotificationService.notificationsGroupElement) {
       this.create(options);
     }
+
+    this.notify(options);
   }
 
   private static get notificationsGroupElement() {
     return document.getElementById(NOTIFICATIONS_GROUP_ID);
+  }
+
+  notify(options: NotificationOptions) {
+    Notification.requestPermission().then((result) => {
+      if (result === 'granted') {
+        const title = options.title || options.message;
+        const body = options.title ? options.message : '';
+        const icon = options.icon || '';
+        const params = { body, icon };
+
+        const notification = new Notification(title, params);
+        setTimeout(notification.close.bind(notification), options.duration || 4000);
+      }
+    });
   }
 
   create(options: NotificationOptions) {

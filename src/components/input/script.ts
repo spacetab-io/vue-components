@@ -105,6 +105,18 @@ export default class StInput extends Vue {
     this.$emit('blur', event);
   }
 
+  handleKeydown(event: KeyboardEvent) {
+    this.$emit('keydown', event);
+  }
+
+  handleKeyup(event: KeyboardEvent) {
+    this.$emit('keyup', event);
+  }
+
+  handleKeypress(event: KeyboardEvent) {
+    this.$emit('keypress', event);
+  }
+
   clearInput() {
     this.$emit('input', '');
     this.$emit('change', '');

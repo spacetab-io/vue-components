@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.6
+
+### Features
+* Added browser notifications to `Notifications` component
+
 ## 0.2.5
 
 ### Features
