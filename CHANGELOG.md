@@ -4,6 +4,8 @@
 
 ### Features
 * Added browser notifications to `Notifications` component
+* Components `Tabs` and `Tabs-collapsed` were rewrote and combined into single component `Tabs`. 
+Since now if you want use Tabs with collapser inside then use property `collapsed`.
 
 
 
