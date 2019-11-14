@@ -5,6 +5,9 @@
     "plugin:compat/recommended",
     "airbnb-base"
   ],
+  "env": {
+    "browser": true
+  },
   "plugins": [
     "vue",
     "simple-import-sort",
