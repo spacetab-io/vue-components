@@ -303,7 +303,9 @@ export default class StPopper extends Vue {
   onMouseOver() {
     clearTimeout(this.timer);
     this.timer = setTimeout(() => {
-      this.showPopper = true;
+      if (!this.disabled) {
+        this.showPopper = true;
+      }
     }, this.delayOnMouseOver);
   }
 
