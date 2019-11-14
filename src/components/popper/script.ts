@@ -50,7 +50,7 @@ export default class StPopper extends Vue {
   @Prop({ type: String, default: PopperPlacement.auto })
   placement!: string;
 
-  @Prop({ type: Boolean, default: false })
+  @Prop({ type: Boolean, default: true })
   appendToBody!: boolean;
 
   @Prop({ type: [Object, Element] })
@@ -127,9 +127,14 @@ export default class StPopper extends Vue {
     }
   }
 
-  referenceElement!: Element;
+  $refs!: {
+    popper: Element,
+    popperRoot: Element,
+  };
 
-  popper!: Element;
+  popperParent!: Element;
+
+  referenceElement!: Element;
 
   showPopper: boolean = false;
 
@@ -162,7 +167,7 @@ export default class StPopper extends Vue {
 
   mounted() {
     this.referenceElement = this.reference || ((this.$slots.reference as VNode[])[0].elm as Element);
-    this.popper = this.$refs.popper as Element;
+    this.popperParent = this.$refs.popper.parentElement || this.$refs.popperRoot;
 
     switch (this.trigger) {
       case TriggerType.click:
@@ -172,14 +177,14 @@ export default class StPopper extends Vue {
       case TriggerType.hover:
         this.referenceElement.addEventListener('mouseover', this.onMouseOver);
         this.referenceElement.addEventListener('mouseout', this.onMouseOut);
-        this.popper.addEventListener('mouseover', this.onMouseOver);
-        this.popper.addEventListener('mouseout', this.onMouseOut);
+        this.$refs.popper.addEventListener('mouseover', this.onMouseOver);
+        this.$refs.popper.addEventListener('mouseout', this.onMouseOut);
         break;
       case TriggerType.focus:
         this.referenceElement.addEventListener('focus', this.onMouseOver);
         this.referenceElement.addEventListener('blur', this.onMouseOut);
-        this.popper.addEventListener('focus', this.onMouseOver);
-        this.popper.addEventListener('blur', this.onMouseOut);
+        this.$refs.popper.addEventListener('focus', this.onMouseOver);
+        this.$refs.popper.addEventListener('blur', this.onMouseOut);
         break;
     }
   }
@@ -187,10 +192,10 @@ export default class StPopper extends Vue {
   handleDocumentClick(event: Event) {
     if (!this.$el
       || !this.referenceElement
-      || !this.popper
+      || !this.$refs.popper
       || this.elementContains(this.$el, (event.target as Node))
       || this.elementContains(this.referenceElement, (event.target as Node))
-      || this.elementContains(this.popper, (event.target as Node))
+      || this.elementContains(this.$refs.popper, (event.target as Node))
     ) {
       return;
     }
@@ -220,12 +225,12 @@ export default class StPopper extends Vue {
   createPopper() {
     this.$nextTick(() => {
       if (this.arrowVisible) {
-        this.appendArrow(this.popper);
+        this.appendArrow(this.$refs.popper);
       }
 
       if (this.appendToBody) {
         this.appendedToBody = true;
-        document.body.append(this.popperElement);
+        document.body.append(this.$refs.popper);
       }
 
       if (this.popperJs) {
@@ -250,7 +255,7 @@ export default class StPopper extends Vue {
         this.$nextTick(this.updatePopper);
       };
 
-      this.popperJs = new Popper(this.referenceElement, this.popper, this.popperOptions);
+      this.popperJs = new Popper(this.referenceElement, this.$refs.popper, this.popperOptions);
     });
   }
 
@@ -289,16 +294,18 @@ export default class StPopper extends Vue {
       this.popperJs.destroy();
       this.popperJs = void 0;
     }
-    if (this.appendedToBody && this.popper.parentElement) {
+    if (this.appendedToBody && this.$refs.popper.parentElement) {
       this.appendedToBody = false;
-      document.body.removeChild(this.popper.parentElement);
+      this.popperParent.appendChild(this.$refs.popper);
     }
   }
 
   onMouseOver() {
     clearTimeout(this.timer);
     this.timer = setTimeout(() => {
-      this.showPopper = true;
+      if (!this.disabled) {
+        this.showPopper = true;
+      }
     }, this.delayOnMouseOver);
   }
 

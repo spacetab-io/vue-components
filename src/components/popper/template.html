@@ -1,6 +1,6 @@
-<component :is="tag">
-    <transition v-if="!disabled"
-                :name="transition"
+<component ref="popperRoot"
+           :is="tag">
+    <transition :name="transition"
                 :enter-active-class="enterActiveClass"
                 :leave-active-class="leaveActiveClass"
                 @after-leave="doDestroy">
