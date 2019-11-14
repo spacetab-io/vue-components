@@ -1,0 +1,47 @@
+@import '../../assets/scss/components/circular-countdown/_variables';
+
+.st-circular-countdown {
+  $root: &;
+
+  position: relative;
+  display: inline-flex;
+
+  &--info {
+    color: $st-circular-countdown-color-info;
+  }
+
+  &--danger {
+    color: $st-circular-countdown-color-danger;
+  }
+
+  &--warning {
+    color: $st-circular-countdown-color-warning;
+  }
+
+  &--success {
+    color: $st-circular-countdown-color-success;
+  }
+
+  &__time-info {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__time {
+    margin-top: $st-circular-countdown-time-margin-top;
+    font-size: $st-circular-countdown-time-font-size;
+    line-height: $st-circular-countdown-time-line-height;
+  }
+
+  &__time-unit {
+    font-size: $st-circular-countdown-unit-font-size;
+    line-height: $st-circular-countdown-unit-line-height;
+  }
+}

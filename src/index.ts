@@ -4,6 +4,7 @@ import StBadge from './components/badge/index.vue';
 import StButtonGroup from './components/button-group/index.vue';
 import StButton from './components/button/index.vue';
 import StCheckbox from './components/checkbox/index.vue';
+import StCircularCountdown from './components/circular-countdown/index.vue';
 import StCol from './components/col/index.vue';
 import StCollapser from './components/collapser/index.vue';
 import StDatepicker from './components/datepicker/index.vue';
@@ -29,6 +30,7 @@ const install = (Vue: VueConstructor) => {
   Vue.component('st-badge', StBadge);
   Vue.component('st-button', StButton);
   Vue.component('st-button-group', StButtonGroup);
+  Vue.component('st-circular-countdown', StCircularCountdown);
   Vue.component('st-checkbox', StCheckbox);
   Vue.component('st-col', StCol);
   Vue.component('st-dialog', StDialog);

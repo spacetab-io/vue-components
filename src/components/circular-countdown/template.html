@@ -1,0 +1,33 @@
+<div class="st-circular-countdown"
+     :class="countdownClasses">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         version="1.1"
+         width="40"
+         height="40"
+         viewBox="0 0 40 40"
+         role="img">
+        <circle cx="20"
+                cy="20"
+                r="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-dasharray="113.09"
+                :stroke-dashoffset="113.09 + circleSize"
+                transform="rotate(-90,20,20)"/>
+        <circle cx="20"
+                cy="20"
+                r="18"
+                fill="none"
+                stroke="currentColor"
+                opacity="0.3"
+                stroke-width="2"
+                stroke-dasharray="113.09"
+                :stroke-dashoffset="circleSize"
+                transform="rotate(-90,20,20)"/>
+    </svg>
+    <div class="st-circular-countdown__time-info">
+        <div class="st-circular-countdown__time">{{ timeLeft.time }}</div>
+        <div class="st-circular-countdown__time-unit">{{ timeLeft.unit }}</div>
+    </div>
+</div>
