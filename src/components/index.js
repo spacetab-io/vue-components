@@ -4,6 +4,7 @@ import StBadge from './badge/index.vue';
 import StButtonGroup from './button-group/index.vue';
 import StButton from './button/index.vue';
 import StCheckbox from './checkbox/index.vue';
+import StCircularCountdown from './circular-countdown/index.vue';
 import StCol from './col/index.vue';
 import StCollapser from './collapser/index.vue';
 import StDatepicker from './datepicker/index.vue';
@@ -30,11 +31,12 @@ const Components = {
   StButton,
   StButtonGroup,
   StCheckbox,
+  StCircularCountdown,
   StCol,
   StCollapser,
+  StDatepicker,
   StDialog,
   StIcon,
-  StDatepicker,
   StInput,
   StNotification,
   StNotificationsGroup,
