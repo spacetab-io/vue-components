@@ -12,7 +12,7 @@ declare module 'tingle.js' {
     onClose?: () => {},
   }
 
-  export interface Modal {
+  interface Modal {
     new(params: InitParams): Modal;
 
     setContent(param: Element): void;
