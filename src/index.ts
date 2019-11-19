@@ -21,7 +21,6 @@ import StScrollbar from './components/scrollbar/index.vue';
 import StSelect from './components/select/index.vue';
 import StSwitch from './components/switch/index.vue';
 import StTable from './components/table/index.vue';
-import StTabsCollapsed from './components/tabs-collapsed/index.vue';
 import StTabs from './components/tabs/index.vue';
 import StTextarea from './components/textarea/index.vue';
 import StTooltip from './components/tooltip/index.vue';
@@ -50,7 +49,6 @@ const install = (Vue: VueConstructor) => {
   Vue.component('st-switch', StSwitch);
   Vue.component('st-table', StTable);
   Vue.component('st-tabs', StTabs);
-  Vue.component('st-tabs-collapsed', StTabsCollapsed);
 
   /* eslint-disable-next-line no-param-reassign */
   Vue.prototype.$stNotification = StNotificationService;
@@ -77,5 +75,4 @@ export default {
   StSwitch,
   StTable,
   StTabs,
-  StTabsCollapsed,
 };

@@ -1,15 +1,16 @@
 <div class="st-tabs">
-  <div class="st-tabs__list">
-    <st-tab-item v-for="item in copiedTabs"
-                 :key="item.id"
-                 class="st-tabs__item"
-                 :selected="item.id === selectedTabId"
-                 :icon="item.icon"
-                 :label="item.label"
-                 :closeable="item.closeable"
-                 @close="close(item)"
-                 @click.native="select(item)">
-      <slot name="tab" v-bind:tab="item"></slot>
-    </st-tab-item>
-  </div>
+  <component :is="innerComponentName"
+             :tabs="copiedTabs"
+             :selected-id="selectedTabId"
+             :popper-props="collapserPopperProps"
+             @select="select"
+             @close="close">
+    <template v-slot:tab="{ tab }">
+      <slot name="tab" :tab="tab" />
+    </template>
+    <template v-if="collapsed"
+              v-slot:hidden-tab="{ tab }">
+      <slot name="hidden-tab" :tab="tab" />
+    </template>
+  </component>
 </div>

@@ -6,9 +6,9 @@ import {
 
 
 @Component({
-  name: 'StTabItem',
+  name: 'StTab',
 })
-export default class StTabItem extends Vue {
+export default class StTab extends Vue {
   @Prop(String)
   icon!: string;
 
@@ -17,7 +17,4 @@ export default class StTabItem extends Vue {
 
   @Prop(Boolean)
   closeable!: boolean;
-
-  @Prop(Boolean)
-  selected!: boolean;
 }

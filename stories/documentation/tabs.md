@@ -22,7 +22,14 @@ onClose(tab) {
 ```
 
 ```html
+<!-- Default Tabs -->
 <st-tabs :tabs="tabsElements"
+         @select="onSelect" 
+         @close="onClose" />
+         
+<!-- Collapsed Tabs -->
+<st-tabs collapsed
+         :tabs="tabsElements"
          @select="onSelect" 
          @close="onClose" />
 ```
@@ -30,11 +37,25 @@ onClose(tab) {
 Or, if you want to make your tabs look as you want you can use slots there.
 
 ```html
+<!-- Default Tabs -->
 <st-tabs :tabs="tabsElements"
          @select="onSelect" 
          @close="onClose">
     <template v-slot:tab="{ tab }">
       wow! {{ tab.label }}
+    </template>
+</st-tabs>
+
+<!-- Collapsed Tabs -->
+<st-tabs collapsed
+         :tabs="tabsElements"
+         @select="onSelect" 
+         @close="onClose">
+    <template v-slot:tab="{ tab }">
+      wow! {{ tab.label }}
+    </template>
+    <template v-slot:hidden-tab="{ tab }">
+      hidden! {{ tab.label }}
     </template>
 </st-tabs>
 ```
@@ -44,6 +65,7 @@ Or, if you want to make your tabs look as you want you can use slots there.
 | Name | Description | Prop name |
 | --- | --- | --- |
 | tab | Defines list's element content | tab |
+| hidden-tab | **(Collapsed Tabs only)** Defines hidden list's element content | tab |
 
 ## Attributes
 
@@ -51,6 +73,8 @@ Or, if you want to make your tabs look as you want you can use slots there.
 | --- | --- | --- | --- | --- | --- |
 | tabs | Tabs list | true | Array | - | - |
 | v-model | Defines selected tab's id | false | String | - | - |
+| collasped | Define collapser functionality for tabs | false | Boolean | false | - |
+| collapser-popper-props | **(Collapsed Tabs only)** Collapser's popper props | false | Object | - | CHECK POPPER COMPONENT |
 
 ## Tab (tabs list item) attributes
 

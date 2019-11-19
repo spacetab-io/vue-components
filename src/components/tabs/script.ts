@@ -5,14 +5,17 @@ import {
   Watch,
 } from 'vue-property-decorator';
 
-import StTabItem from './_tab/index.vue';
+import { PopperBindProperties } from '../popper/types';
+import StTabsListCollapsed from './_list-collapsed/index.vue';
+import StTabsListDefault from './_list-default/index.vue';
 import { Tab } from './types';
 
 
 @Component({
   name: 'StTabs',
   components: {
-    StTabItem,
+    StTabsListDefault,
+    StTabsListCollapsed,
   },
 })
 export default class StTabs extends Vue {
@@ -22,9 +25,19 @@ export default class StTabs extends Vue {
   @Prop(String)
   value!: string;
 
+  @Prop(Boolean)
+  collapsed!: boolean;
+
+  @Prop({ type: Object, default: () => {} })
+  collapserPopperProps!: PopperBindProperties;
+
   copiedTabs: Tab[] = [];
 
   selectedTabId: string = '';
+
+  get innerComponentName(): string {
+    return `st-tabs-list-${this.collapsed ? 'collapsed' : 'default'}`;
+  }
 
   @Watch('tabs')
   onTabsChange() {
