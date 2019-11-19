@@ -5,6 +5,53 @@
 ### Features
 * Added browser notifications to `Notifications` component
 
+
+
+
+## 0.2.7
+
+### Features
+* `Input` component changes:
+    - Inner elements were moved into flex alignment
+    - Added keydown/keyup/keypress handlers
+* Added component `Circular Countdown`
+
+### Maintenance
+* `Scrollbar`'s tracking was updated
+* `Popper` component's changes:
+    - Fixed body appending bug
+    - Background color was updated
+    - Fixed disaled state
+* Default background variable's color was changed (`$st-background-color`)
+* `Dialog` component's types were updated
+
+
+
+
+## 0.2.6
+
+### Features
+* Added `minimumScrollSize` prop for component `Scrollbar`
+* Added component `Dialog`
+* Added component `Tooltip`
+* Added component `Datepicker`
+* Added new libraries in project dependencies:
+    - `tingle.js`
+    - `moment.js`
+
+### Maintenance
+* Storybook components pages update:
+    - Added documentation for `Button` component
+    - Text and With-Icon pages of `Button` were removed
+    - Added `disabled` prop to `Popover`'s page
+* Lodash types were fixed
+* Popover's bug with type of `reference` prop was fixed
+* `Scrollbar`'s bug with cursor floating on mouse move was fixed
+* Fixed `Button-group`'s last child styles
+
+
+
+
 ## 0.2.5
 
 ### Features
@@ -41,11 +88,24 @@
 
 
 
+
 ## 0.2.3
 
 ### Features
 * Added new component: `Popper`
 * Added new icons: Return, Luggage, No-Return, No-Luggage
+
+
+
+
+## 0.2.2
+
+### Features
+* `Popover` component was temporarily disabled 
+
+### Maintenance
+* Lint dependencies were updated
+
 
 
 
@@ -66,6 +126,7 @@
 * Added components generator. If you are about to make a new component just run `npm run generator:component` and follow the instructions.
 * Prepared for publishing
 * Linter dependencies were updated
+
 
 
 
