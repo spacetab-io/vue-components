@@ -14,14 +14,14 @@ class NotificationService {
       this.create(options);
     }
 
-    this.notify(options);
+    this.browserNotify(options);
   }
 
   private static get notificationsGroupElement() {
     return document.getElementById(NOTIFICATIONS_GROUP_ID);
   }
 
-  notify(options: NotificationOptions) {
+  browserNotify(options: NotificationOptions) {
     Notification.requestPermission().then((result) => {
       if (result === 'granted') {
         const title = options.title || options.message;
