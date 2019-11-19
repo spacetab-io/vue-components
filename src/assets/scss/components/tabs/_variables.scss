@@ -2,27 +2,39 @@
 
 $st-tabs-selected-color: $st-color-blueberry !default;
 
-// Tabs item
-$st-tabs-item-padding-vertical: 2px !default;
-$st-tabs-item-padding-horizontal: 18px !default;
+// Tab
+$st-tabs-tab-padding-vertical: 2px !default;
+$st-tabs-tab-padding-horizontal: 18px !default;
 
-$st-tabs-item-border-color: transparent !default;
-$st-tabs-item-border-width: 3px !default;
-$st-tabs-item-border-style: solid !default;
-$st-tabs-item-font-size: 14px !default;
-$st-tabs-item-text-color: $st-text-color-regular !default;
-$st-tabs-item-icon-size: 12px !default;
-$st-tabs-item-icon-margin: 3px !default;
-$st-tabs-item-close-size: 10px !default;
-$st-tabs-item-close-color: $st-color-pastel-gray !default;
-$st-tabs-item-close-color-hovered: $st-color-taupe-gray !default;
-$st-tabs-item-close-padding: 2px !default;
-$st-tabs-item-close-opacity: 0 !default;
+$st-tabs-tab-border-color: transparent !default;
+$st-tabs-tab-border-width: 3px !default;
+$st-tabs-tab-border-style: solid !default;
+$st-tabs-tab-font-size: 14px !default;
+$st-tabs-tab-text-color: $st-text-color-regular !default;
+$st-tabs-tab-icon-size: 12px !default;
+$st-tabs-tab-icon-margin: 3px !default;
+$st-tabs-tab-close-size: 10px !default;
+$st-tabs-tab-close-color: $st-color-pastel-gray !default;
+$st-tabs-tab-close-color-hovered: $st-color-taupe-gray !default;
+$st-tabs-tab-close-padding: 2px !default;
+$st-tabs-tab-close-opacity: 0 !default;
 
-$st-tabs-item-hovered-border-color: $st-color-pastel-gray !default;
-$st-tabs-item-hovered-border-width: $st-tabs-item-border-width !default;
-$st-tabs-item-hovered-text-color: $st-tabs-item-text-color !default;
+$st-tabs-tab-hovered-border-color: $st-color-pastel-gray !default;
+$st-tabs-tab-hovered-border-width: $st-tabs-tab-border-width !default;
+$st-tabs-tab-hovered-text-color: $st-tabs-tab-text-color !default;
 
-$st-tabs-item-selected-border-color: $st-tabs-selected-color !default;
-$st-tabs-item-selected-border-width: $st-tabs-item-border-width !default;
-$st-tabs-item-selected-text-color: $st-tabs-selected-color !default;
+$st-tabs-tab-selected-border-color: $st-tabs-selected-color !default;
+$st-tabs-tab-selected-border-width: $st-tabs-tab-border-width !default;
+$st-tabs-tab-selected-text-color: $st-tabs-selected-color !default;
+
+// Popper tab
+$st-tabs-popper-tab-padding-horizontal: 20px !default;
+$st-tabs-popper-tab-padding-vertical: 10px !default;
+$st-tabs-popper-tab-cursor: pointer !default;
+$st-tabs-popper-tab-color-selected: $st-tabs-tab-selected-text-color !default;
+$st-tabs-popper-tab-background-hover: $st-color-white !default;
+$st-tabs-popper-tab-background-selected: $st-color-white !default;
+$st-tabs-popper-tab-close-right: 3px !default;
+
+// Collapser's popper
+$st-tabs-collapser-popper-padding: 0 !default;

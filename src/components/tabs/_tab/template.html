@@ -1,12 +1,11 @@
-<div class="st-tab-item"
-     :class="`st-tab-item--${selected ? 'selected' : 'regular'}`">
+<div class="st-tab">
   <slot>
     <st-icon v-if="icon"
-             class="st-tab-item__icon"
+             class="st-tab__icon"
              :name="icon" />
-    <span class="st-tab-item__label">{{ label }}</span>
+    <span class="st-tab__label">{{ label }}</span>
     <st-icon v-if="closeable"
-             class="st-tab-item__close-btn"
+             class="st-tab__close-btn"
              name="cross"
              @click.stop="$emit('close')" />
   </slot>

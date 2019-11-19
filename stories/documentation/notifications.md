@@ -26,6 +26,7 @@ this.$stNotification({
 | Name | Description | Required | Type | Default value | Possible values |
 | --- | --- | --- | --- | --- | --- |
 | position | Defines notifications position in window | - | string | bottom-right | top-left / top-center / top-right / bottom-left / bottom-center / bottom-right |
+| force-permission | Request browser permission to show notifications on app initialization. Otherwise it would request it when new notification pops out | - | boolean | false | true / false |
 
 
 ## Notification attributes

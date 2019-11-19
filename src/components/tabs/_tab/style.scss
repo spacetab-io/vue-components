@@ -1,0 +1,50 @@
+@import '../../../assets/scss/components/tabs/_variables';
+
+.st-tab {
+  $root: &;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: $st-tabs-tab-padding-vertical $st-tabs-tab-padding-horizontal;
+  font-size: $st-tabs-tab-font-size;
+  color: $st-tabs-tab-text-color;
+  text-align: center;
+  cursor: pointer;
+
+  &__icon {
+    width: $st-tabs-tab-icon-size;
+    height: $st-tabs-tab-icon-size;
+    margin-right: $st-tabs-tab-icon-margin;
+    color: currentColor;
+  }
+
+  &__label {
+    color: currentColor;
+  }
+
+  &__close-btn {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: $st-tabs-tab-close-size;
+    height: $st-tabs-tab-close-size;
+    padding: $st-tabs-tab-close-padding;
+    color: $st-tabs-tab-close-color;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: $st-tabs-tab-close-opacity;
+    transform: translateY(-50%);
+
+    &:hover {
+      color: $st-tabs-tab-close-color-hovered;
+    }
+  }
+
+  &:hover {
+    #{$root}__close-btn {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
