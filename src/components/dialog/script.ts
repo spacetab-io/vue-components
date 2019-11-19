@@ -1,4 +1,4 @@
-import tingle, { Modal as ModalInterface } from 'tingle.js';
+import tingle from 'tingle.js';
 import {
   Component,
   Emit,
@@ -47,7 +47,7 @@ export default class StDialog extends Vue {
   @Prop({ type: String, default: 'default' })
   placement!: DialogPlacement;
 
-  modal!: ModalInterface;
+  modal!: typeof Modal;
 
   @Watch('value')
   onValueChanged(newVal: boolean) {
