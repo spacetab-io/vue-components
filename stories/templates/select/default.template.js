@@ -9,5 +9,6 @@ export const template = `
            :required="required"
            :clearable="clearable"
            :prefix-icon="prefixIcon"
-           :suffix-icon="suffixIcon"></st-select>
+           :suffix-icon="suffixIcon">
+</st-select>
 `;

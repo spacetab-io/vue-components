@@ -43,13 +43,19 @@ Here's some examples:
   <template v-slot:suffix>
     <!-- any content -->
   </template>
+  <template v-slot:dropdown-top>
+    <!-- any content -->
+  </template>
+  <template v-slot:dropdown-bottom>
+    <!-- any content -->
+  </template>
   <template v-slot:option="{ option }">
     <st-icon name="location" /> {{ option.label }}
   </template>
 </st-select>
            
 <!-- Multiple select has some extra slots -->
-<st-select v-model="singleValue" 
+<st-select v-model="multipleValue" 
            :options="options"  
            multiple>
     <template v-slot:collapser-control="{ amount }">
@@ -62,6 +68,20 @@ Here's some examples:
       </div>
     </template>
 </st-select>
+```
+
+Also you can change/extend inner dropdown's props via `dropdown-popper-props` (same with `collapser-popper-props`):
+
+```html
+<st-select v-model="singleValue" 
+           :options="options" 
+           :dropdown-popper-props="{
+             width: 400,
+             maxHeight: 250,
+             arrowVisible: true,
+             placement: 'top',
+             trigger: 'hover',
+           }" />
 ```
 
 You can find out more about this component slots in the bottom of documentation. 
@@ -82,7 +102,7 @@ You can find out more about this component slots in the bottom of documentation.
 | prefixIcon | Defines prefix icon name (at the left side) | - | String | - | CHECK ICON COMPONENT |
 | suffixIcon | Defines suffix icon name (at the right side) | - | String | - | CHECK ICON COMPONENT |
 | dropdown-popper-props | Dropdown popper's component properties | - | Object | arrowVisible: false, placement: bottom, trigger: click, boundariesSelector: 'body' | CHECK POPPER COMPONENT DOCUMENTATION |
-| collapser-popper-props | **(Multiple Select only)** Collapser popper's component properties | - | Object | arrowVisible: true, placement: top, trigger: hover, boundariesSelector: 'body' | CHECK POPPER COMPONENT DOCUMENTATION |
+| collapser-popper-props | **(Multiple Select only)** Collapser popper's component properties | - | Object | arrowVisible: true, placement: top, trigger: hover, boundariesSelector: 'body', appendToBody: false | CHECK POPPER COMPONENT DOCUMENTATION |
 
 ## Events
 
@@ -100,6 +120,8 @@ You can find out more about this component slots in the bottom of documentation.
 | --- | --- | --- |
 | prefix | Defines prefix content in select (at the left as default) | - |
 | suffix | Defines suffix content in select (at the right as default) | - |
+| dropdown-top | Defines content in select's dropdown, above the list | - |
+| dropdown-bottom | Defines content in select's dropdown, below the list | - |
 | list | Defines select dropdown's list | { options } |
 | option | Defines select dropdown option's content | { option } |
 | collapser-control | **(Multiple Select only)** Defines collapser control's block content | { amount } |

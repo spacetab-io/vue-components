@@ -16,6 +16,12 @@
                     @select="select"
                     @dropdown-show="dropdownVisible = true; $emit('dropdown-show')"
                     @dropdown-hide="dropdownVisible = false; $emit('dropdown-hide')">
+  <template v-slot:dropdown-top>
+    <slot name="dropdown-top" />
+  </template>
+  <template v-slot:dropdown-bottom>
+    <slot name="dropdown-bottom" />
+  </template>
   <st-select-content slot="reference"
                      :value="selectedLabel"
                      :is-active="dropdownVisible"
