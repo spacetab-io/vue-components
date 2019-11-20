@@ -32,6 +32,9 @@ export default class StPopper extends Vue {
   @Prop(Number)
   width?: number;
 
+  @Prop(Number)
+  maxHeight?: number;
+
   @Prop({ type: Number, default: 100 })
   delayOnMouseOut!: number;
 
@@ -329,12 +332,9 @@ export default class StPopper extends Vue {
   }
 
   get popperStyles() {
-    if (!this.width) {
-      return {};
-    }
-
     return {
-      width: `${this.width}px`,
+      width: this.width ? `${this.width}px` : void 0,
+      maxHeight: this.maxHeight ? `${this.maxHeight}px` : void 0,
     };
   }
 }

@@ -10,6 +10,10 @@
 
   &__container {
     overflow: scroll;
+
+    &--x-hidden {
+      overflow-x: hidden;
+    }
   }
 
   &__vertical-scroll {

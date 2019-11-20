@@ -11,6 +11,8 @@
              :size="size"
              :prefix-icon="prefixIcon"
              :suffix-icon="suffixIcon"
+             :dropdown-popper-props="dropdownPopperProps"
+             :collapser-popper-props="collapserPopperProps"
              @input="$event => $emit('input', $event)"
              @select="$event => $emit('select', $event)"
              @clear="$emit('clear')"
@@ -21,6 +23,12 @@
     </template>
     <template v-slot:content-suffix>
       <slot name="suffix" />
+    </template>
+    <template v-slot:dropdown-top>
+      <slot name="dropdown-top" />
+    </template>
+    <template v-slot:dropdown-bottom>
+      <slot name="dropdown-bottom" />
     </template>
     <template v-slot:dropdown-list="{ options }">
       <slot name="list"

@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.2.9
+
+### Features
+* Added `dropdown-top` and `dropdown-bottom` slots to `Select` component
+* Added `maxHeight` prop to `Popper` component
+    
+### Maintenance
+* `Select` component fixes:
+    - Fixed dropdown's bug with list overflowing
+    - Fixed inner popper's behavior when there're some `Select` components on the page 
+* Fixed `Scrollbar`'s overflow-x property when horizontal scroll is hidden 
+
+
+
+
 ## 0.2.8
 
 ### Features

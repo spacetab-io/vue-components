@@ -2,6 +2,7 @@
 
 .st-select-dropdown {
   box-sizing: border-box;
+  display: flex;
   width: $st-select-dropdown-width;
   max-height: $st-select-dropdown-list-max-height;
   padding: $st-select-dropdown-padding;
@@ -11,6 +12,8 @@
   box-shadow: $st-select-dropdown-shadow;
 
   &__content {
+    display: flex;
+    flex-direction: column;
     width: 100%;
   }
 

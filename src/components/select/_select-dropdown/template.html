@@ -9,6 +9,10 @@
     <slot name="reference"></slot>
   </template>
   <div class="st-select-dropdown__content">
+    <div v-if="$slots['dropdown-top']"
+         class="st-select-dropdown__slot st-select-dropdown__slot--top">
+      <slot name="dropdown-top" />
+    </div>
     <st-scrollbar class="st-select-dropdown__options-list">
       <slot :options="options">
         <div :class="[
@@ -31,5 +35,9 @@
         </div>
       </slot>
     </st-scrollbar>
+    <div v-if="$slots['dropdown-top']"
+         class="st-select-dropdown__slot st-select-dropdown__slot--bottom">
+      <slot name="dropdown-bottom" />
+    </div>
   </div>
 </st-popper>

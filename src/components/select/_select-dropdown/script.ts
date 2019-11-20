@@ -53,7 +53,7 @@ export default class StSelectDropdown extends Vue {
     placement: PopperPlacement.bottom,
     trigger: TriggerType.click,
     boundariesSelector: 'body',
-    stopPropagation: true,
+    appendToBody: false,
   };
 
   get popperClassName(): string {

@@ -28,6 +28,9 @@
              :style="horizontalScrollStyles"></div>
     </div>
     <div class="st-scrollbar__container"
+         :class="{
+            'st-scrollbar__container--x-hidden': !horizontalScrollData.isVisible,
+         }"
          :style="containerStyles"
          ref="container"
          v-on="$listeners || {}">
