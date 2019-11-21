@@ -151,7 +151,7 @@ export default class StPopper extends Vue {
 
   popperOptions: PopperOptions = {};
 
-  destroyed() {
+  beforeDestroy() {
     this.destroyPopper();
   }
 
