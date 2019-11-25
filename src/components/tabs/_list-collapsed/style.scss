@@ -28,7 +28,13 @@
       border-bottom-width: $st-tabs-tab-selected-border-width;
     }
 
-    &:not(#{$tabRoot}--selected):hover {
+    &--disabled {
+      cursor: $st-tabs-tab-disabled-cursor;
+      border-bottom-color: $st-tabs-tab-disabled-border-color;
+      border-bottom-width: $st-tabs-tab-disabled-border-width;
+    }
+
+    &:not(#{$tabRoot}--selected):not(#{$tabRoot}--disabled):hover {
       color: $st-tabs-tab-hovered-text-color;
       border-bottom-color: $st-tabs-tab-hovered-border-color;
       border-bottom-width: $st-tabs-tab-hovered-border-width;
@@ -45,7 +51,12 @@
       background: $st-tabs-popper-tab-background-selected;
     }
 
-    &:not(#{$tabRoot}--selected):hover {
+    &--disabled {
+      cursor: $st-tabs-tab-disabled-cursor;
+      background: $st-tabs-popper-tab-background-disabled;
+    }
+
+    &:not(#{$tabRoot}--selected):not(#{$tabRoot}--disabled):hover {
       color: $st-tabs-tab-hovered-text-color;
       background: $st-tabs-popper-tab-background-hover;
     }

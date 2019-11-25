@@ -5,13 +5,14 @@
 ### Features
 * Added `dropdown-top` and `dropdown-bottom` slots to `Select` component
 * Added `maxHeight` prop to `Popper` component
-* `Input` component's inner content was restyled from `absolute` positioning to `flex` 
-    
+* `Input` component's inner content was restyled from `absolute` positioning to `flex`
+* Added disabled prop to `Tabs` and `Tabs-collapsed` components
+
 ### Maintenance
 * `Select` component fixes:
     - Fixed dropdown's bug with list overflowing
-    - Fixed inner popper's behavior when there're some `Select` components on the page 
-* Fixed `Scrollbar`'s overflow-x property when horizontal scroll is hidden 
+    - Fixed inner popper's behavior when there're some `Select` components on the page
+* Fixed `Scrollbar`'s overflow-x property when horizontal scroll is hidden
 
 
 
@@ -20,7 +21,7 @@
 
 ### Features
 * Added browser notifications to `Notifications` component
-* Components `Tabs` and `Tabs-collapsed` were rewrote and combined into single component `Tabs`. 
+* Components `Tabs` and `Tabs-collapsed` were rewrote and combined into single component `Tabs`.
 Since now if you want use Tabs with collapser inside then use property `collapsed`.
 
 
@@ -119,7 +120,7 @@ Since now if you want use Tabs with collapser inside then use property `collapse
 ## 0.2.2
 
 ### Features
-* `Popover` component was temporarily disabled 
+* `Popover` component was temporarily disabled
 
 ### Maintenance
 * Lint dependencies were updated

@@ -1,0 +1,17 @@
+// Import default component's file with styles
+@import '../../../../components/tabs/style';
+
+.st-tabs {
+  &-list {
+    display: flex;
+
+    &__tab {
+      justify-content: center;
+      width: 100%;
+
+      &--selected {
+        padding-bottom: 1px;
+      }
+    }
+  }
+}

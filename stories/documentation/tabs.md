@@ -24,13 +24,13 @@ onClose(tab) {
 ```html
 <!-- Default Tabs -->
 <st-tabs :tabs="tabsElements"
-         @select="onSelect" 
+         @select="onSelect"
          @close="onClose" />
-         
+
 <!-- Collapsed Tabs -->
 <st-tabs collapsed
          :tabs="tabsElements"
-         @select="onSelect" 
+         @select="onSelect"
          @close="onClose" />
 ```
 
@@ -39,7 +39,7 @@ Or, if you want to make your tabs look as you want you can use slots there.
 ```html
 <!-- Default Tabs -->
 <st-tabs :tabs="tabsElements"
-         @select="onSelect" 
+         @select="onSelect"
          @close="onClose">
     <template v-slot:tab="{ tab }">
       wow! {{ tab.label }}
@@ -49,7 +49,7 @@ Or, if you want to make your tabs look as you want you can use slots there.
 <!-- Collapsed Tabs -->
 <st-tabs collapsed
          :tabs="tabsElements"
-         @select="onSelect" 
+         @select="onSelect"
          @close="onClose">
     <template v-slot:tab="{ tab }">
       wow! {{ tab.label }}
@@ -84,6 +84,7 @@ Or, if you want to make your tabs look as you want you can use slots there.
 | label | Tab label | true | String | - | - |
 | icon | Tab icon. Use name from our component Icon | - | String | - | CHECK ICON COMPONENT |
 | closeable | Defines is tab closeable | - | Boolean | false | - |
+| disabled | Defines is tab disabled | - | Boolean | false | - |
 
 ## Events
 
