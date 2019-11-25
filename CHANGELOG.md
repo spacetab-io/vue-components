@@ -5,6 +5,7 @@
 ### Features
 * Added `dropdown-top` and `dropdown-bottom` slots to `Select` component
 * Added `maxHeight` prop to `Popper` component
+* `Input` component's inner content was restyled from `absolute` positioning to `flex` 
     
 ### Maintenance
 * `Select` component fixes:

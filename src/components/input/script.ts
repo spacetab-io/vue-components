@@ -85,6 +85,11 @@ export default class StInput extends Vue {
     }
   }
 
+  onWrapperMouseEvent(isHovered: boolean) {
+    if (this.disabled) { return; }
+    this.inputHovered = isHovered;
+  }
+
   handleInput(event: Event) {
     const { value } = event.target as HTMLInputElement;
     this.$emit('input', value);
