@@ -38,7 +38,7 @@ $st-tabs-popper-tab-cursor: pointer !default;
 $st-tabs-popper-tab-color-selected: $st-tabs-tab-selected-text-color !default;
 $st-tabs-popper-tab-background-hover: $st-color-white !default;
 $st-tabs-popper-tab-background-selected: $st-color-white !default;
-$st-tabs-popper-tab-background-disabled: $st-tabs-popper-tab-background-selected;
+$st-tabs-popper-tab-background-disabled: $st-tabs-popper-tab-background-selected !default;
 $st-tabs-popper-tab-close-right: 3px !default;
 $st-tabs-tab-disabled-cursor: default !default;
 
