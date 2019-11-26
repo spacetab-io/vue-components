@@ -2,6 +2,7 @@
 
 .st-select-multiple {
   &__collapser {
+    z-index: $st-select-above-input-elements-z-index;
     width: 100%;
   }
 

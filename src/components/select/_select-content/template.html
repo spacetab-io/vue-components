@@ -1,71 +1,31 @@
-<div :class="[
-       'st-select-content',
-       `st-select-content--${isFocused || isActive ? 'active' : 'inactive'}`,
-       {
-         'st-select-content--clearable': showClear,
-         'st-select-content--disabled': disabled,
-         'st-select-content--readonly': readonly,
-         'st-select-content--loading': loading,
-       }
-     ]">
-  <div v-if="prefixIcon || $slots.prefix"
-       class="st-select-content__prefix">
+<st-input class="st-select-content"
+          readonly
+          :prefix-icon="prefixIcon"
+          :placeholder="placeholder"
+          :value="value"
+          :disabled="disabled"
+          :loading="loading"
+          :focus-state="isFocused"
+          @keyup.enter="$emit('open-popper')"
+          @keyup.up="$emit('open-popper')"
+          @keyup.down="$emit('open-popper')"
+          @keyup.esc="$emit('close-popper')"
+          @clear="$emit('clear')">
+  <template v-if="$slots.prefix">
     <slot name="prefix" />
-    <st-icon v-if="prefixIcon && !$slots.prefix"
-             :name="prefixIcon"
-             :class="[
-              'st-select-content__icon',
-              'st-select-content__icon--static',
-              'st-select-content__prefix-icon',
-             ]" />
-  </div>
-  <input class="st-select-content__input"
-         :value="value"
-         readonly
-         :disabled="disabled"
-         :required="required"
-         @keyup.enter="$emit('open-popper')"
-         @keyup.up="$emit('open-popper')"
-         @keyup.down="$emit('open-popper')"
-         @keyup.esc="$emit('close-popper')"
-         @focus="isFocused = true"
-         @blur="isFocused = false">
-  <span v-if="!value"
-        class="st-select-content__placeholder">{{ placeholder }}</span>
-  <div v-else
-       class="st-select-content__value">
-    <slot>{{ value }}</slot>
-  </div>
-  <div class="st-select-content__suffix">
-    <slot name="suffix" />
-    <st-icon v-if="loading"
-             :class="[
-               'st-select-content__icon',
-               'st-select-content__icon--static',
-               'st-select-content__loading-icon',
-             ]"
-             name="loader" />
-    <st-icon v-else-if="showClear"
-             :class="[
-               'st-select-content__icon',
-               'st-select-content__clear-icon',
-               'st-select-content__icon--clickable',
-             ]"
-             name="cross"
-             @click.stop="clear" />
-    <st-icon v-else-if="!disabled"
-             :class="[
-               'st-select-content__icon',
-               'st-select-content__icon--static',
-               'st-select-content__arrow-icon',
-             ]"
-             name="arrow-down" />
-    <st-icon v-if="suffixIcon && !$slots.suffix"
+  </template>
+  <template>
+    <span v-if="!value"
+          class="st-select-content__placeholder">{{ placeholder }}</span>
+    <slot v-else>
+      <span class="st-select-content__value">{{ value }}</span>
+    </slot>
+  </template>
+  <template v-slot:suffix>
+    <st-icon v-if="isSuffixIconVisible"
              :name="suffixIcon"
-             :class="[
-              'st-select-content__icon',
-              'st-select-content__icon--static',
-              'st-select-content__suffix-icon',
-             ]" />
-  </div>
-</div>
+             class="st-select-content__icon"
+             :class="suffixIconClassName" />
+    <slot name="suffix" />
+  </template>
+</st-input>

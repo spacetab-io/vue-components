@@ -98,6 +98,7 @@
 
     #{$root}__inner {
       color: $st-input-disabled-color;
+      background-color: $st-input-disabled-background;
 
       &::placeholder {
         color: $st-input-disabled-placeholder-color;

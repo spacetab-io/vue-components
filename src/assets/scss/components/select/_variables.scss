@@ -1,51 +1,23 @@
 @import '../../utils/variables';
+@import '../input/variables';
 
-$st-select-height: 38px !default;
-$st-select-font-size: $st-font-size !default;
+$st-select-height: $st-input-height !default;
+$st-select-font-size: $st-input-font-size !default;
+$st-select-color: $st-input-color !default;
 
 // Content block
-$st-select-padding-left: 15px !default;
-$st-select-padding-right: 12px !default;
+$st-select-border: $st-input-border !default;
+$st-select-border-radius: $st-input-border-radius !default;
 
-$st-select-border: $st-border !default;
-$st-select-border-radius: $st-border-radius !default;
+$st-select-placeholder-color: $st-input-placeholder-color !default;
 
-$st-select-side-offset: 12px !default;
-$st-select-prefix-offset: $st-select-side-offset !default;
-$st-select-suffix-offset: $st-select-side-offset !default;
-
-$st-select-color: $st-text-color-regular !default;
-$st-select-background: $st-color-white !default;
-$st-select-placeholder-color: $st-text-color-placeholder !default;
-$st-select-border-transition: $st-border-transition !default;
-$st-select-disabled-color: $st-disabled-color !default;
-$st-select-readonly-color: $st-disabled-color !default;
-
-$st-select-icon-color: $st-color-pastel-gray !default;
-$st-select-hovered-icon-color: $st-color-taupe-gray !default;
-$st-select-active-icon-color: $st-color-blueberry !default;
-$st-select-icon-color-transition: $st-color-transition !default;
-
-$st-select-clear-icon-size: 10px !default;
-$st-select-clear-icon-width: $st-select-clear-icon-size !default;
-$st-select-clear-icon-height: $st-select-clear-icon-size !default;
-$st-select-clear-icon-font-size: $st-select-clear-icon-size !default;
-$st-select-clear-icon-padding: 4px !default;
+$st-select-inner-input-z-index: 1 !default;
+$st-select-above-input-elements-z-index: $st-select-inner-input-z-index + 1 !default;
 
 $st-select-arrow-icon-size: 12px !default;
 $st-select-arrow-icon-width: $st-select-arrow-icon-size !default;
 $st-select-arrow-icon-height: $st-select-arrow-icon-size !default;
 $st-select-arrow-icon-font-size: $st-select-arrow-icon-size !default;
-
-$st-select-side-icon-size: 18px !default;
-$st-select-prefix-icon-size: $st-select-side-icon-size !default;
-$st-select-prefix-icon-width: $st-select-prefix-icon-size !default;
-$st-select-prefix-icon-height: $st-select-prefix-icon-size !default;
-$st-select-prefix-icon-font-size: $st-select-prefix-icon-size !default;
-$st-select-suffix-icon-size: $st-select-side-icon-size !default;
-$st-select-suffix-icon-width: $st-select-suffix-icon-size !default;
-$st-select-suffix-icon-height: $st-select-suffix-icon-size !default;
-$st-select-suffix-icon-font-size: $st-select-suffix-icon-size !default;
 
 // Dropdown block
 $st-select-dropdown-width: 100% !default;
