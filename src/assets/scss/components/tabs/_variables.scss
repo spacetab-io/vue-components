@@ -27,6 +27,10 @@ $st-tabs-tab-selected-border-color: $st-tabs-selected-color !default;
 $st-tabs-tab-selected-border-width: $st-tabs-tab-border-width !default;
 $st-tabs-tab-selected-text-color: $st-tabs-selected-color !default;
 
+$st-tabs-tab-disabled-text-color: $st-tabs-selected-color !default;
+$st-tabs-tab-disabled-border-color: $st-tabs-tab-border-width !default;
+$st-tabs-tab-disabled-border-width: $st-tabs-selected-color !default;
+
 // Popper tab
 $st-tabs-popper-tab-padding-horizontal: 20px !default;
 $st-tabs-popper-tab-padding-vertical: 10px !default;
@@ -34,7 +38,9 @@ $st-tabs-popper-tab-cursor: pointer !default;
 $st-tabs-popper-tab-color-selected: $st-tabs-tab-selected-text-color !default;
 $st-tabs-popper-tab-background-hover: $st-color-white !default;
 $st-tabs-popper-tab-background-selected: $st-color-white !default;
+$st-tabs-popper-tab-background-disabled: $st-tabs-popper-tab-background-selected !default;
 $st-tabs-popper-tab-close-right: 3px !default;
+$st-tabs-tab-disabled-cursor: default !default;
 
 // Collapser's popper
 $st-tabs-collapser-popper-padding: 0 !default;

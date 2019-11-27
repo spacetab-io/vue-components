@@ -11,12 +11,14 @@
             class="st-tabs-collapser__tab"
             :class="{
                'st-tabs-collapser__tab--selected': tab.id === selectedId,
+               'st-tabs-collapser__tab--disabled': tab.disabled,
             }"
             :icon="tab.icon"
             :label="tab.label"
             :closeable="tab.closeable"
+            :disabled="tab.disabled"
             @close="$emit('close', tab)"
-            @click.native="$emit('select', tab)">
+            @click.native="tab ? void 0 : $emit('select', tab)">
       <slot name="tab" v-bind:tab="tab"></slot>
     </st-tab>
   </template>
@@ -26,12 +28,14 @@
             class="st-tabs-collapser__popper-tab"
             :class="{
               'st-tabs-collapser__popper-tab--selected': tab.id === selectedId,
+              'st-tabs-collapser__popper-tab--disabled': item.disabled,
             }"
             :icon="tab.icon"
             :label="tab.label"
             :closeable="tab.closeable"
+            :disabled="tab.disabled"
             @close="$emit('close', tab)"
-            @click.native="$emit('select', tab)">
+            @click.native="tab ? void 0 : $emit('select', tab)">
       <slot name="hidden-tab" v-bind:tab="tab"></slot>
     </st-tab>
   </template>

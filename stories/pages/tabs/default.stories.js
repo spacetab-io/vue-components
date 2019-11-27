@@ -16,6 +16,9 @@ storiesOf('Components|Tabs', module).add('Default', () => ({
     closeable: {
       default: boolean('Closeable (each item)', true),
     },
+    disabled: {
+      default: boolean('Disabled (each item)', false),
+    },
     tabsAmount: {
       default: number('*for test* Tabs amount', 5),
     }
@@ -33,6 +36,7 @@ storiesOf('Components|Tabs', module).add('Default', () => ({
           id: `tab-${index + 1}`,
           label: `Tab ${index + 1}`,
           closeable: this.closeable,
+          disabled: this.disabled,
           icon: this.icon,
         }));
     },
