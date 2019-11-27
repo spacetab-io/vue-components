@@ -2,10 +2,13 @@ import {
   Component,
   Prop,
   Vue,
+  Watch,
 } from 'vue-property-decorator';
 
 import StIcon from '../../icon/index.vue';
 
+
+const DEFAULT_SUFFIX_ICON = 'arrow-down';
 
 @Component({
   name: 'StSelectContent',
@@ -20,8 +23,11 @@ export default class StSelectContent extends Vue {
   @Prop(String)
   prefixIcon!: string;
 
-  @Prop(String)
+  @Prop({ type: String, default: DEFAULT_SUFFIX_ICON })
   suffixIcon!: string;
+
+  @Prop({ type: Boolean, default: true })
+  clearIconAsSuffixIcon!: boolean;
 
   @Prop(Boolean)
   multiple!: boolean;
@@ -49,11 +55,17 @@ export default class StSelectContent extends Vue {
 
   isFocused = false;
 
-  get showClear(): boolean {
-    return this.clearable && !this.disabled && !this.readonly && !!this.value;
+  @Watch('isActive')
+  onIsActiveChange(value: boolean) {
+    this.isFocused = value;
   }
 
-  clear() {
-    this.$emit('clear');
+  get suffixIconClassName(): string {
+    const partName = this.suffixIcon === DEFAULT_SUFFIX_ICON ? 'arrow' : 'suffix';
+    return `st-select-content__${partName}-icon`;
+  }
+
+  get isSuffixIconVisible(): boolean {
+    return !this.clearIconAsSuffixIcon ? true : !this.value;
   }
 }

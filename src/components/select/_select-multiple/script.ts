@@ -82,6 +82,9 @@ export default class StSelectMultiple extends StSelectBase {
   }
 
   clear() {
+    if (this.closeOnClear) {
+      this.dropdownVisible = false;
+    }
     this.selectedOptions = [];
     this.$emit('input', []);
     this.$emit('clear');

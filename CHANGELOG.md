@@ -5,14 +5,25 @@
 ### Features
 * Added `dropdown-top` and `dropdown-bottom` slots to `Select` component
 * Added `maxHeight` prop to `Popper` component
-* `Input` component's inner content was restyled from `absolute` positioning to `flex`
 * Added disabled prop to `Tabs` and `Tabs-collapsed` components
-
+* Component `Input` changes:
+    - Added `focusState` prop
+    - Inner content was restyles from `absolute` positioning to `flex`
+    - Added `default` slot (if you want to place there anything)
+    - Added `$listeners`
+* Component `Select` changes:
+    - Inner custom input element was replaced with `Input` component
+    - Some style variables were removed, some were changed to `Input`'s variables
+    - Added `closeOnClear` prop
+    - Added `closeOnSelect` prop
+    - Added `clearIconAsSuffixIcon` prop
+    
 ### Maintenance
 * `Select` component fixes:
     - Fixed dropdown's bug with list overflowing
     - Fixed inner popper's behavior when there're some `Select` components on the page
 * Fixed `Scrollbar`'s overflow-x property when horizontal scroll is hidden
+* Fixed wrong background color of disabled `Input`
 
 
 

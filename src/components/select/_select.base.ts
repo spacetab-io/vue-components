@@ -37,6 +37,15 @@ export default class StSelectBase extends Vue {
   @Prop(String)
   suffixIcon!: string;
 
+  @Prop({ type: Boolean, default: true })
+  clearIconAsSuffixIcon!: boolean;
+
+  @Prop({ type: Boolean, default: true })
+  closeOnClear!: boolean;
+
+  @Prop({ type: Boolean, default: true })
+  closeOnSelect!: boolean;
+
   @Prop({ type: Object, default: () => {} })
   dropdownPopperProps!: PopperBindProperties;
 

@@ -40,6 +40,9 @@ export default class StSelectSingle extends StSelectBase {
   }
 
   clear() {
+    if (this.closeOnClear) {
+      this.dropdownVisible = false;
+    }
     this.$emit('input', null);
     this.$emit('clear');
   }

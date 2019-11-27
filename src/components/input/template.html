@@ -41,7 +41,9 @@
          @keyup="handleKeydown"
          @keydown="handleKeydown"
          @keypress="handleKeypress"
-         @change="handleChange">
+         @change="handleChange"
+         v-on="$listeners">
+  <slot></slot>
   <div v-if="$slots.suffix || suffixIcon || showCloseIcon || loading"
        class="st-input__suffix">
     <template v-if="!$slots.suffix">

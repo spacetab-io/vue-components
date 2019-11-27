@@ -26,6 +26,9 @@ export default class StInput extends Vue {
   @Prop(Boolean)
   loading!: boolean;
 
+  @Prop(Boolean)
+  focusState!: boolean;
+
   // Input props
   @Prop({ type: String, default: '' })
   value!: string;
@@ -79,6 +82,11 @@ export default class StInput extends Vue {
     this.setInputValue(value);
   }
 
+  @Watch('focusState')
+  onFocusStateChange(value: boolean) {
+    this.inputFocused = value;
+  }
+
   setInputValue(value: string) {
     if (value !== this.inputValue) {
       this.inputValue = value;
@@ -106,7 +114,9 @@ export default class StInput extends Vue {
   }
 
   handleBlur(event: Event) {
-    this.inputFocused = false;
+    if (!this.focusState) {
+      this.inputFocused = false;
+    }
     this.$emit('blur', event);
   }
 
