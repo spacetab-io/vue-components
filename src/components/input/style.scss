@@ -48,11 +48,12 @@
     font-size: $st-input-font-size;
     line-height: 1;
     color: $st-input-color;
+    cursor: inherit;
     -webkit-appearance: none;
     border: none;
     outline: none;
 
-    /** disalbe default clear on IE */
+    /* Disable default clear on IE */
     &::-ms-clear {
       display: none;
       width: 0;
@@ -61,6 +62,11 @@
 
     &::placeholder {
       color: $st-input-placeholder-color;
+    }
+
+    /* Firefox default outline */
+    &:invalid {
+      box-shadow: none;
     }
   }
 
