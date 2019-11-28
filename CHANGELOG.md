@@ -23,7 +23,10 @@
     - Fixed dropdown's bug with list overflowing
     - Fixed inner popper's behavior when there're some `Select` components on the page
 * Fixed `Scrollbar`'s overflow-x property when horizontal scroll is hidden
-* Fixed wrong background color of disabled `Input`
+* `Input` component fixes:
+    - Fixed wrong background color when disabled
+    - Fixed clear icon visibility when disabled or readonly
+    - Removed Firefox's outline when inner input is `:invalid`
 
 
 
