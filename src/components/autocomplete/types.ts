@@ -1,9 +1,7 @@
 export type Suggestion = any;
 
-export interface FetchSuggestions {
-  (query: string, callback: FetchSuggestionsCallback): void
-}
+export type FetchSuggestionsCallback<T> = (data: T[]) => void;
 
-interface FetchSuggestionsCallback {
-  (data: Suggestion[]): void;
-}
+export type FetchSuggestions<T> = (query: string, callback: FetchSuggestionsCallback<T>) => void;
+
+export type DebounceGetSuggestions = (value: string) => void;

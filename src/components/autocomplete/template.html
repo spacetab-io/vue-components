@@ -20,6 +20,7 @@
               :suffix-icon="suffixIcon"
               @input="handleInput"
               @focus="handleFocus"
+              @blur="handleBlur"
               @clear="onClear" />
     <div class="st-autocomplete-dropdown__content">
       <div v-if="$slots.messageQueryLength && !checkQueryConditions(inputValue)"
@@ -35,7 +36,7 @@
       <div v-else-if="!suggestions.length"
            class="st-autocomplete__message st-autocomplete__message--empty">
         <slot name="message-empty">
-          Ничего не найдено
+          No results
         </slot>
       </div>
       <st-scrollbar v-else

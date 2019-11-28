@@ -10,6 +10,13 @@ Examples are below.
 
 Usage with `string[]` suggestions:
 
+```html
+<st-autocomplete placeholder="Enter country name" 
+                 prefix-icon="search"
+                 :fetch-suggestions="fetchSuggestions"
+                 v-model="selectedCountry" />
+```
+
 ```javascript
 // ...
 
@@ -25,14 +32,20 @@ fetchSuggestions(query, callback) {
 // ...
 ```
 
+Usage with `object[]` suggestions:
+
 ```html
 <st-autocomplete placeholder="Enter country name" 
                  prefix-icon="search"
                  :fetch-suggestions="fetchSuggestions"
-                 v-model="selectedCountry" />
+                 :value="selectedCountry"
+                 @select="onSelect"
+                 @clear="selectedCountry = ''">
+  <template v-slot:suggestion="{ suggestion }">
+    {{ suggestion.label }}
+  </template>
+</st-autocomplete>
 ```
-
-Usage with `object[]` suggestions:
 
 ```javascript
 // ...
@@ -57,19 +70,6 @@ onSelect(suggestion) {
 }
 
 // ...
-```
-
-```html
-<st-autocomplete placeholder="Enter country name" 
-                 prefix-icon="search"
-                 :fetch-suggestions="fetchSuggestions"
-                 :value="selectedCountry"
-                 @select="onSelect"
-                 @clear="selectedCountry = ''">
-  <template v-slot:suggestion="{ suggestion }">
-    {{ suggestion.label }}
-  </template>
-</st-autocomplete>
 ```
 
 ## Attributes
@@ -106,7 +106,7 @@ onSelect(suggestion) {
 
 ## Slots
 
-| Name | Description | Scope |
+| Name | Description | Props |
 | --- | --- | --- |
 | suggestion | Defines inner content of suggestion | suggestion |
 | message-query-length | Defines inner content of message about query minimal length | - |

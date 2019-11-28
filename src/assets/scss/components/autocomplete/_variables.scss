@@ -1,7 +1,7 @@
 @import '../../utils/variables';
 
 // Dropdown
-$st-autocomplete-dropdown-width: 100%;
+$st-autocomplete-dropdown-width: 100% !default;
 $st-autocomplete-dropdown-max-height: 300px !default;
 $st-autocomplete-dropdown-padding: 0 !default;
 $st-autocomplete-dropdown-border: $st-border !default;
@@ -22,4 +22,4 @@ $st-autocomplete-suggestion-background: transparent !default;
 $st-autocomplete-suggestion-hovered-background: $st-color-white-smoke !default;
 $st-autocomplete-suggestion-font-size: $st-font-size !default;
 $st-autocomplete-suggestion-cursor: pointer !default;
-$st-autocomplete-suggestion-border-bottom: $st-border;
+$st-autocomplete-suggestion-border-bottom: $st-border !default;

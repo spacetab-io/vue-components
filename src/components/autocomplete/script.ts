@@ -7,8 +7,16 @@ import {
   Watch,
 } from 'vue-property-decorator';
 
-import { PopperBindProperties, PopperPlacement, TriggerType } from '../popper/types';
-import { FetchSuggestions, Suggestion } from './types';
+import {
+  PopperBindProperties,
+  PopperPlacement,
+  TriggerType,
+} from '../popper/types';
+import {
+  DebounceGetSuggestions,
+  FetchSuggestions,
+  Suggestion,
+} from './types';
 
 
 @Component({
@@ -19,7 +27,7 @@ export default class StAutocomplete extends Vue {
   value!: string;
 
   @Prop({ type: Function, required: true })
-  fetchSuggestions!: FetchSuggestions;
+  fetchSuggestions!: FetchSuggestions<Suggestion>;
 
   @Prop({ type: Number, default: 300 })
   fetchSuggestionsDelay!: number;
@@ -60,7 +68,7 @@ export default class StAutocomplete extends Vue {
   @Prop(Boolean)
   loading!: boolean;
 
-  @Prop({ type: Object, default: () => {} })
+  @Prop({ type: Object, default: () => ({}) })
   popperProps!: PopperBindProperties;
 
   extendedPopperProps: PopperBindProperties = {
@@ -75,7 +83,7 @@ export default class StAutocomplete extends Vue {
 
   suggestions: Suggestion[] = [];
 
-  debounceGetSuggestions: Function = () => {};
+  debounceGetSuggestions: DebounceGetSuggestions = () => {};
 
   searchLoading: boolean = false;
 
@@ -89,20 +97,24 @@ export default class StAutocomplete extends Vue {
   }
 
   @Watch('value', { immediate: true })
-  onValueChange(value: string) {
+  onValueChange(value: string): void {
     this.inputValue = value;
   }
 
   @Watch('popperVisibility')
-  onPopperVisibilityChange(value: boolean) {
-    this.$emit(`dropdown-${value ? 'show' : 'hide'}`);
+  onPopperVisibilityChange(value: boolean): void {
+    if (value) {
+      this.onDropdownShow();
+    } else {
+      this.onDropdownHide();
+    }
   }
 
-  beforeMount() {
+  beforeMount(): void {
     merge(this.extendedPopperProps, this.popperProps);
   }
 
-  mounted() {
+  mounted(): void {
     this.debounceGetSuggestions = debounce(
       (query: string) => { this.getSuggestions(query); },
       this.fetchSuggestionsDelay,
@@ -113,11 +125,11 @@ export default class StAutocomplete extends Vue {
     return query.length >= this.queryMinLength;
   }
 
-  togglePopperVisibility(value: boolean) {
+  togglePopperVisibility(value: boolean): void {
     this.popperVisibility = value;
   }
 
-  getSuggestions(query: string) {
+  getSuggestions(query: string): void {
     if (!this.checkQueryConditions(query)) {
       this.togglePopperVisibility(false);
       return;
@@ -131,24 +143,31 @@ export default class StAutocomplete extends Vue {
     });
   }
 
-  handleInput(value: string) {
+  handleInput(value: string): void {
     this.debounceGetSuggestions(value);
     this.$emit('type', value);
   }
 
-  handleFocus() {
+  handleFocus(): void {
     if (this.fetchOnFocus && !this.readonly) {
       this.debounceGetSuggestions(this.inputValue);
     }
     this.$emit('focus');
   }
 
-  handleBlur() {
-    this.togglePopperVisibility(false);
+  handleBlur(): void {
     this.$emit('blur');
   }
 
-  onClear() {
+  onDropdownShow(): void {
+    this.$emit('dropdown-show');
+  }
+
+  onDropdownHide(): void {
+    this.$emit('dropdown-hide');
+  }
+
+  onClear(): void {
     if (!this.checkQueryConditions(this.inputValue) || this.closeOnClear) {
       this.togglePopperVisibility(false);
     }
@@ -157,7 +176,7 @@ export default class StAutocomplete extends Vue {
     this.$emit('clear');
   }
 
-  selectSuggestion(suggestion: Suggestion) {
+  selectSuggestion(suggestion: Suggestion): void {
     if (this.closeOnSelect) {
       this.togglePopperVisibility(false);
     }

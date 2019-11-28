@@ -20,6 +20,6 @@ Explain how to use it, please..
 
 ## Slots
 
-| Name | Description | Scope |
+| Name | Description | Props |
 | --- | --- | --- |
 | - | - | - |
