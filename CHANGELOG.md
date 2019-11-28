@@ -6,7 +6,9 @@
 * Added new component: `Autocomplete`
 * Added `dropdown-top` and `dropdown-bottom` slots to `Select` component
 * Added `maxHeight` prop to `Popper` component
-* Added disabled prop to `Tabs` and `Tabs-collapsed` components
+* Component `Tabs` changes:
+    - Added `disable` prop
+    - Component was rewrote, some class names were changed. Styling became more easier. Now there're two classes for inner `Tab`: `st-tabs__list-tab` for visible list and `st-tabs__popper-tab` for popper list. 
 * Component `Input` changes:
     - Added `focusState` prop
     - Inner content was restyles from `absolute` positioning to `flex`
@@ -26,12 +28,13 @@
 * `Select` component fixes:
     - Fixed dropdown's bug with list overflowing
     - Fixed inner popper's behavior when there're some `Select` components on the page
-* Fixed `Scrollbar`'s overflow-x property when horizontal scroll is hidden 
+* Fixed `Scrollbar`'s overflow-x property when horizontal scroll is hidden
 * `Input` component fixes:
     - Fixed wrong background color when disabled
     - Fixed clear icon visibility when disabled or readonly
     - Removed Firefox's outline when inner input is `:invalid`
 * Added `Slots` section to documentation template file
+* Fixed bug with disabled collapsed tabs in `Tabs` component
 
 
 
