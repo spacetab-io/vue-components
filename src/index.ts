@@ -1,5 +1,6 @@
 import { VueConstructor } from 'vue';
 
+import StAutocomplete from './components/autocomplete/index.vue';
 import StBadge from './components/badge/index.vue';
 import StButtonGroup from './components/button-group/index.vue';
 import StButton from './components/button/index.vue';
@@ -26,6 +27,7 @@ import StTextarea from './components/textarea/index.vue';
 import StTooltip from './components/tooltip/index.vue';
 
 const install = (Vue: VueConstructor) => {
+  Vue.component('st-autocomplete', StAutocomplete);
   Vue.component('st-badge', StBadge);
   Vue.component('st-button', StButton);
   Vue.component('st-button-group', StButtonGroup);
@@ -56,6 +58,7 @@ const install = (Vue: VueConstructor) => {
 
 export default {
   install,
+  StAutocomplete,
   StBadge,
   StButton,
   StButtonGroup,

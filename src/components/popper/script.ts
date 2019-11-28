@@ -189,6 +189,9 @@ export default class StPopper extends Vue {
         this.$refs.popper.addEventListener('focus', this.onMouseOver);
         this.$refs.popper.addEventListener('blur', this.onMouseOut);
         break;
+      case TriggerType.manual:
+        document.addEventListener('click', this.handleDocumentClick);
+        break;
     }
   }
 
@@ -202,9 +205,9 @@ export default class StPopper extends Vue {
     ) {
       return;
     }
-    this.$emit('documentClick', this);
+    this.$emit('document-click', this);
 
-    if (this.forceShow) {
+    if (this.trigger === TriggerType.manual || this.forceShow) {
       return;
     }
     this.showPopper = false;

@@ -17,3 +17,9 @@ Explain how to use it, please..
 | Name | Description | Arguments |
 | --- | --- | --- |
 | - | - | - |
+
+## Slots
+
+| Name | Description | Scope |
+| --- | --- | --- |
+| - | - | - |
