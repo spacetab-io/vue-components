@@ -73,7 +73,7 @@ export default class StInput extends Vue {
 
   inputFocused = false;
 
-  get showCloseIcon() {
+  get showClearIcon() {
     return this.clearable && !this.readonly && !this.disabled && !!this.inputValue;
   }
 

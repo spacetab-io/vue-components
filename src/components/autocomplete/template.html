@@ -1,13 +1,11 @@
 <div class="st-autocomplete">
-  <st-popper class="st-autocomplete__dropdown-wrapper"
-             :popper-class="popperClassName"
-             ref="popper"
-             tag="div"
-             trigger="manual"
-             :value="popperVisibility"
-             :disabled="disabled"
-             v-bind="extendedPopperProps"
-             @document-click="popperVisibility = false">
+  <st-dropdown class="st-autocomplete__dropdown-wrapper"
+               popper-class="st-autocomplete-dropdown"
+               ref="dropdown"
+               :disabled="disabled"
+               :popper-value="popperVisibility"
+               :popper-props="extendedPopperProps"
+               @document-click="popperVisibility = false">
     <st-input slot="reference"
               class="st-autocomplete__input"
               v-model="inputValue"
@@ -22,8 +20,9 @@
               @focus="handleFocus"
               @blur="handleBlur"
               @clear="onClear" />
-    <div class="st-autocomplete-dropdown__content">
-      <div v-if="$slots.messageQueryLength && !checkQueryConditions(inputValue)"
+    <template v-slot:top>
+      <slot name="dropdown-top" />
+      <div v-if="$slots['message-query-length'] && !checkQueryConditions(inputValue)"
            class="st-autocomplete__message st-autocomplete__message--length">
         <slot name="message-query-length" />
       </div>
@@ -39,18 +38,18 @@
           No results
         </slot>
       </div>
-      <st-scrollbar v-else
-                    class="st-autocomplete__suggestions">
-        <div class="st-autocomplete__suggestion"
-             v-for="(suggestion, index) in suggestions"
-             :key="index"
-             @click="selectSuggestion(suggestion)">
-          <slot name="suggestion"
-                :suggestion="suggestion">
-            {{ suggestion }}
-          </slot>
-        </div>
-      </st-scrollbar>
-    </div>
-  </st-popper>
+    </template>
+    <st-dropdown-option class="st-autocomplete__suggestion"
+                        v-for="(suggestion, index) in suggestions"
+                        :key="index"
+                        @click="selectSuggestion(suggestion)">
+      <slot name="suggestion"
+            :suggestion="suggestion">
+        {{ suggestion }}
+      </slot>
+    </st-dropdown-option>
+    <template slot="bottom">
+      <slot name="dropdown-bottom" />
+    </template>
+  </st-dropdown>
 </div>

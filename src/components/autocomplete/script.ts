@@ -7,6 +7,9 @@ import {
   Watch,
 } from 'vue-property-decorator';
 
+import StDropdownOption from '../dropdown-option/index.vue';
+import StDropdown from '../dropdown/index.vue';
+import StDropdownScript from '../dropdown/script';
 import {
   PopperBindProperties,
   PopperPlacement,
@@ -21,6 +24,10 @@ import {
 
 @Component({
   name: 'StAutocomplete',
+  components: {
+    StDropdown,
+    StDropdownOption,
+  },
 })
 export default class StAutocomplete extends Vue {
   @Prop({ type: String, default: '' })
@@ -88,13 +95,6 @@ export default class StAutocomplete extends Vue {
   searchLoading: boolean = false;
 
   popperVisibility: boolean = false;
-
-  get popperClassName(): string {
-    return [
-      'st-autocomplete-dropdown',
-      this.extendedPopperProps.popperClass,
-    ].filter(Boolean).join(' ');
-  }
 
   @Watch('value', { immediate: true })
   onValueChange(value: string): void {
@@ -182,5 +182,13 @@ export default class StAutocomplete extends Vue {
     }
     this.$emit('input', suggestion);
     this.$emit('select', suggestion);
+  }
+
+  openDropdown(): void {
+    (this.$refs.dropdown as StDropdownScript).open();
+  }
+
+  closeDropdown(): void {
+    (this.$refs.dropdown as StDropdownScript).close();
   }
 }

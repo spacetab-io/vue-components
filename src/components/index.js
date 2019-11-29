@@ -10,6 +10,8 @@ import StCol from './col/index.vue';
 import StCollapser from './collapser/index.vue';
 import StDatepicker from './datepicker/index.vue';
 import StDialog from './dialog/index.vue';
+import StDropdownOption from './dropdown-option/index.vue';
+import StDropdown from './dropdown/index.vue';
 import StIcon from './icon/index.vue';
 import StInput from './input/index.vue';
 import StNotification from './notification/index.vue';
@@ -37,6 +39,8 @@ const Components = {
   StCollapser,
   StDatepicker,
   StDialog,
+  StDropdown,
+  StDropdownOption,
   StIcon,
   StInput,
   StNotification,

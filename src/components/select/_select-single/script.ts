@@ -23,7 +23,7 @@ export default class StSelectSingle extends StSelectBase {
   @Prop(String)
   value!: string;
 
-  dropdownVisible = false;
+  dropdownVisible: boolean = false;
 
 
   get selectedOption(): SelectOption | undefined {
@@ -34,12 +34,12 @@ export default class StSelectSingle extends StSelectBase {
     return this.selectedOption ? this.selectedOption.label : '';
   }
 
-  select(option: SelectOption) {
+  select(option: SelectOption): void {
     this.$emit('input', option.value);
     this.$emit('select', option);
   }
 
-  clear() {
+  clear(): void {
     if (this.closeOnClear) {
       this.dropdownVisible = false;
     }
@@ -47,11 +47,11 @@ export default class StSelectSingle extends StSelectBase {
     this.$emit('clear');
   }
 
-  openPopper() {
-    (this.$refs.dropdown as StSelectDropdownScript).openPopper();
+  openDropdown(): void {
+    (this.$refs.dropdown as StSelectDropdownScript).openDropdown();
   }
 
-  closePopper() {
-    (this.$refs.dropdown as StSelectDropdownScript).closePopper();
+  closeDropdown(): void {
+    (this.$refs.dropdown as StSelectDropdownScript).closeDropdown();
   }
 }
