@@ -53,10 +53,10 @@ export default class StSelectContent extends Vue {
   @Prop(Boolean)
   isActive!: boolean;
 
-  isFocused = false;
+  isFocused: boolean = false;
 
   @Watch('isActive')
-  onIsActiveChange(value: boolean) {
+  onIsActiveChange(value: boolean): void {
     this.isFocused = value;
   }
 

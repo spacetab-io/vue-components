@@ -21,25 +21,9 @@ $st-select-arrow-icon-font-size: $st-select-arrow-icon-size !default;
 
 // Dropdown block
 $st-select-dropdown-width: 100% !default;
-$st-select-dropdown-padding: 0 !default;
-$st-select-dropdown-list-max-height: 150px !default;
-$st-select-dropdown-background: $st-color-white !default;
-$st-select-dropdown-border: $st-select-border !default;
-$st-select-dropdown-border-radius: $st-select-border-radius !default;
-$st-select-dropdown-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.08) !default;
-
-$st-select-dropdown-option-padding-vertical: 18px !default;
-$st-select-dropdown-option-padding-horizontal: 15px !default;
-$st-select-dropdown-option-font-size: $st-select-font-size !default;
-$st-select-dropdown-option-color: $st-select-color !default;
-$st-select-dropdown-option-border-bottom: $st-border-width $st-border-style $st-border-color !default;
-$st-select-dropdown-option-background: transparent !default;
-$st-select-dropdown-option-hovered-background: $st-color-white-smoke !default;
-$st-select-dropdown-option-disabled-opacity: 0.4 !default;
 
 $st-select-dropdown-readonly-option-cursor: default !default;
 $st-select-dropdown-disabled-option-cursor: default !default;
-$st-select-dropdown-readonly-option-opacity: 0.4 !default;
 
 // Single Select block
 $st-select-single-dropdown-selected-option-font-weight: 600 !default;

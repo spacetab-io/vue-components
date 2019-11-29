@@ -2,24 +2,8 @@
 
 // Dropdown
 $st-autocomplete-dropdown-width: 100% !default;
-$st-autocomplete-dropdown-max-height: 300px !default;
-$st-autocomplete-dropdown-padding: 0 !default;
-$st-autocomplete-dropdown-border: $st-border !default;
-$st-autocomplete-dropdown-border-radius: $st-border-radius !default;
-$st-autocomplete-dropdown-background: $st-color-white !default;
-$st-autocomplete-dropdown-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.08) !default;
 
 // Message
 $st-autocomplete-message-padding: 10px !default;
 $st-autocomplete-message-font-size: $st-font-size !default;
 $st-autocomplete-message-text-align: center !default;
-
-// Suggestion
-$st-autocomplete-suggestion-padding-horizontal: 15px !default;
-$st-autocomplete-suggestion-padding-vertical: 18px !default;
-$st-autocomplete-suggestion-color: $st-text-color-regular !default;
-$st-autocomplete-suggestion-background: transparent !default;
-$st-autocomplete-suggestion-hovered-background: $st-color-white-smoke !default;
-$st-autocomplete-suggestion-font-size: $st-font-size !default;
-$st-autocomplete-suggestion-cursor: pointer !default;
-$st-autocomplete-suggestion-border-bottom: $st-border !default;

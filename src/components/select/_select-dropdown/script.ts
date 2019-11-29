@@ -3,24 +3,25 @@ import {
   Component,
   Prop,
   Vue,
+  Watch,
 } from 'vue-property-decorator';
 
-import StPopper from '../../popper/index.vue';
-import StPopperScript from '../../popper/script';
+import StDropdownOption from '../../dropdown-option/index.vue';
+import StDropdown from '../../dropdown/index.vue';
+import StDropdownScript from '../../dropdown/script';
 import {
   PopperBindProperties,
   PopperPlacement,
   TriggerType,
 } from '../../popper/types';
-import StScrollbar from '../../scrollbar/index.vue';
 import { SelectOption } from '../types';
 
 
 @Component({
   name: 'StSelectDropdown',
   components: {
-    StPopper,
-    StScrollbar,
+    StDropdown,
+    StDropdownOption,
   },
 })
 export default class StSelectDropdown extends Vue {
@@ -56,31 +57,32 @@ export default class StSelectDropdown extends Vue {
     appendToBody: false,
   };
 
-  get popperClassName(): string {
-    return [
-      'st-select-dropdown',
-      this.popperClass,
-      this.extendedPopperProps.popperClass,
-    ].filter(Boolean).join(' ');
+  @Watch('popperProps')
+  onPopperPropsChange(): void {
+    this.mergePopperProps();
   }
 
-  beforeMount() {
+  beforeMount(): void {
+    this.mergePopperProps();
+  }
+
+  mergePopperProps(): void {
     merge(this.extendedPopperProps, this.popperProps);
   }
 
-  select(option: SelectOption) {
+  select(option: SelectOption): void {
     if (this.readonly || option.disabled) { return; }
     this.$emit('select', option);
     if (this.closeOnSelect) {
-      this.closePopper();
+      this.closeDropdown();
     }
   }
 
-  openPopper() {
-    (this.$refs.popper as StPopperScript).doShow();
+  openDropdown(): void {
+    (this.$refs.dropdown as StDropdownScript).open();
   }
 
-  closePopper() {
-    (this.$refs.popper as StPopperScript).doClose();
+  closeDropdown(): void {
+    (this.$refs.dropdown as StDropdownScript).close();
   }
 }

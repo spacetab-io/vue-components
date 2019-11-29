@@ -2,6 +2,7 @@ import merge from 'lodash/merge';
 import {
   Component,
   Prop,
+  Watch,
 } from 'vue-property-decorator';
 
 import StSelectContent from '../_select-content/index.vue';
@@ -31,7 +32,7 @@ export default class StSelectMultiple extends StSelectBase {
   @Prop(Array)
   value!: string[];
 
-  dropdownVisible = false;
+  dropdownVisible: boolean = false;
 
   selectedOptions: SelectOption[] = [];
 
@@ -58,11 +59,20 @@ export default class StSelectMultiple extends StSelectBase {
     ].filter(Boolean).join(' ');
   }
 
-  beforeMount() {
+  @Watch('collapserPopperProps')
+  onPopperPropsChange(): void {
+    this.mergePopperProps();
+  }
+
+  beforeMount(): void {
+    this.mergePopperProps();
+  }
+
+  mergePopperProps(): void {
     merge(this.extendedCollapserPopperProps, this.collapserPopperProps);
   }
 
-  updateSelectedOptions(option: SelectOption) {
+  updateSelectedOptions(option: SelectOption): void {
     const optionIndex = this.selectedValues.indexOf(option.value);
     if (optionIndex > -1) {
       this.selectedOptions.splice(optionIndex, 1);
@@ -71,17 +81,17 @@ export default class StSelectMultiple extends StSelectBase {
     }
   }
 
-  isOptionSelected(value: string) {
+  isOptionSelected(value: string): boolean {
     return this.selectedValues.indexOf(value) > -1;
   }
 
-  select(option: SelectOption) {
+  select(option: SelectOption): void {
     this.updateSelectedOptions(option);
     this.$emit('input', this.selectedValues);
     this.$emit('select', option);
   }
 
-  clear() {
+  clear(): void {
     if (this.closeOnClear) {
       this.dropdownVisible = false;
     }
@@ -90,11 +100,11 @@ export default class StSelectMultiple extends StSelectBase {
     this.$emit('clear');
   }
 
-  openPopper() {
-    (this.$refs.dropdown as StSelectDropdownScript).openPopper();
+  openDropdown(): void {
+    (this.$refs.dropdown as StSelectDropdownScript).openDropdown();
   }
 
-  closePopper() {
-    (this.$refs.dropdown as StSelectDropdownScript).closePopper();
+  closeDropdown(): void {
+    (this.$refs.dropdown as StSelectDropdownScript).closeDropdown();
   }
 }

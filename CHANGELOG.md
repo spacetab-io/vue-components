@@ -4,6 +4,7 @@
 
 ### Features
 * Added new component: `Autocomplete`
+* Added new components: `Dropdown` and `Dropdown-option`
 * Added `dropdown-top` and `dropdown-bottom` slots to `Select` component
 * Added `maxHeight` prop to `Popper` component
 * Component `Tabs` changes:
@@ -13,7 +14,6 @@
     - Added `focusState` prop
     - Inner content was restyles from `absolute` positioning to `flex`
     - Added `default` slot (if you want to place there anything)
-    - Added `$listeners`
 * Component `Select` changes:
     - Inner custom input element was replaced with `Input` component
     - Some style variables were removed, some were changed to `Input`'s variables

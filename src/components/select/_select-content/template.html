@@ -1,15 +1,16 @@
 <st-input class="st-select-content"
-          readonly
           :prefix-icon="prefixIcon"
           :placeholder="placeholder"
           :value="value"
           :disabled="disabled"
+          :readonly="readonly"
           :loading="loading"
           :focus-state="isFocused"
-          @keyup.enter="$emit('open-popper')"
-          @keyup.up="$emit('open-popper')"
-          @keyup.down="$emit('open-popper')"
-          @keyup.esc="$emit('close-popper')"
+          :focus-after-clear="false"
+          @keydown.enter="$emit('open-popper')"
+          @keydown.up="$emit('open-popper')"
+          @keydown.down="$emit('open-popper')"
+          @keydown.esc="$emit('close-popper')"
           @clear="$emit('clear')">
   <template v-if="$slots.prefix">
     <slot name="prefix" />
