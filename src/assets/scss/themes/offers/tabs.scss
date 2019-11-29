@@ -2,16 +2,16 @@
 @import '../../../../components/tabs/style';
 
 .st-tabs {
-  &-list {
+  &__list {
     display: flex;
+  }
 
-    &__tab {
-      justify-content: center;
-      width: 100%;
+  &__list-tab {
+    justify-content: center;
+    width: 100%;
 
-      &--selected {
-        padding-bottom: 1px;
-      }
+    &--selected {
+      padding-bottom: 1px;
     }
   }
 }

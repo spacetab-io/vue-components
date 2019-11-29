@@ -2,3 +2,57 @@
 @import "_tab/style";
 @import "_list-default/style";
 @import "_list-collapsed/style";
+
+.st-tabs {
+  &__list {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  &__list-tab {
+    $tabRoot: &;
+
+    white-space: nowrap;
+    border-bottom: $st-tabs-tab-border-width $st-tabs-tab-border-style $st-tabs-tab-border-color;
+
+    &--selected {
+      color: $st-tabs-tab-selected-text-color;
+      border-bottom-color: $st-tabs-tab-selected-border-color;
+      border-bottom-width: $st-tabs-tab-selected-border-width;
+    }
+
+    &--disabled {
+      cursor: $st-tabs-tab-disabled-cursor;
+      border-bottom-color: $st-tabs-tab-disabled-border-color;
+      border-bottom-width: $st-tabs-tab-disabled-border-width;
+    }
+
+    &:not(#{$tabRoot}--selected):not(#{$tabRoot}--disabled):hover {
+      color: $st-tabs-tab-hovered-text-color;
+      border-bottom-color: $st-tabs-tab-hovered-border-color;
+      border-bottom-width: $st-tabs-tab-hovered-border-width;
+    }
+  }
+
+  &__popper-tab {
+    $tabRoot: &;
+
+    padding: $st-tabs-popper-tab-padding-vertical $st-tabs-popper-tab-padding-horizontal;
+
+    &--selected {
+      color: $st-tabs-tab-selected-text-color;
+      background: $st-tabs-popper-tab-background-selected;
+    }
+
+    &--disabled {
+      cursor: $st-tabs-tab-disabled-cursor;
+      background: $st-tabs-popper-tab-background-disabled;
+    }
+
+    &:not(#{$tabRoot}--selected):not(#{$tabRoot}--disabled):hover {
+      color: $st-tabs-tab-hovered-text-color;
+      background: $st-tabs-popper-tab-background-hover;
+    }
+  }
+}

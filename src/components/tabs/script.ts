@@ -8,12 +8,14 @@ import {
 import { PopperBindProperties } from '../popper/types';
 import StTabsListCollapsed from './_list-collapsed/index.vue';
 import StTabsListDefault from './_list-default/index.vue';
+import StTab from './_tab/index.vue';
 import { Tab } from './types';
 
 
 @Component({
   name: 'StTabs',
   components: {
+    StTab,
     StTabsListDefault,
     StTabsListCollapsed,
   },
@@ -28,7 +30,7 @@ export default class StTabs extends Vue {
   @Prop(Boolean)
   collapsed!: boolean;
 
-  @Prop({ type: Object, default: () => {} })
+  @Prop({ type: Object, default: () => ({}) })
   collapserPopperProps!: PopperBindProperties;
 
   copiedTabs: Tab[] = [];
@@ -40,25 +42,25 @@ export default class StTabs extends Vue {
   }
 
   @Watch('tabs')
-  onTabsChange() {
+  onTabsChange(): void {
     this.setCopiedTabs();
   }
 
   @Watch('value')
-  onValueChange(value: string) {
+  onValueChange(value: string): void {
     this.selectedTabId = value;
   }
 
-  mounted() {
+  mounted(): void {
     this.setCopiedTabs();
     this.setSelectedTab();
   }
 
-  setCopiedTabs() {
+  setCopiedTabs(): void {
     this.copiedTabs = this.tabs;
   }
 
-  setSelectedTab() {
+  setSelectedTab(): void {
     if (this.value) {
       this.selectedTabId = this.value;
     } else {
@@ -66,13 +68,13 @@ export default class StTabs extends Vue {
     }
   }
 
-  select(tab: Tab) {
+  select(tab: Tab): void {
     this.selectedTabId = tab.id;
     this.$emit('select', tab);
     this.$emit('input', this.selectedTabId);
   }
 
-  close(closedTab: Tab) {
+  close(closedTab: Tab): void {
     this.copiedTabs = this.copiedTabs.filter((tab: Tab) => tab.id !== closedTab.id);
     this.$emit('close', closedTab);
   }

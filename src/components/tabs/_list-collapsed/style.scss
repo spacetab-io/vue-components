@@ -1,65 +1,10 @@
 @import '../../../assets/scss/components/tabs/_variables';
 
 .st-tabs-collapser {
-  &__list,
   &__popper-list {
     display: flex;
-    align-items: center;
-  }
-
-  &__list {
-    flex-wrap: nowrap;
-  }
-
-  &__popper-list {
     flex-direction: column;
-  }
-
-  &__tab {
-    $tabRoot: &;
-
-    padding: $st-tabs-tab-padding-vertical $st-tabs-tab-padding-horizontal;
-    white-space: nowrap;
-    border-bottom: $st-tabs-tab-border-width $st-tabs-tab-border-style $st-tabs-tab-border-color;
-
-    &--selected {
-      color: $st-tabs-tab-selected-text-color;
-      border-bottom-color: $st-tabs-tab-selected-border-color;
-      border-bottom-width: $st-tabs-tab-selected-border-width;
-    }
-
-    &--disabled {
-      cursor: $st-tabs-tab-disabled-cursor;
-      border-bottom-color: $st-tabs-tab-disabled-border-color;
-      border-bottom-width: $st-tabs-tab-disabled-border-width;
-    }
-
-    &:not(#{$tabRoot}--selected):not(#{$tabRoot}--disabled):hover {
-      color: $st-tabs-tab-hovered-text-color;
-      border-bottom-color: $st-tabs-tab-hovered-border-color;
-      border-bottom-width: $st-tabs-tab-hovered-border-width;
-    }
-  }
-
-  &__popper-tab {
-    $tabRoot: &;
-
-    padding: $st-tabs-popper-tab-padding-vertical $st-tabs-popper-tab-padding-horizontal;
-
-    &--selected {
-      color: $st-tabs-tab-selected-text-color;
-      background: $st-tabs-popper-tab-background-selected;
-    }
-
-    &--disabled {
-      cursor: $st-tabs-tab-disabled-cursor;
-      background: $st-tabs-popper-tab-background-disabled;
-    }
-
-    &:not(#{$tabRoot}--selected):not(#{$tabRoot}--disabled):hover {
-      color: $st-tabs-tab-hovered-text-color;
-      background: $st-tabs-popper-tab-background-hover;
-    }
+    align-items: center;
   }
 
   &__control {
