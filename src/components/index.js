@@ -1,5 +1,6 @@
 import Vue from 'vue';
 
+import StAutocomplete from './autocomplete/index.vue';
 import StBadge from './badge/index.vue';
 import StButtonGroup from './button-group/index.vue';
 import StButton from './button/index.vue';
@@ -26,6 +27,7 @@ import StTextarea from './textarea/index.vue';
 import StTooltip from './tooltip/index.vue';
 
 const Components = {
+  StAutocomplete,
   StBadge,
   StButton,
   StButtonGroup,

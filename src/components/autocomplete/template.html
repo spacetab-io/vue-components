@@ -1,0 +1,56 @@
+<div class="st-autocomplete">
+  <st-popper class="st-autocomplete__dropdown-wrapper"
+             :popper-class="popperClassName"
+             ref="popper"
+             tag="div"
+             trigger="manual"
+             :value="popperVisibility"
+             :disabled="disabled"
+             v-bind="extendedPopperProps"
+             @document-click="popperVisibility = false">
+    <st-input slot="reference"
+              class="st-autocomplete__input"
+              v-model="inputValue"
+              :loading="loading"
+              :clearable="clearable"
+              :readonly="readonly"
+              :disabled="disabled"
+              :placeholder="placeholder"
+              :prefix-icon="prefixIcon"
+              :suffix-icon="suffixIcon"
+              @input="handleInput"
+              @focus="handleFocus"
+              @blur="handleBlur"
+              @clear="onClear" />
+    <div class="st-autocomplete-dropdown__content">
+      <div v-if="$slots.messageQueryLength && !checkQueryConditions(inputValue)"
+           class="st-autocomplete__message st-autocomplete__message--length">
+        <slot name="message-query-length" />
+      </div>
+      <div v-else-if="searchLoading"
+           class="st-autocomplete__message st-autocomplete__message--loading">
+        <slot name="message-loading">
+          <st-icon name="loader" />
+        </slot>
+      </div>
+      <div v-else-if="!suggestions.length"
+           class="st-autocomplete__message st-autocomplete__message--empty">
+        <slot name="message-empty">
+          No results
+        </slot>
+      </div>
+      <st-scrollbar v-else
+                    class="st-autocomplete__suggestions">
+        <div class="st-autocomplete__suggestion"
+             v-for="(suggestion, index) in suggestions"
+             :key="index"
+             @click="selectSuggestion(suggestion)">
+          <slot name="suggestion"
+                :suggestion="suggestion">
+            {{ suggestion }}
+          </slot>
+        </div>
+      </st-scrollbar>
+    </div>
+  </st-popper>
+</div>
