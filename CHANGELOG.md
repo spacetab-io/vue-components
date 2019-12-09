@@ -23,6 +23,7 @@
 * Component `Popper` changes:
     - Added document listener to usage when `trigger` property's value is `manual`
     - `documentClick` event was renamed to `document-click`  
+    - Added popper arrow's shadow 
     
 ### Maintenance
 * `Select` component fixes:
