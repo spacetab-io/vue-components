@@ -7,7 +7,16 @@ $st-popper-background-color: $st-color-white !default;
 $st-popper-arrow-size: 8px !default;
 $st-popper-padding: 16px !default;
 $st-popper-border-radius: 6px !default;
-$st-popper-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.08) !default;
+$st-popper-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.24) !default;
 $st-popper-offset: 8px !default;
 $st-popper-with-arrow-offset: $st-popper-arrow-size + 3px !default;
 $st-popper-z-index: 9999 !default;
+
+$st-popper-arrow-shadow-size: $st-popper-arrow-size !default;
+$st-popper-arrow-shadow-color: rgba(0, 0, 0, 0.1) !default;
+$st-popper-arrow-shadow-offset: 5px !default;
+$st-popper-arrow-shadow-blur: 8px !default;
+$st-popper-arrow-shadow-spread: 1px !default;
+
+$st-popper-arrow-outline-size: $st-popper-arrow-size !default;
+$st-popper-arrow-outline-color: rgba(0, 0, 0, 0.1) !default;
