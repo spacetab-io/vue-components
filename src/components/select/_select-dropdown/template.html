@@ -1,35 +1,34 @@
-<st-popper :popper-class="popperClassName"
-           ref="popper"
-           tag="div"
-           :disabled="disabled"
-           v-bind="extendedPopperProps"
-           @show="$emit('dropdown-show')"
-           @hide="$emit('dropdown-hide')">
+<st-dropdown popper-class="st-select-dropdown"
+             ref="dropdown"
+             :disabled="disabled"
+             :popper-props="extendedPopperProps"
+             @show="$emit('dropdown-show')"
+             @hide="$emit('dropdown-hide')">
   <template slot="reference">
-    <slot name="reference"></slot>
+    <slot name="reference" />
   </template>
-  <div class="st-select-dropdown__content">
-    <st-scrollbar class="st-select-dropdown__options-list">
-      <slot :options="options">
-        <div :class="[
-               'st-select-dropdown__option',
-               optionClass,
-               {
-                 'st-select-dropdown__option--selected': selectedValues && selectedValues.includes(option.value),
-                 [`${optionClass}--selected`]: optionClass && selectedValues && selectedValues.includes(option.value),
-                 'st-select-dropdown__option--disabled': option.disabled,
-                 'st-select-dropdown__option--readonly': readonly,
-               }
-             ]"
-             v-for="(option, index) in options"
-             :key="option.value || index"
-             @click="select(option)">
-          <slot name="option"
-                :option="option">
-            {{ option.label }}
-          </slot>
-        </div>
-      </slot>
-    </st-scrollbar>
-  </div>
-</st-popper>
+  <template slot="top">
+    <slot name="dropdown-top" />
+  </template>
+  <st-dropdown-option v-for="(option, index) in options"
+                      :key="option.value || index"
+                      :class="[
+                        'st-select-dropdown__option',
+                        optionClass,
+                        {
+                          'st-select-dropdown__option--selected': selectedValues && selectedValues.includes(option.value),
+                          [`${optionClass}--selected`]: optionClass && selectedValues && selectedValues.includes(option.value),
+                        }
+                      ]"
+                      :disabled="option.disabled"
+                      :readonly="readonly"
+                      @click="select(option)">
+    <slot name="option"
+          :option="option">
+      {{ option.label }}
+    </slot>
+  </st-dropdown-option>
+  <template slot="bottom">
+    <slot name="dropdown-bottom" />
+  </template>
+</st-dropdown>

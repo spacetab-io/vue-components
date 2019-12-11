@@ -89,11 +89,20 @@ export default class StCollapser extends Vue {
     return ['st-collapser__popper', this.popperClass].filter(Boolean).join(' ');
   }
 
+  @Watch('popperProps')
+  onPopperPropsChange(): void {
+    this.mergePopperProps();
+  }
+
   beforeDestroy() {
     window.removeEventListener('resize', this.debounceCollapse);
   }
 
-  beforeMount() {
+  beforeMount(): void {
+    this.mergePopperProps();
+  }
+
+  mergePopperProps(): void {
     merge(this.extendedPopperProps, this.popperProps);
   }
 

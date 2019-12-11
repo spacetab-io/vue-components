@@ -1,10 +1,50 @@
 # Changelog
 
+## 0.2.9
+
+### Features
+* Added new component: `Autocomplete`
+* Added new components: `Dropdown` and `Dropdown-option`
+* Added `dropdown-top` and `dropdown-bottom` slots to `Select` component
+* Added `maxHeight` prop to `Popper` component
+* Component `Tabs` changes:
+    - Added `disable` prop
+    - Component was rewrote, some class names were changed. Styling became more easier. Now there're two classes for inner `Tab`: `st-tabs__list-tab` for visible list and `st-tabs__popper-tab` for popper list. 
+* Component `Input` changes:
+    - Added `focusState` prop
+    - Inner content was restyles from `absolute` positioning to `flex`
+    - Added `default` slot (if you want to place there anything)
+* Component `Select` changes:
+    - Inner custom input element was replaced with `Input` component
+    - Some style variables were removed, some were changed to `Input`'s variables
+    - Added `closeOnClear` prop
+    - Added `closeOnSelect` prop
+    - Added `clearIconAsSuffixIcon` prop
+* Component `Popper` changes:
+    - Added document listener to usage when `trigger` property's value is `manual`
+    - `documentClick` event was renamed to `document-click`  
+    - Added popper arrow's shadow 
+    
+### Maintenance
+* `Select` component fixes:
+    - Fixed dropdown's bug with list overflowing
+    - Fixed inner popper's behavior when there're some `Select` components on the page
+* Fixed `Scrollbar`'s overflow-x property when horizontal scroll is hidden
+* `Input` component fixes:
+    - Fixed wrong background color when disabled
+    - Fixed clear icon visibility when disabled or readonly
+    - Removed Firefox's outline when inner input is `:invalid`
+* Added `Slots` section to documentation template file
+* Fixed bug with disabled collapsed tabs in `Tabs` component
+
+
+
+
 ## 0.2.8
 
 ### Features
 * Added browser notifications to `Notifications` component
-* Components `Tabs` and `Tabs-collapsed` were rewrote and combined into single component `Tabs`. 
+* Components `Tabs` and `Tabs-collapsed` were rewrote and combined into single component `Tabs`.
 Since now if you want use Tabs with collapser inside then use property `collapsed`.
 
 
@@ -103,7 +143,7 @@ Since now if you want use Tabs with collapser inside then use property `collapse
 ## 0.2.2
 
 ### Features
-* `Popover` component was temporarily disabled 
+* `Popover` component was temporarily disabled
 
 ### Maintenance
 * Lint dependencies were updated

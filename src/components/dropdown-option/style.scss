@@ -1,0 +1,39 @@
+@import '../../assets/scss/components/dropdown/_variables';
+@import '../../assets/scss/components/dropdown-option/_variables';
+
+.st-dropdown-option {
+  $root: &;
+
+  box-sizing: border-box;
+  width: $st-dropdown-option-width;
+  padding: $st-dropdown-option-padding-vertical $st-dropdown-option-padding-horizontal;
+  font-size: $st-dropdown-option-font-size;
+  color: $st-dropdown-option-color;
+  cursor: $st-dropdown-option-cursor;
+  background: $st-dropdown-option-background;
+  border-bottom: $st-dropdown-border;
+
+  &:not(#{$root}--readonly):not(#{$root}--disabled):hover {
+    background: $st-dropdown-option-hovered-background;
+  }
+
+  &--readonly {
+    cursor: $st-dropdown-option-readonly-cursor;
+  }
+
+  &--disabled {
+    cursor: $st-dropdown-option-disabled-cursor;
+    opacity: $st-dropdown-option-disabled-opacity;
+  }
+
+  &:first-of-type {
+    border-top-left-radius: $st-dropdown-border-radius;
+    border-top-right-radius: $st-dropdown-border-radius;
+  }
+
+  &:last-of-type {
+    border-bottom: none;
+    border-bottom-right-radius: $st-dropdown-border-radius;
+    border-bottom-left-radius: $st-dropdown-border-radius;
+  }
+}

@@ -1,0 +1,17 @@
+@import '../../assets/scss/components/autocomplete/_variables';
+
+.st-autocomplete {
+  $root: &;
+
+  position: relative;
+
+  &__message {
+    padding: $st-autocomplete-message-padding;
+    font-size: $st-autocomplete-message-font-size;
+    text-align: $st-autocomplete-message-text-align;
+  }
+}
+
+.st-autocomplete-dropdown {
+  width: $st-autocomplete-dropdown-width;
+}

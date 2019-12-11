@@ -32,6 +32,9 @@ export default class StPopper extends Vue {
   @Prop(Number)
   width?: number;
 
+  @Prop(Number)
+  maxHeight?: number;
+
   @Prop({ type: Number, default: 100 })
   delayOnMouseOut!: number;
 
@@ -148,7 +151,7 @@ export default class StPopper extends Vue {
 
   popperOptions: PopperOptions = {};
 
-  destroyed() {
+  beforeDestroy() {
     this.destroyPopper();
   }
 
@@ -186,6 +189,9 @@ export default class StPopper extends Vue {
         this.$refs.popper.addEventListener('focus', this.onMouseOver);
         this.$refs.popper.addEventListener('blur', this.onMouseOut);
         break;
+      case TriggerType.manual:
+        document.addEventListener('click', this.handleDocumentClick);
+        break;
     }
   }
 
@@ -199,9 +205,9 @@ export default class StPopper extends Vue {
     ) {
       return;
     }
-    this.$emit('documentClick', this);
+    this.$emit('document-click', this);
 
-    if (this.forceShow) {
+    if (this.trigger === TriggerType.manual || this.forceShow) {
       return;
     }
     this.showPopper = false;
@@ -329,12 +335,9 @@ export default class StPopper extends Vue {
   }
 
   get popperStyles() {
-    if (!this.width) {
-      return {};
-    }
-
     return {
-      width: `${this.width}px`,
+      width: this.width ? `${this.width}px` : void 0,
+      maxHeight: this.maxHeight ? `${this.maxHeight}px` : void 0,
     };
   }
 }

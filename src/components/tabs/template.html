@@ -1,16 +1,48 @@
 <div class="st-tabs">
   <component :is="innerComponentName"
+             class="st-tabs__list"
              :tabs="copiedTabs"
-             :selected-id="selectedTabId"
-             :popper-props="collapserPopperProps"
+             :popper-props="collapsed ? collapserPopperProps : void 0"
              @select="select"
              @close="close">
-    <template v-slot:tab="{ tab }">
-      <slot name="tab" :tab="tab" />
+    <template v-slot:list="{ listTabs }">
+      <st-tab v-for="tab in listTabs"
+              :key="tab.id"
+              :class="[
+                'st-tabs__list-tab',
+                {
+                  'st-tabs__list-tab--selected': tab.id === selectedTabId,
+                  'st-tabs__list-tab--disabled': tab.disabled,
+                }
+              ]"
+              :icon="tab.icon"
+              :label="tab.label"
+              :closeable="tab.closeable"
+              :disabled="tab.disabled"
+              @close="close(tab)"
+              @click.native="!tab.disabled ? select(tab) : void 0">
+        <slot name="tab" :tab="tab" />
+      </st-tab>
     </template>
     <template v-if="collapsed"
-              v-slot:hidden-tab="{ tab }">
-      <slot name="hidden-tab" :tab="tab" />
+              v-slot:hidden-list="{ popperTabs }">
+      <st-tab v-for="tab in popperTabs"
+              :key="tab.id"
+              :class="[
+                'st-tabs__popper-tab',
+                {
+                  'st-tabs__popper-tab--selected': tab.id === selectedTabId,
+                  'st-tabs__popper-tab--disabled': tab.disabled,
+                }
+              ]"
+              :icon="tab.icon"
+              :label="tab.label"
+              :closeable="tab.closeable"
+              :disabled="tab.disabled"
+              @close="close(tab)"
+              @click.native="!tab.disabled ? select(tab) : void 0">
+        <slot name="hidden-tab" :tab="tab" />
+      </st-tab>
     </template>
   </component>
 </div>

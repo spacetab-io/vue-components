@@ -6,33 +6,9 @@
               :elements="tabs"
               :popper-props="popperProps">
   <template v-slot:list="{ elements }">
-    <st-tab v-for="tab in elements"
-            :key="tab.id"
-            class="st-tabs-collapser__tab"
-            :class="{
-               'st-tabs-collapser__tab--selected': tab.id === selectedId,
-            }"
-            :icon="tab.icon"
-            :label="tab.label"
-            :closeable="tab.closeable"
-            @close="$emit('close', tab)"
-            @click.native="$emit('select', tab)">
-      <slot name="tab" v-bind:tab="tab"></slot>
-    </st-tab>
+    <slot name="list" :list-tabs="elements" />
   </template>
   <template v-slot:hidden-list="{ hiddenElements }">
-    <st-tab v-for="tab in hiddenElements"
-            :key="tab.id"
-            class="st-tabs-collapser__popper-tab"
-            :class="{
-              'st-tabs-collapser__popper-tab--selected': tab.id === selectedId,
-            }"
-            :icon="tab.icon"
-            :label="tab.label"
-            :closeable="tab.closeable"
-            @close="$emit('close', tab)"
-            @click.native="$emit('select', tab)">
-      <slot name="hidden-tab" v-bind:tab="tab"></slot>
-    </st-tab>
+    <slot name="hidden-list" :popper-tabs="hiddenElements" />
   </template>
 </st-collapser>

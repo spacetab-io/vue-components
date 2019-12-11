@@ -26,6 +26,9 @@ export default class StInput extends Vue {
   @Prop(Boolean)
   loading!: boolean;
 
+  @Prop(Boolean)
+  focusState!: boolean;
+
   // Input props
   @Prop({ type: String, default: '' })
   value!: string;
@@ -70,8 +73,8 @@ export default class StInput extends Vue {
 
   inputFocused = false;
 
-  get showCloseIcon() {
-    return this.clearable && !!this.inputValue;
+  get showClearIcon() {
+    return this.clearable && !this.readonly && !this.disabled && !!this.inputValue;
   }
 
   @Watch('value')
@@ -79,10 +82,20 @@ export default class StInput extends Vue {
     this.setInputValue(value);
   }
 
+  @Watch('focusState')
+  onFocusStateChange(value: boolean) {
+    this.inputFocused = value;
+  }
+
   setInputValue(value: string) {
     if (value !== this.inputValue) {
       this.inputValue = value;
     }
+  }
+
+  onWrapperMouseEvent(isHovered: boolean) {
+    if (this.disabled) { return; }
+    this.inputHovered = isHovered;
   }
 
   handleInput(event: Event) {
@@ -101,7 +114,9 @@ export default class StInput extends Vue {
   }
 
   handleBlur(event: Event) {
-    this.inputFocused = false;
+    if (!this.focusState) {
+      this.inputFocused = false;
+    }
     this.$emit('blur', event);
   }
 

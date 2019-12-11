@@ -1,5 +1,6 @@
 import { VueConstructor } from 'vue';
 
+import StAutocomplete from './components/autocomplete/index.vue';
 import StBadge from './components/badge/index.vue';
 import StButtonGroup from './components/button-group/index.vue';
 import StButton from './components/button/index.vue';
@@ -9,6 +10,8 @@ import StCol from './components/col/index.vue';
 import StCollapser from './components/collapser/index.vue';
 import StDatepicker from './components/datepicker/index.vue';
 import StDialog from './components/dialog/index.vue';
+import StDropdownOption from './components/dropdown-option/index.vue';
+import StDropdown from './components/dropdown/index.vue';
 import StIcon from './components/icon/index.vue';
 import StInput from './components/input/index.vue';
 import { StNotificationService } from './components/notification/service';
@@ -26,6 +29,7 @@ import StTextarea from './components/textarea/index.vue';
 import StTooltip from './components/tooltip/index.vue';
 
 const install = (Vue: VueConstructor) => {
+  Vue.component('st-autocomplete', StAutocomplete);
   Vue.component('st-badge', StBadge);
   Vue.component('st-button', StButton);
   Vue.component('st-button-group', StButtonGroup);
@@ -33,6 +37,8 @@ const install = (Vue: VueConstructor) => {
   Vue.component('st-checkbox', StCheckbox);
   Vue.component('st-col', StCol);
   Vue.component('st-dialog', StDialog);
+  Vue.component('st-dropdown', StDropdown);
+  Vue.component('st-dropdown-option', StDropdownOption);
   Vue.component('st-collapser', StCollapser);
   Vue.component('st-datepicker', StDatepicker);
   Vue.component('st-icon', StIcon);
@@ -56,6 +62,7 @@ const install = (Vue: VueConstructor) => {
 
 export default {
   install,
+  StAutocomplete,
   StBadge,
   StButton,
   StButtonGroup,
@@ -63,6 +70,9 @@ export default {
   StCol,
   StCollapser,
   StDatepicker,
+  StDialog,
+  StDropdown,
+  StDropdownOption,
   StIcon,
   StInput,
   StNotificationsGroup,

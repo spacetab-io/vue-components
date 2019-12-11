@@ -1,0 +1,19 @@
+@import '../../utils/variables';
+
+$st-dropdown-option-width: 100% !default;
+
+$st-dropdown-option-padding-horizontal: 15px !default;
+$st-dropdown-option-padding-vertical: 18px !default;
+
+$st-dropdown-option-font-size: $st-font-size !default;
+
+$st-dropdown-option-color: $st-text-color-regular !default;
+
+$st-dropdown-option-background: transparent !default;
+$st-dropdown-option-hovered-background: $st-color-white-smoke !default;
+
+$st-dropdown-option-disabled-opacity: 0.4 !default;
+
+$st-dropdown-option-cursor: pointer !default;
+$st-dropdown-option-readonly-cursor: default !default;
+$st-dropdown-option-disabled-cursor: default !default;

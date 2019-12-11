@@ -1,0 +1,27 @@
+<st-popper class="st-dropdown"
+           :popper-class="popperClassName"
+           ref="popper"
+           tag="div"
+           :value="extendedPopperProps.trigger === 'manual' ? popperValue : void 0"
+           :disabled="disabled"
+           v-bind="extendedPopperProps"
+           @show="$emit('show')"
+           @hide="$emit('hide')"
+           @document-click="$emit('document-click')">
+  <template slot="reference">
+    <slot name="reference" />
+  </template>
+  <div class="st-dropdown__content">
+    <div v-if="$slots['top']"
+         class="st-dropdown__slot st-dropdown__slot--top">
+      <slot name="top" />
+    </div>
+    <st-scrollbar class="st-dropdown__list">
+      <slot />
+    </st-scrollbar>
+    <div v-if="$slots['bottom']"
+         class="st-dropdown__slot st-dropdown__slot--bottom">
+      <slot name="bottom" />
+    </div>
+  </div>
+</st-popper>

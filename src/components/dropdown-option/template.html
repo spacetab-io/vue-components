@@ -1,0 +1,8 @@
+<div class="st-dropdown-option"
+     :class="{
+       'st-dropdown-option--readonly': readonly,
+       'st-dropdown-option--disabled': disabled,
+     }"
+     @click="$emit('click')">
+  <slot />
+</div>

@@ -11,16 +11,24 @@
                     :disabled="disabled"
                     :readonly="readonly"
                     :selected-values="[value]"
+                    :close-on-select="closeOnSelect"
                     option-class="st-select-single__dropdown-option"
                     :popper-props="dropdownPopperProps"
                     @select="select"
                     @dropdown-show="dropdownVisible = true; $emit('dropdown-show')"
                     @dropdown-hide="dropdownVisible = false; $emit('dropdown-hide')">
+  <template v-slot:dropdown-top>
+    <slot name="dropdown-top" />
+  </template>
+  <template v-slot:dropdown-bottom>
+    <slot name="dropdown-bottom" />
+  </template>
   <st-select-content slot="reference"
                      :value="selectedLabel"
                      :is-active="dropdownVisible"
                      :prefix-icon="prefixIcon"
                      :suffix-icon="suffixIcon"
+                     :clear-icon-as-suffix-icon="clearIconAsSuffixIcon"
                      :placeholder="placeholder"
                      :loading="loading"
                      :disabled="disabled"
@@ -28,8 +36,8 @@
                      :required="required"
                      :clearable="clearable"
                      @clear="clear"
-                     @open-popper="openPopper"
-                     @close-popper="closePopper">
+                     @open-popper="openDropdown"
+                     @close-popper="closeDropdown">
     <template v-slot:prefix>
       <slot name="content-prefix" />
     </template>

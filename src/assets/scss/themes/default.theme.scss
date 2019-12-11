@@ -4,6 +4,7 @@
 @import '../utils/_variables';
 
 // Components
+@import '../../../components/autocomplete/style';
 @import '../../../components/badge/style';
 @import '../../../components/button/style';
 @import '../../../components/button-group/style';
@@ -13,6 +14,8 @@
 @import '../../../components/collapser/style';
 @import '../../../components/datepicker/style';
 @import '../../../components/dialog/style';
+@import '../../../components/dropdown/style';
+@import '../../../components/dropdown-option/style';
 @import '../../../components/icon/style';
 @import '../../../components/input/style';
 @import '../../../components/notification/style';

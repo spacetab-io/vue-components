@@ -5,56 +5,55 @@
   $root: &;
 
   position: relative;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  justify-content: flex-start;
   height: $st-input-height;
-  font-size: $st-font-size;
+  padding-right: $st-input-padding-right;
+  padding-left: $st-input-padding-left;
+  color: $st-input-color;
+  background: $st-input-background;
+  border: $st-input-border;
+  border-radius: $st-input-border-radius;
+  transition: $st-input-border-transition;
 
   @include webkit-scrollbar;
 
   &__clear {
-    width: ($st-input-icon-size - 2) + px;
-    height: ($st-input-icon-size - 2) + px;
+    width: $st-input-clear-icon-width;
+    height: $st-input-clear-icon-height;
+    padding: $st-input-clear-icon-padding;
+    margin-right: -$st-input-clear-icon-padding;
     color: $st-color-pastel-gray;
     cursor: pointer;
-    transition: $st-fill-transition;
 
     &:hover {
-      color: $st-input-icon-focus-color;
+      color: $st-input-icon-focused-color;
     }
   }
 
   &__loader {
-    width: $st-input-icon-width;
-    height: $st-input-icon-height;
+    padding: $st-input-loader-icon-padding;
+    margin-right: -$st-input-loader-icon-offset;
     color: $st-input-icon-color;
   }
 
   &__inner {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
     box-sizing: border-box;
     display: inline-block;
     width: 100%;
-    padding: 0 15px;
-    font-size: inherit;
+    height: 100%;
+    padding: 0;
+    font-size: $st-input-font-size;
     line-height: 1;
     color: $st-input-color;
-    background-color: $st-input-fill;
-    background-image: none;
+    cursor: inherit;
     -webkit-appearance: none;
-    border: $st-input-border;
-    border-radius: $st-input-border-radius;
+    border: none;
     outline: none;
-    transition: $st-border-transition;
 
-    /** disalbe default clear on IE */
+    /* Disable default clear on IE */
     &::-ms-clear {
       display: none;
       width: 0;
@@ -65,13 +64,9 @@
       color: $st-input-placeholder-color;
     }
 
-    &:hover {
-      border-color: $st-input-hover-border;
-    }
-
-    &:focus {
-      border-color: $st-input-focus-border;
-      outline: none;
+    /* Firefox default outline */
+    &:invalid {
+      box-shadow: none;
     }
   }
 
@@ -79,60 +74,37 @@
   &__prefix {
     display: flex;
     align-items: center;
-  }
-
-  &__suffix {
-    z-index: 2;
-    height: $st-input-icon-height;
-    margin-right: $st-input-margin-px;
-    color: $st-input-icon-color;
-    text-align: center;
-    transition: all 0.3s;
-  }
-
-  &__suffix-icon {
-    width: $st-input-icon-width;
-    height: $st-input-icon-height;
     color: $st-input-icon-color;
   }
 
   &__prefix {
-    z-index: 2;
-    height: $st-input-icon-height;
-    margin-left: $st-input-margin-px;
-    color: $st-input-icon-color;
-    text-align: center;
-    transition: all $st-input-transition-time;
+    margin-right: $st-input-prefix-margin;
   }
 
+  &__suffix-icon,
   &__prefix-icon {
     width: $st-input-icon-width;
     height: $st-input-icon-height;
-    color: $st-input-icon-color;
   }
 
   &__icon {
+    color: currentColor;
     text-align: center;
-    transition: all $st-input-transition-time;
-  }
+    transition: $st-input-icon-transition;
 
-  &__icon + &__icon {
-    margin-left: $st-input-margin-between;
-  }
-
-  &--active {
-    #{$root}__inner {
-      border-color: $st-input-focus-border;
-      outline: none;
+    + #{$root}__icon {
+      margin-left: $st-input-icon-margin-between;
     }
   }
 
   &--disabled {
+    cursor: not-allowed;
+    background-color: $st-input-disabled-background;
+    border-color: $st-input-disabled-border;
+
     #{$root}__inner {
       color: $st-input-disabled-color;
-      cursor: not-allowed;
-      background-color: $st-input-disabled-fill;
-      border-color: $st-input-disabled-border;
+      background-color: $st-input-disabled-background;
 
       &::placeholder {
         color: $st-input-disabled-placeholder-color;
@@ -144,76 +116,35 @@
     }
   }
 
-  &:not(&--focused):not(&--disabled):hover {
-    #{$root}__prefix,
+  &:not(&--close-visible) {
     #{$root}__suffix {
-      color: $st-input-icon-hover-color;
-    }
-
-    #{$root}__icon {
-      color: $st-input-icon-hover-color;
-
-      &#{$root}__clear:hover {
-        color: $st-input-icon-focus-color;
-      }
+      margin-left: $st-input-suffix-margin;
     }
   }
 
-  &--hovered {
+  &--hovered:not(&--focused) {
     #{$root}__prefix,
     #{$root}__suffix {
-      color: $st-input-icon-hover-color;
-
-      #{$root}__icon {
-        color: $st-input-icon-hover-color;
-      }
+      color: $st-input-icon-hovered-color;
     }
   }
 
   &--focused {
     #{$root}__prefix,
     #{$root}__suffix {
-      color: $st-input-icon-focus-color;
-    }
-
-    #{$root}__prefix-icon,
-    #{$root}__suffix-icon,
-    #{$root}__loader {
-      color: $st-input-icon-focus-color;
+      color: $st-input-icon-focused-color;
     }
 
     #{$root}__clear {
-      color: $st-input-icon-hover-color;
+      color: $st-input-icon-hovered-color;
 
       &:hover {
-        color: $st-input-icon-focus-color;
+        color: $st-input-icon-focused-color;
       }
     }
   }
 
-  &--with-suffix {
-    #{$root}__inner {
-      padding-right: $st-input-suffix-padding;
-    }
-
-    &#{$root}--state-visible {
-      #{$root}__inner {
-        padding-right: $st-input-suffix-padding-state-visible;
-      }
-    }
-  }
-
-  &--with-prefix {
-    #{$root}__inner {
-      padding-left: $st-input-prefix-padding;
-    }
-  }
-
-  &--state-visible:not(&--with-prefix),
-  &--with-suffix:not(&--with-prefix) {
-    justify-content: flex-end;
-  }
-
+  // --- Different sizes
   &--extra-large {
     height: $st-input-extra-large-height;
     font-size: $st-input-extra-large-font-size;
@@ -222,24 +153,6 @@
       width: $st-input-extra-large-icon-size;
       height: $st-input-extra-large-icon-size;
       font-size: $st-input-extra-large-icon-size;
-    }
-  }
-
-  &--with-suffix#{&}--extra-large {
-    #{$root}__inner {
-      padding-right: ($st-input-margin * 2) + $st-input-extra-large-icon-size;
-    }
-
-    &#{$root}--state-visible {
-      #{$root}__inner {
-        padding-right: ($st-input-margin * 2) + ($st-input-extra-large-icon-size * 2) + $st-input-margin-between;
-      }
-    }
-  }
-
-  &--with-prefix#{&}--extra-large {
-    #{$root}__inner {
-      padding-left: ($st-input-margin * 2) + $st-input-extra-large-icon-size;
     }
   }
 
@@ -254,45 +167,9 @@
     }
   }
 
-  &--with-suffix#{&}--large {
-    #{$root}__inner {
-      padding-right: ($st-input-margin * 2) + $st-input-large-icon-size;
-    }
-
-    &#{$root}--state-visible {
-      #{$root}__inner {
-        padding-right: ($st-input-margin * 2) + ($st-input-large-icon-size * 2) + $st-input-margin-between;
-      }
-    }
-  }
-
-  &--with-prefix#{&}--large {
-    #{$root}__inner {
-      padding-left: ($st-input-margin * 2) + $st-input-large-icon-size;
-    }
-  }
-
   &--medium {
     height: $st-input-medium-height;
     font-size: $st-input-medium-font-size;
-  }
-
-  &--with-suffix#{&}--medium {
-    #{$root}__inner {
-      padding-right: ($st-input-margin * 2) + $st-input-medium-icon-size;
-    }
-
-    &#{$root}--state-visible {
-      #{$root}__inner {
-        padding-right: (($st-input-margin + $st-input-medium-icon-size) * 2) + $st-input-margin-between;
-      }
-    }
-  }
-
-  &--with-prefix#{&}--medium {
-    #{$root}__inner {
-      padding-left: ($st-input-margin * 2) + $st-input-medium-icon-size;
-    }
   }
 
   &--small {
@@ -300,44 +177,8 @@
     font-size: $st-input-small-font-size;
   }
 
-  &--with-suffix#{&}--small {
-    #{$root}__inner {
-      padding-right: ($st-input-margin * 2) + $st-input-small-icon-size;
-    }
-
-    &#{$root}--state-visible {
-      #{$root}__inner {
-        padding-right: ($st-input-margin * 2) + ($st-input-small-icon-size * 2) + $st-input-margin-between;
-      }
-    }
-  }
-
-  &--with-prefix#{&}--small {
-    #{$root}__inner {
-      padding-left: ($st-input-margin * 2) + $st-input-small-icon-size;
-    }
-  }
-
   &--mini {
     height: $st-input-mini-height;
     font-size: $st-input-mini-font-size;
-  }
-
-  &--with-suffix#{&}--mini {
-    #{$root}__inner {
-      padding-right: ($st-input-margin * 2) + $st-input-mini-icon-size;
-    }
-
-    &#{$root}--state-visible {
-      #{$root}__inner {
-        padding-right: ($st-input-margin * 2) + ($st-input-mini-icon-size * 2) + $st-input-margin-between;
-      }
-    }
-  }
-
-  &--with-prefix#{&}--mini {
-    #{$root}__inner {
-      padding-left: ($st-input-margin * 2) + $st-input-mini-icon-size;
-    }
   }
 }

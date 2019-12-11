@@ -26,27 +26,6 @@ storiesOf('Components|Input', module).add(
       loading: {
         default: boolean('loading', false),
       },
-      size: {
-        default: radios('size', sizeOptions, ''),
-      },
-      type: {
-        default: text('type', ''),
-      },
-      pattern: {
-        default: text('pattern', ''),
-      },
-      placeholder: {
-        default: text('placeholder', 'Input placeholder'),
-      },
-      prefixIcon: {
-        default: select('prefixIcon', iconsList, ''),
-      },
-      suffixIcon: {
-        default: select('suffixIcon', iconsList, ''),
-      },
-      clearIconAsSuffixIcon: {
-        default: boolean('clearIconAsSuffixIcon', false),
-      },
       required: {
         default: boolean('required', false),
       },
@@ -56,8 +35,29 @@ storiesOf('Components|Input', module).add(
       readonly: {
         default: boolean('readonly', false),
       },
+      placeholder: {
+        default: text('placeholder', 'Input placeholder'),
+      },
+      prefixIcon: {
+        default: select('prefix-icon', iconsList, ''),
+      },
+      suffixIcon: {
+        default: select('suffix-icon', iconsList, ''),
+      },
+      clearIconAsSuffixIcon: {
+        default: boolean('clear-icon-as-suffix-icon', false),
+      },
       maxlength: {
         default: number('maxlength'),
+      },
+      type: {
+        default: text('type', ''),
+      },
+      pattern: {
+        default: text('pattern', ''),
+      },
+      size: {
+        default: radios('size', sizeOptions, ''),
       },
     },
   }),

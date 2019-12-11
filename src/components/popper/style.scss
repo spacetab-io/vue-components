@@ -15,6 +15,26 @@
     height: 0;
     margin: $st-popper-arrow-size;
     border: 0 solid transparent;
+
+    // arrow shadow
+    &::before {
+      position: absolute;
+      z-index: -1;
+      width: $st-popper-arrow-shadow-size;
+      height: $st-popper-arrow-shadow-size;
+    }
+
+    // arrow shadow-outline
+    &::after {
+      position: absolute;
+      z-index: -1;
+      display: block;
+      width: 0;
+      height: 0;
+      border-color: transparent;
+      border-style: solid;
+      border-width: $st-popper-arrow-outline-size;
+    }
   }
 
   &[x-placement^="bottom"] {
@@ -25,8 +45,24 @@
       left: calc(50% - #{$st-popper-arrow-size});
       margin-top: 0;
       margin-bottom: 0;
+      clip: rect(-$st-popper-arrow-shadow-size * 3, $st-popper-arrow-shadow-size * 3, auto, -$st-popper-arrow-shadow-size);
       border-width: 0 $st-popper-arrow-size $st-popper-arrow-size $st-popper-arrow-size;
       border-bottom-color: $st-popper-background-color;
+
+      &::before {
+        top: $st-popper-arrow-shadow-size / 2;
+        left: -($st-popper-arrow-shadow-size / 2);
+        content: "";
+        box-shadow: 0 #{-$st-popper-arrow-shadow-offset} $st-popper-arrow-shadow-blur $st-popper-arrow-shadow-spread $st-popper-arrow-shadow-color;
+      }
+
+      &::after {
+        top: -1px;
+        margin-left: -$st-popper-arrow-outline-size;
+        content: "";
+        border-top-width: 0;
+        border-bottom-color: $st-popper-arrow-outline-color;
+      }
     }
   }
 
@@ -38,8 +74,24 @@
       left: -$st-popper-arrow-size;
       margin-right: 0;
       margin-left: 0;
+      clip: rect(-$st-popper-arrow-shadow-size, auto, $st-popper-arrow-shadow-size * 3, -$st-popper-arrow-shadow-size * 3);
       border-width: $st-popper-arrow-size $st-popper-arrow-size $st-popper-arrow-size 0;
       border-right-color: $st-popper-background-color;
+
+      &::before {
+        top: -($st-popper-arrow-shadow-size / 2);
+        left: $st-popper-arrow-shadow-size / 2;
+        content: "";
+        box-shadow: -$st-popper-arrow-shadow-offset 0 $st-popper-arrow-shadow-blur $st-popper-arrow-shadow-spread $st-popper-arrow-shadow-color;
+      }
+
+      &::after {
+        left: -1px;
+        margin-top: -$st-popper-arrow-outline-size;
+        content: "";
+        border-right-color: $st-popper-arrow-outline-color;
+        border-left-width: 0;
+      }
     }
   }
 
@@ -51,8 +103,24 @@
       right: -$st-popper-arrow-size;
       margin-right: 0;
       margin-left: 0;
+      clip: rect(-$st-popper-arrow-shadow-size, $st-popper-arrow-shadow-size * 3, $st-popper-arrow-shadow-size * 3, auto);
       border-width: $st-popper-arrow-size 0 $st-popper-arrow-size $st-popper-arrow-size;
       border-left-color: $st-popper-background-color;
+
+      &::before {
+        top: -($st-popper-arrow-shadow-size / 2);
+        right: $st-popper-arrow-shadow-size / 2;
+        content: "";
+        box-shadow: $st-popper-arrow-shadow-offset 0 $st-popper-arrow-shadow-blur $st-popper-arrow-shadow-spread $st-popper-arrow-shadow-color;
+      }
+
+      &::after {
+        right: -1px;
+        margin-top: -$st-popper-arrow-outline-size;
+        content: "";
+        border-right-width: 0;
+        border-left-color: $st-popper-arrow-outline-color;
+      }
     }
   }
 
@@ -64,8 +132,24 @@
       left: calc(50% - #{$st-popper-arrow-size});
       margin-top: 0;
       margin-bottom: 0;
+      clip: rect(auto, $st-popper-arrow-shadow-size * 3, $st-popper-arrow-shadow-size * 3, -$st-popper-arrow-shadow-size);
       border-width: $st-popper-arrow-size $st-popper-arrow-size 0 $st-popper-arrow-size;
       border-top-color: $st-popper-background-color;
+
+      &::before {
+        bottom: $st-popper-arrow-shadow-size / 2;
+        left: -($st-popper-arrow-shadow-size / 2);
+        content: "";
+        box-shadow: 0 $st-popper-arrow-shadow-offset $st-popper-arrow-shadow-blur $st-popper-arrow-shadow-spread $st-popper-arrow-shadow-color;
+      }
+
+      &::after {
+        bottom: -1px;
+        margin-left: -$st-popper-arrow-outline-size;
+        content: "";
+        border-top-color: $st-popper-arrow-outline-color;
+        border-bottom-width: 0;
+      }
     }
   }
 

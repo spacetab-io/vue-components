@@ -1,0 +1,55 @@
+<div class="st-autocomplete">
+  <st-dropdown class="st-autocomplete__dropdown-wrapper"
+               popper-class="st-autocomplete-dropdown"
+               ref="dropdown"
+               :disabled="disabled"
+               :popper-value="popperVisibility"
+               :popper-props="extendedPopperProps"
+               @document-click="popperVisibility = false">
+    <st-input slot="reference"
+              class="st-autocomplete__input"
+              v-model="inputValue"
+              :loading="loading"
+              :clearable="clearable"
+              :readonly="readonly"
+              :disabled="disabled"
+              :placeholder="placeholder"
+              :prefix-icon="prefixIcon"
+              :suffix-icon="suffixIcon"
+              @input="handleInput"
+              @focus="handleFocus"
+              @blur="handleBlur"
+              @clear="onClear" />
+    <template v-slot:top>
+      <slot name="dropdown-top" />
+      <div v-if="$slots['message-query-length'] && !checkQueryConditions(inputValue)"
+           class="st-autocomplete__message st-autocomplete__message--length">
+        <slot name="message-query-length" />
+      </div>
+      <div v-else-if="searchLoading"
+           class="st-autocomplete__message st-autocomplete__message--loading">
+        <slot name="message-loading">
+          <st-icon name="loader" />
+        </slot>
+      </div>
+      <div v-else-if="!suggestions.length"
+           class="st-autocomplete__message st-autocomplete__message--empty">
+        <slot name="message-empty">
+          No results
+        </slot>
+      </div>
+    </template>
+    <st-dropdown-option class="st-autocomplete__suggestion"
+                        v-for="(suggestion, index) in suggestions"
+                        :key="index"
+                        @click="selectSuggestion(suggestion)">
+      <slot name="suggestion"
+            :suggestion="suggestion">
+        {{ suggestion }}
+      </slot>
+    </st-dropdown-option>
+    <template slot="bottom">
+      <slot name="dropdown-bottom" />
+    </template>
+  </st-dropdown>
+</div>

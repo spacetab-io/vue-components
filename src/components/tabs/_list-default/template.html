@@ -1,15 +1,3 @@
-<div class="st-tabs-list">
-  <st-tab v-for="item in tabs"
-          :key="item.id"
-          class="st-tabs-list__tab"
-          :class="{
-            'st-tabs-list__tab--selected': item.id === selectedId,
-          }"
-          :icon="item.icon"
-          :label="item.label"
-          :closeable="item.closeable"
-          @close="$emit('close', item)"
-          @click.native="$emit('select', item)">
-    <slot name="tab" v-bind:tab="item"></slot>
-  </st-tab>
+<div class="st-tabs-default-list">
+  <slot name="list" :list-tabs="tabs" />
 </div>

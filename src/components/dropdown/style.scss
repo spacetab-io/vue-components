@@ -1,0 +1,24 @@
+@import '../../assets/scss/components/dropdown/_variables';
+
+.st-dropdown {
+  $root: &;
+
+  position: relative;
+
+  &__popper {
+    display: flex;
+    max-height: $st-dropdown-max-height;
+    border: $st-dropdown-border;
+
+    &.st-popper {
+      padding: $st-dropdown-padding;
+      background: $st-dropdown-background;
+      border-radius: $st-dropdown-border-radius;
+      box-shadow: $st-dropdown-shadow;
+    }
+  }
+
+  &__content {
+    width: 100%;
+  }
+}
