@@ -4,7 +4,7 @@
 @import './offers/_variables';
 
 // Components
-@import '../../../components/autocomplete/style';
+@import './offers/autocomplete';
 @import './offers/badge';
 @import './offers/button';
 @import '../../../components/button-group/style';
