@@ -36,7 +36,7 @@
           +{{ hiddenElements.length }}
         </slot>
       </div>
-        <div :class="['st-collapser__hidden-list', hiddenListClass]">
+        <div :class="['st-collapser__hidden-list'].concat(hiddenListClass)">
           <st-scrollbar>
             <slot name="hidden-list"
                 :hidden-elements="hiddenElements">

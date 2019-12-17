@@ -1,6 +1,6 @@
 <st-collapser class="st-tabs-collapser"
               list-class="st-tabs-collapser__list"
-              :hidden-list-class="hiddenListClass || 'st-tabs-collapser__popper-list'"
+              :hidden-list-class="['st-tabs-collapser__popper-list', hiddenListClass]"
               control-class="st-tabs-collapser__control"
               popper-class="st-tabs-collapser__popper"
               :elements="tabs"
