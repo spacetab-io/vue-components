@@ -36,22 +36,24 @@
           +{{ hiddenElements.length }}
         </slot>
       </div>
-      <div :class="['st-collapser__hidden-list', hiddenListClass]">
-        <slot name="hidden-list"
-              :hidden-elements="hiddenElements">
-          <div :class="[
-                 'st-collapser__hidden-item',
+        <div :class="['st-collapser__hidden-list', hiddenListClass]">
+          <st-scrollbar>
+            <slot name="hidden-list"
+                :hidden-elements="hiddenElements">
+            <div :class="[
+                  'st-collapser__hidden-item',
                   hiddenElementClass,
-               ]"
-               v-for="(item, index) in hiddenElements"
-               :key="index"
-               @click="$emit('hidden-element-click', item)">
-            <slot name="hidden-element"
-                  :hidden-element="item">
-              {{ item }}
-            </slot>
-          </div>
-        </slot>
+                ]"
+                v-for="(item, index) in hiddenElements"
+                :key="index"
+                @click="$emit('hidden-element-click', item)">
+              <slot name="hidden-element"
+                    :hidden-element="item">
+                {{ item }}
+              </slot>
+            </div>
+          </slot>
+        </st-scrollbar>
       </div>
     </st-popper>
   </div>
