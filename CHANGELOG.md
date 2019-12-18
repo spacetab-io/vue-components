@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.10
+
+### Features
+* `Button` style `display` changed to `flex` to align inner items
+
+
+
+
 ## 0.2.9
 
 ### Features
