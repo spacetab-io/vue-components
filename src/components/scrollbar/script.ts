@@ -338,10 +338,8 @@ export default class StScrollbar extends Vue {
 
   get containerStyles() {
     return {
-      width: `calc(100% + ${this.verticalScrollbarSize}px)`,
-      height: this.horizontalScrollData.isVisible
-        ? `calc(100% + ${this.horizontalScrollbarSize}px)`
-        : '100%',
+      right: this.verticalScrollData.isVisible ? `-${this.verticalScrollbarSize}px` : '0',
+      bottom: this.horizontalScrollData.isVisible ? `-${this.horizontalScrollbarSize}px` : '0',
     };
   }
 
