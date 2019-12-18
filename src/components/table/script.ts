@@ -100,7 +100,8 @@ export default class StTable extends Vue {
       return [...array].sort((a: any, b: any) => {
         const aValue = isFnField ? (field as Function)(a) : get(a, (field as string));
         const bValue = isFnField ? (field as Function)(b) : get(b, (field as string));
-        return fn(aValue, bValue, a, b, this.sortDirection);
+        const sortDirection = isAsc ? SortDirection.asc : SortDirection.desc;
+        return fn(aValue, bValue, a, b, sortDirection);
       });
     }
 
