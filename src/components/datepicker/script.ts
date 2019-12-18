@@ -82,6 +82,15 @@ export default class StDatepicker extends Vue {
   @Prop(String)
   popperClass?: string;
 
+  @Prop(String)
+  placeholder?: string;
+
+  @Prop(String)
+  suffixIcon?: string;
+
+  @Prop(String)
+  prefixIcon?: string;
+
   @Emit('input')
   emitInput(val: string | string[]): string | string[] {
     return val;

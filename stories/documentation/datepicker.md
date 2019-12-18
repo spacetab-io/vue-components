@@ -21,3 +21,6 @@
 | popper-placement | Popper placement | - | string | 'auto' | auto-start, auto, auto-end, top-start, top, top-end, right-start, right, right-end, bottom-end, bottom, bottom-start, left-end, left, left-start |
 | popper-class | Popper class | - | string | - | any string |
 | v-model | date value | - | string / string[] | - | - |
+| placeholder | Datepicker's placeholder | false | String | - | * |
+| prefix-icon | Datepicker's prefix icon (at left) | false | String | - | * |
+| suffix-icon | Datepicker's suffix icon (at right) | false | String | - | * |

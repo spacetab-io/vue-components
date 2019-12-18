@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.10
+
+### Features
+* Added `placeholder`, `prefix-icon` and `suffix-icon` props to `Datepicker`
+
+
+
+
 ## 0.2.9
 
 ### Features

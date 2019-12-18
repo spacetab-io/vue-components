@@ -6,7 +6,7 @@
 | --- | --- | --- | --- | --- | --- |
 | size | Input's size | false | String | - | mini/small/medium/large/extra-large |
 | clearable | Is Input clearable | true | boolean | false | true/false |
-| suffix-icon | Input's prefix icon (at left) | false | String | - | * |
+| prefix-icon | Input's prefix icon (at left) | false | String | - | * |
 | suffix-icon | Input's suffix icon (at right) | false | String | - | * |
 | value | Input's value | false | String | - | * |
 | type | Input's attribute type (native) | false | String | - | * |
