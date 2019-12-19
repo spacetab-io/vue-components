@@ -50,6 +50,7 @@
     - Removed Firefox's outline when inner input is `:invalid`
 * Added `Slots` section to documentation template file
 * Fixed bug with disabled collapsed tabs in `Tabs` component
+* Fixed bug with scrollbar height. Now scrollbar is absolute positioned.
 
 
 
