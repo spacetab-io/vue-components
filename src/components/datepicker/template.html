@@ -5,6 +5,9 @@
                   :class="inputClass"
                   :clearable="clearable"
                   :value="inputValue"
+                  :placeholder="placeholder"
+                  :prefix-icon="prefixIcon"
+                  :suffix-icon="suffixIcon"
                   @change="clear"></st-input>
     </template>
     <template v-if="!inline && componentMounted">
