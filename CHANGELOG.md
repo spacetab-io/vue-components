@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.11
+
+### Features
+* Update theme offers for `Collapser` and `Autocomplete`
+* Fix client sorting in `Table` component
+* Added hiddenListClass props and control slot to `Tabs`
+* Added new feature to `Autocomplete`: if no suggestion was selected query will be cleared
+
+
+
 ## 0.2.10
 
 ### Features
@@ -26,7 +36,7 @@
 * Added `maxHeight` prop to `Popper` component
 * Component `Tabs` changes:
     - Added `disable` prop
-    - Component was rewrote, some class names were changed. Styling became more easier. Now there're two classes for inner `Tab`: `st-tabs__list-tab` for visible list and `st-tabs__popper-tab` for popper list. 
+    - Component was rewrote, some class names were changed. Styling became more easier. Now there're two classes for inner `Tab`: `st-tabs__list-tab` for visible list and `st-tabs__popper-tab` for popper list.
 * Component `Input` changes:
     - Added `focusState` prop
     - Inner content was restyles from `absolute` positioning to `flex`
@@ -39,9 +49,9 @@
     - Added `clearIconAsSuffixIcon` prop
 * Component `Popper` changes:
     - Added document listener to usage when `trigger` property's value is `manual`
-    - `documentClick` event was renamed to `document-click`  
-    - Added popper arrow's shadow 
-    
+    - `documentClick` event was renamed to `document-click`
+    - Added popper arrow's shadow
+
 ### Maintenance
 * `Select` component fixes:
     - Fixed dropdown's bug with list overflowing
