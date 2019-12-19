@@ -105,7 +105,7 @@ You can find out more about this component slots in the bottom of documentation.
 | close-on-select | **(Single Select only)** Close dropdown after select event | True | Boolean | False | True / False |
 | clear-icon-as-suffix-icon | Use suffix icon as clear icon. It will change suffix icon to cross when input isn't empty | - | Boolean | True | True / False |
 | dropdown-popper-props | Dropdown popper's component properties | - | Object | arrowVisible: false, placement: bottom, trigger: click, boundariesSelector: 'body' | CHECK POPPER COMPONENT DOCUMENTATION |
-| collapser-popper-props | **(Multiple Select only)** Collapser popper's component properties | - | Object | arrowVisible: true, placement: top, trigger: hover, boundariesSelector: 'body', appendToBody: false | CHECK POPPER COMPONENT DOCUMENTATION |
+| collapser-popper-props | **(Multiple Select only)** Collapser popper's component properties | - | Object | { arrowVisible: true, placement: top, trigger: hover, boundariesSelector: 'body', appendToBody: false } | CHECK DROPDOWN COMPONENT DOCUMENTATION |
 
 ## Events
 
