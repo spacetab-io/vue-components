@@ -3,9 +3,9 @@
                popper-class="st-autocomplete-dropdown"
                ref="dropdown"
                :disabled="disabled"
-               :popper-value="popperVisibility"
-               :popper-props="extendedPopperProps"
-               @document-click="popperVisibility = false">
+               :value="popperVisibility"
+               v-bind="extendedPopperProps"
+               @document-click="onDocClick">
     <st-input slot="reference"
               class="st-autocomplete__input"
               v-model="inputValue"
@@ -16,10 +16,11 @@
               :placeholder="placeholder"
               :prefix-icon="prefixIcon"
               :suffix-icon="suffixIcon"
+              :focus-after-clear="focusAfterClear"
               @input="handleInput"
               @focus="handleFocus"
               @blur="handleBlur"
-              @clear="onClear" />
+              @clear="handleClear" />
     <template v-slot:top>
       <slot name="dropdown-top" />
       <div v-if="$slots['message-query-length'] && !checkQueryConditions(inputValue)"

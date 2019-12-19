@@ -1,6 +1,15 @@
 export const template = `
-  <st-dropdown :readonly="readonly"
-               :disabled="disabled">
+  <st-dropdown :placement="placement"
+               :trigger="trigger"
+               :arrow-visible="arrowVisible"
+               :with-border="withBorder"
+               :width="width"
+               :value="value"
+               :disabled="disabled"
+               :force-show="forceShow"
+               :append-to-body="appendToBody"
+               :delay-on-mouse-over="delayOnMouseOver"
+               :delay-on-mouse-out="delayOnMouseOut">
     <st-button slot="reference"
                type="success"
                :disabled="disabled">

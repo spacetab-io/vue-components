@@ -10,6 +10,7 @@ export const template = `
                  :fetch-suggestions="fetchSuggestionsExample"
                  :fetch-suggestions-delay="fetchSuggestionsDelay"
                  :fetch-on-focus="fetchOnFocus"
+                 :focus-after-clear="focusAfterClear"
                  :query-min-length="queryMinLength"
                  :close-on-select="closeOnSelect"
                  :close-on-clear="closeOnClear"

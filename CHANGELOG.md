@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.2.10
+
+### Features
+* `Dropdown` `popperProps` prop was removed, new props were added. Check component's documentation
+* Added new feature to `Autocomplete`: if no suggestion was selected query will be cleared
+
+### Maintenance
+* Added `closeDropdown` and `openDropdown` to the main `Select` script. There was a problem with no able to open/close it
+* Fixed dropdown's visibility in `Autocomplete`'s popper show/hide methods
+* `Input`'s prop `focusAfterClear` was set to false as default
+
+
+
+
 ## 0.2.9
 
 ### Features

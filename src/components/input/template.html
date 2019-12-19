@@ -49,7 +49,7 @@
       <st-icon v-else-if="showClearIcon"
                name="cross"
                class="st-input__icon st-input__clear"
-               @click.stop="clearInput" />
+               @click.stop="handleClear" />
       <st-icon v-if="suffixIcon && !(showClearIcon && clearIconAsSuffixIcon)"
                :name="suffixIcon"
                class="st-input__icon st-input__suffix-icon" />
@@ -61,7 +61,7 @@
       <st-icon v-else-if="showClearIcon"
                name="cross"
                class="st-input__icon st-input__clear"
-               @click.stop="clearInput" />
+               @click.stop="handleClear" />
       <slot name="suffix" />
     </template>
   </div>
