@@ -17,7 +17,7 @@
 | maxlength | Input's maxlength | false | Number | - | * |
 | name | Input's name for form | false | String | - | * |
 | pattern | Input's pattern | false | String | - | * |
-| focus-after-clear | Will focus input after clear | false | boolean | true | true/false |
+| focus-after-clear | Will focus input after clear | false | boolean | false | true/false |
 | clear-icon-as-suffix-icon | Use suffix icon as clear icon. It will change suffix icon to cross when input isn't empty | false | boolean | false | true/false |
 | tabindex | Input's tabindex | false | Number | - | * |
 | focus-state | Defines focus state for input's wrapper. Nice thing if you use input inside your component and need to handle 'focused' class at wrapper manually | false | Boolean | false | true/false |

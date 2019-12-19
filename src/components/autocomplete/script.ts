@@ -10,8 +10,8 @@ import {
 import StDropdownOption from '../dropdown-option/index.vue';
 import StDropdown from '../dropdown/index.vue';
 import StDropdownScript from '../dropdown/script';
+import { DropdownBindProperties } from '../dropdown/types';
 import {
-  PopperBindProperties,
   PopperPlacement,
   TriggerType,
 } from '../popper/types';
@@ -41,6 +41,9 @@ export default class StAutocomplete extends Vue {
 
   @Prop(Boolean)
   fetchOnFocus!: boolean;
+
+  @Prop(Boolean)
+  focusAfterClear!: boolean;
 
   @Prop({ type: Number, default: 1 })
   queryMinLength!: number;
@@ -76,9 +79,9 @@ export default class StAutocomplete extends Vue {
   loading!: boolean;
 
   @Prop({ type: Object, default: () => ({}) })
-  popperProps!: PopperBindProperties;
+  popperProps!: DropdownBindProperties;
 
-  extendedPopperProps: PopperBindProperties = {
+  extendedPopperProps: DropdownBindProperties = {
     arrowVisible: false,
     placement: PopperPlacement.bottom,
     trigger: TriggerType.manual,
@@ -96,9 +99,18 @@ export default class StAutocomplete extends Vue {
 
   popperVisibility: boolean = false;
 
+  suggestionSelected: boolean = false;
+
   @Watch('value', { immediate: true })
   onValueChange(value: string): void {
     this.inputValue = value;
+  }
+
+  @Watch('inputValue', { immediate: true })
+  onInputValueChange(value: string): void {
+    if (!value) {
+      this.suggestionSelected = false;
+    }
   }
 
   @Watch('popperVisibility')
@@ -165,9 +177,10 @@ export default class StAutocomplete extends Vue {
 
   onDropdownHide(): void {
     this.$emit('dropdown-hide');
+    this.checkSelectedSuggestion();
   }
 
-  onClear(): void {
+  handleClear(): void {
     if (!this.checkQueryConditions(this.inputValue) || this.closeOnClear) {
       this.togglePopperVisibility(false);
     }
@@ -176,19 +189,32 @@ export default class StAutocomplete extends Vue {
     this.$emit('clear');
   }
 
+  checkSelectedSuggestion() {
+    if (!this.suggestionSelected || this.inputValue !== this.value) {
+      this.inputValue = this.suggestionSelected ? this.value : '';
+    }
+  }
+
   selectSuggestion(suggestion: Suggestion): void {
     if (this.closeOnSelect) {
       this.togglePopperVisibility(false);
     }
+    this.suggestionSelected = true;
     this.$emit('input', suggestion);
     this.$emit('select', suggestion);
   }
 
   openDropdown(): void {
     (this.$refs.dropdown as StDropdownScript).open();
+    this.togglePopperVisibility(true);
   }
 
   closeDropdown(): void {
     (this.$refs.dropdown as StDropdownScript).close();
+    this.togglePopperVisibility(false);
+  }
+
+  onDocClick() {
+    this.togglePopperVisibility(false);
   }
 }

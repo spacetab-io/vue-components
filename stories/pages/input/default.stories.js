@@ -44,6 +44,9 @@ storiesOf('Components|Input', module).add(
       suffixIcon: {
         default: select('suffix-icon', iconsList, ''),
       },
+      focusAfterClear: {
+        default: boolean('focus-after-clear', false),
+      },
       clearIconAsSuffixIcon: {
         default: boolean('clear-icon-as-suffix-icon', false),
       },

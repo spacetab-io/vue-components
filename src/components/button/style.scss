@@ -6,7 +6,9 @@
   $root: &;
 
   box-sizing: border-box;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   height: 40px;
   margin: 0;
   font-weight: $st-button-font-weight;
@@ -50,8 +52,7 @@
     line-height: 16px;
 
     + #{$root}__content {
-      margin-left: 5px;
-      vertical-align: top;
+      margin-left: 8px;
     }
   }
 

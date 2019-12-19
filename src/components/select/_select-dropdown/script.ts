@@ -9,8 +9,8 @@ import {
 import StDropdownOption from '../../dropdown-option/index.vue';
 import StDropdown from '../../dropdown/index.vue';
 import StDropdownScript from '../../dropdown/script';
+import { DropdownBindProperties } from '../../dropdown/types';
 import {
-  PopperBindProperties,
   PopperPlacement,
   TriggerType,
 } from '../../popper/types';
@@ -47,9 +47,9 @@ export default class StSelectDropdown extends Vue {
   readonly!: boolean;
 
   @Prop({ type: Object, default: () => {} })
-  popperProps!: PopperBindProperties;
+  popperProps!: DropdownBindProperties;
 
-  extendedPopperProps: PopperBindProperties = {
+  extendedPopperProps: DropdownBindProperties = {
     arrowVisible: false,
     placement: PopperPlacement.bottom,
     trigger: TriggerType.click,

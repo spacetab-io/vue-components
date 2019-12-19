@@ -1,14 +1,11 @@
-import merge from 'lodash/merge';
 import {
   Component,
   Prop,
   Vue,
-  Watch,
 } from 'vue-property-decorator';
 
 import StPopperScript from '../popper/script';
 import {
-  PopperBindProperties,
   PopperPlacement,
   TriggerType,
 } from '../popper/types';
@@ -18,49 +15,62 @@ import {
   name: 'StDropdown',
 })
 export default class StDropdown extends Vue {
-  @Prop({ type: Object, default: () => {} })
-  popperProps!: PopperBindProperties;
-
   @Prop(String)
-  popperClass!: string;
+  popperClass?: string;
 
   @Prop(Boolean)
-  popperValue!: boolean;
+  value!: boolean;
 
-  @Prop(Boolean)
+  @Prop(Number)
+  width?: number;
+
+  @Prop(Number)
+  maxHeight?: number;
+
+  @Prop({ type: String, default: 'body' })
+  boundariesSelector?: string;
+
+  @Prop({ type: Boolean, default: true })
+  withBorder!: boolean;
+
+  @Prop({ type: Boolean, default: false })
+  arrowVisible!: boolean;
+
+  @Prop({ type: String, default: PopperPlacement.bottom })
+  placement!: string;
+
+  @Prop({ type: Boolean, default: false })
+  appendToBody!: boolean;
+
+  @Prop({ type: String, default: TriggerType.click })
+  trigger!: TriggerType;
+
+  @Prop({ type: Boolean, default: false })
+  stopPropagation!: boolean;
+
+  @Prop({ type: Boolean, default: false })
+  preventDefault!: boolean;
+
+  @Prop({ type: Boolean, default: false })
+  forceShow!: boolean;
+
+  @Prop({ type: Boolean, default: false })
   disabled!: boolean;
 
-  @Prop(Boolean)
-  readonly!: boolean;
+  @Prop(String)
+  enterActiveClass?: string;
 
-  extendedPopperProps: PopperBindProperties = {
-    arrowVisible: false,
-    placement: PopperPlacement.bottom,
-    trigger: TriggerType.click,
-    boundariesSelector: 'body',
-    appendToBody: false,
-  };
+  @Prop({ type: Number, default: 100 })
+  delayOnMouseOut!: number;
 
-  get popperClassName(): string {
-    return [
-      'st-dropdown__popper',
-      this.popperClass,
-      this.extendedPopperProps.popperClass,
-    ].filter(Boolean).join(' ');
-  }
+  @Prop({ type: Number, default: 100 })
+  delayOnMouseOver!: number;
 
-  @Watch('popperProps')
-  onPopperPropsChange(): void {
-    this.mergePopperProps();
-  }
+  @Prop(String)
+  leaveActiveClass?: string;
 
-  beforeMount(): void {
-    this.mergePopperProps();
-  }
-
-  mergePopperProps(): void {
-    merge(this.extendedPopperProps, this.popperProps);
-  }
+  @Prop({ type: String, default: '' })
+  transition!: string;
 
   open(): void {
     (this.$refs.popper as StPopperScript).doShow();
