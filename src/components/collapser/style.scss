@@ -37,6 +37,11 @@
     }
   }
 
+  &__popper {
+    display: flex;
+    max-height: $st-collapser-max-height;
+  }
+
   &__control {
     margin-left: $st-collapser-control-margin;
     font-size: $st-collapser-item-font-size;

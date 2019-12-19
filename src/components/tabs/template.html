@@ -3,6 +3,7 @@
              class="st-tabs__list"
              :tabs="copiedTabs"
              :popper-props="collapsed ? collapserPopperProps : void 0"
+             :hidden-list-class="collapsed ? hiddenListClass : void 0"
              @select="select"
              @close="close">
     <template v-slot:list="{ listTabs }">
@@ -43,6 +44,10 @@
               @click.native="!tab.disabled ? select(tab) : void 0">
         <slot name="hidden-tab" :tab="tab" />
       </st-tab>
+    </template>
+    <template v-if="collapsed"
+              #control="props">
+      <slot name="control" v-bind="props" />
     </template>
   </component>
 </div>

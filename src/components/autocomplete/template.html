@@ -40,6 +40,9 @@
         </slot>
       </div>
     </template>
+
+    <slot name="suggestion-top" />
+
     <st-dropdown-option class="st-autocomplete__suggestion"
                         v-for="(suggestion, index) in suggestions"
                         :key="index"
@@ -49,7 +52,10 @@
         {{ suggestion }}
       </slot>
     </st-dropdown-option>
-    <template slot="bottom">
+
+    <slot name="suggestion-bottom" />
+
+    <template #bottom>
       <slot name="dropdown-bottom" />
     </template>
   </st-dropdown>

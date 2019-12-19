@@ -11,7 +11,7 @@ Examples are below.
 Usage with `string[]` suggestions:
 
 ```html
-<st-autocomplete placeholder="Enter country name" 
+<st-autocomplete placeholder="Enter country name"
                  prefix-icon="search"
                  :fetch-suggestions="fetchSuggestions"
                  v-model="selectedCountry" />
@@ -21,7 +21,7 @@ Usage with `string[]` suggestions:
 // ...
 
 selectedCountry = '';
-countriesList = [ 'Afghanistan', 'Albania', 'Angola', ... ]; 
+countriesList = [ 'Afghanistan', 'Albania', 'Angola', ... ];
 
 fetchSuggestions(query, callback) {
     callback(this.countriesList.filter(option =>
@@ -35,7 +35,7 @@ fetchSuggestions(query, callback) {
 Usage with `object[]` suggestions:
 
 ```html
-<st-autocomplete placeholder="Enter country name" 
+<st-autocomplete placeholder="Enter country name"
                  prefix-icon="search"
                  :fetch-suggestions="fetchSuggestions"
                  :value="selectedCountry"
@@ -57,7 +57,7 @@ countriesList = [
     { label: 'Angola', id: 'AO' },
     { label: 'Anguilla', id: 'AI' },
     ...
-]; 
+];
 
 fetchSuggestions(query, callback) {
     callback(this.countriesList.filter(option =>
@@ -109,7 +109,9 @@ onSelect(suggestion) {
 
 | Name | Description | Props |
 | --- | --- | --- |
+| suggestion-top | Defines inner content for top of suggestions | - |
 | suggestion | Defines inner content of suggestion | suggestion |
+| suggestion-bottom | Defines inner content for bottom of suggestions | - |
 | message-query-length | Defines inner content of message about query minimal length | - |
 | message-loading | Defines inner content of message about loading state | - |
 | message-empty | Defines inner content of message about no results | - |
