@@ -1,15 +1,5 @@
 # Changelog
 
-## 0.2.11
-
-### Features
-* Update theme offers for `Collapser` and `Autocomplete`
-* Fix client sorting in `Table` component
-* Added hiddenListClass props and control slot to `Tabs`
-* Added new feature to `Autocomplete`: if no suggestion was selected query will be cleared
-
-
-
 ## 0.2.10
 
 ### Features
@@ -17,6 +7,9 @@
 * `Button` style `display` changed to `flex` to align inner items
 * `Dropdown` `popperProps` prop was removed, new props were added. Check component's documentation
 * Added new feature to `Autocomplete`: if no suggestion was selected query will be cleared
+* Update theme `Offers` for `Collapser` and `Autocomplete`
+* Fix client sorting in `Table` component
+* Added `hiddenListClass` prop and `control` slot to `Tabs`
 
 ### Maintenance
 * Added `closeDropdown` and `openDropdown` to the main `Select` script. There was a problem with no able to open/close it
