@@ -37,11 +37,25 @@ Here's an example with more information of usage:
 
 | Name | Description | Required | Type | Default value | Possible values |
 | --- | --- | --- | --- | --- | --- |
-| popper-props | Popper's component properties | - | object | { arrowVisible: false, placement: bottom, trigger: click, boundariesSelector: 'body', appendToBody: false } | CHECK POPPER COMPONENT DOCUMENTATION |
-| popper-class | Defines Popper's `popper-class` property | - | string | - | - |
-| popper-value | **Only `trigger: manual`** <br> Defines Popper's `value` prop. Use it to make custom popper's visibility | - | boolean | - | true / false |
-| disabled | Defines disabled property | - | boolean | false | true / false |
-| readonly | Defines readonly property | - | boolean | false | true / false |
+| v-model | Dropdown visibility value (**with manual trigger only**) | false | boolean | - | - |
+| width | Dropdown width | false | number | - | - |
+| max-height | Dropdown max-height | false | number | - | - |
+| arrow-visible | Show or hide dropdown's arrow | false | boolean | false | - |
+| with-border | Show or hide dropdown's border | false | boolean | true | - |
+| popper-class | Additional dropdown's popper class | false | string | - | - |
+| placement | Dropdown priority placement | false | string | {{DEFAULT_PLACEMENT}} | {{AVAILABLE_PLACEMENTS}} |
+| trigger | Dropdown trigger type | false | string | {{DEFAULT_TRIGGER}} | {{AVAILABLE_TRIGGERS}} |
+| append-to-body | Append dropdown to body | false | boolean | false | - |
+| stop-propagation | Runs event.stopPropagation function | false | boolean | false | - |
+| prevent-default | Runs event.preventDefault function | false | boolean | false | - |
+| force-show | Dropdown's force visibility | false | boolean | false | - |
+| disabled | Defines dropdown's disabled state | false | boolean | false | - |
+| boundaries-selector | The element which will define the boundaries of the dropdown position. The dropdown will never be placed outside of the defined boundaries | false | string | 'body' | - |
+| delay-on-mouse-over | Delay mouse over on popper in milliseconds | false | number | 100 | - |
+| delay-on-mouse-out | Delay mouse out of popper in milliseconds | false | number | 100 | - |
+| enter-active-class | Enter transition active class | false | string | - | - |
+| leave-active-class | Leave transition active class | false | string | - | - |
+| transition | Transition name | false | string | - | - |
 
 ### Dropdown-option
 

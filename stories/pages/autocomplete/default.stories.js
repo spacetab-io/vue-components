@@ -35,6 +35,9 @@ storiesOf('Components|Autocomplete', module).add('Default', () => ({
     fetchSuggestionsDelay: {
       default: number('fetch-suggestions-delay', 300),
     },
+    focusAfterClear: {
+      default: boolean('focus-after-clear', false),
+    },
     fetchOnFocus: {
       default: boolean('fetch-on-focus', false),
     },
