@@ -120,18 +120,16 @@ export default class StPagination extends Vue {
 
     let minRange = separatedMinRange;
     let maxRange = separatedMaxRange;
+
     if (!hasFirstSeparator || !hasLastSeparator) {
       const minRangeWithSeparator = this.currentPage > lastBoundarySplit
         ? lastBoundarySplit
         : separatedMinRange;
-      const minRangeWithoutSeparator = this.currentPage > lastBoundarySplit
-        ? lastBoundarySplit
-        : boundarySecondFirstPage;
       const maxRangeWithSeparator = this.currentPage < firstBoundarySplit
         ? firstBoundarySplit
         : separatedMaxRange;
 
-      minRange = hasFirstSeparator ? minRangeWithSeparator : minRangeWithoutSeparator;
+      minRange = hasFirstSeparator ? minRangeWithSeparator : boundarySecondFirstPage;
       maxRange = hasLastSeparator ? maxRangeWithSeparator : boundarySecondLastPage;
     }
 
@@ -243,6 +241,10 @@ export default class StPagination extends Vue {
   onPageClick(page: number): void {
     if (page === 0 || page > this.totalPages) return;
     this.updateCurrentPage(page);
+  }
+
+  isPageType(type: PageType): boolean {
+    return type === PageType.page;
   }
 
   updateCurrentPage(pageNumber: number): void {
