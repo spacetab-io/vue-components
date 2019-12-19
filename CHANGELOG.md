@@ -3,6 +3,7 @@
 ## 0.2.10
 
 ### Features
+* `Button` style `display` changed to `flex` to align inner items
 * `Dropdown` `popperProps` prop was removed, new props were added. Check component's documentation
 * Added new feature to `Autocomplete`: if no suggestion was selected query will be cleared
 
