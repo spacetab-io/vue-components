@@ -12,6 +12,7 @@
 * Added `closeDropdown` and `openDropdown` to the main `Select` script. There was a problem with no able to open/close it
 * Fixed dropdown's visibility in `Autocomplete`'s popper show/hide methods
 * `Input`'s prop `focusAfterClear` was set to false as default
+* Fixed bug with scrollbar height. Now scrollbar is absolute positioned.
 
 
 
