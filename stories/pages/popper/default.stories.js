@@ -41,6 +41,12 @@ storiesOf('Components|Popper', module).add('Default', () => ({
     disabled: {
       default: boolean('Disabled', false),
     },
+    forceShow: {
+      default: boolean('Force show', false),
+    },
+    appendToBody: {
+      default: boolean('Append to body', true),
+    },
   },
   data() {
     return {

@@ -190,24 +190,35 @@ export default class StPopper extends Vue {
         this.$refs.popper.addEventListener('blur', this.onMouseOut);
         break;
       case TriggerType.manual:
-        document.addEventListener('click', this.handleDocumentClick);
+        document.addEventListener('click', this.handleManualDocumentClick);
         break;
     }
   }
 
-  handleDocumentClick(event: Event) {
-    if (!this.$el
+  checkElementRelativity(element: Node): boolean {
+    return (!this.$el
       || !this.referenceElement
       || !this.$refs.popper
-      || this.elementContains(this.$el, (event.target as Node))
-      || this.elementContains(this.referenceElement, (event.target as Node))
-      || this.elementContains(this.$refs.popper, (event.target as Node))
-    ) {
+      || this.elementContains(this.$el, (element))
+      || this.elementContains(this.referenceElement, (element))
+      || this.elementContains(this.$refs.popper, (element))
+    );
+  }
+
+  handleManualDocumentClick(event: Event): void {
+    if (this.checkElementRelativity(event.target as Node)) {
+      return;
+    }
+    this.$emit('document-click', this);
+  }
+
+  handleDocumentClick(event: Event): void {
+    if (this.checkElementRelativity(event.target as Node)) {
       return;
     }
     this.$emit('document-click', this);
 
-    if (this.trigger === TriggerType.manual || this.forceShow) {
+    if (this.forceShow) {
       return;
     }
     this.showPopper = false;

@@ -58,7 +58,7 @@ export default class StInput extends Vue {
   pattern!: string;
 
   // Other props
-  @Prop({ type: Boolean, default: true })
+  @Prop(Boolean)
   focusAfterClear!: boolean;
 
   @Prop(Boolean)
@@ -132,14 +132,14 @@ export default class StInput extends Vue {
     this.$emit('keypress', event);
   }
 
-  clearInput() {
+  handleClear() {
     this.$emit('input', '');
     this.$emit('change', '');
     this.setInputValue('');
     if (this.focusAfterClear) {
       this.focusInput();
     }
-    this.$emit('clear', '');
+    this.$emit('clear');
   }
 
   focusInput() {

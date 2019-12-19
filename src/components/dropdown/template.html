@@ -1,10 +1,8 @@
 <st-popper class="st-dropdown"
-           :popper-class="popperClassName"
+           :popper-class="['st-dropdown__popper', popperClass].join(' ')"
            ref="popper"
            tag="div"
-           :value="extendedPopperProps.trigger === 'manual' ? popperValue : void 0"
-           :disabled="disabled"
-           v-bind="extendedPopperProps"
+           v-bind="$props"
            @show="$emit('show')"
            @hide="$emit('hide')"
            @document-click="$emit('document-click')">
