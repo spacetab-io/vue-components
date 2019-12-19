@@ -23,6 +23,8 @@
 * Fixed dropdown's visibility in `Autocomplete`'s popper show/hide methods
 * `Input`'s prop `focusAfterClear` was set to false as default
 * Fixed bug with scrollbar height. Now scrollbar is absolute positioned.
+* Fixed bug in `Pagination` with displaying pages when `grouped-pages` amount is more than it possible to display
+* Removed click event on `Pagination`'s separators    
 
 
 
