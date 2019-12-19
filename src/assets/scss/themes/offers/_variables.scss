@@ -41,6 +41,6 @@ $st-tabs-tab-selected-border-width: 2px;
 $st-tabs-tab-border-color: $color-gray-light;
 
 $st-collapser-max-height: 320px;
-$st-dropdown-max-height: 320px $st-collapser-max-height;
+$st-dropdown-max-height: $st-collapser-max-height;
 
 @import '../../utils/variables';
