@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.2.10
+
+### Features
+* Added `placeholder`, `prefix-icon` and `suffix-icon` props to `Datepicker`
+* `Button` style `display` changed to `flex` to align inner items
+* `Dropdown` `popperProps` prop was removed, new props were added. Check component's documentation
+* Added new feature to `Autocomplete`: if no suggestion was selected query will be cleared
+* Update theme `Offers` for `Collapser` and `Autocomplete`
+* Fix client sorting in `Table` component
+* Added `hiddenListClass` prop and `control` slot to `Tabs`
+
+### Maintenance
+* Added `closeDropdown` and `openDropdown` to the main `Select` script. There was a problem with no able to open/close it
+* Fixed dropdown's visibility in `Autocomplete`'s popper show/hide methods
+* `Input`'s prop `focusAfterClear` was set to false as default
+* Fixed bug in `Pagination` with displaying pages when `grouped-pages` amount is more than it possible to display
+* Removed click event on `Pagination`'s separators    
+
+
+
+
 ## 0.2.9
 
 ### Features
@@ -9,7 +30,7 @@
 * Added `maxHeight` prop to `Popper` component
 * Component `Tabs` changes:
     - Added `disable` prop
-    - Component was rewrote, some class names were changed. Styling became more easier. Now there're two classes for inner `Tab`: `st-tabs__list-tab` for visible list and `st-tabs__popper-tab` for popper list. 
+    - Component was rewrote, some class names were changed. Styling became more easier. Now there're two classes for inner `Tab`: `st-tabs__list-tab` for visible list and `st-tabs__popper-tab` for popper list.
 * Component `Input` changes:
     - Added `focusState` prop
     - Inner content was restyles from `absolute` positioning to `flex`
@@ -22,9 +43,9 @@
     - Added `clearIconAsSuffixIcon` prop
 * Component `Popper` changes:
     - Added document listener to usage when `trigger` property's value is `manual`
-    - `documentClick` event was renamed to `document-click`  
-    - Added popper arrow's shadow 
-    
+    - `documentClick` event was renamed to `document-click`
+    - Added popper arrow's shadow
+
 ### Maintenance
 * `Select` component fixes:
     - Fixed dropdown's bug with list overflowing

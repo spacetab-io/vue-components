@@ -3,7 +3,7 @@ import {
   Vue,
 } from 'vue-property-decorator';
 
-import { PopperBindProperties } from '../popper/types';
+import { DropdownBindProperties } from '../dropdown/types';
 import { SelectOption } from './types';
 
 export default class StSelectBase extends Vue {
@@ -47,8 +47,8 @@ export default class StSelectBase extends Vue {
   closeOnSelect!: boolean;
 
   @Prop({ type: Object, default: () => {} })
-  dropdownPopperProps!: PopperBindProperties;
+  dropdownPopperProps!: DropdownBindProperties;
 
   @Prop({ type: Object, default: () => {} })
-  collapserPopperProps!: PopperBindProperties;
+  collapserPopperProps!: DropdownBindProperties;
 }

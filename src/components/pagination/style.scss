@@ -22,7 +22,7 @@
     line-height: $st-pagination-page-size;
     color: $st-pagination-page-text-color;
     text-align: center;
-    cursor: pointer;
+    cursor: $st-pagination-page-cursor;
     border-radius: $st-pagination-page-border-radius;
 
     &:last-child {
@@ -35,7 +35,7 @@
 
     &--current {
       color: $st-pagination-current-page-color;
-      cursor: not-allowed;
+      cursor: $st-pagination-current-page-cursor;
       background-color: $st-pagination-current-page-bg-color;
 
       &:hover {
@@ -44,6 +44,7 @@
     }
 
     &--separator {
+      cursor: $st-pagination-separator-cursor;
       background-color: $st-pagination-separator-bg-color;
 
       &:hover {

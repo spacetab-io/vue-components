@@ -28,8 +28,8 @@
            'st-pagination__page--separator': page.type === PageType.separator
          }"
          :key="index"
-         @click="onPageClick(page.number)">
-      <template v-if="page.type === PageType.page">
+         @click="isPageType(page.type) ? onPageClick(page.number) : void 0">
+      <template v-if="isPageType(page.type)">
         {{ page.number }}
       </template>
       <template v-else>

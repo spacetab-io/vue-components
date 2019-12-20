@@ -11,7 +11,7 @@ Examples are below.
 Usage with `string[]` suggestions:
 
 ```html
-<st-autocomplete placeholder="Enter country name" 
+<st-autocomplete placeholder="Enter country name"
                  prefix-icon="search"
                  :fetch-suggestions="fetchSuggestions"
                  v-model="selectedCountry" />
@@ -21,7 +21,7 @@ Usage with `string[]` suggestions:
 // ...
 
 selectedCountry = '';
-countriesList = [ 'Afghanistan', 'Albania', 'Angola', ... ]; 
+countriesList = [ 'Afghanistan', 'Albania', 'Angola', ... ];
 
 fetchSuggestions(query, callback) {
     callback(this.countriesList.filter(option =>
@@ -35,7 +35,7 @@ fetchSuggestions(query, callback) {
 Usage with `object[]` suggestions:
 
 ```html
-<st-autocomplete placeholder="Enter country name" 
+<st-autocomplete placeholder="Enter country name"
                  prefix-icon="search"
                  :fetch-suggestions="fetchSuggestions"
                  :value="selectedCountry"
@@ -57,7 +57,7 @@ countriesList = [
     { label: 'Angola', id: 'AO' },
     { label: 'Anguilla', id: 'AI' },
     ...
-]; 
+];
 
 fetchSuggestions(query, callback) {
     callback(this.countriesList.filter(option =>
@@ -80,6 +80,7 @@ onSelect(suggestion) {
 | fetch-suggestions | Defines method to fetch input suggestions. Arguments of method are `(query, callback)`. Return found suggestions via `callback(data)`. | true | function | - | - |
 | fetch-suggestions-delay | Defines `fetch-suggestions` debounce's delay | - | number | 300 | - |
 | fetch-on-focus | Defines call of `fetch-suggestions` method right after search input focusing | - | boolean | false | - |
+| focus-after-clear | Will focus autocomplete after clear | false | boolean | false | true/false |
 | query-min-length | Defines minimal length of search value to call `fetch-suggestions` method | - | number | 1 | - |
 | close-on-select | Defines closing dropdown right after suggestion select | - | boolean | true | - |
 | close-on-clear | Defines closing dropdown right after value clear | - | boolean | true | - |
@@ -91,7 +92,7 @@ onSelect(suggestion) {
 | readonly | Defines readonly property | - | boolean | false | - |
 | placeholder | Search's input placeholder | - | string | - | - |
 | loading | Defines loading state | - | boolean | false | - |
-| popper-props | Dropdown popper's component properties | - | object | { arrowVisible: false, placement: bottom, trigger: click, boundariesSelector: 'body', appendToBody: false } | CHECK POPPER COMPONENT DOCUMENTATION |
+| popper-props | Dropdown popper's component properties | - | object | { arrowVisible: false, placement: bottom, trigger: click, boundariesSelector: 'body', appendToBody: false } | CHECK DROPDOWN COMPONENT DOCUMENTATION |
 
 ## Events
 
@@ -108,7 +109,9 @@ onSelect(suggestion) {
 
 | Name | Description | Props |
 | --- | --- | --- |
+| suggestion-top | Defines inner content for top of suggestions | - |
 | suggestion | Defines inner content of suggestion | suggestion |
+| suggestion-bottom | Defines inner content for bottom of suggestions | - |
 | message-query-length | Defines inner content of message about query minimal length | - |
 | message-loading | Defines inner content of message about loading state | - |
 | message-empty | Defines inner content of message about no results | - |

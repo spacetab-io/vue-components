@@ -16,4 +16,7 @@ export default class StTabsListCollapsed extends Vue {
 
   @Prop({ type: Object, default: () => {} })
   popperProps!: PopperBindProperties;
+
+  @Prop(String)
+  hiddenListClass?: string;
 }

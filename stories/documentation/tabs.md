@@ -66,6 +66,7 @@ Or, if you want to make your tabs look as you want you can use slots there.
 | --- | --- | --- |
 | tab | Defines list's element content | tab |
 | hidden-tab | **(Collapsed Tabs only)** Defines hidden list's element content | tab |
+| control | **(Collapsed Tabs only)** Defines block for showing hidden elements | amount |
 
 ## Attributes
 
@@ -75,6 +76,7 @@ Or, if you want to make your tabs look as you want you can use slots there.
 | v-model | Defines selected tab's id | false | String | - | - |
 | collasped | Define collapser functionality for tabs | false | Boolean | false | - |
 | collapser-popper-props | **(Collapsed Tabs only)** Collapser's popper props | false | Object | - | CHECK POPPER COMPONENT |
+| hidden-list-class | Defines additional class name for hidden list | - | String | - | CHECK POPPER COMPONENT |
 
 ## Tab (tabs list item) attributes
 

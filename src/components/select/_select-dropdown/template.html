@@ -1,7 +1,7 @@
 <st-dropdown popper-class="st-select-dropdown"
              ref="dropdown"
              :disabled="disabled"
-             :popper-props="extendedPopperProps"
+             v-bind="extendedPopperProps"
              @show="$emit('dropdown-show')"
              @hide="$emit('dropdown-hide')">
   <template slot="reference">

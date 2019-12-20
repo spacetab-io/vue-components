@@ -11,8 +11,8 @@ import StSelectDropdownScript from '../_select-dropdown/script';
 import StSelectBase from '../_select.base';
 import StCheckbox from '../../checkbox/index.vue';
 import StCollapser from '../../collapser/index.vue';
+import { DropdownBindProperties } from '../../dropdown/types';
 import {
-  PopperBindProperties,
   PopperPlacement,
   TriggerType,
 } from '../../popper/types';
@@ -36,7 +36,7 @@ export default class StSelectMultiple extends StSelectBase {
 
   selectedOptions: SelectOption[] = [];
 
-  extendedCollapserPopperProps: PopperBindProperties = {
+  extendedCollapserPopperProps: DropdownBindProperties = {
     arrowVisible: true,
     placement: PopperPlacement.top,
     trigger: TriggerType.hover,

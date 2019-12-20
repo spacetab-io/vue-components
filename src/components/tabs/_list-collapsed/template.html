@@ -1,14 +1,19 @@
 <st-collapser class="st-tabs-collapser"
               list-class="st-tabs-collapser__list"
-              hidden-list-class="st-tabs-collapser__popper-list"
+              :hidden-list-class="['st-tabs-collapser__popper-list', hiddenListClass]"
               control-class="st-tabs-collapser__control"
               popper-class="st-tabs-collapser__popper"
               :elements="tabs"
               :popper-props="popperProps">
-  <template v-slot:list="{ elements }">
+  <template #list="{ elements }">
     <slot name="list" :list-tabs="elements" />
   </template>
-  <template v-slot:hidden-list="{ hiddenElements }">
+
+  <template #control="props">
+    <slot name="control" v-bind="props" />
+  </template>
+
+  <template #hidden-list="{ hiddenElements }">
     <slot name="hidden-list" :popper-tabs="hiddenElements" />
   </template>
 </st-collapser>
