@@ -40,6 +40,9 @@ storiesOf('Components|Dropdown', module).add('Default', () => ({
     delayOnMouseOut: {
       default: number('delay-on-mouse-out', 100),
     },
+    readonly: {
+      default: boolean('*DROPDOWN-OPTIONS | readonly', false),
+    },
   },
   data() {
     return {}
