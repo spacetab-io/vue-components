@@ -47,7 +47,7 @@ export default class StSelectBase extends Vue {
   closeOnSelect!: boolean;
 
   @Prop({ type: Object, default: () => {} })
-  dropdownPopperProps!: DropdownBindProperties;
+  dropdownProps!: DropdownBindProperties;
 
   @Prop({ type: Object, default: () => {} })
   collapserPopperProps!: DropdownBindProperties;

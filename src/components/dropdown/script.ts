@@ -24,6 +24,9 @@ export default class StDropdown extends Vue {
   @Prop(Number)
   width?: number;
 
+  @Prop(Boolean)
+  useReferenceWidth?: boolean;
+
   @Prop(Number)
   maxHeight?: number;
 
@@ -39,7 +42,7 @@ export default class StDropdown extends Vue {
   @Prop({ type: String, default: PopperPlacement.bottom })
   placement!: string;
 
-  @Prop({ type: Boolean, default: false })
+  @Prop({ type: Boolean, default: true })
   appendToBody!: boolean;
 
   @Prop({ type: String, default: TriggerType.click })

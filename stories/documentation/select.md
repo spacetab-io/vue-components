@@ -70,12 +70,12 @@ Here's some examples:
 </st-select>
 ```
 
-Also you can change/extend inner dropdown's props via `dropdown-popper-props` (same with `collapser-popper-props`):
+Also you can change/extend inner dropdown's props via `dropdown-props` (same with `collapser-popper-props`):
 
 ```html
 <st-select v-model="singleValue" 
            :options="options" 
-           :dropdown-popper-props="{
+           :dropdown-props="{
              width: 400,
              maxHeight: 250,
              arrowVisible: true,
@@ -104,8 +104,8 @@ You can find out more about this component slots in the bottom of documentation.
 | close-on-clear | Close dropdown after clear event | - | Boolean | True | True / False |
 | close-on-select | **(Single Select only)** Close dropdown after select event | True | Boolean | False | True / False |
 | clear-icon-as-suffix-icon | Use suffix icon as clear icon. It will change suffix icon to cross when input isn't empty | - | Boolean | True | True / False |
-| dropdown-popper-props | Dropdown popper's component properties | - | Object | arrowVisible: false, placement: bottom, trigger: click, boundariesSelector: 'body' | CHECK POPPER COMPONENT DOCUMENTATION |
-| collapser-popper-props | **(Multiple Select only)** Collapser popper's component properties | - | Object | { arrowVisible: true, placement: top, trigger: hover, boundariesSelector: 'body', appendToBody: false } | CHECK DROPDOWN COMPONENT DOCUMENTATION |
+| dropdown-props | Dropdown popper's component properties | - | Object | arrowVisible: false, placement: bottom, trigger: click, boundariesSelector: 'body' | CHECK POPPER COMPONENT DOCUMENTATION |
+| collapser-popper-props | **(Multiple Select only)** Collapser popper's component properties | - | Object | { arrowVisible: true, placement: top, trigger: hover, boundariesSelector: 'body', appendToBody: true } | CHECK DROPDOWN COMPONENT DOCUMENTATION |
 
 ## Events
 
