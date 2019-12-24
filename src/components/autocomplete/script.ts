@@ -79,14 +79,13 @@ export default class StAutocomplete extends Vue {
   loading!: boolean;
 
   @Prop({ type: Object, default: () => ({}) })
-  popperProps!: DropdownBindProperties;
+  dropdownProps!: DropdownBindProperties;
 
-  extendedPopperProps: DropdownBindProperties = {
+  extendedDropdownProps: DropdownBindProperties = {
     arrowVisible: false,
     placement: PopperPlacement.bottom,
     trigger: TriggerType.manual,
     boundariesSelector: 'body',
-    appendToBody: false,
   };
 
   inputValue: string = '';
@@ -122,8 +121,17 @@ export default class StAutocomplete extends Vue {
     }
   }
 
+  @Watch('dropdownProps')
+  onDropdownPropsChange(): void {
+    this.mergeDropdownProps();
+  }
+
   beforeMount(): void {
-    merge(this.extendedPopperProps, this.popperProps);
+    this.mergeDropdownProps();
+  }
+
+  mergeDropdownProps(): void {
+    merge(this.extendedDropdownProps, this.dropdownProps);
   }
 
   mounted(): void {

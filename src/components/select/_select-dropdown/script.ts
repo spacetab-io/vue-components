@@ -47,27 +47,26 @@ export default class StSelectDropdown extends Vue {
   readonly!: boolean;
 
   @Prop({ type: Object, default: () => {} })
-  popperProps!: DropdownBindProperties;
+  dropdownProps!: DropdownBindProperties;
 
-  extendedPopperProps: DropdownBindProperties = {
+  extendedDropdownProps: DropdownBindProperties = {
     arrowVisible: false,
     placement: PopperPlacement.bottom,
     trigger: TriggerType.click,
     boundariesSelector: 'body',
-    appendToBody: false,
   };
 
-  @Watch('popperProps')
-  onPopperPropsChange(): void {
-    this.mergePopperProps();
+  @Watch('dropdownProps')
+  onDropdownPropsChange(): void {
+    this.mergeDropdownProps();
   }
 
   beforeMount(): void {
-    this.mergePopperProps();
+    this.mergeDropdownProps();
   }
 
-  mergePopperProps(): void {
-    merge(this.extendedPopperProps, this.popperProps);
+  mergeDropdownProps(): void {
+    merge(this.extendedDropdownProps, this.dropdownProps);
   }
 
   select(option: SelectOption): void {

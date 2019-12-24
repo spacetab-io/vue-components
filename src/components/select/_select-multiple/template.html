@@ -12,7 +12,7 @@
                     :readonly="readonly"
                     :selected-values="value"
                     :close-on-select="false"
-                    :popper-props="dropdownPopperProps"
+                    :dropdown-props="dropdownProps"
                     option-class="st-select-multiple__dropdown-option"
                     @select="select"
                     @dropdown-show="dropdownVisible = true; $emit('dropdown-show')"

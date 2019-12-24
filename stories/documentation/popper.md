@@ -7,6 +7,7 @@
 | v-model | manual popper trigger | false | boolean | - | - |
 | content | popper raw content | false | string | - | - |
 | width | popper width | false | number | - | - |
+| use-reference-width | set popper's width same as reference's one | false | boolean | false | - |
 | max-height | popper max-height | false | number | - | - |
 | tag | html tag for root element | false | string | span | - |
 | delay-on-mouse-over | delay mouse over on popper in milliseconds | false | number | 100 | - |
