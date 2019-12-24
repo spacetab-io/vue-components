@@ -4,6 +4,7 @@
           :value="value"
           :disabled="disabled"
           :readonly="readonly"
+          :clearable="clearable && !disabled && !readonly"
           :loading="loading"
           :focus-state="isFocused"
           :focus-after-clear="false"

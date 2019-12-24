@@ -9,9 +9,15 @@
 * `Select` and `Autocomplete` css style `width: 100%` was removed (in cause of popper displaying bug)
 * Added `Dropdown`'s prop `useReferenceWidth` to make dropdown's width same as its reference
 * `Dropdown`'s prop `appendToBody` was set to `true`
+* `Input`'s `clearable` prop behaviour was changed a bit: if you set it `true` component will be clearable all the time.
+For cases when it's `readonly` or `disabled` check documentation
 
 ### Maintenance
-* fixed clear-icon-as-suffix-icon in storybook
+* Updated `Input` documentation
+* Fixed clear-icon-as-suffix-icon in storybook
+
+
+
 
 ## 0.2.10
 
