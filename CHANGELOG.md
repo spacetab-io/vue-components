@@ -2,7 +2,6 @@
 
 ## 0.2.11
 ### Maintenance
-* changed default suffix icon size from 18px to 12px
 * fixed clear-icon-as-suffix-icon in storybook
 
 ## 0.2.10
