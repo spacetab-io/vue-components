@@ -39,13 +39,14 @@ Here's an example with more information of usage:
 | --- | --- | --- | --- | --- | --- |
 | v-model | Dropdown visibility value (**with manual trigger only**) | false | boolean | - | - |
 | width | Dropdown width | false | number | - | - |
+| use-reference-width | set dropdown's width same as reference's one | false | boolean | false | - |
 | max-height | Dropdown max-height | false | number | - | - |
 | arrow-visible | Show or hide dropdown's arrow | false | boolean | false | - |
 | with-border | Show or hide dropdown's border | false | boolean | true | - |
 | popper-class | Additional dropdown's popper class | false | string | - | - |
 | placement | Dropdown priority placement | false | string | {{DEFAULT_PLACEMENT}} | {{AVAILABLE_PLACEMENTS}} |
 | trigger | Dropdown trigger type | false | string | {{DEFAULT_TRIGGER}} | {{AVAILABLE_TRIGGERS}} |
-| append-to-body | Append dropdown to body | false | boolean | false | - |
+| append-to-body | Append dropdown to body | false | boolean | true | - |
 | stop-propagation | Runs event.stopPropagation function | false | boolean | false | - |
 | prevent-default | Runs event.preventDefault function | false | boolean | false | - |
 | force-show | Dropdown's force visibility | false | boolean | false | - |

@@ -92,7 +92,7 @@ onSelect(suggestion) {
 | readonly | Defines readonly property | - | boolean | false | - |
 | placeholder | Search's input placeholder | - | string | - | - |
 | loading | Defines loading state | - | boolean | false | - |
-| popper-props | Dropdown popper's component properties | - | object | { arrowVisible: false, placement: bottom, trigger: click, boundariesSelector: 'body', appendToBody: false } | CHECK DROPDOWN COMPONENT DOCUMENTATION |
+| dropdown-props | Dropdown popper's component properties | - | object | { arrowVisible: false, placement: bottom, trigger: click, boundariesSelector: 'body', appendToBody: true } | CHECK DROPDOWN COMPONENT DOCUMENTATION |
 
 ## Events
 

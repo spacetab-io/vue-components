@@ -1,4 +1,6 @@
 import Popper, {
+  Data,
+  Modifiers,
   Placement,
   PopperOptions,
 } from 'popper.js';
@@ -31,6 +33,9 @@ export default class StPopper extends Vue {
 
   @Prop(Number)
   width?: number;
+
+  @Prop(Boolean)
+  useReferenceWidth?: boolean;
 
   @Prop(Number)
   maxHeight?: number;
@@ -255,16 +260,26 @@ export default class StPopper extends Vue {
         this.popperJs = void 0;
       }
 
+      const modifiers: Modifiers = { ...this.popperOptions.modifiers };
+
       if (this.boundariesSelector) {
         const boundariesElement = document.querySelector(this.boundariesSelector);
 
         if (boundariesElement) {
-          this.popperOptions.modifiers = { ...this.popperOptions.modifiers };
-          this.popperOptions.modifiers.preventOverflow = { ...this.popperOptions.modifiers.preventOverflow };
-          this.popperOptions.modifiers.preventOverflow.boundariesElement = boundariesElement;
+          modifiers.preventOverflow = { ...modifiers.preventOverflow };
+          modifiers.preventOverflow.boundariesElement = boundariesElement;
         }
       }
 
+      if (this.useReferenceWidth && !this.width) {
+        modifiers.applyReferenceWidth = {
+          enabled: true,
+          fn: this.applyReferenceWidth,
+          order: 840,
+        };
+      }
+
+      this.popperOptions.modifiers = modifiers;
       this.popperOptions.placement = (this.placement as Placement);
 
       this.popperOptions.onCreate = () => {
@@ -331,6 +346,17 @@ export default class StPopper extends Vue {
     this.timer = setTimeout(() => {
       this.showPopper = false;
     }, this.delayOnMouseOut);
+  }
+
+  applyReferenceWidth(data: Data): Data {
+    const { width, left } = data.offsets.reference;
+    const updatedData = { ...data };
+
+    updatedData.styles.width = `${width.toString()}px`;
+    updatedData.offsets.popper.width = width;
+    updatedData.offsets.popper.left = left;
+
+    return updatedData;
   }
 
   get popperElement(): Node {
