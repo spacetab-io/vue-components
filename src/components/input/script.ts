@@ -73,8 +73,16 @@ export default class StInput extends Vue {
 
   inputFocused = false;
 
-  get showClearIcon() {
+  get showClearIcon(): boolean {
     return this.clearable && !this.readonly && !this.disabled && !!this.inputValue;
+  }
+
+  get showSuffixIcon(): boolean {
+    if (!this.clearIconAsSuffixIcon) {
+      return !!this.suffixIcon;
+    }
+
+    return !!this.suffixIcon && !this.showClearIcon;
   }
 
   @Watch('value')

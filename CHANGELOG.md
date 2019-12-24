@@ -10,9 +10,8 @@
 * Added `Dropdown`'s prop `useReferenceWidth` to make dropdown's width same as its reference
 * `Dropdown`'s prop `appendToBody` was set to `true`
 
-
-
-
+### Maintenance
+* fixed clear-icon-as-suffix-icon in storybook
 
 ## 0.2.10
 
