@@ -1,11 +1,32 @@
 # Documentation
 
+## Example of Usage
+
+```javascript
+{
+    inputValue: '', // for v-model
+    readonly: false,
+    disabled: false,
+}
+```
+
+```html
+<st-input v-model="inputValue" />
+```
+
+If you want more input-like behaviour with clearable prop, use the component this way:
+
+```html
+<st-input v-model="inputValue" 
+          :clearable="!disabled && !readonly" />
+```
+
 ## Attributes
 
 | Name | Description | Required | Type | Default value | Possible values |
 | --- | --- | --- | --- | --- | --- |
 | size | Input's size | false | String | - | mini/small/medium/large/extra-large |
-| clearable | Is Input clearable | true | boolean | false | true/false |
+| clearable | Is Input clearable | false | boolean | false | true/false |
 | prefix-icon | Input's prefix icon (at left) | false | String | - | * |
 | suffix-icon | Input's suffix icon (at right) | false | String | - | * |
 | value | Input's value | false | String | - | * |
