@@ -47,6 +47,9 @@ storiesOf('Components|Popper', module).add('Default', () => ({
     appendToBody: {
       default: boolean('Append to body', true),
     },
+    useReferenceWidth: {
+      default: boolean('Use reference width', false),
+    }
   },
   data() {
     return {

@@ -354,7 +354,13 @@ export default class StPopper extends Vue {
 
     updatedData.styles.width = `${width.toString()}px`;
     updatedData.offsets.popper.width = width;
-    updatedData.offsets.popper.left = left;
+
+    if ([
+      PopperPlacement.top,
+      PopperPlacement.bottom,
+    ].includes(data.placement as PopperPlacement)) {
+      updatedData.offsets.popper.left = left;
+    }
 
     return updatedData;
   }
