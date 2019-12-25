@@ -43,6 +43,9 @@ storiesOf('Components|Dropdown', module).add('Default', () => ({
     readonly: {
       default: boolean('*DROPDOWN-OPTIONS | readonly', false),
     },
+    useReferenceWidth: {
+      default: boolean('Use reference width', false),
+    },
   },
   data() {
     return {}

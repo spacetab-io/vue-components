@@ -8,6 +8,7 @@ export const template = `
                :disabled="disabled"
                :force-show="forceShow"
                :append-to-body="appendToBody"
+               :use-reference-width="useReferenceWidth"
                :delay-on-mouse-over="delayOnMouseOver"
                :delay-on-mouse-out="delayOnMouseOut">
     <st-button slot="reference"
