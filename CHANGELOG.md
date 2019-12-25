@@ -6,6 +6,7 @@
 * Updated `Notification` component. Do not show browser notifications when window is active
 * Fixed `Select`'s `list` slot. Didn't work before
 * Added `selected` key to `Select`'s `options` object. Useful for `option` slot
+* Fixed `Popper` bug with placement while `useReferenceWidth` is on
 
 
 

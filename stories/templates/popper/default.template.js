@@ -11,6 +11,7 @@ export const template = `
              :disabled="disabled"
              :force-show="forceShow"
              :append-to-body="appendToBody"
+             :use-reference-width="useReferenceWidth"
              v-model="value"
              :placement="placement">
     <div class="content">
