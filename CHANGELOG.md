@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.12
+
+### Maintenance
+* Updated `Notification` component. Do not show browser notifications when window is active
+
+
 ## 0.2.11
 
 ### Features
@@ -35,7 +41,7 @@ For cases when it's `readonly` or `disabled` check documentation
 * Fixed dropdown's visibility in `Autocomplete`'s popper show/hide methods
 * `Input`'s prop `focusAfterClear` was set to false as default
 * Fixed bug in `Pagination` with displaying pages when `grouped-pages` amount is more than it possible to display
-* Removed click event on `Pagination`'s separators    
+* Removed click event on `Pagination`'s separators
 
 
 
