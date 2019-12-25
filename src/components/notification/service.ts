@@ -29,8 +29,10 @@ class NotificationService {
         const icon = options.icon || '';
         const params = { body, icon };
 
-        const notification = new Notification(title, params);
-        setTimeout(notification.close.bind(notification), options.duration || 4000);
+        if (document.hidden) {
+          const notification = new Notification(title, params);
+          setTimeout(notification.close.bind(notification), options.duration || 4000);
+        }
       }
     });
   }
