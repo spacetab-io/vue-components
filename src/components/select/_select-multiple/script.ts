@@ -44,6 +44,13 @@ export default class StSelectMultiple extends StSelectBase {
     stopPropagation: true,
   };
 
+  get updatedOptions(): SelectOption[] {
+    return this.options.map(option => ({
+      ...option,
+      selected: this.selectedValues && this.selectedValues.includes(option.value),
+    }));
+  }
+
   get selectedValues(): string[] {
     return this.selectedOptions.map((option: SelectOption) => option.value);
   }
