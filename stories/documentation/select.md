@@ -100,10 +100,11 @@ You can find out more about this component slots in the bottom of documentation.
 | loading | Defines loading state | - | Boolean | False | True / False |
 | size | Defines component's size | - | String | - | mini / small / medium / large / extra-large |
 | prefix-icon | Defines prefix icon name (at the left side) | - | String | - | CHECK ICON COMPONENT |
-| suffix-icon | Defines suffix icon name (at the right side) | - | String | arrow-down | CHECK ICON COMPONENT |
+| suffix-icon | Defines suffix icon name (at the right side) | - | String | - | CHECK ICON COMPONENT |
 | close-on-clear | Close dropdown after clear event | - | Boolean | True | True / False |
 | close-on-select | **(Single Select only)** Close dropdown after select event | True | Boolean | False | True / False |
-| clear-icon-as-suffix-icon | Use suffix icon as clear icon. It will change suffix icon to cross when input isn't empty | - | Boolean | True | True / False |
+| show-arrow-icon | Show select's default arrow icon or not | - | Boolean | True | True / False |
+| clear-icon-as-arrow-icon | Use suffix icon as clear icon. It will change suffix icon to cross when input isn't empty | - | Boolean | True | True / False |
 | dropdown-props | Dropdown popper's component properties | - | Object | arrowVisible: false, placement: bottom, trigger: click, boundariesSelector: 'body' | CHECK POPPER COMPONENT DOCUMENTATION |
 | collapser-popper-props | **(Multiple Select only)** Collapser popper's component properties | - | Object | { arrowVisible: true, placement: top, trigger: hover, boundariesSelector: 'body', appendToBody: true } | CHECK DROPDOWN COMPONENT DOCUMENTATION |
 

@@ -24,10 +24,12 @@
     </slot>
   </template>
   <template v-slot:suffix>
-    <st-icon v-if="isSuffixIconVisible"
+    <st-icon v-if="isArrowIconVisible"
+             name="arrow-down"
+             class="st-select-content__icon st-select-content__arrow-icon" />
+    <st-icon v-if="suffixIcon"
              :name="suffixIcon"
-             class="st-select-content__icon"
-             :class="suffixIconClassName" />
+             class="st-select-content__icon st-select-content__suffix-icon" />
     <slot name="suffix" />
   </template>
 </st-input>
