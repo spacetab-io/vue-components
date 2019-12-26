@@ -21,6 +21,7 @@
   @include webkit-scrollbar;
 
   &__clear {
+    box-sizing: content-box;
     width: $st-input-clear-icon-width;
     height: $st-input-clear-icon-height;
     padding: $st-input-clear-icon-padding;
@@ -34,6 +35,7 @@
   }
 
   &__loader {
+    box-sizing: content-box;
     padding: $st-input-loader-icon-padding;
     margin-right: -$st-input-loader-icon-offset;
     color: $st-input-icon-color;

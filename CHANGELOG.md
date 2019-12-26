@@ -7,6 +7,7 @@
 * Fixed `Select`'s `list` slot. Didn't work before
 * Added `selected` key to `Select`'s `options` object. Useful for `option` slot
 * Fixed `Popper` bug with placement while `useReferenceWidth` is on
+* `Input` and `Notification` icons with padding set to `box-sizing: content-box`. Padding won't be calculated in width and height 
 
 
 
