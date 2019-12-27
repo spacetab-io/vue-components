@@ -10,6 +10,7 @@ export const template = `
            :clearable="clearable"
            :prefix-icon="prefixIcon || void 0"
            :suffix-icon="suffixIcon || void 0"
-           :clear-icon-as-suffix-icon="clearIconAsSuffixIcon">
+           :show-arrow-icon="showArrowIcon"
+           :clear-icon-as-arrow-icon="clearIconAsArrowIcon">
 </st-select>
 `;

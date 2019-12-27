@@ -37,8 +37,11 @@ storiesOf('Components|Select', module).add('Default', () => ({
     suffixIcon: {
       default: select('suffix-icon', iconsList, ''),
     },
-    clearIconAsSuffixIcon: {
-      default: boolean('clear-icon-as-suffix-icon', true),
+    showArrowIcon: {
+      default: boolean('show-arrow-icon', true),
+    },
+    clearIconAsArrowIcon: {
+      default: boolean('clear-icon-as-arrow-icon', true),
     },
   },
   data() {

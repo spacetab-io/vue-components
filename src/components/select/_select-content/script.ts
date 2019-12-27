@@ -8,8 +8,6 @@ import {
 import StIcon from '../../icon/index.vue';
 
 
-const DEFAULT_SUFFIX_ICON = 'arrow-down';
-
 @Component({
   name: 'StSelectContent',
   components: {
@@ -23,11 +21,14 @@ export default class StSelectContent extends Vue {
   @Prop(String)
   prefixIcon!: string;
 
-  @Prop({ type: String, default: DEFAULT_SUFFIX_ICON })
+  @Prop(String)
   suffixIcon!: string;
 
   @Prop({ type: Boolean, default: true })
-  clearIconAsSuffixIcon!: boolean;
+  showArrowIcon!: boolean;
+
+  @Prop({ type: Boolean, default: true })
+  clearIconAsArrowIcon!: boolean;
 
   @Prop(Boolean)
   multiple!: boolean;
@@ -60,12 +61,7 @@ export default class StSelectContent extends Vue {
     this.isFocused = value;
   }
 
-  get suffixIconClassName(): string {
-    const partName = this.suffixIcon === DEFAULT_SUFFIX_ICON ? 'arrow' : 'suffix';
-    return `st-select-content__${partName}-icon`;
-  }
-
-  get isSuffixIconVisible(): boolean {
-    return !this.clearIconAsSuffixIcon ? true : !this.value;
+  get isArrowIconVisible(): boolean {
+    return this.clearIconAsArrowIcon ? !this.value : this.showArrowIcon;
   }
 }
