@@ -2,23 +2,6 @@
 @import '../../../../components/autocomplete/style';
 
 .st-autocomplete {
-  .st-dropdown {
-    &__popper.st-popper {
-      border: none;
-      border-radius: 2;
-      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
-    }
-
-    &-option {
-      min-height: 48px;
-      padding: 12px 18px;
-      line-height: 1;
-      text-overflow: ellipsis;
-      word-break: break-word;
-      border-bottom: none;
-    }
-  }
-
   .st-input {
     &__suffix-icon {
       width: 12px;
@@ -34,5 +17,22 @@
       text-overflow: ellipsis;
       white-space: nowrap;
     }
+  }
+}
+
+.st-autocomplete-dropdown {
+  &.st-dropdown__popper {
+    border: none;
+    border-radius: 2;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
+  }
+
+  .st-dropdown-option {
+    min-height: 48px;
+    padding: 12px 18px;
+    line-height: 1;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    border-bottom: none;
   }
 }
