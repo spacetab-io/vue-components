@@ -11,6 +11,9 @@ export default class StSelectBase extends Vue {
   options!: SelectOption[];
 
   @Prop(String)
+  optionClass?: string;
+
+  @Prop(String)
   placeholder!: string;
 
   @Prop(Boolean)

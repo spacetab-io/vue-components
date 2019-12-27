@@ -38,7 +38,10 @@ export default class StSelectDropdown extends Vue {
   popperClass!: string;
 
   @Prop(String)
-  optionClass!: string;
+  optionClass?: string;
+
+  @Prop(String)
+  optionAdditionalClass!: string;
 
   @Prop(Boolean)
   disabled!: boolean;

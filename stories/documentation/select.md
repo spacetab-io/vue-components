@@ -92,6 +92,7 @@ You can find out more about this component slots in the bottom of documentation.
 | --- | --- | --- | --- | --- | --- |
 | value / v-model | Defines selected result | True | String (single) / String[] (multiple) | - | * |
 | options | Array of options to select | True | Array | - | * |
+| option-class | Class name of select's options | - | String | - | * |
 | placeholder | Select's placeholder | - | String | - | * |
 | disabled | Defines disabled property | - | Boolean | False | True / False |
 | readonly | Defines readonly property | - | Boolean | False | True / False |

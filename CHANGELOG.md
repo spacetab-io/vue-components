@@ -6,6 +6,7 @@
 * `Select`'s prop `clearIconAsSuffixIcon` was renamed to `clearIconAsArrowIcon`. Also a new prop `showArrowIcon` was added.
 Now you can set a suffix-icon near the default arrow icon
 * Added `text-align` with default value `center` to multiple `Select`'s collapser dropdown
+* Added `optionClass` prop to `Select`
 
 ### Maintenance
 * Updated `Notification` component. Do not show browser notifications when window is active
