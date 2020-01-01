@@ -6,6 +6,9 @@
 * `Select`'s prop `clearIconAsSuffixIcon` was renamed to `clearIconAsArrowIcon`. Also a new prop `showArrowIcon` was added.
 Now you can set a suffix-icon near the default arrow icon
 * Added `text-align` with default value `center` to multiple `Select`'s collapser dropdown
+* Created validation functionality. Additional info you can find in storybook validation notes.
+* Created `NotEmptyRule` `LengthInRange` `PassRegexpRule` rules for validation.
+* Added validation for `st-input`
 
 ### Maintenance
 * Updated `Notification` component. Do not show browser notifications when window is active
