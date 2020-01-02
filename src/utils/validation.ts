@@ -66,7 +66,7 @@ export class FieldValidator<T> {
 export class ComponentValidator<T> extends FieldValidator<T> {
   component?: ValidatableComponent<T>;
 
-  public setComponent(component: ValidatableComponent<T>) {
+  public setComponent(component: ValidatableComponent<T>): void {
     this.component = component;
   }
 

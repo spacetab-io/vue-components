@@ -59,7 +59,7 @@ class YourComponent extends Vue implements ValidatableComponent<ValueType> {
     
     // This part is very important, by this code you pass the instance where value is from.
     @Watch('validator', { immediate: true })
-    onValidatorChanged(newValidator: ComponentValidator<string>) {
+    onValidatorChanged(newValidator: ComponentValidator<string>): void {
         newValidator.setComponent(this);
         
         // Proceed validation result update.
