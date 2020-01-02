@@ -185,6 +185,6 @@
   }
 
   &--with-error {
-    border-color: red;
+    border-color: $st-color-danger;
   }
 }
