@@ -26,6 +26,7 @@ formValidator.addValidator(validator);
 formValidator.validate();
 
 // Validate all fields (return false if one or more values are not valid)
+// Not stops after first validator failture
 formValidator.validate(true);
 
 // html
