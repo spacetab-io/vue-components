@@ -9,9 +9,16 @@ import {
   storiesOf,
 } from '@storybook/vue';
 
-import { FieldValidator, LengthInRange, PassRegexpRule } from '../../../src/utils/validation';
+import {
+  FieldValidator,
+  LengthInRange,
+  PassRegexpRule,
+} from '../../../src/utils/validation';
 import documentation from '../../documentation/validator/base.md';
-import { template } from '../../templates/validator/base.template';
+import {
+  template,
+} from '../../templates/validator/base.template';
+
 
 storiesOf('Validator', module).add('Base', () => ({
   template,

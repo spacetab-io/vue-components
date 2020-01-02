@@ -1,4 +1,6 @@
-import { number } from '@storybook/addon-knobs';
+import {
+  number,
+} from '@storybook/addon-knobs';
 import {
   storiesOf,
 } from '@storybook/vue';
@@ -8,7 +10,10 @@ import {
   LengthInRange,
 } from '../../../src/utils/validation';
 import documentation from '../../documentation/validator/component.md';
-import { template } from '../../templates/validator/component.template';
+import {
+  template,
+} from '../../templates/validator/component.template';
+
 
 storiesOf('Validator', module).add('Component', () => ({
   template,
