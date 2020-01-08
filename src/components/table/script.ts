@@ -1,4 +1,5 @@
 import get from 'lodash/get';
+import isEqual from 'lodash/isEqual';
 import values from 'lodash/values';
 import {
   Component,
@@ -8,7 +9,6 @@ import {
 } from 'vue-property-decorator';
 
 import { Column, SortDirection, SortEvent } from './types';
-
 
 @Component({
   name: 'StTable',
@@ -61,7 +61,7 @@ export default class StTable extends Vue {
     }
   }
 
-  @Watch('sortBy')
+  @Watch('sortBy', { immediate: true })
   onSortByChange(value: string) {
     const col = this.columns.find(_ => _.name === value) || {};
     this.currentSortColumn = col;
@@ -73,16 +73,19 @@ export default class StTable extends Vue {
   }
 
   @Watch('columns')
-  onColumnsChange() {
-    if (!this.sortBy || !this.columns.length) return;
-    const column = this.columns.find(_ => _.name === this.sortBy);
+  onColumnsChange(value?: Column[], oldValue?: Column[]) {
+    if (!this.sortBy || !value || !value.length) return;
+    if (isEqual(value, oldValue)) return;
+    const column = value.find(_ => _.name === this.sortBy);
     if (column) this.sort(column);
   }
 
   created() {
     this.isAsc = this.sortDirection !== SortDirection.desc;
     this.newData = this.data;
-    this.onColumnsChange();
+    if (this.clientSorting) {
+      this.onColumnsChange(this.columns);
+    }
   }
 
   getRowValue(row: any, col: Column, index: number): any {
@@ -138,7 +141,7 @@ export default class StTable extends Vue {
     if (!col || !col.sortable) return;
 
     let sortDirection;
-    if (col !== this.currentSortColumn) {
+    if (col.name !== this.currentSortColumn.name) {
       this.isAsc = true;
       sortDirection = SortDirection.asc;
       this.currentSortColumn = col;
@@ -154,7 +157,9 @@ export default class StTable extends Vue {
     if (!this.clientSorting) {
       const sortBy = sortDirection && col.name;
       const event: SortEvent = { sortBy, direction: sortDirection };
-      this.$emit('sort', event, col);
+      if (this.sortBy !== sortBy || this.sortDirection !== sortDirection) {
+        this.$emit('sort', event, col);
+      }
     } else if (sortDirection) {
       this.newData = col.field ? this.sortedBy(
         this.newData,
@@ -190,7 +195,7 @@ export default class StTable extends Vue {
   }
 
   getSortIconClasses(col: Column) {
-    if (this.currentSortColumn !== col) return '';
+    if (this.currentSortColumn.name !== col.name) return '';
 
     return {
       'st-table__sortable-current': true,
