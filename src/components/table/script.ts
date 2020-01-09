@@ -10,6 +10,7 @@ import {
 
 import { Column, SortDirection, SortEvent } from './types';
 
+
 @Component({
   name: 'StTable',
   inheritAttrs: false,
@@ -63,8 +64,12 @@ export default class StTable extends Vue {
 
   @Watch('sortBy', { immediate: true })
   onSortByChange(value: string) {
-    const col = this.columns.find(_ => _.name === value) || {};
-    this.currentSortColumn = col;
+    if (value) {
+      const col = this.columns.find(_ => _.name === value);
+      this.currentSortColumn = col || {};
+    } else {
+      this.currentSortColumn = {};
+    }
   }
 
   @Watch('sortDirection')
@@ -75,6 +80,7 @@ export default class StTable extends Vue {
   @Watch('columns')
   onColumnsChange(value?: Column[], oldValue?: Column[]) {
     if (!this.sortBy || !value || !value.length) return;
+    if (!this.clientSorting) return;
     if (isEqual(value, oldValue)) return;
     const column = value.find(_ => _.name === this.sortBy);
     if (column) this.sort(column);
@@ -157,9 +163,7 @@ export default class StTable extends Vue {
     if (!this.clientSorting) {
       const sortBy = sortDirection && col.name;
       const event: SortEvent = { sortBy, direction: sortDirection };
-      if (this.sortBy !== sortBy || this.sortDirection !== sortDirection) {
-        this.$emit('sort', event, col);
-      }
+      this.$emit('sort', event, col);
     } else if (sortDirection) {
       this.newData = col.field ? this.sortedBy(
         this.newData,
