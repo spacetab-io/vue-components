@@ -43,6 +43,9 @@ storiesOf('Components|Select', module).add('Default', () => ({
     clearIconAsArrowIcon: {
       default: boolean('clear-icon-as-arrow-icon', true),
     },
+    optionClass: {
+      default: text('option-class', ''),
+    },
   },
   data() {
     return {

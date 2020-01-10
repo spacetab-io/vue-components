@@ -11,6 +11,7 @@ export const template = `
            :prefix-icon="prefixIcon || void 0"
            :suffix-icon="suffixIcon || void 0"
            :show-arrow-icon="showArrowIcon"
-           :clear-icon-as-arrow-icon="clearIconAsArrowIcon">
+           :clear-icon-as-arrow-icon="clearIconAsArrowIcon"
+           :option-class="optionClass">
 </st-select>
 `;
