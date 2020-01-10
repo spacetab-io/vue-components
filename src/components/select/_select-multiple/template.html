@@ -13,7 +13,8 @@
                     :selected-values="value"
                     :close-on-select="false"
                     :dropdown-props="dropdownProps"
-                    option-class="st-select-multiple__dropdown-option"
+                    :option-class="optionClass"
+                    option-additional-class="st-select-multiple__dropdown-option"
                     @select="select"
                     @dropdown-show="dropdownVisible = true; $emit('dropdown-show')"
                     @dropdown-hide="dropdownVisible = false; $emit('dropdown-hide')">

@@ -15,9 +15,11 @@
                         :class="[
                           'st-select-dropdown__option',
                           optionClass,
+                          optionAdditionalClass,
                           {
                             'st-select-dropdown__option--selected': option.selected,
                             [`${optionClass}--selected`]: optionClass && option.selected,
+                            [`${optionAdditionalClass}--selected`]: optionAdditionalClass && option.selected,
                           }
                         ]"
                         :disabled="option.disabled"
