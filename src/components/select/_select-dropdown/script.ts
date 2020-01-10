@@ -70,6 +70,10 @@ export default class StSelectDropdown extends Vue {
 
   mergeDropdownProps(): void {
     merge(this.extendedDropdownProps, this.dropdownProps);
+    this.extendedDropdownProps.popperClass = [
+      'st-select-dropdown',
+      this.extendedDropdownProps.popperClass,
+    ].join(' ');
   }
 
   select(option: SelectOption): void {

@@ -132,6 +132,10 @@ export default class StAutocomplete extends Vue {
 
   mergeDropdownProps(): void {
     merge(this.extendedDropdownProps, this.dropdownProps);
+    this.extendedDropdownProps.popperClass = [
+      'st-autocomplete-dropdown',
+      this.extendedDropdownProps.popperClass,
+    ].join(' ');
   }
 
   mounted(): void {
