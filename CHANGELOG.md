@@ -16,6 +16,7 @@ Now you can set a suffix-icon near the default arrow icon
 * `Input` and `Notification` icons with padding set to `box-sizing: content-box`. Padding won't be calculated in width and height
 * Fixed bug with setting `popperClass` at `dropdownProps` in `Select` and `Autocomplete` components
 * Fixed server sorting in `Table` component
+* `Scrollbar`'s caret containers was updated with z-index
 
 
 
