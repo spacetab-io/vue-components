@@ -39,7 +39,7 @@ export default class StDropdown extends Vue {
   @Prop({ type: Boolean, default: false })
   arrowVisible!: boolean;
 
-  @Prop({ type: String, default: PopperPlacement.bottom })
+  @Prop({ type: String, default: PopperPlacement.bottomStart })
   placement!: string;
 
   @Prop({ type: Boolean, default: true })

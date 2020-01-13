@@ -83,7 +83,7 @@ export default class StAutocomplete extends Vue {
 
   extendedDropdownProps: DropdownBindProperties = {
     arrowVisible: false,
-    placement: PopperPlacement.bottom,
+    placement: PopperPlacement.bottomStart,
     trigger: TriggerType.manual,
     boundariesSelector: 'body',
   };

@@ -7,6 +7,7 @@
 Now you can set a suffix-icon near the default arrow icon
 * Added `text-align` with default value `center` to multiple `Select`'s collapser dropdown
 * Added `optionClass` prop to `Select`
+* `Dropdown` placement was changed from `bottom` to `bottom-start`. Same in `Autocomplete` and `Select` components
 
 ### Maintenance
 * Updated `Notification` component. Do not show browser notifications when window is active
@@ -17,6 +18,7 @@ Now you can set a suffix-icon near the default arrow icon
 * Fixed bug with setting `popperClass` at `dropdownProps` in `Select` and `Autocomplete` components
 * Fixed server sorting in `Table` component
 * `Scrollbar`'s caret containers was updated with z-index
+* Fixed `Dropdown` documentation page
 
 
 
