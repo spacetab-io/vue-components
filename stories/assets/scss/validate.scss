@@ -1,0 +1,13 @@
+.validator-base {
+  &__block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  &__status {
+    font-weight: bold;
+  }
+}

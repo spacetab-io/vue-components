@@ -6,10 +6,10 @@ import { PopperPlacement, TriggerType } from "../../../src/components/popper/typ
 
 let notes = documentation;
 notes = notes.replace('{{DEFAULT_PLACEMENT}}', PopperPlacement.auto);
-notes = notes.replace('{{AVAILABLE_PLACEMENTS}}', Object.values(PopperPlacement).join(' , '));
+notes = notes.replace('{{AVAILABLE_PLACEMENTS}}', Object.values(PopperPlacement).join(', '));
 
 notes = notes.replace('{{DEFAULT_TRIGGER}}', TriggerType.hover);
-notes = notes.replace('{{AVAILABLE_TRIGGERS}}', Object.values(TriggerType).join(' , '));
+notes = notes.replace('{{AVAILABLE_TRIGGERS}}', Object.values(TriggerType).join(', '));
 
 storiesOf('Components|Popper', module).add('Default', () => ({
   template,
@@ -47,6 +47,9 @@ storiesOf('Components|Popper', module).add('Default', () => ({
     appendToBody: {
       default: boolean('Append to body', true),
     },
+    useReferenceWidth: {
+      default: boolean('Use reference width', false),
+    }
   },
   data() {
     return {

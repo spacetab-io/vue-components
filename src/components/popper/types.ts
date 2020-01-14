@@ -28,6 +28,7 @@ export interface PopperBindProperties {
   enterActiveClass?: string;
   delayOnMouseOver?: number;
   width?: number;
+  useReferenceWidth?: boolean;
   delayOnMouseOut?: number;
   boundariesSelector?: string;
   arrowVisible?: boolean;

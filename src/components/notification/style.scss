@@ -61,6 +61,7 @@
     position: absolute;
     top: 50%;
     right: 5px;
+    box-sizing: content-box;
     width: $st-notification-close-icon-width;
     height: $st-notification-close-icon-height;
     padding: $st-notification-close-icon-padding;

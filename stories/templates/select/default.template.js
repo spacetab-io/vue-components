@@ -3,6 +3,7 @@ export const template = `
            :options="options"
            :multiple="multiple"
            :placeholder="placeholder"
+           :size="size"
            :loading="loading"
            :disabled="disabled"
            :readonly="readonly"
@@ -10,6 +11,8 @@ export const template = `
            :clearable="clearable"
            :prefix-icon="prefixIcon || void 0"
            :suffix-icon="suffixIcon || void 0"
-           :clear-icon-as-suffix-icon="clearIconAsSuffixIcon">
+           :show-arrow-icon="showArrowIcon"
+           :clear-icon-as-arrow-icon="clearIconAsArrowIcon"
+           :option-class="optionClass">
 </st-select>
 `;

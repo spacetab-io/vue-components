@@ -25,6 +25,13 @@ export default class StSelectSingle extends StSelectBase {
 
   dropdownVisible: boolean = false;
 
+  get updatedOptions(): SelectOption[] {
+    return this.options.map(option => ({
+      ...option,
+      selected: this.selectedOption && this.selectedOption.value === option.value,
+    }));
+  }
+
 
   get selectedOption(): SelectOption | undefined {
     return this.options.find((option: SelectOption) => option && option.value === this.value);

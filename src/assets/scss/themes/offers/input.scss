@@ -19,6 +19,8 @@
     right: 15px;
   }
 
+  &--focused.st-select-content,
+  &--focused.st-select-content:hover,
   &--focused {
     border-color: $st-color-primary;
 

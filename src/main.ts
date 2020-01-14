@@ -1,6 +1,6 @@
 declare module 'vue/types/vue' {
   interface Vue {
-    $ELEMENT: {
+    $ELEMENT?: {
       size: string,
     }
   }

@@ -1,5 +1,4 @@
-<st-dropdown popper-class="st-select-dropdown"
-             ref="dropdown"
+<st-dropdown ref="dropdown"
              :disabled="disabled"
              v-bind="extendedDropdownProps"
              @show="$emit('dropdown-show')"
@@ -10,24 +9,28 @@
   <template slot="top">
     <slot name="dropdown-top" />
   </template>
-  <st-dropdown-option v-for="(option, index) in options"
-                      :key="option.value || index"
-                      :class="[
-                        'st-select-dropdown__option',
-                        optionClass,
-                        {
-                          'st-select-dropdown__option--selected': selectedValues && selectedValues.includes(option.value),
-                          [`${optionClass}--selected`]: optionClass && selectedValues && selectedValues.includes(option.value),
-                        }
-                      ]"
-                      :disabled="option.disabled"
-                      :readonly="readonly"
-                      @click="select(option)">
-    <slot name="option"
-          :option="option">
-      {{ option.label }}
-    </slot>
-  </st-dropdown-option>
+  <slot>
+    <st-dropdown-option v-for="(option, index) in options"
+                        :key="option.value || index"
+                        :class="[
+                          'st-select-dropdown__option',
+                          optionClass,
+                          optionAdditionalClass,
+                          {
+                            'st-select-dropdown__option--selected': option.selected,
+                            [`${optionClass}--selected`]: optionClass && option.selected,
+                            [`${optionAdditionalClass}--selected`]: optionAdditionalClass && option.selected,
+                          }
+                        ]"
+                        :disabled="option.disabled"
+                        :readonly="readonly || option.readonly"
+                        @click="select(option)">
+      <slot name="option"
+            :option="option">
+        {{ option.label }}
+      </slot>
+    </st-dropdown-option>
+  </slot>
   <template slot="bottom">
     <slot name="dropdown-bottom" />
   </template>

@@ -60,6 +60,9 @@ export default class StAutocomplete extends Vue {
   @Prop(String)
   suffixIcon!: string;
 
+  @Prop(String)
+  size!: string;
+
   @Prop({ type: Boolean, default: true })
   clearable!: boolean;
 
@@ -83,7 +86,7 @@ export default class StAutocomplete extends Vue {
 
   extendedDropdownProps: DropdownBindProperties = {
     arrowVisible: false,
-    placement: PopperPlacement.bottom,
+    placement: PopperPlacement.bottomStart,
     trigger: TriggerType.manual,
     boundariesSelector: 'body',
   };
@@ -132,6 +135,10 @@ export default class StAutocomplete extends Vue {
 
   mergeDropdownProps(): void {
     merge(this.extendedDropdownProps, this.dropdownProps);
+    this.extendedDropdownProps.popperClass = [
+      'st-autocomplete-dropdown',
+      this.extendedDropdownProps.popperClass,
+    ].join(' ');
   }
 
   mounted(): void {

@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.2.12
+
+### Features
+* `Select`'s prop `clearIconAsSuffixIcon` was renamed to `clearIconAsArrowIcon`. Also a new prop `showArrowIcon` was added.
+Now you can set a suffix-icon near the default arrow icon
+* Added `text-align` with default value `center` to multiple `Select`'s collapser dropdown
+* Created validation functionality. Additional info you can find in storybook validation notes.
+* Created `NotEmptyRule` `LengthInRange` `PassRegexpRule` rules for validation.
+* Added validation for `Input`
+* Added `optionClass` prop to `Select`
+* Added `size` prop to `Autocomplete` and `Select`
+* `Dropdown` placement was changed from `bottom` to `bottom-start`. Same in `Autocomplete` and `Select` components
+
+### Maintenance
+* Updated `Notification` component. Do not show browser notifications when window is active
+* Fixed `Select`'s `list` slot. Didn't work before
+* Added `selected` key to `Select`'s `options` object. Useful for `option` slot
+* Fixed `Popper` bug with placement while `useReferenceWidth` is on
+* `Input` and `Notification` icons with padding set to `box-sizing: content-box`. Padding won't be calculated in width and height
+* Fixed bug with setting `popperClass` at `dropdownProps` in `Select` and `Autocomplete` components
+* Fixed server sorting in `Table` component
+* `Scrollbar`'s caret containers was updated with z-index
+* Fixed `Input`'s icon sizes with different value of `size` prop
+* Fixed `Dropdown` documentation page
+
+
+
 ## 0.2.11
 
 ### Features
@@ -35,7 +62,7 @@ For cases when it's `readonly` or `disabled` check documentation
 * Fixed dropdown's visibility in `Autocomplete`'s popper show/hide methods
 * `Input`'s prop `focusAfterClear` was set to false as default
 * Fixed bug in `Pagination` with displaying pages when `grouped-pages` amount is more than it possible to display
-* Removed click event on `Pagination`'s separators    
+* Removed click event on `Pagination`'s separators
 
 
 

@@ -11,6 +11,9 @@ export default class StSelectBase extends Vue {
   options!: SelectOption[];
 
   @Prop(String)
+  optionClass?: string;
+
+  @Prop(String)
   placeholder!: string;
 
   @Prop(Boolean)
@@ -38,7 +41,10 @@ export default class StSelectBase extends Vue {
   suffixIcon!: string;
 
   @Prop({ type: Boolean, default: true })
-  clearIconAsSuffixIcon!: boolean;
+  showArrowIcon!: boolean;
+
+  @Prop({ type: Boolean, default: true })
+  clearIconAsArrowIcon!: boolean;
 
   @Prop({ type: Boolean, default: true })
   closeOnClear!: boolean;

@@ -1,6 +1,5 @@
 <div class="st-autocomplete">
   <st-dropdown class="st-autocomplete__dropdown-wrapper"
-               popper-class="st-autocomplete-dropdown"
                ref="dropdown"
                :disabled="disabled"
                :value="popperVisibility"
@@ -17,6 +16,7 @@
               :prefix-icon="prefixIcon"
               :suffix-icon="suffixIcon"
               :focus-after-clear="focusAfterClear"
+              :size="size"
               @input="handleInput"
               @focus="handleFocus"
               @blur="handleBlur"
