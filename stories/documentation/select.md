@@ -70,7 +70,7 @@ Here's some examples:
 </st-select>
 ```
 
-Also you can change/extend inner dropdown's props via `dropdown-props` (same with `collapser-popper-props`):
+Also you can change/extend inner dropdown's props via `dropdown-props` (same with `collapser-popper-props` for multiple select):
 
 ```html
 <st-select v-model="singleValue" 
@@ -106,7 +106,7 @@ You can find out more about this component slots in the bottom of documentation.
 | close-on-select | **(Single Select only)** Close dropdown after select event | True | Boolean | False | True / False |
 | show-arrow-icon | Show select's default arrow icon or not | - | Boolean | True | True / False |
 | clear-icon-as-arrow-icon | Use suffix icon as clear icon. It will change suffix icon to cross when input isn't empty | - | Boolean | True | True / False |
-| dropdown-props | Dropdown popper's component properties | - | Object | arrowVisible: false, placement: bottom, trigger: click, boundariesSelector: 'body' | CHECK POPPER COMPONENT DOCUMENTATION |
+| dropdown-props | Dropdown popper's component properties | - | Object | arrowVisible: false, placement: bottom-start, trigger: click, boundariesSelector: 'body' | CHECK POPPER COMPONENT DOCUMENTATION |
 | collapser-popper-props | **(Multiple Select only)** Collapser popper's component properties | - | Object | { arrowVisible: true, placement: top, trigger: hover, boundariesSelector: 'body', appendToBody: true } | CHECK DROPDOWN COMPONENT DOCUMENTATION |
 
 ## Events

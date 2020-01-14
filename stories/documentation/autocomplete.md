@@ -72,6 +72,22 @@ onSelect(suggestion) {
 // ...
 ```
 
+Also you can change/extend inner dropdown's props via `dropdown-props`:
+
+```html
+<st-autocomplete placeholder="Enter country name"
+                 prefix-icon="search"
+                 :fetch-suggestions="fetchSuggestions"
+                 v-model="selectedCountry"
+                 :dropdown-props="{
+                    width: 400,
+                    maxHeight: 250,
+                    arrowVisible: true,
+                    placement: 'top',
+                    trigger: 'hover',
+                 }"/>
+```
+
 ## Attributes
 
 | Name | Description | Required | Type | Default value | Possible values |
@@ -93,7 +109,7 @@ onSelect(suggestion) {
 | readonly | Defines readonly property | - | boolean | false | - |
 | placeholder | Search's input placeholder | - | string | - | - |
 | loading | Defines loading state | - | boolean | false | - |
-| dropdown-props | Dropdown popper's component properties | - | object | { arrowVisible: false, placement: bottom, trigger: click, boundariesSelector: 'body', appendToBody: true } | CHECK DROPDOWN COMPONENT DOCUMENTATION |
+| dropdown-props | Dropdown popper's component properties | - | object | { arrowVisible: false, placement: bottom-start, trigger: click, boundariesSelector: 'body', appendToBody: true } | CHECK DROPDOWN COMPONENT DOCUMENTATION |
 
 ## Events
 

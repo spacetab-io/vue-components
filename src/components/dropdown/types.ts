@@ -1,4 +1,7 @@
-import { TriggerType } from '../popper/types';
+import {
+  PopperPlacement,
+  TriggerType,
+} from '../popper/types';
 
 export interface DropdownBindProperties {
   value?: boolean;
@@ -6,7 +9,7 @@ export interface DropdownBindProperties {
   width?: number;
   useReferenceWidth?: boolean;
   trigger?: TriggerType;
-  placement?: string;
+  placement?: PopperPlacement;
   arrowVisible?: boolean;
   withBorder?: boolean;
   disabled?: boolean;

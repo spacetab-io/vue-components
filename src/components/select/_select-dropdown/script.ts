@@ -54,7 +54,7 @@ export default class StSelectDropdown extends Vue {
 
   extendedDropdownProps: DropdownBindProperties = {
     arrowVisible: false,
-    placement: PopperPlacement.bottom,
+    placement: PopperPlacement.bottomStart,
     trigger: TriggerType.click,
     boundariesSelector: 'body',
   };
