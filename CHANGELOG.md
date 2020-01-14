@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.2.13
+
+### Features
+* Added `no-options-message` slot to `Select`. If there're no options to display that slot will be visible
+
+### Maintenance
+* Fixed bug with not defined immediate watch value of validatable components.
+
+
+
+
 ## 0.2.12
 
 ### Features
@@ -24,6 +35,7 @@ Now you can set a suffix-icon near the default arrow icon
 * `Scrollbar`'s caret containers was updated with z-index
 * Fixed `Input`'s icon sizes with different value of `size` prop
 * Fixed `Dropdown` documentation page
+
 
 
 
