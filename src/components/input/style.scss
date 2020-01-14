@@ -185,4 +185,8 @@
     height: $st-input-mini-height;
     font-size: $st-input-mini-font-size;
   }
+
+  &--with-error {
+    border-color: $st-color-danger;
+  }
 }

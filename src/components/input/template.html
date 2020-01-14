@@ -2,6 +2,7 @@
       'st-input',
       this.size ? 'st-input--' + this.size : '',
       {
+        'st-input--with-error': !isValid,
         'st-input--disabled': disabled,
         'st-input--readonly': readonly,
         'st-input--hovered': inputHovered,

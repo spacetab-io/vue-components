@@ -1,9 +1,11 @@
+import { text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/vue';
-import { template } from '../../templates/tooltip/default.template';
-import documentation from '../../documentation/tooltip.md';
-import { text,  } from "@storybook/addon-knobs";
 
-const decodeHTMLEntities = (text) => {
+import documentation from '../../documentation/tooltip.md';
+import { template } from '../../templates/tooltip/default.template';
+
+const decodeHTMLEntities = (baseText) => {
+  let resultText = baseText;
   [
     ['amp', '&'],
     ['apos', '\''],
@@ -14,12 +16,12 @@ const decodeHTMLEntities = (text) => {
     ['lt', '<'],
     ['gt', '>'],
     ['nbsp', ' '],
-    ['quot', '"']
-  ].forEach(item => {
-    text = text.replace(new RegExp('&'+item[0]+';', 'g'), item[1]);
+    ['quot', '"'],
+  ].forEach((item) => {
+    resultText = resultText.replace(new RegExp(`&${item[0]};`, 'g'), item[1]);
   });
 
-  return text;
+  return baseText;
 };
 
 storiesOf('Components|Tooltip', module).add('Default', () => ({
@@ -33,12 +35,12 @@ storiesOf('Components|Tooltip', module).add('Default', () => ({
     },
   },
   data() {
-    return {}
+    return {};
   },
   computed: {
     htmlDecoded() {
       return decodeHTMLEntities(this.htmlContent);
-    }
+    },
   },
 }), {
   notes: { markdown: documentation },

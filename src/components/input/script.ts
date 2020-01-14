@@ -5,11 +5,16 @@ import {
   Watch,
 } from 'vue-property-decorator';
 
+import {
+  ComponentValidator,
+  ValidatableComponent,
+} from '../../utils/validation';
+
 
 @Component({
   name: 'StInput',
 })
-export default class StInput extends Vue {
+export default class StInput extends Vue implements ValidatableComponent<string> {
   // Wrapper props
   @Prop(String)
   size!: string;
@@ -67,11 +72,20 @@ export default class StInput extends Vue {
   @Prop(Number)
   tabindex!: number;
 
+  @Prop(ComponentValidator)
+  validator?: ComponentValidator<string>;
+
   inputValue = this.value;
 
   inputHovered = false;
 
   inputFocused = false;
+
+  isValid: boolean = true;
+
+  validateValue(): string {
+    return this.value;
+  }
 
   get showClearIcon(): boolean {
     return this.clearable && !!this.inputValue;
@@ -87,7 +101,19 @@ export default class StInput extends Vue {
 
   @Watch('value')
   onValueChange(value: string) {
+    if (this.validator) {
+      this.validator.validate();
+    }
+
     this.setInputValue(value);
+  }
+
+  @Watch('validator', { immediate: true })
+  onValidatorChanged(newValidator: ComponentValidator<string>): void {
+    newValidator.setComponent(this);
+    newValidator.onAfterValidation((newValue: boolean): void => {
+      this.isValid = newValue;
+    });
   }
 
   @Watch('focusState')
