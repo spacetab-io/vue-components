@@ -129,6 +129,7 @@ You can find out more about this component slots in the bottom of documentation.
 | dropdown-bottom | Defines content in select's dropdown, below the list | - |
 | list | Defines select dropdown's list | { options } |
 | option | Defines select dropdown option's content | { option } |
+| no-options-message | Defines content if there are no options to display | - |
 | collapser-control | **(Multiple Select only)** Defines collapser control's block content | { amount } |
 | collapser-list | **(Multiple Select only)** Defines collapser list's content | { elements } |
 | collapser-element | **(Multiple Select only)** Defines collapser list element's content | { element } |
