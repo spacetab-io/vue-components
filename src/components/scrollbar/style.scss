@@ -53,6 +53,7 @@
     top: $st-scrollbar-base-margin;
     right: $st-scrollbar-caret-size * -1;
     bottom: $st-scrollbar-base-margin;
+    z-index: $st-scrollbar-caret-z-index;
     width: $st-scrollbar-caret-size;
     opacity: $st-scrollbar-base-opacity;
     transition: $st-scrollbar-transition;
@@ -67,6 +68,7 @@
     right: $st-scrollbar-base-margin;
     bottom: $st-scrollbar-caret-size * -1;
     left: $st-scrollbar-base-margin;
+    z-index: $st-scrollbar-caret-z-index;
     height: $st-scrollbar-caret-size;
     opacity: $st-scrollbar-base-opacity;
     transition: $st-scrollbar-transition;

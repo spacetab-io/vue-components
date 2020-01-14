@@ -12,7 +12,7 @@
             :class="[
               col.class,
               {
-                'st-table__th-sortable--current': currentSortColumn === col,
+                'st-table__th-sortable--current': currentSortColumn.name === col.name && col.name,
                 'st-table__th-sortable': col.sortable
               }
             ]"
@@ -38,7 +38,7 @@
                 <div v-if="col.sortable"
                      class="st-table__sortable">
                   <st-icon name="arrow-down"
-                           v-if="currentSortColumn !== col"
+                           v-if="currentSortColumn.name !== col.name && col.name"
                            class="st-table__sortable-arrow st-table__sortable-arrow--up" />
 
                   <st-icon name="arrow-down"
