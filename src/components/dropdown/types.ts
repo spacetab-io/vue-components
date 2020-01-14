@@ -7,6 +7,7 @@ export interface DropdownBindProperties {
   value?: boolean;
   popperClass?: string;
   width?: number;
+  useReferenceWidth?: boolean;
   trigger?: TriggerType;
   placement?: PopperPlacement;
   arrowVisible?: boolean;
