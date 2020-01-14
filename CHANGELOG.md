@@ -6,7 +6,11 @@
 * `Select`'s prop `clearIconAsSuffixIcon` was renamed to `clearIconAsArrowIcon`. Also a new prop `showArrowIcon` was added.
 Now you can set a suffix-icon near the default arrow icon
 * Added `text-align` with default value `center` to multiple `Select`'s collapser dropdown
+* Created validation functionality. Additional info you can find in storybook validation notes.
+* Created `NotEmptyRule` `LengthInRange` `PassRegexpRule` rules for validation.
+* Added validation for `Input`
 * Added `optionClass` prop to `Select`
+* Added `size` prop to `Autocomplete` and `Select`
 * `Dropdown` placement was changed from `bottom` to `bottom-start`. Same in `Autocomplete` and `Select` components
 
 ### Maintenance
@@ -18,6 +22,7 @@ Now you can set a suffix-icon near the default arrow icon
 * Fixed bug with setting `popperClass` at `dropdownProps` in `Select` and `Autocomplete` components
 * Fixed server sorting in `Table` component
 * `Scrollbar`'s caret containers was updated with z-index
+* Fixed `Input`'s icon sizes with different value of `size` prop
 * Fixed `Dropdown` documentation page
 
 

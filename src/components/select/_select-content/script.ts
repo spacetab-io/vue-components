@@ -19,6 +19,9 @@ export default class StSelectContent extends Vue {
   value!: string;
 
   @Prop(String)
+  size!: string;
+
+  @Prop(String)
   prefixIcon!: string;
 
   @Prop(String)

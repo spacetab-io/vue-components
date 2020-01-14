@@ -15,6 +15,7 @@ export const template = `
                  :close-on-select="closeOnSelect"
                  :close-on-clear="closeOnClear"
                  @select="onSelect"
+                 :size="size"
                  :value="value">
   <template v-slot:suggestion="{ suggestion }">
     {{ suggestion.label }}

@@ -93,6 +93,7 @@ Also you can change/extend inner dropdown's props via `dropdown-props`:
 | Name | Description | Required | Type | Default value | Possible values |
 | --- | --- | --- | --- | --- | --- |
 | value | Autocomplete's value | - | string | - | - |
+| size | Autocomplete's size | false | String | - | mini / small / medium / large / extra-large |
 | fetch-suggestions | Defines method to fetch input suggestions. Arguments of method are `(query, callback)`. Return found suggestions via `callback(data)`. | true | function | - | - |
 | fetch-suggestions-delay | Defines `fetch-suggestions` debounce's delay | - | number | 300 | - |
 | fetch-on-focus | Defines call of `fetch-suggestions` method right after search input focusing | - | boolean | false | - |

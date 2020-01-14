@@ -3,6 +3,7 @@ export const template = `
            :options="options"
            :multiple="multiple"
            :placeholder="placeholder"
+           :size="size"
            :loading="loading"
            :disabled="disabled"
            :readonly="readonly"
