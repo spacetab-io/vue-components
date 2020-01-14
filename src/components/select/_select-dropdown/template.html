@@ -9,6 +9,12 @@
   <template slot="top">
     <slot name="dropdown-top" />
   </template>
+  <div v-if="!options.length"
+       class="st-select-dropdown__no-options-message">
+    <slot name="no-options-message">
+      No data
+    </slot>
+  </div>
   <slot>
     <st-dropdown-option v-for="(option, index) in options"
                         :key="option.value || index"

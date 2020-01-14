@@ -1,1 +1,10 @@
 @import '../../../assets/scss/components/select/_variables';
+
+.st-select-dropdown {
+  &__no-options-message {
+    padding: 10px;
+    font-size: 14px;
+    color: $st-select-color;
+    text-align: center;
+  }
+}
