@@ -62,13 +62,14 @@ export default class StTable extends Vue {
     }
   }
 
+  @Watch('sortDirection', { immediate: true })
   @Watch('sortBy', { immediate: true })
-  onSortByChange(value: string) {
-    if (value) {
-      const col = this.columns.find(_ => _.name === value);
-      this.currentSortColumn = col || {};
+  onSortByChange() {
+    if (this.sortBy) {
+      const col = this.columns.find(_ => _.name === this.sortBy);
+      this.currentSortColumn = col || { name: this.sortBy };
     } else {
-      this.currentSortColumn = {};
+      this.currentSortColumn = { name: this.sortBy };
     }
   }
 
