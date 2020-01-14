@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.13
+
+### Maintenance
+* Fixed bug with not defined immediate watch value of validatable components.
+
+
 ## 0.2.12
 
 ### Features
