@@ -109,11 +109,13 @@ export default class StInput extends Vue implements ValidatableComponent<string>
   }
 
   @Watch('validator', { immediate: true })
-  onValidatorChanged(newValidator: ComponentValidator<string>): void {
-    newValidator.setComponent(this);
-    newValidator.onAfterValidation((newValue: boolean): void => {
-      this.isValid = newValue;
-    });
+  onValidatorChanged(newValidator?: ComponentValidator<string>): void {
+    if (newValidator) {
+      newValidator.setComponent(this);
+      newValidator.onAfterValidation((newValue: boolean): void => {
+        this.isValid = newValue;
+      });
+    }
   }
 
   @Watch('focusState')

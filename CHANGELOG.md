@@ -2,6 +2,12 @@
 
 ## 0.2.12
 
+### Maintenance
+* Fixed bug with not defined immediate watch value of validatable components.
+
+
+## 0.2.12
+
 ### Features
 * `Select`'s prop `clearIconAsSuffixIcon` was renamed to `clearIconAsArrowIcon`. Also a new prop `showArrowIcon` was added.
 Now you can set a suffix-icon near the default arrow icon
