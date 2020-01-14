@@ -60,6 +60,9 @@ export default class StAutocomplete extends Vue {
   @Prop(String)
   suffixIcon!: string;
 
+  @Prop(String)
+  size!: string;
+
   @Prop({ type: Boolean, default: true })
   clearable!: boolean;
 

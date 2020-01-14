@@ -10,6 +10,7 @@ Now you can set a suffix-icon near the default arrow icon
 * Created `NotEmptyRule` `LengthInRange` `PassRegexpRule` rules for validation.
 * Added validation for `Input`
 * Added `optionClass` prop to `Select`
+* Added `size` prop to `Autocomplete` and `Select`
 
 ### Maintenance
 * Updated `Notification` component. Do not show browser notifications when window is active
@@ -19,6 +20,8 @@ Now you can set a suffix-icon near the default arrow icon
 * `Input` and `Notification` icons with padding set to `box-sizing: content-box`. Padding won't be calculated in width and height
 * Fixed bug with setting `popperClass` at `dropdownProps` in `Select` and `Autocomplete` components
 * Fixed server sorting in `Table` component
+* `Scrollbar`'s caret containers was updated with z-index
+* Fixed `Input`'s icon sizes with different value of `size` prop
 
 
 

@@ -151,7 +151,8 @@
     height: $st-input-extra-large-height;
     font-size: $st-input-extra-large-font-size;
 
-    #{$root}__icon {
+    #{$root}__prefix-icon,
+    #{$root}__suffix-icon {
       width: $st-input-extra-large-icon-size;
       height: $st-input-extra-large-icon-size;
       font-size: $st-input-extra-large-icon-size;
@@ -162,7 +163,8 @@
     height: $st-input-large-height;
     font-size: $st-input-large-font-size;
 
-    #{$root}__icon {
+    #{$root}__prefix-icon,
+    #{$root}__suffix-icon {
       width: $st-input-large-icon-size;
       height: $st-input-large-icon-size;
       font-size: $st-input-large-icon-size;

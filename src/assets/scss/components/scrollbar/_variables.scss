@@ -5,6 +5,7 @@ $st-scrollbar-base-margin: 2px !default;
 $st-scrollbar-base-opacity: 0 !default;
 $st-scrollbar-hover-opacity: 1 !default;
 $st-scrollbar-transition: 0.3s !default;
+$st-scrollbar-caret-z-index: 100 !default;
 $st-scrollbar-caret-background: rgba(127, 149, 225, 0.3) !default;
 $st-scrollbar-caret-background-hover: rgba(127, 149, 225, 0.5) !default;
 $st-scrollbar-caret-background-active: $st-scrollbar-caret-background-hover !default;

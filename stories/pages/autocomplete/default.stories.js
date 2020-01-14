@@ -1,8 +1,8 @@
 import { storiesOf } from '@storybook/vue'
-import { boolean, text, array, select, number } from '@storybook/addon-knobs';
+import { boolean, text, array, select, number, radios } from '@storybook/addon-knobs';
 import { template } from '../../templates/autocomplete/default.template';
 import documentation from '../../documentation/autocomplete.md'
-import { iconsList } from '../../utils/props-options';
+import { iconsList, sizeOptions } from '../../utils/props-options';
 import { countriesList } from '../../utils/countries-list';
 
 storiesOf('Components|Autocomplete', module).add('Default', () => ({
@@ -52,7 +52,10 @@ storiesOf('Components|Autocomplete', module).add('Default', () => ({
     },
     responseTimeout: {
       default: number('*FOR TEST | Response timeout', 500),
-    }
+    },
+    size: {
+      default: radios('size', sizeOptions, ''),
+    },
   },
   data() {
     return {
