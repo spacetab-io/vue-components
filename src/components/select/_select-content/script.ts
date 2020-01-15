@@ -65,6 +65,6 @@ export default class StSelectContent extends Vue {
   }
 
   get isArrowIconVisible(): boolean {
-    return this.clearIconAsArrowIcon ? !this.value : this.showArrowIcon;
+    return this.clearIconAsArrowIcon && this.clearable ? !this.value : this.showArrowIcon;
   }
 }
