@@ -2,7 +2,12 @@
 
 ## 0.2.14
 
+### Features
+* Added `prevent-input` prop to `Input`.
+* Added `header-style` prop to Column of `Table` component for styling header cell in table
+
 ### Maintenance
+* Fixed weird bug when typing in Select leaded to displaying clear icon
 * Fixed `Select` arrow visibility when component is non-clearable
 
 
@@ -12,7 +17,6 @@
 
 ### Features
 * Added `no-options-message` slot to `Select`. If there're no options to display that slot will be visible
-* Added `header-style` prop to Column of `Table` component for styling header cell in table
 
 ### Maintenance
 * Fixed bug with not defined immediate watch value of validatable components.

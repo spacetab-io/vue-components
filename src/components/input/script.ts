@@ -72,6 +72,9 @@ export default class StInput extends Vue implements ValidatableComponent<string>
   @Prop(Number)
   tabindex!: number;
 
+  @Prop(Boolean)
+  preventInput?: boolean;
+
   @Prop(ComponentValidator)
   validator?: ComponentValidator<string>;
 
@@ -137,7 +140,9 @@ export default class StInput extends Vue implements ValidatableComponent<string>
   handleInput(event: Event) {
     const { value } = event.target as HTMLInputElement;
     this.$emit('input', value);
-    this.setInputValue(value);
+    if (!this.preventInput) {
+      this.setInputValue(value);
+    }
   }
 
   handleChange(event: Event) {

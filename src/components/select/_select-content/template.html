@@ -9,6 +9,7 @@
           :focus-state="isFocused"
           :focus-after-clear="false"
           :size="size"
+          prevent-input
           @keydown.enter="$emit('open-popper')"
           @keydown.up="$emit('open-popper')"
           @keydown.down="$emit('open-popper')"
