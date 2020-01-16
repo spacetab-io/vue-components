@@ -42,6 +42,7 @@ If you want more input-like behaviour with clearable prop, use the component thi
 | clear-icon-as-suffix-icon | Use suffix icon as clear icon. It will change suffix icon to cross when input isn't empty | false | boolean | false | true/false |
 | tabindex | Input's tabindex | false | Number | - | * |
 | focus-state | Defines focus state for input's wrapper. Nice thing if you use input inside your component and need to handle 'focused' class at wrapper manually | false | Boolean | false | true/false |
+| prevent-input | Defines preventing native input event. If it's true component will fire input event but won't change inner value.  | false | boolean | false | true/false |
 
 ## Events
 

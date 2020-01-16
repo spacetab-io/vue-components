@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.2.14
+
+### Features
+* Added `prevent-input` prop to `Input`.
+
+### Maintenance
+* Fixed weird bug when typing in Select leaded to displaying clear icon
+
+
+
+
 ## 0.2.13
 
 ### Features
