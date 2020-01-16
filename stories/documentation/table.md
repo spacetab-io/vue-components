@@ -49,6 +49,8 @@ columns: [ // array of Objects
     // if using scoped slots, apply this yourself instead
     style: 'width: 500px',
 
+    headerStyle: 'width: 200px',
+
     class: 'my-special-class'
   },
 ]

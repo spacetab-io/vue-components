@@ -62,13 +62,14 @@ export default class StTable extends Vue {
     }
   }
 
+  @Watch('sortDirection', { immediate: true })
   @Watch('sortBy', { immediate: true })
-  onSortByChange(value: string) {
-    if (value) {
-      const col = this.columns.find(_ => _.name === value);
-      this.currentSortColumn = col || {};
+  onSortByChange() {
+    if (this.sortBy) {
+      const col = this.columns.find(_ => _.name === this.sortBy);
+      this.currentSortColumn = col || { name: this.sortBy };
     } else {
-      this.currentSortColumn = {};
+      this.currentSortColumn = { name: this.sortBy };
     }
   }
 
@@ -183,12 +184,22 @@ export default class StTable extends Vue {
     this.$emit('update:selected', row);
   }
 
-  getWidth(col: Column): string {
-    if (col.width === void 0) return '';
+  getHeaderStyle(col: Column): string | { [key: string]: string } {
+    if (!(col.width || col.headerStyle)) return '';
 
-    return typeof col.width === 'string'
-      ? col.width
-      : `${col.width}px`;
+    let width = '';
+
+    if (col.width) {
+      width = col.width === 'string' ? col.width : `${col.width}px`;
+    }
+
+    if (!col.headerStyle) return { width };
+
+    if (typeof col.headerStyle === 'string') {
+      return `width:${width};${col.headerStyle}`;
+    }
+
+    return { width, ...col.headerStyle };
   }
 
   hasCustomFooterSlot(): boolean {
