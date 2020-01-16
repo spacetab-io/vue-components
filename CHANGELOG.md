@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.14
+
+### Maintenance
+* Fixed `Select` arrow visibility when component is non-clearable
+
+
+
+
 ## 0.2.13
 
 ### Features
