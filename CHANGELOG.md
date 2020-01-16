@@ -4,6 +4,7 @@
 
 ### Features
 * Added `no-options-message` slot to `Select`. If there're no options to display that slot will be visible
+* Added `header-style` prop to Column of `Table` component for styling header cell in table
 
 ### Maintenance
 * Fixed bug with not defined immediate watch value of validatable components.

@@ -184,12 +184,22 @@ export default class StTable extends Vue {
     this.$emit('update:selected', row);
   }
 
-  getWidth(col: Column): string {
-    if (col.width === void 0) return '';
+  getHeaderStyle(col: Column): string | { [key: string]: string } {
+    if (!(col.width || col.headerStyle)) return '';
 
-    return typeof col.width === 'string'
-      ? col.width
-      : `${col.width}px`;
+    let width = '';
+
+    if (col.width) {
+      width = col.width === 'string' ? col.width : `${col.width}px`;
+    }
+
+    if (!col.headerStyle) return { width };
+
+    if (typeof col.headerStyle === 'string') {
+      return `width:${width};${col.headerStyle}`;
+    }
+
+    return { width, ...col.headerStyle };
   }
 
   hasCustomFooterSlot(): boolean {
