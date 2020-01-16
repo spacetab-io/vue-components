@@ -4,9 +4,11 @@
 
 ### Features
 * Added `prevent-input` prop to `Input`.
+* Added `header-style` prop to Column of `Table` component for styling header cell in table
 
 ### Maintenance
 * Fixed weird bug when typing in Select leaded to displaying clear icon
+* Fixed `Select` arrow visibility when component is non-clearable
 
 
 
