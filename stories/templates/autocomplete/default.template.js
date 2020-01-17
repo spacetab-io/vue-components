@@ -13,6 +13,7 @@ export const template = `
                  :focus-after-clear="focusAfterClear"
                  :query-min-length="queryMinLength"
                  :close-on-select="closeOnSelect"
+                 :dropdown-props="{ useReferenceWidth: useReferenceWidth }"
                  :close-on-clear="closeOnClear"
                  @select="onSelect"
                  :size="size"
