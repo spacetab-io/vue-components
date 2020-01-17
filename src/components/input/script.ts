@@ -186,4 +186,8 @@ export default class StInput extends Vue implements ValidatableComponent<string>
   focusInput() {
     (this.$refs.input as HTMLInputElement).focus();
   }
+
+  blurInput() {
+    (this.$refs.input as HTMLInputElement).blur();
+  }
 }

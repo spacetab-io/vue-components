@@ -5,12 +5,13 @@
 ### Features
 * Added `prevent-input` prop to `Input`.
 * Added `header-style` prop to Column of `Table` component for styling header cell in table
+* Added `focus` and `blur` methods to `Input` and `Autocomplete`
+* Added `useReferenceWidth` option to storybook of `Autocomplete`
 
 ### Maintenance
 * Fixed weird bug when typing in Select leaded to displaying clear icon
 * Fixed `Select` arrow visibility when component is non-clearable
-
-
+* Fixed bug with `useReferenceWidth` do not work properly in `Dropdown`
 
 
 ## 0.2.13

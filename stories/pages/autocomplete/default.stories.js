@@ -1,9 +1,10 @@
 import { storiesOf } from '@storybook/vue'
-import { boolean, text, array, select, number, radios } from '@storybook/addon-knobs';
+import { boolean, text, select, number, radios } from '@storybook/addon-knobs';
 import { template } from '../../templates/autocomplete/default.template';
 import documentation from '../../documentation/autocomplete.md'
 import { iconsList, sizeOptions } from '../../utils/props-options';
 import { countriesList } from '../../utils/countries-list';
+
 
 storiesOf('Components|Autocomplete', module).add('Default', () => ({
   template,
@@ -55,6 +56,9 @@ storiesOf('Components|Autocomplete', module).add('Default', () => ({
     },
     size: {
       default: radios('size', sizeOptions, ''),
+    },
+    useReferenceWidth: {
+      default: boolean('useReferenceWidth', false),
     },
   },
   data() {

@@ -279,11 +279,21 @@ export default class StPopper extends Vue {
         };
       }
 
+      if (!this.useReferenceWidth) {
+        modifiers.applyReferenceWidth = {
+          enabled: false,
+        };
+      }
+
       this.popperOptions.modifiers = modifiers;
       this.popperOptions.placement = (this.placement as Placement);
 
       this.popperOptions.onCreate = () => {
         this.$emit('created', this);
+        this.$nextTick(this.updatePopper);
+      };
+
+      this.popperOptions.onUpdate = () => {
         this.$nextTick(this.updatePopper);
       };
 
