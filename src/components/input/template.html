@@ -10,7 +10,7 @@
         'st-input--close-visible': showClearIcon,
       }
      ]"
-     @click="focusInput"
+     @click="focus"
      @mouseenter="onWrapperMouseEvent(true)"
      @mouseleave="onWrapperMouseEvent(false)">
   <div v-if="prefixIcon || $slots.prefix"

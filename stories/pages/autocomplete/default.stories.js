@@ -58,7 +58,7 @@ storiesOf('Components|Autocomplete', module).add('Default', () => ({
       default: radios('size', sizeOptions, ''),
     },
     useReferenceWidth: {
-      default: boolean('useReferenceWidth', false),
+      default: boolean('dropdownProps.useReferenceWidth', false),
     },
   },
   data() {

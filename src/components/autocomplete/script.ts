@@ -235,10 +235,10 @@ export default class StAutocomplete extends Vue {
   }
 
   focus(): void {
-    (this.$refs.input as StInput).focusInput();
+    (this.$refs.input as StInput).focus();
   }
 
   blur(): void {
-    (this.$refs.input as StInput).blurInput();
+    (this.$refs.input as StInput).blur();
   }
 }
