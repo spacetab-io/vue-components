@@ -8,6 +8,7 @@ import StSelectMultipleScript from './_select-multiple/script';
 import StSelectSingle from './_select-single/index.vue';
 import StSelectSingleScript from './_select-single/script';
 import StSelectBase from './_select.base';
+import { BaseSelectValue } from './types';
 
 
 @Component({
@@ -19,10 +20,7 @@ import StSelectBase from './_select.base';
 })
 export default class StSelect extends StSelectBase {
   @Prop()
-  value!: (string | string[]);
-
-  @Prop(Boolean)
-  multiple!: boolean;
+  value!: BaseSelectValue;
 
   get componentName(): string {
     return `st-select-${this.multiple ? 'multiple' : 'single'}`;
