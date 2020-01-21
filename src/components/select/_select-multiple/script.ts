@@ -16,7 +16,10 @@ import {
   PopperPlacement,
   TriggerType,
 } from '../../popper/types';
-import { SelectOption } from '../types';
+import {
+  MultipleSelectValue,
+  SelectOption,
+} from '../types';
 
 
 @Component({
@@ -30,7 +33,12 @@ import { SelectOption } from '../types';
 })
 export default class StSelectMultiple extends StSelectBase {
   @Prop(Array)
-  value!: string[];
+  value!: MultipleSelectValue;
+
+  // Extends with onValueChange method from _select.base
+  onValueChange(): void {
+    this.updateSelectedOptions();
+  }
 
   dropdownVisible: boolean = false;
 
@@ -79,7 +87,16 @@ export default class StSelectMultiple extends StSelectBase {
     merge(this.extendedCollapserPopperProps, this.collapserPopperProps);
   }
 
-  updateSelectedOptions(option: SelectOption): void {
+  updateSelectedOptions(): void {
+    this.selectedOptions = this.options.reduce((acc: SelectOption[], option: SelectOption) => {
+      if (this.value.includes(option.value)) {
+        acc.push(option);
+      }
+      return acc;
+    }, []);
+  }
+
+  processSelectedOption(option: SelectOption): void {
     const optionIndex = this.selectedValues.indexOf(option.value);
     if (optionIndex > -1) {
       this.selectedOptions.splice(optionIndex, 1);
@@ -93,7 +110,7 @@ export default class StSelectMultiple extends StSelectBase {
   }
 
   select(option: SelectOption): void {
-    this.updateSelectedOptions(option);
+    this.processSelectedOption(option);
     this.$emit('input', this.selectedValues);
     this.$emit('select', option);
   }

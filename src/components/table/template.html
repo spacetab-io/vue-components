@@ -16,12 +16,7 @@
                 'st-table__th-sortable': col.sortable
               }
             ]"
-            :style="[
-              col.style,
-              {
-                width: getWidth(col)
-              }
-            ]"
+            :style="getHeaderStyle(col)"
             class="st-table__th"
             @click.stop="sort(col)">
             <div class="st-table__th-wrap"

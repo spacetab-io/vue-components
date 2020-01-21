@@ -9,7 +9,8 @@ export interface Column {
   renderHtml?: boolean,
   width?: number | string,
   class?: any[] | object | string,
-  style?: any[] | object | string,
+  style?: object | string,
+  headerStyle?: object | string,
   [key: string]: any,
 }
 

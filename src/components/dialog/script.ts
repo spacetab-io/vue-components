@@ -67,7 +67,7 @@ export default class StDialog extends Vue {
   @Watch('width')
   onWidthChanged(newVal?: string) {
     if (!newVal) {
-      this.modal.modalBox.style.width = null;
+      this.modal.modalBox.style.width = '';
       return;
     }
 

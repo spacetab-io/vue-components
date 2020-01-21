@@ -1,12 +1,27 @@
 import {
   Prop,
   Vue,
+  Watch,
 } from 'vue-property-decorator';
 
 import { DropdownBindProperties } from '../dropdown/types';
-import { SelectOption } from './types';
+import {
+  BaseSelectValue,
+  SelectOption,
+} from './types';
+
 
 export default class StSelectBase extends Vue {
+  @Prop()
+  value!: BaseSelectValue;
+
+  // Watch on `value` doesn't work in extended classes without this
+  @Watch('value')
+  onValueChange(): void {}
+
+  @Prop(Boolean)
+  multiple!: boolean;
+
   @Prop(Array)
   options!: SelectOption[];
 
