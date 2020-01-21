@@ -48,7 +48,7 @@
     height: 100%;
     padding: 0;
     font-size: $st-input-font-size;
-    line-height: 1;
+    line-height: $st-input-line-height;
     color: $st-input-color;
     cursor: inherit;
     -webkit-appearance: none;

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.15
+
+### Maintenance
+* Fixed `Input`'s align problem in Safari and Mozilla
+
+
+
+
 ## 0.2.14
 
 ### Features
