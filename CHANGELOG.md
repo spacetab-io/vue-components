@@ -12,6 +12,9 @@
 * Fixed weird bug when typing in Select leaded to displaying clear icon
 * Fixed `Select` arrow visibility when component is non-clearable
 * Fixed bug with `useReferenceWidth` do not work properly in `Dropdown`
+* Fixed checkbox height (container of checkbox's square was a bit higher)
+* Fixed multiple `Select`'s selected options update. There was a problem with displaying of collapser's items when `Select`'s value was changed from outside
+* Created `BaseSelectValue`, `SingleSelectValue`, and `MultipleSelectValue` types for `Select` prop `value`   
 
 
 

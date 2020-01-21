@@ -25,7 +25,7 @@
   &__inner {
     position: relative;
     box-sizing: border-box;
-    display: inline-block;
+    display: block;
     width: $st-checkbox-width;
     height: $st-checkbox-height;
     border: $st-border-style $st-checkbox-common-border-width $st-checkbox-common-border-color;
