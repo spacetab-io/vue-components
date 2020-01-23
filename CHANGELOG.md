@@ -4,7 +4,10 @@
 
 ### Features
 * Added `Validation` for `Select`
-* Added `NotEmptyArrayRule` rule for `Validation`.
+* Added `NotEmptyArrayRule` rule for `Validation`
+
+### Maintenance
+* Fixed `Input`'s align problem in Safari and Mozilla
 
 
 
