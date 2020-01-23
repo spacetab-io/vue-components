@@ -1,6 +1,10 @@
 @import '../../../assets/scss/components/select/_variables';
 
 .st-select-multiple {
+  &--with-error .st-select-content {
+    border-color: $st-color-danger;
+  }
+
   &__collapser {
     z-index: $st-select-above-input-elements-z-index;
     width: 100%;

@@ -7,6 +7,10 @@ import StSelectContent from '../_select-content/index.vue';
 import StSelectDropdown from '../_select-dropdown/index.vue';
 import StSelectDropdownScript from '../_select-dropdown/script';
 import StSelectBase from '../_select.base';
+import {
+  ComponentValidator,
+  ValidatableComponent,
+} from '../../../utils/validation';
 import StIcon from '../../icon/index.vue';
 import {
   SelectOption,
@@ -22,11 +26,32 @@ import {
     StIcon,
   },
 })
-export default class StSelectSingle extends StSelectBase {
+export default class StSelectSingle extends StSelectBase implements ValidatableComponent<SingleSelectValue> {
   @Prop(String)
   value!: SingleSelectValue;
 
+  @Prop(ComponentValidator)
+  validator?: ComponentValidator<SingleSelectValue>;
+
   dropdownVisible: boolean = false;
+
+  isValid: boolean = true;
+
+  // Extends with onValueChange method from _select.base
+  onValueChange(): void {
+    if (this.validator) {
+      this.validator.validate();
+    }
+  }
+
+  onValidatorChanged(newValidator: ComponentValidator<SingleSelectValue>): void {
+    if (newValidator) {
+      newValidator.setComponent(this);
+      newValidator.onAfterValidation((newValue: boolean) => {
+        this.isValid = newValue;
+      });
+    }
+  }
 
   get updatedOptions(): SelectOption[] {
     return this.options.map(option => ({
@@ -52,7 +77,7 @@ export default class StSelectSingle extends StSelectBase {
     if (this.closeOnClear) {
       this.dropdownVisible = false;
     }
-    this.$emit('input', null);
+    this.$emit('input', '');
     this.$emit('clear');
   }
 
@@ -62,5 +87,9 @@ export default class StSelectSingle extends StSelectBase {
 
   closeDropdown(): void {
     (this.$refs.dropdown as StSelectDropdownScript).closeDropdown();
+  }
+
+  validateValue(): SingleSelectValue {
+    return this.value;
   }
 }

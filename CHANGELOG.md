@@ -2,6 +2,10 @@
 
 ## 0.2.15
 
+### Features
+* Added `Validation` for `Select`
+* Added `NotEmptyArrayRule` rule for `Validation`
+
 ### Maintenance
 * Fixed `Input`'s align problem in Safari and Mozilla
 

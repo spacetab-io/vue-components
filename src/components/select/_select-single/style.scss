@@ -1,6 +1,10 @@
 @import '../../../assets/scss/components/select/_variables';
 
 .st-select-single {
+  &--with-error .st-select-content {
+    border-color: $st-color-danger;
+  }
+
   &__dropdown-option {
     display: flex;
     align-items: center;

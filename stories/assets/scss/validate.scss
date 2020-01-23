@@ -2,9 +2,18 @@
   &__block {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     margin-bottom: 20px;
+
+    > div + div {
+      margin-top: 10px;
+    }
+  }
+
+  &__caption {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
   }
 
   &__status {

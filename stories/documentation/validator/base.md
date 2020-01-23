@@ -13,7 +13,7 @@
 
 ```addRules(rules: ValidationRule<T>[]): void``` - add array of validation rules to validator
 
-```validate(model: T): bool``` - going throat all validation rules and validate the passed value
+```validate(model: T): bool``` - going through all validation rules and validate the passed value
 
 
 ## `ValidationRule`
