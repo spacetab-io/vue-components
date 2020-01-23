@@ -10,6 +10,10 @@
     font-size: $st-autocomplete-message-font-size;
     text-align: $st-autocomplete-message-text-align;
   }
+
+  &--with-error #{$root}__input {
+    border-color: $st-color-danger;
+  }
 }
 
 .st-autocomplete-dropdown {

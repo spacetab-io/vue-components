@@ -3,7 +3,7 @@
 ## 0.2.15
 
 ### Features
-* Added `Validation` for `Select`
+* Added `Validation` for `Select`, `Autocomplete`
 * Added `NotEmptyArrayRule` rule for `Validation`
 
 ### Maintenance

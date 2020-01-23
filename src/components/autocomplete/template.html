@@ -1,4 +1,5 @@
-<div class="st-autocomplete">
+<div class="st-autocomplete"
+     :class="{'st-autocomplete--with-error': !isValid }">
   <st-dropdown class="st-autocomplete__dropdown-wrapper"
                ref="dropdown"
                :disabled="disabled"

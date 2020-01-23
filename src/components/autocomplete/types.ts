@@ -1,3 +1,5 @@
+export type AutocompleteValue = string;
+
 export type Suggestion = any;
 
 export type FetchSuggestionsCallback<T> = (data: T[]) => void;
