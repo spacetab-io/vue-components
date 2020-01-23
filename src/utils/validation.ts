@@ -86,6 +86,12 @@ export class NotEmptyRule implements ValidationRule<string> {
   }
 }
 
+export class NotEmptyArrayRule implements ValidationRule<any[]> {
+  public validate(model: any[]): boolean {
+    return model.length > 0;
+  }
+}
+
 export class LengthInRange implements ValidationRule<string> {
   constructor(
     public min: number,

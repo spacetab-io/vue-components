@@ -9,6 +9,10 @@ import StSelectContent from '../_select-content/index.vue';
 import StSelectDropdown from '../_select-dropdown/index.vue';
 import StSelectDropdownScript from '../_select-dropdown/script';
 import StSelectBase from '../_select.base';
+import {
+  ComponentValidator,
+  ValidatableComponent,
+} from '../../../utils/validation';
 import StCheckbox from '../../checkbox/index.vue';
 import StCollapser from '../../collapser/index.vue';
 import {
@@ -31,13 +35,28 @@ import {
     StCheckbox,
   },
 })
-export default class StSelectMultiple extends StSelectBase {
+export default class StSelectMultiple extends StSelectBase implements ValidatableComponent<MultipleSelectValue> {
   @Prop(Array)
   value!: MultipleSelectValue;
+
+  @Prop(ComponentValidator)
+  validator?: ComponentValidator<MultipleSelectValue>;
 
   // Extends with onValueChange method from _select.base
   onValueChange(): void {
     this.updateSelectedOptions();
+    if (this.validator) {
+      this.validator.validate();
+    }
+  }
+
+  onValidatorChanged(newValidator: ComponentValidator<MultipleSelectValue>): void {
+    if (newValidator) {
+      newValidator.setComponent(this);
+      newValidator.onAfterValidation((newValue: boolean) => {
+        this.isValid = newValue;
+      });
+    }
   }
 
   dropdownVisible: boolean = false;
@@ -51,6 +70,8 @@ export default class StSelectMultiple extends StSelectBase {
     boundariesSelector: 'body',
     stopPropagation: true,
   };
+
+  isValid: boolean = true;
 
   get updatedOptions(): SelectOption[] {
     return this.options.map(option => ({
@@ -130,5 +151,9 @@ export default class StSelectMultiple extends StSelectBase {
 
   closeDropdown(): void {
     (this.$refs.dropdown as StSelectDropdownScript).closeDropdown();
+  }
+
+  validateValue(): MultipleSelectValue {
+    return this.value;
   }
 }
