@@ -16,6 +16,7 @@ import documentation from '../../documentation/validator/component.md';
 import {
   template,
 } from '../../templates/validator/component.template';
+import { countriesList } from '../../utils/countries-list';
 
 
 storiesOf('Validator', module).add('Component', () => ({
@@ -23,17 +24,24 @@ storiesOf('Validator', module).add('Component', () => ({
   props: {
     // Input
     minLength: {
-      default: number('Minimum length', 5, void 0, 'Input validation'),
+      default: number('input | Minimum length', 5, void 0, 'Input validation'),
     },
     maxLength: {
-      default: number('Maximum length', 10, void 0, 'Input validation'),
+      default: number('input | Maximum length', 10, void 0, 'Input validation'),
     },
     // Select
-    notEmpty: {
-      default: boolean('Not empty', true, 'Select validation'),
+    selectNotEmpty: {
+      default: boolean('select | Not empty', true, 'Select validation'),
     },
     selectRequired: {
-      default: boolean('Required', true, 'Select validation'),
+      default: boolean('select | Required', true, 'Select validation'),
+    },
+    // Autocomplete
+    autocompleteNotEmpty: {
+      default: boolean('autocomplete | Not empty', true, 'Autocomplete validation'),
+    },
+    autocompleteRequired: {
+      default: boolean('autocomplete | Required', true, 'Autocomplete validation'),
     },
   },
   watch: {
@@ -41,16 +49,19 @@ storiesOf('Validator', module).add('Component', () => ({
     minLength: 'reinitializeInputValidators',
     maxLength: 'reinitializeInputValidators',
     // Select
-    notEmpty: 'reinitializeSelectValidators',
+    selectNotEmpty: 'reinitializeSelectValidators',
     selectRequired: 'reinitializeSelectValidators',
+    // Autocomplete
+    autocompleteNotEmpty: 'reinitializeAutocompleteValidators',
+    autocompleteRequired: 'reinitializeAutocompleteValidators',
   },
   methods: {
     // Input
     getInputValidator() {
-      const inputValidator = new ComponentValidator(false);
-      inputValidator.addRule(new LengthInRange(this.minLength, this.maxLength));
+      const validator = new ComponentValidator(false);
+      validator.addRule(new LengthInRange(this.minLength, this.maxLength));
 
-      return inputValidator;
+      return validator;
     },
     reinitializeInputValidators() {
       this.inputValidator = this.getInputValidator();
@@ -60,8 +71,10 @@ storiesOf('Validator', module).add('Component', () => ({
     getSelectValidators() {
       const singleSelectValidator = new ComponentValidator(this.selectRequired);
       const multipleSelectValidator = new ComponentValidator(this.selectRequired);
-      singleSelectValidator.addRule(new NotEmptyRule());
-      multipleSelectValidator.addRule(new NotEmptyArrayRule());
+      if (this.selectNotEmpty) {
+        singleSelectValidator.addRule(new NotEmptyRule());
+        multipleSelectValidator.addRule(new NotEmptyArrayRule());
+      }
 
       return {
         singleSelectValidator,
@@ -76,6 +89,24 @@ storiesOf('Validator', module).add('Component', () => ({
 
       this.singleSelectValidator = singleSelectValidator;
       this.multipleSelectValidator = multipleSelectValidator;
+    },
+
+    // Autocomplete
+    getAutocompleteValidator() {
+      const validator = new ComponentValidator(this.autocompleteRequired);
+      // if (this.autocompleteNotEmpty) {
+        validator.addRule(new NotEmptyRule());
+      // }
+
+      return validator;
+    },
+    reinitializeAutocompleteValidators() {
+      this.autocompleteValidator = this.getAutocompleteValidator();
+    },
+    fetchAutocompleteSuggestions(query, callback) {
+      callback(this.autocompleteOptions.filter(option =>
+        option.toLowerCase().indexOf(query.toLowerCase()) === 0,
+      ));
     }
   },
   data() {
@@ -84,6 +115,7 @@ storiesOf('Validator', module).add('Component', () => ({
       singleSelectValidator,
       multipleSelectValidator,
     } = this.getSelectValidators();
+    const autocompleteValidator = this.getAutocompleteValidator();
 
     return {
       // Input
@@ -101,6 +133,11 @@ storiesOf('Validator', module).add('Component', () => ({
       multipleSelectValue: [],
       singleSelectValidator: singleSelectValidator,
       multipleSelectValidator: multipleSelectValidator,
+
+      // Autocomplete
+      autocompleteOptions: countriesList.map(country => country.label),
+      autocompleteValue: '',
+      autocompleteValidator: autocompleteValidator,
     };
   },
 }), {
