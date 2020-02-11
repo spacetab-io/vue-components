@@ -132,3 +132,5 @@ Also you can change/extend inner dropdown's props via `dropdown-props`:
 | message-query-length | Defines inner content of message about query minimal length | - |
 | message-loading | Defines inner content of message about loading state | - |
 | message-empty | Defines inner content of message about no results | - |
+| prefix | Defines prefix content in select (at the left as default) | - |
+| suffix | Defines suffix content in select (at the right as default) | - |
