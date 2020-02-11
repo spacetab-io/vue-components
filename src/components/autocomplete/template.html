@@ -22,7 +22,15 @@
               @input="handleInput"
               @focus="handleFocus"
               @blur="handleBlur"
-              @clear="handleClear" />
+              @clear="handleClear">
+      <template #prefix>
+        <slot name="prefix" />
+      </template>
+
+      <template #suffix>
+        <slot name="suffix" />
+      </template>
+    </st-input>
     <template v-slot:top>
       <slot name="dropdown-top" />
       <div v-if="$slots['message-query-length'] && !checkQueryConditions(inputValue)"
