@@ -15,7 +15,7 @@ import StDropdownOption from '../dropdown-option/index.vue';
 import StDropdown from '../dropdown/index.vue';
 import StDropdownScript from '../dropdown/script';
 import { DropdownBindProperties } from '../dropdown/types';
-import StInput from '../input/script';
+import StInput from '../input/index.vue';
 import {
   PopperPlacement,
   TriggerType,
@@ -33,6 +33,7 @@ import {
   components: {
     StDropdown,
     StDropdownOption,
+    StInput,
   },
 })
 export default class StAutocomplete extends Vue implements ValidatableComponent<AutocompleteValue> {
