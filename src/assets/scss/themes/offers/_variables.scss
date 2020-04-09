@@ -1,3 +1,5 @@
+@import '../../utils/variables';
+
 $st-color-royal-blue: #4264fb;
 $st-color-cerulean-blue: #2c4de0;
 $st-color-persian-blue: #1030bd;
@@ -26,7 +28,7 @@ $st-badge-border-radius: 4px;
 $st-badge-font-size: 11px;
 $st-badge-info-color: mix($st-color-royal-blue, white, 60%);
 $st-badge-border-info: mix($st-color-royal-blue, white, 40%);
-$st-badge-background-info: mix($color-gayser, white, 50%);
+$st-badge-background-info: mix(#dfe5f8, white, 50%);
 
 $st-badge-error-color: mix($st-color-coral-red, white, 60%);
 $st-badge-border-error: mix($st-color-coral-red, white, 40%);
@@ -38,9 +40,7 @@ $st-popper-padding: 0;
 $st-tabs-tab-selected-text-color: inherit;
 $st-tabs-tab-border-width: 1px;
 $st-tabs-tab-selected-border-width: 2px;
-$st-tabs-tab-border-color: $color-gray-light;
+$st-tabs-tab-border-color: $st-color-gray-light;
 
 $st-collapser-max-height: 320px;
 $st-dropdown-max-height: $st-collapser-max-height;
-
-@import '../../utils/variables';
