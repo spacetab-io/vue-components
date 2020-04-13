@@ -1,6 +1,7 @@
 import {
   Component,
   Prop,
+  Ref,
 } from 'vue-property-decorator';
 
 import StSelectMultiple from './_select-multiple/index.vue';
@@ -19,26 +20,25 @@ import { BaseSelectValue } from './types';
   },
 })
 export default class StSelect extends StSelectBase {
+  @Ref('select-component')
+  selectComponent!: StSelectMultipleScript | StSelectSingleScript;
+
   @Prop()
   value!: BaseSelectValue;
 
   get componentName(): string {
-    return `st-select-${this.multiple ? 'multiple' : 'single'}`;
+    return this.multiple ? 'st-select-multiple' : 'st-select-single';
   }
 
   openDropdown(): void {
-    const $selectRef = this.multiple
-      ? (this.$refs['select-component'] as StSelectMultipleScript)
-      : (this.$refs['select-component'] as StSelectSingleScript);
-
-    $selectRef.openDropdown();
+    this.selectComponent.openDropdown();
   }
 
   closeDropdown(): void {
-    const $selectRef = this.multiple
-      ? (this.$refs['select-component'] as StSelectMultipleScript)
-      : (this.$refs['select-component'] as StSelectSingleScript);
+    this.selectComponent.closeDropdown();
+  }
 
-    $selectRef.closeDropdown();
+  clear(): void {
+    this.selectComponent.clear();
   }
 }
