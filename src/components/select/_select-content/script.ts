@@ -6,12 +6,14 @@ import {
 } from 'vue-property-decorator';
 
 import StIcon from '../../icon/index.vue';
+import StInput from '../../input/index.vue';
 
 
 @Component({
   name: 'StSelectContent',
   components: {
     StIcon,
+    StInput,
   },
 })
 export default class StSelectContent extends Vue {

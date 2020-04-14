@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.2.16
+
+### Features
+* Added `prefix` and `suffix` slots for `Autocomplete`
+
+
+
+
+## 0.2.15
+
+### Features
+* Added `Validation` for `Select`, `Autocomplete`
+* Added `NotEmptyArrayRule` rule for `Validation`
+
+### Maintenance
+* Fixed `Input`'s align problem in Safari and Mozilla
+
+
+
+
 ## 0.2.14
 
 ### Features
@@ -14,7 +34,7 @@
 * Fixed bug with `useReferenceWidth` do not work properly in `Dropdown`
 * Fixed checkbox height (container of checkbox's square was a bit higher)
 * Fixed multiple `Select`'s selected options update. There was a problem with displaying of collapser's items when `Select`'s value was changed from outside
-* Created `BaseSelectValue`, `SingleSelectValue`, and `MultipleSelectValue` types for `Select` prop `value`   
+* Created `BaseSelectValue`, `SingleSelectValue`, and `MultipleSelectValue` types for `Select` prop `value`
 
 
 

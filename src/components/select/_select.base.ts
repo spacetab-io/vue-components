@@ -4,6 +4,7 @@ import {
   Watch,
 } from 'vue-property-decorator';
 
+import { ComponentValidator } from '../../utils/validation';
 import { DropdownBindProperties } from '../dropdown/types';
 import {
   BaseSelectValue,
@@ -15,9 +16,8 @@ export default class StSelectBase extends Vue {
   @Prop()
   value!: BaseSelectValue;
 
-  // Watch on `value` doesn't work in extended classes without this
-  @Watch('value')
-  onValueChange(): void {}
+  @Prop(ComponentValidator)
+  validator?: ComponentValidator<BaseSelectValue>;
 
   @Prop(Boolean)
   multiple!: boolean;
@@ -72,4 +72,24 @@ export default class StSelectBase extends Vue {
 
   @Prop({ type: Object, default: () => {} })
   collapserPopperProps!: DropdownBindProperties;
+
+  isValid: boolean = true;
+
+  // Watch on `value` doesn't work in extended classes without this
+  @Watch('value')
+  onValueChange(): void {}
+
+  @Watch('validator', { immediate: true })
+  onValidatorChanged(newValidator: ComponentValidator<BaseSelectValue>): void {
+    if (newValidator) {
+      newValidator.setComponent(this);
+      newValidator.onAfterValidation((newValue: boolean) => {
+        this.isValid = newValue;
+      });
+    }
+  }
+
+  validateValue(): BaseSelectValue {
+    return this.value;
+  }
 }

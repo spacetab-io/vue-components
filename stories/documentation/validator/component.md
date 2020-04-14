@@ -26,7 +26,7 @@ formValidator.addValidator(validator);
 formValidator.validate();
 
 // Validate all fields (return false if one or more values are not valid)
-// Not stops after first validator failture
+// Not stops after first validator failure
 formValidator.validate(true);
 
 // html
@@ -42,7 +42,7 @@ class YourComponent extends Vue implements ValidatableComponent<ValueType> {
     // Your value which must be validated
     value!: ValueType;
     
-    // Property with your component validator istance
+    // Property with your component validator instance
     @Prop(ComponentValidator)
     validator?: ComponentValidator<ValueType>;
 
@@ -64,7 +64,7 @@ class YourComponent extends Vue implements ValidatableComponent<ValueType> {
             newValidator.setComponent(this);
                 
             // Proceed validation result update.
-            // Validation can be runned directly.
+            // Validation can be run directly.
             // That's why prefer to use callback for component manipulations. 
             newValidator.onAfterValidation((newValue: boolean) => {
                 this.isValid = newValue;

@@ -7,16 +7,22 @@ import {
   Watch,
 } from 'vue-property-decorator';
 
+import {
+  ComponentValidator,
+  ValidatableComponent,
+} from '../../utils/validation';
 import StDropdownOption from '../dropdown-option/index.vue';
 import StDropdown from '../dropdown/index.vue';
 import StDropdownScript from '../dropdown/script';
 import { DropdownBindProperties } from '../dropdown/types';
-import StInput from '../input/script';
+import StInput from '../input/index.vue';
+import StInputComp from '../input/script';
 import {
   PopperPlacement,
   TriggerType,
 } from '../popper/types';
 import {
+  AutocompleteValue,
   DebounceGetSuggestions,
   FetchSuggestions,
   Suggestion,
@@ -28,11 +34,12 @@ import {
   components: {
     StDropdown,
     StDropdownOption,
+    StInput,
   },
 })
-export default class StAutocomplete extends Vue {
+export default class StAutocomplete extends Vue implements ValidatableComponent<AutocompleteValue> {
   @Prop({ type: String, default: '' })
-  value!: string;
+  value!: AutocompleteValue;
 
   @Prop({ type: Function, required: true })
   fetchSuggestions!: FetchSuggestions<Suggestion>;
@@ -85,6 +92,9 @@ export default class StAutocomplete extends Vue {
   @Prop({ type: Object, default: () => ({}) })
   dropdownProps!: DropdownBindProperties;
 
+  @Prop(ComponentValidator)
+  validator?: ComponentValidator<AutocompleteValue>;
+
   extendedDropdownProps: DropdownBindProperties = {
     arrowVisible: false,
     placement: PopperPlacement.bottomStart,
@@ -104,9 +114,25 @@ export default class StAutocomplete extends Vue {
 
   suggestionSelected: boolean = false;
 
-  @Watch('value', { immediate: true })
-  onValueChange(value: string): void {
+  isValid: boolean = true;
+
+  @Watch('value', { immediate: false })
+  onValueChange(value: AutocompleteValue): void {
     this.inputValue = value;
+
+    if (this.validator) {
+      this.validator.validate();
+    }
+  }
+
+  @Watch('validator', { immediate: true })
+  onValidatorChanged(newValidator: ComponentValidator<AutocompleteValue>): void {
+    if (newValidator) {
+      newValidator.setComponent(this);
+      newValidator.onAfterValidation((newValue: boolean) => {
+        this.isValid = newValue;
+      });
+    }
   }
 
   @Watch('inputValue', { immediate: true })
@@ -235,10 +261,14 @@ export default class StAutocomplete extends Vue {
   }
 
   focus(): void {
-    (this.$refs.input as StInput).focus();
+    (this.$refs.input as StInputComp).focus();
   }
 
   blur(): void {
-    (this.$refs.input as StInput).blur();
+    (this.$refs.input as StInputComp).blur();
+  }
+
+  validateValue(): AutocompleteValue {
+    return this.value;
   }
 }
