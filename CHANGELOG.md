@@ -3,7 +3,9 @@
 ## 0.2.16
 
 ### Features
-* Added `prefix` and `suffix` slots for `Autocomplete`
+*
+### Maintenance
+* 
 
 
 
@@ -13,6 +15,7 @@
 ### Features
 * Added `Validation` for `Select`, `Autocomplete`
 * Added `NotEmptyArrayRule` rule for `Validation`
+* Added `prefix` and `suffix` slots for `Autocomplete`
 
 ### Maintenance
 * Fixed `Input`'s align problem in Safari and Mozilla
