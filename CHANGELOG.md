@@ -3,7 +3,7 @@
 ## 0.2.16
 
 ### Features
-*
+* Added new icons: `square-go-to`, `circle-go-to`
 ### Maintenance
 * 
 
