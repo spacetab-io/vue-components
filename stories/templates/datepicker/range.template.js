@@ -12,6 +12,7 @@ export const template = `
                    :input-format="inputFormat"
                    :trigger-type="triggerType"
                    :popper-arrow-visible="popperArrowVisible"
+                   :close-on-pick="closeOnPick"
                    :clearable="clearable"
                    :popper-placement="popperPlacement"
                    :now="now"
