@@ -1,7 +1,7 @@
-import { storiesOf } from '@storybook/vue'
-import { boolean, text, array } from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/vue';
+import { boolean, array } from '@storybook/addon-knobs';
 import { template } from '../../templates/radio/default.template';
-import checkboxNotes from '../../documentation/radio.md'
+import checkboxNotes from '../../documentation/radio.md';
 
 storiesOf('Components|Radio', module).add('Default', () => ({
     template,
@@ -9,9 +9,12 @@ storiesOf('Components|Radio', module).add('Default', () => ({
         disabled: {
             default: boolean('Disabled', false),
         },
+        readonly: {
+          default: boolean('Readonly', false),
+        },
         options: {
             default: array('Options', ['Hello', 'World', 'Guys']),
-        }
+        },
     },
     data() {
         return {

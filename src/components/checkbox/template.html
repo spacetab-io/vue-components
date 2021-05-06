@@ -1,6 +1,7 @@
-<label class="st-checkbox"
+<label :for="id"
+       class="st-checkbox"
        :class="checkboxMods"
-       :aria-checked="!!this.value"
+       :aria-checked="!!value"
        :aria-disabled="disabled"
        role="checkbox"
        @mouseenter="hovered = true"
@@ -8,13 +9,13 @@
     <div class="st-checkbox__input">
         <input class="st-checkbox__original-input"
                type="checkbox"
-               value="model"
+               :value="value"
                :id="id"
                :indeterminate="indeterminate"
                :disabled="disabled || readonly"
                @input="toggleCheckbox"
                @focusin="focused = true"
-               @focusout="focused = true">
+               @focusout="focused = false">
         <div class="st-checkbox__inner"></div>
     </div>
     <span class="st-checkbox__label"
