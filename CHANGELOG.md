@@ -4,6 +4,8 @@
 
 ### Features
 * Added new icons: `square-go-to`, `circle-go-to`
+* Added `innerId` prop to `Input`.
+
 ### Maintenance
 * 
 
