@@ -19,8 +19,8 @@ export default class StCheckbox extends Vue {
   @Prop(Boolean)
   readonly indeterminate?: boolean;
 
-  @Prop([String, Number])
-  readonly id?: string | number;
+  @Prop(String)
+  readonly id?: string;
 
   @Prop([String, Number])
   readonly label?: string | number;

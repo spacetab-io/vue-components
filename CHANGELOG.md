@@ -5,10 +5,15 @@
 ### Features
 * Added new icons: `square-go-to`, `circle-go-to`
 * Added `innerId` prop to `Input`
-* Added `close`, `open` methods to `Datepicker`
-* Added `closeOnPick` prop to `Datepicker`
-* Added emitting `blur` event when `Datepicker`'s inner input do `blur`
 * Added modifier-classes `hovered`, `focused` to `Checkbox`
+* Component `Datepicker` changes:
+  - Added `close`, `open` methods
+  - Added `closeOnPick` prop
+  - Added emitting `blur` event when `Datepicker`'s inner input do `blur`
+* Component `Radio` changes:
+  - Realization was changed from simple `div` to native `input[type=radio]`
+  - Added `readonly`, `id`, `name` props
+  - Added modifier-classes `hovered`, `focused`
 
 ### Maintenance
 * 
