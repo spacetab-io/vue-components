@@ -10,7 +10,7 @@
   line-height: 1;
   cursor: pointer;
 
-  &:not(&--readonly):hover {
+  &--hovered:not(&--readonly) {
     #{$root}__inner {
       border: $st-border-style $st-checkbox-common-border-width $st-color-dark-gunmetal;
     }
@@ -80,7 +80,7 @@
       }
     }
 
-    &:not(#{$root}--readonly):hover {
+    &#{$root}--hovered:not(#{$root}--readonly) {
       #{$root}__inner {
         border-color: $st-checkbox-checked-border-color;
       }
@@ -108,7 +108,7 @@
       color: $st-checkbox-disabled-color;
     }
 
-    &:not(#{$root}--readonly):hover {
+    &#{$root}:not(#{$root}--readonly) {
       #{$root}__inner {
         border-color: $st-checkbox-disabled-border-color;
       }
