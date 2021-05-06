@@ -8,6 +8,7 @@
 * Added `close`, `open` methods to `Datepicker`
 * Added `closeOnPick` prop to `Datepicker`
 * Added emitting `blur` event when `Datepicker`'s inner input do `blur`
+* Added modifier-classes `hovered`, `focused` to `Checkbox`
 
 ### Maintenance
 * 

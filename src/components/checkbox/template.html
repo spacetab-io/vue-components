@@ -2,16 +2,20 @@
        :class="checkboxMods"
        :aria-checked="!!this.value"
        :aria-disabled="disabled"
-       role="checkbox">
+       role="checkbox"
+       @mouseenter="hovered = true"
+       @mouseleave="hovered = false">
     <div class="st-checkbox__input">
-        <div class="st-checkbox__inner"></div>
         <input class="st-checkbox__original-input"
                type="checkbox"
                value="model"
                :id="id"
                :indeterminate="indeterminate"
                :disabled="disabled || readonly"
-               @input="toggleCheckbox">
+               @input="toggleCheckbox"
+               @focusin="focused = true"
+               @focusout="focused = true">
+        <div class="st-checkbox__inner"></div>
     </div>
     <span class="st-checkbox__label"
           v-if="$slots.default || label">
