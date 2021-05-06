@@ -11,7 +11,8 @@
                   @change="clear"></st-input>
     </template>
     <template v-if="!inline && componentMounted">
-        <st-popper :reference="$refs.input.$refs.input"
+        <st-popper ref="popper"
+                   :reference="$refs.input.$refs.input"
                    :arrow-visible="popperArrowVisible"
                    :placement="popperPlacement"
                    :popper-class="popperClass"

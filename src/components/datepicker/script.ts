@@ -8,6 +8,7 @@ import {
 
 import StInput from '../input/index.vue';
 import StPopper from '../popper/index.vue';
+import StPopperScript from '../popper/script';
 import {
   PopperPlacement,
   TriggerType,
@@ -18,7 +19,9 @@ import {
   DisabledRange,
   NavigationType,
 } from './types';
-import { DatepickerUtils } from './utils';
+import {
+  DatepickerUtils,
+} from './utils';
 
 
 @Component({
@@ -98,6 +101,7 @@ export default class StDatepicker extends Vue {
 
   $refs!: {
     input: Vue,
+    popper: StPopperScript,
   };
 
   componentMounted: boolean = false;
@@ -132,5 +136,13 @@ export default class StDatepicker extends Vue {
     }
 
     this.emitInput('');
+  }
+
+  close() {
+    this.$refs.popper.doClose();
+  }
+
+  open() {
+    this.$refs.popper.doShow();
   }
 }
