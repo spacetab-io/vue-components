@@ -8,7 +8,8 @@
                   :placeholder="placeholder"
                   :prefix-icon="prefixIcon"
                   :suffix-icon="suffixIcon"
-                  @change="clear"></st-input>
+                  @change="clear"
+                  @blur="$emit('blur')" />
     </template>
     <template v-if="!inline && componentMounted">
         <st-popper ref="popper"

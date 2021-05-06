@@ -7,6 +7,7 @@
 * Added `innerId` prop to `Input`
 * Added `close`, `open` methods to `Datepicker`
 * Added `closeOnPick` prop to `Datepicker`
+* Added emitting `blur` event when `Datepicker`'s inner input do `blur`
 
 ### Maintenance
 * 
