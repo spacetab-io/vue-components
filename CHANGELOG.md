@@ -6,6 +6,7 @@
 * Added new icons: `square-go-to`, `circle-go-to`
 * Added `innerId` prop to `Input`
 * Added `close`, `open` methods to `Datepicker`
+* Added `closeOnPick` prop to `Datepicker`
 
 ### Maintenance
 * 

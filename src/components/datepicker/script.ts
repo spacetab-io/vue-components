@@ -94,6 +94,9 @@ export default class StDatepicker extends Vue {
   @Prop(String)
   prefixIcon?: string;
 
+  @Prop({ type: Boolean, default: false })
+  closeOnPick!: boolean;
+
   @Emit('input')
   emitInput(val: string | string[]): string | string[] {
     return val;
@@ -127,6 +130,14 @@ export default class StDatepicker extends Vue {
     }
 
     return '';
+  }
+
+  handleValuePick(value: string | string[]) {
+    this.emitInput(value);
+
+    if (this.closeOnPick) {
+      this.close();
+    }
   }
 
   clear() {
