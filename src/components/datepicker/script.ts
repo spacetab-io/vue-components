@@ -7,7 +7,9 @@ import {
 } from 'vue-property-decorator';
 
 import StInput from '../input/index.vue';
+import StInputScript from '../input/script';
 import StPopper from '../popper/index.vue';
+import StPopperScript from '../popper/script';
 import {
   PopperPlacement,
   TriggerType,
@@ -18,7 +20,9 @@ import {
   DisabledRange,
   NavigationType,
 } from './types';
-import { DatepickerUtils } from './utils';
+import {
+  DatepickerUtils,
+} from './utils';
 
 
 @Component({
@@ -91,13 +95,17 @@ export default class StDatepicker extends Vue {
   @Prop(String)
   prefixIcon?: string;
 
+  @Prop({ type: Boolean, default: false })
+  closeOnPick!: boolean;
+
   @Emit('input')
   emitInput(val: string | string[]): string | string[] {
     return val;
   }
 
   $refs!: {
-    input: Vue,
+    input: StInputScript,
+    popper: StPopperScript,
   };
 
   componentMounted: boolean = false;
@@ -125,6 +133,14 @@ export default class StDatepicker extends Vue {
     return '';
   }
 
+  handleValuePick(value: string | string[]) {
+    this.emitInput(value);
+
+    if (this.closeOnPick) {
+      this.close();
+    }
+  }
+
   clear() {
     if (this.isRange) {
       this.emitInput([]);
@@ -132,5 +148,25 @@ export default class StDatepicker extends Vue {
     }
 
     this.emitInput('');
+  }
+
+  close() {
+    this.$refs.popper.doClose();
+  }
+
+  blur() {
+    if (this.$refs.input) {
+      this.$refs.input.blur();
+    }
+  }
+
+  focus() {
+    if (this.$refs.input) {
+      this.$refs.input.focus();
+    }
+  }
+
+  open() {
+    this.$refs.popper.doShow();
   }
 }

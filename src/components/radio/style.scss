@@ -9,6 +9,10 @@
   width: fit-content;
   cursor: pointer;
 
+  &__input {
+    position: relative;
+  }
+
   &__inner {
     box-sizing: border-box;
     width: $st-radio-inner-size;
@@ -17,6 +21,16 @@
     border: $st-radio-inner-border;
     border-radius: 100%;
     transition: $st-radio-inner-transition;
+  }
+
+  &__original-input {
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    outline: none;
+    opacity: 0;
   }
 
   &__label {
@@ -28,11 +42,9 @@
     margin-left: $st-radio-group-margin;
   }
 
-  &:not(&--disabled):not(&--selected) {
-    &:hover {
-      #{$root}__inner {
-        border: $st-radio-inner-hover-border;
-      }
+  &--hovered:not(&--disabled):not(&--selected):not(&--readonly) {
+    #{$root}__inner {
+      border: $st-radio-inner-hover-border;
     }
   }
 
@@ -45,5 +57,9 @@
   &--disabled {
     cursor: not-allowed;
     opacity: $st-radio-disabled-opacity;
+  }
+
+  &--readonly {
+    cursor: default;
   }
 }

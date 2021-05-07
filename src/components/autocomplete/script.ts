@@ -271,8 +271,4 @@ export default class StAutocomplete extends Vue implements ValidatableComponent<
   validateValue(): AutocompleteValue {
     return this.value;
   }
-
-  validateValue(): AutocompleteValue {
-    return this.value;
-  }
 }

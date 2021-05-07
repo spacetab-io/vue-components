@@ -75,11 +75,15 @@ export default class StDropdown extends Vue {
   @Prop({ type: String, default: '' })
   transition!: string;
 
+  $refs!: {
+    popper: StPopperScript,
+  }
+
   open(): void {
-    (this.$refs.popper as StPopperScript).doShow();
+    this.$refs.popper.doShow();
   }
 
   close(): void {
-    (this.$refs.popper as StPopperScript).doClose();
+    this.$refs.popper.doClose();
   }
 }

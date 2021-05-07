@@ -1,5 +1,8 @@
 import {
-  Component, Emit, Prop, Vue,
+  Component,
+  Emit,
+  Prop,
+  Vue,
 } from 'vue-property-decorator';
 
 @Component
@@ -10,23 +13,36 @@ export default class StRadio extends Vue {
   @Prop({ required: true })
   option!: any;
 
+  @Prop({ type: String, required: true })
+  readonly name!: string;
+
   @Prop(String)
   label?: string;
 
   @Prop(Boolean)
   disabled!: boolean;
 
+  @Prop(String)
+  readonly id?: string;
+
+  @Prop(Boolean)
+  readonly readonly?: boolean;
+
+  focused: boolean = false;
+
+  hovered: boolean = false;
+
   @Emit('input')
-  public select() {
+  public emitInput() {
     return this.option;
   }
 
-  public onClick() {
-    if (this.disabled) {
+  public toggleRadio() {
+    if (this.disabled || this.readonly) {
       return;
     }
 
-    this.select();
+    this.emitInput();
   }
 
   get isSelected(): boolean {
@@ -37,6 +53,9 @@ export default class StRadio extends Vue {
     return {
       'st-radio--selected': this.isSelected,
       'st-radio--disabled': this.disabled,
+      'st-radio--readonly': !!this.readonly,
+      'st-radio--focused': this.focused,
+      'st-radio--hovered': this.hovered,
     };
   }
 }

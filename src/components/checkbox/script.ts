@@ -19,11 +19,15 @@ export default class StCheckbox extends Vue {
   @Prop(Boolean)
   readonly indeterminate?: boolean;
 
-  @Prop([String, Number])
-  readonly id?: string | number;
+  @Prop(String)
+  readonly id?: string;
 
   @Prop([String, Number])
   readonly label?: string | number;
+
+  hovered: boolean = false;
+
+  focused: boolean = false;
 
   @Emit('input')
   emmitInput(newValue: boolean) {
@@ -44,6 +48,8 @@ export default class StCheckbox extends Vue {
       'st-checkbox--indeterminate': this.indeterminate,
       'st-checkbox--disabled': this.disabled,
       'st-checkbox--readonly': this.readonly,
+      'st-checkbox--hovered': this.hovered,
+      'st-checkbox--focused': this.focused,
     };
   }
 }
