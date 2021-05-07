@@ -8,7 +8,7 @@ Frontend components for Vue.
 ## Installation
 
 ```bash
-npm install --save @spacetabs/vue-components
+npm install --save @spacetab-io/vue-components
 ```
 
 ## CLI Usage

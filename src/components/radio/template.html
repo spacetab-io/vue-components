@@ -1,7 +1,24 @@
-<div class="st-radio"
-     :class="rootClasses"
-     @click="onClick()">
-    <div class="st-radio__inner"></div>
-    <div v-if="label"
-         class="st-radio__label">{{ label }}</div>
-</div>
+<label :for="id"
+       class="st-radio"
+       :class="rootClasses"
+       role="radio"
+       @mouseenter="hovered = true"
+       @mouseleave="hovered = false">
+    <div class="st-radio__input">
+      <input class="st-radio__original-input"
+             type="radio"
+             :id="id"
+             :name="name"
+             :value="value"
+             :disabled="disabled || readonly"
+             @input="toggleRadio"
+             @focusin="focused = true"
+             @focusout="focused = false">
+      <div class="st-radio__inner"></div>
+    </div>
+    <span class="st-radio__label"
+          v-if="$slots.default || label">
+        <slot></slot>
+        <template v-if="!$slots.default">{{ label }}</template>
+    </span>
+</label>

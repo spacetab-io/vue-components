@@ -1,6 +1,6 @@
 import { boolean, text, number, date, select } from '@storybook/addon-knobs';
 import { template } from '../../templates/datepicker/single.template';
-import notes from '../../documentation/datepicker.md'
+import notes from '../../documentation/datepicker.md';
 import moment from 'moment';
 import { PopperPlacement, TriggerType } from '../../../src/components/popper/types';
 import { NavigationType } from '../../../src/components/datepicker/types';
@@ -35,16 +35,19 @@ export const singleStoriesData = {
         default: text('Input date format', 'DD.MM.YYYY'),
       },
       popperPlacement: {
-        default: select('Placement', Object.values(PopperPlacement), PopperPlacement.auto)
+        default: select('Placement', Object.values(PopperPlacement), PopperPlacement.auto),
       },
       triggerType: {
-        default: select('Trigger', Object.values(TriggerType), TriggerType.click)
+        default: select('Trigger', Object.values(TriggerType), TriggerType.click),
       },
       popperArrowVisible: {
         default: boolean('Popper arrow visibility', true),
       },
       clearable: {
         default: boolean('Clearable', true),
+      },
+      closeOnPick: {
+        default: boolean('closeOnPick', false),
       },
       now: {
         default: momentFormatDate('Custom now', void 0),

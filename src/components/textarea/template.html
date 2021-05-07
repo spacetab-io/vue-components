@@ -23,7 +23,12 @@
             @input="handleInput"
             @focus="$emit('focus')"
             @blur="$emit('blur')"
-            @change="handleChange">{{ textareaValue }}</textarea>
+            @change="handleChange"
+            @keypress="$emit('keypress')"
+            @keydown="$emit('keydown')"
+            @keyup="$emit('keyup')">
+      {{ textareaValue }}
+  </textarea>
   <st-icon v-if="loading"
            name="loader"
            class="st-textarea__loader" />

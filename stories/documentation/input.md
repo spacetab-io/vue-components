@@ -36,6 +36,7 @@ If you want more input-like behaviour with clearable prop, use the component thi
 | readonly | Defines readonly property | false | boolean | false | true/false |
 | placeholder | Input's placeholder | false | String | - | * |
 | maxlength | Input's maxlength | false | Number | - | * |
+| inner-id | Inners input's (native) id attribute | false | String | - | * |
 | name | Input's name for form | false | String | - | * |
 | pattern | Input's pattern | false | String | - | * |
 | focus-after-clear | Will focus input after clear | false | boolean | false | true/false |

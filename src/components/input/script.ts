@@ -39,6 +39,9 @@ export default class StInput extends Vue implements ValidatableComponent<string>
   value!: string;
 
   @Prop(String)
+  innerId!: string;
+
+  @Prop(String)
   type!: string;
 
   @Prop(Boolean)

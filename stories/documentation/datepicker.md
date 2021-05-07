@@ -24,3 +24,18 @@
 | placeholder | Datepicker's placeholder | false | String | - | * |
 | prefix-icon | Datepicker's prefix icon (at left) | false | String | - | * |
 | suffix-icon | Datepicker's suffix icon (at right) | false | String | - | * |
+| close-on-pick | Should be closed after picking a date? | false | Boolean | - | - |
+
+## Datepicker methods
+
+| Name | Description | Arguments |
+| --- | --- | --- |
+| open | Opens datepicker's dropdown | - |
+| focus | Focuses datepicker's inner input (reference) | - |
+| blur | Blurs datepicker's inner input (reference) | - |
+| close | Closes datepicker's dropdown | - |
+
+## Datepicker slots
+| Name | Description | Default |
+| --- | --- | --- |
+| reference | As default defines element that opens and closes datepicker | StInput |

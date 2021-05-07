@@ -10,13 +10,14 @@
   line-height: 1;
   cursor: pointer;
 
-  &:not(&--readonly):hover {
+  &--hovered:not(&--readonly) {
     #{$root}__inner {
       border: $st-border-style $st-checkbox-common-border-width $st-color-dark-gunmetal;
     }
   }
 
   &__input {
+    position: relative;
     line-height: 1;
     white-space: nowrap;
     outline: none;
@@ -50,7 +51,7 @@
 
   &__original-input {
     position: absolute;
-    left: -999px;
+    left: 0;
     width: 0;
     height: 0;
     margin: 0;
@@ -80,7 +81,7 @@
       }
     }
 
-    &:not(#{$root}--readonly):hover {
+    &#{$root}--hovered:not(#{$root}--readonly) {
       #{$root}__inner {
         border-color: $st-checkbox-checked-border-color;
       }
@@ -108,7 +109,7 @@
       color: $st-checkbox-disabled-color;
     }
 
-    &:not(#{$root}--readonly):hover {
+    &#{$root}:not(#{$root}--readonly) {
       #{$root}__inner {
         border-color: $st-checkbox-disabled-border-color;
       }

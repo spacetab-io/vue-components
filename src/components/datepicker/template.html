@@ -1,17 +1,22 @@
 <div class="st-datepicker"
      :class="{ 'st-datepicker--extended': isExtended }">
     <template v-if="!inline">
-        <st-input ref="input"
-                  :class="inputClass"
-                  :clearable="clearable"
-                  :value="inputValue"
-                  :placeholder="placeholder"
-                  :prefix-icon="prefixIcon"
-                  :suffix-icon="suffixIcon"
-                  @change="clear"></st-input>
+        <slot name="reference">
+            <st-input ref="input"
+                      :class="inputClass"
+                      :clearable="clearable"
+                      :value="inputValue"
+                      :placeholder="placeholder"
+                      :prefix-icon="prefixIcon"
+                      :suffix-icon="suffixIcon"
+                      @change="clear"
+                      @focus="$emit('focus')"
+                      @blur="$emit('blur')" />
+        </slot>
     </template>
     <template v-if="!inline && componentMounted">
-        <st-popper :reference="$refs.input.$refs.input"
+        <st-popper ref="popper"
+                   :reference="$refs.input.$refs.input"
                    :arrow-visible="popperArrowVisible"
                    :placement="popperPlacement"
                    :popper-class="popperClass"
@@ -26,7 +31,7 @@
                                       :now="now"
                                       :value="value"
                                       :navigation-type="navigationType"
-                                      @input="$emit('input', $event)"></st-datepicker-single>
+                                      @input="handleValuePick"></st-datepicker-single>
                 <st-datepicker-range v-else
                                      :class="datepickerClass"
                                      :month-visible="monthVisible"
@@ -36,7 +41,7 @@
                                      :now="now"
                                      :value="value"
                                      :navigation-type="navigationType"
-                                     @input="$emit('input', $event)"></st-datepicker-range>
+                                     @input="handleValuePick"></st-datepicker-range>
             </div>
         </st-popper>
     </template>
@@ -49,7 +54,7 @@
                               :now="now"
                               :value="value"
                               :navigation-type="navigationType"
-                              @input="$emit('input', $event)"></st-datepicker-single>
+                              @input="handleValuePick"></st-datepicker-single>
         <st-datepicker-range v-else
                              :month-visible="monthVisible"
                              :disabled-from="disabledFrom"
@@ -58,6 +63,6 @@
                              :now="now"
                              :value="value"
                              :navigation-type="navigationType"
-                             @input="$emit('input', $event)"></st-datepicker-range>
+                             @input="handleValuePick"></st-datepicker-range>
     </template>
 </div>

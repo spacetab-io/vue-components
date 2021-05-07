@@ -1,10 +1,10 @@
 <div class="st-datepicker-month-select">
     <template v-if="yearSelectOpened">
-        <st-datepicker-year-select :value="value"
-                                   @input="emitInput"
-                                   :disabled-to="disabledTo"
-                                   :disabled-from="disabledFrom"
-                                   :now="now"></st-datepicker-year-select>
+        <st-datepicker-year :value="value"
+                            @input="emitInput"
+                            :disabled-to="disabledTo"
+                            :disabled-from="disabledFrom"
+                            :now="now"></st-datepicker-year>
     </template>
 
     <template v-else>
