@@ -31,4 +31,11 @@
 | Name | Description | Arguments |
 | --- | --- | --- |
 | open | Opens datepicker's dropdown | - |
-| close | Closes datepicker's dropdown | Arguments |
+| focus | Focuses datepicker's inner input (reference) | - |
+| blur | Blurs datepicker's inner input (reference) | - |
+| close | Closes datepicker's dropdown | - |
+
+## Datepicker slots
+| Name | Description | Default |
+| --- | --- | --- |
+| reference | As default defines element that opens and closes datepicker | StInput |
