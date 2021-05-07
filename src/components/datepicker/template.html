@@ -1,15 +1,18 @@
 <div class="st-datepicker"
      :class="{ 'st-datepicker--extended': isExtended }">
     <template v-if="!inline">
-        <st-input ref="input"
-                  :class="inputClass"
-                  :clearable="clearable"
-                  :value="inputValue"
-                  :placeholder="placeholder"
-                  :prefix-icon="prefixIcon"
-                  :suffix-icon="suffixIcon"
-                  @change="clear"
-                  @blur="$emit('blur')" />
+        <slot name="reference">
+            <st-input ref="input"
+                      :class="inputClass"
+                      :clearable="clearable"
+                      :value="inputValue"
+                      :placeholder="placeholder"
+                      :prefix-icon="prefixIcon"
+                      :suffix-icon="suffixIcon"
+                      @change="clear"
+                      @focus="$emit('focus')"
+                      @blur="$emit('blur')" />
+        </slot>
     </template>
     <template v-if="!inline && componentMounted">
         <st-popper ref="popper"

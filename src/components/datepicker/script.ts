@@ -7,6 +7,7 @@ import {
 } from 'vue-property-decorator';
 
 import StInput from '../input/index.vue';
+import StInputScript from '../input/script';
 import StPopper from '../popper/index.vue';
 import StPopperScript from '../popper/script';
 import {
@@ -103,7 +104,7 @@ export default class StDatepicker extends Vue {
   }
 
   $refs!: {
-    input: Vue,
+    input: StInputScript,
     popper: StPopperScript,
   };
 
@@ -151,6 +152,18 @@ export default class StDatepicker extends Vue {
 
   close() {
     this.$refs.popper.doClose();
+  }
+
+  blur() {
+    if (this.$refs.input) {
+      this.$refs.input.blur();
+    }
+  }
+
+  focus() {
+    if (this.$refs.input) {
+      this.$refs.input.focus();
+    }
   }
 
   open() {

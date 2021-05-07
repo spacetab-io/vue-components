@@ -7,9 +7,10 @@
 * Added `innerId` prop to `Input`
 * Added modifier-classes `hovered`, `focused` to `Checkbox`
 * Component `Datepicker` changes:
-  - Added `close`, `open` methods
+  - Added `close`, `blur`, `focus`, `open` methods
   - Added `closeOnPick` prop
   - Added emitting `blur` event when `Datepicker`'s inner input do `blur`
+  - Added slot `reference` (to use different things instead of inner input)
 * Component `Radio` changes:
   - Realization was changed from simple `div` to native `input[type=radio]`
   - Added `readonly`, `id`, `name` props
@@ -17,7 +18,7 @@
 * Added emitting `keypress`, `keyup`, `keydown` to `Textarea`
 
 ### Maintenance
-* 
+* Fixed `Datepicker` bug with disappearing year grid when it has `extended` `navigation-type`
 
 
 
