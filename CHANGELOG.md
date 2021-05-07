@@ -14,6 +14,7 @@
   - Realization was changed from simple `div` to native `input[type=radio]`
   - Added `readonly`, `id`, `name` props
   - Added modifier-classes `hovered`, `focused`
+* Added emitting `keypress`, `keyup`, `keydown` to `Textarea`
 
 ### Maintenance
 * 
