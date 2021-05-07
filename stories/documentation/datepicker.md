@@ -25,3 +25,10 @@
 | prefix-icon | Datepicker's prefix icon (at left) | false | String | - | * |
 | suffix-icon | Datepicker's suffix icon (at right) | false | String | - | * |
 | close-on-pick | Should be closed after picking a date? | false | Boolean | - | - |
+
+## Datepicker methods
+
+| Name | Description | Arguments |
+| --- | --- | --- |
+| open | Opens datepicker's dropdown | - |
+| close | Closes datepicker's dropdown | Arguments |
