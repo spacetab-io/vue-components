@@ -19,7 +19,7 @@
   "dependencies": {
     "@spacetab-io/svg-sprite-loader": "github:spacetab-io/svg-sprite-loader#master",
     "core-js": "^2.6.9",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "moment": "^2.24.0",
     "popper.js": "^1.15.0",
     "tingle.js": "^0.15.1",
