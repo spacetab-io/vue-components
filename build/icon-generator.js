@@ -27,7 +27,7 @@ fs.readdirSync(iconsSvgDirectory).forEach(file => {
   iconsList.push(fileName);
 
   importIconList.push(render(
-    `import '!@spacetab-io/svg-sprite-loader?symbolId=st-[name]!${iconsImportPath}/{{icon}}.svg';`,
+    `import '!svg-sprite-loader?symbolId=st-[name]!${iconsImportPath}/{{icon}}.svg';`,
     {
       icon: fileName
     }
