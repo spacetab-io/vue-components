@@ -1,6 +1,6 @@
 {
   "name": "@spacetab-io/vue-components",
-  "version": "0.2.16",
+  "version": "0.2.17",
   "private": false,
   "scripts": {
     "serve": "npm run generator:all && start-storybook -p 6006",
@@ -17,11 +17,11 @@
     "generator:component": "node build/component-generator.js"
   },
   "dependencies": {
-    "@spacetab-io/svg-sprite-loader": "github:spacetab-io/svg-sprite-loader#master",
     "core-js": "^2.6.9",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "moment": "^2.24.0",
     "popper.js": "^1.15.0",
+    "svg-sprite-loader": "^6.0.9",
     "tingle.js": "^0.15.1",
     "vue": "^2.6.10",
     "vue-class-component": "^7.1.0",
