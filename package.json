@@ -1,6 +1,6 @@
 {
   "name": "@spacetab-io/vue-components",
-  "version": "0.2.17",
+  "version": "0.2.18",
   "private": false,
   "scripts": {
     "serve": "npm run generator:all && start-storybook -p 6006",
