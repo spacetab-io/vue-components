@@ -1,7 +1,7 @@
 # Changelog
 
 ## 0.2.17
-
+* svg-sprite-loader dependency fix: removed custom package and installed origin one
 
 
 
