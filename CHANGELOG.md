@@ -2,6 +2,12 @@
 
 ## 0.2.18
 
+### Maintenance
+* Component `Button`'s fixes: 
+    - Bug with icon coloring while `:active` and `:focus` states
+    - Bug with icon coloring with `secondary` and `text` `type` 
+    - Deleted additional white overlay while `loading` at the same time as `disabled`
+
 
 
 ## 0.2.17
