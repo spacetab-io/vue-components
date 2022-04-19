@@ -46,10 +46,11 @@
     outline: none;
   }
 
-  &__icon {
+  #{$root}__icon {
     width: 16px;
     height: 16px;
     line-height: 16px;
+    color: currentColor;
 
     + #{$root}__content {
       margin-left: 8px;
@@ -98,10 +99,6 @@
         background-color: $st-button-default-fill;
         border-color: mix($st-color-white-smoke, $st-color-white);
       }
-
-      #{$root}__icon {
-        color: mix($st-color-taupe-gray, $st-color-white);
-      }
     }
 
     &:hover,
@@ -109,10 +106,6 @@
       color: $st-color-taupe-gray;
       background-color: $st-color-white;
       border-color: $st-color-white-smoke;
-    }
-
-    #{$root}__icon {
-      color: $st-color-taupe-gray;
     }
   }
 
@@ -126,14 +119,6 @@
     &#{$root}--plain:hover {
       color: $st-color-mantis;
       background-color: $st-color-white;
-
-      #{$root}__icon {
-        color: $st-color-mantis;
-      }
-    }
-
-    #{$root}__icon {
-      color: $st-color-white;
     }
   }
 
@@ -141,26 +126,14 @@
     min-width: 192px;
     border-radius: $st-button-secondary-border-radius;
 
-    #{$root}__icon {
-      color: $st-color-mantis;
-    }
-
     &:focus {
       color: $st-color-white;
       background-color: mix($st-color-mantis, $st-color-white, 80%);
-
-      #{$root}__icon {
-        color: $st-color-white;
-      }
     }
 
     &:hover {
       color: $st-color-white;
       background-color: $st-color-mantis;
-
-      #{$root}__icon {
-        color: $st-color-white;
-      }
     }
 
     &#{$root}--plain {
@@ -169,51 +142,14 @@
       }
     }
 
-    &#{$root}--disabled {
-      #{$root}__icon {
-        color: mix($st-color-mantis, $st-color-white, 50%);
-      }
-    }
-
-    &#{$root}__approve {
-      #{$root}__icon {
-        color: $st-color-mantis;
-      }
-
-      &:not(#{$root}--disabled):hover,
-      &:not(#{$root}--disabled):focus {
-        #{$root}__icon {
-          color: $st-color-white;
-        }
-      }
-
-      &#{$root}--disabled {
-        &,
-        &:hover,
-        &:focus {
-          #{$root}__icon {
-            color: mix($st-color-mantis, $st-color-white);
-          }
-        }
-      }
-    }
-
     &#{$root}--cancel {
       color: $st-color-taupe-gray;
       border-color: $st-color-pastel-gray;
 
       &:not(#{$root}--disabled) {
-        #{$root}__icon {
-          color: $st-color-pastel-gray;
-        }
-
         &:focus,
         &:hover {
           color: $st-color-white;
-
-          #{$root}__icon {
-            color: $st-color-white;
-          }
         }
 
         &:focus {
@@ -236,19 +172,11 @@
         &:focus {
           color: mix($st-color-taupe-gray, $st-color-white);
           border-color: mix($st-color-pastel-gray, $st-color-white);
-
-          #{$root}__icon {
-            color: mix($st-color-taupe-gray, $st-color-white);
-          }
         }
 
         &#{$root}--plain {
           background-color: mix($st-color-pastel-gray, $st-color-white, 10%);
         }
-      }
-
-      #{$root}__icon {
-        color: $st-color-taupe-gray;
       }
     }
 
@@ -256,27 +184,15 @@
       color: $st-color-sunset-orange;
       border-color: $st-color-sunset-orange;
 
-      #{$root}__icon {
-        color: $st-color-sunset-orange;
-      }
-
       &:not(#{$root}--disabled):focus {
         color: $st-color-white;
         background-color: mix($st-color-sunset-orange, $st-color-white, 80%);
-
-        #{$root}__icon {
-          color: $st-color-white;
-        }
       }
 
       &:not(#{$root}--disabled):hover {
         color: $st-color-white;
         background-color: $st-color-sunset-orange;
         border-color: $st-color-sunset-orange;
-
-        #{$root}__icon {
-          color: $st-color-white;
-        }
       }
 
       &#{$root}--plain {
@@ -289,10 +205,6 @@
         &:focus {
           color: mix($st-color-sunset-orange, $st-color-white);
           border-color: mix($st-color-sunset-orange, $st-color-white);
-
-          #{$root}__icon {
-            color: mix($st-color-sunset-orange, $st-color-white);
-          }
         }
 
         &#{$root}--plain {
@@ -321,10 +233,6 @@
       color: mix($st-color-blueberry, $st-color-white, 80%);
       background-color: $st-color-white;
       border-color: mix($st-color-blueberry, $st-color-white, 40%);
-
-      #{$root}__icon {
-        color: mix($st-color-blueberry, $st-color-white, 80%);
-      }
     }
 
     &:not(#{$root}--disabled):hover {
@@ -338,10 +246,6 @@
         color: mix($st-color-blueberry, $st-color-white, 50%);
         background-color: transparent;
         border-color: transparent;
-      }
-
-      #{$root}__icon {
-        color: mix($st-color-blueberry, $st-color-white, 50%);
       }
 
       &#{$root}--plain,
@@ -361,10 +265,6 @@
         background-color: $st-color-white;
         border-color: $st-color-blueberry;
       }
-    }
-
-    #{$root}__icon {
-      color: $st-button-info-color;
     }
   }
 
@@ -414,20 +314,12 @@
       color: mix($st-color-taupe-gray, $st-color-white, 80%);
       background-color: transparent;
       border-color: transparent;
-
-      #{$root}__icon {
-        color: mix($st-color-taupe-gray, $st-color-white, 80%);
-      }
     }
 
     &:not(#{$root}--disabled):active {
       color: $st-color-taupe-gray;
       background-color: transparent;
       border-color: transparent;
-
-      #{$root}__icon {
-        color: $st-color-taupe-gray;
-      }
     }
 
     &#{$root}--disabled,
@@ -435,40 +327,20 @@
     &#{$root}--disabled:focus {
       color: mix($st-color-taupe-gray, $st-color-white, 40%);
       border-color: transparent;
-
-      #{$root}__icon {
-        color: mix($st-color-taupe-gray, $st-color-white, 40%);
-      }
     }
 
     &:not(#{$root}--disabled)#{$root}--search {
       &:focus {
         color: mix($st-text-color-regular, $st-color-white, 40%);
-
-        #{$root}__icon {
-          color: mix($st-text-color-regular, $st-color-white, 40%);
-        }
       }
 
       &:hover {
         color: $st-color-blueberry;
-
-        #{$root}__icon {
-          color: $st-color-blueberry;
-        }
       }
 
       &:active {
         color: $st-text-color-regular;
-
-        #{$root}__icon {
-          color: $st-text-color-regular;
-        }
       }
-    }
-
-    #{$root}__icon {
-      color: mix($st-color-taupe-gray, $st-color-white, 50%);
     }
   }
 
@@ -500,7 +372,7 @@
     padding-bottom: 11px;
     pointer-events: none;
 
-    &::before {
+    &:not(#{$root}--disabled)::before {
       position: absolute;
       top: -1px;
       right: -1px;
