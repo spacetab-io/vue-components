@@ -33,6 +33,10 @@
     opacity: 0.5;
   }
 
+  #{$root}__icon {
+    color: currentColor;
+  }
+
   &--round {
     &#{$root}--small {
       padding: 0 12px;
@@ -108,10 +112,6 @@
       color: $st-color-white;
       background-color: $st-color-primary;
       border-color: $st-color-primary;
-
-      #{$root}__icon {
-        color: $st-color-primary;
-      }
     }
 
     &:not(#{$root}--disabled):hover {
@@ -228,18 +228,10 @@
     &:not(#{$root}--disabled):hover,
     &:not(#{$root}--disabled):focus {
       color: $st-color-primary-hover;
-
-      #{$root}__icon {
-        color: $st-color-primary-hover;
-      }
     }
 
     &:not(#{$root}--disabled):active {
       color: $st-color-primary-hover;
-
-      #{$root}__icon {
-        color: $st-color-primary-hover;
-      }
     }
   }
 
