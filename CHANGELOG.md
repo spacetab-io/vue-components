@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.2.18
+## 0.2.19 (Same as 0.2.18 which was failed to publish)
 
 ### Maintenance
 * Component `Button`'s fixes: 
