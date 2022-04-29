@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.20
+
+### Features
+* Added slot `dropdown-no-data` to `Select` component to be able to change message about empty array of options 
+
+### Maintenance
+* Installed older version of node-sass (4.12.0) in cause of always failed builds
+
+
+
 ## 0.2.19 (Same as 0.2.18 which was failed to publish)
 
 ### Maintenance
