@@ -25,6 +25,9 @@
   <template v-slot:dropdown-bottom>
     <slot name="dropdown-bottom" />
   </template>
+  <template v-slot:no-options-message>
+    <slot name="dropdown-no-data" />
+  </template>
   <st-select-content slot="reference"
                      :value="selectedLabel"
                      :is-active="dropdownVisible"
