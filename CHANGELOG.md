@@ -2,7 +2,8 @@
 
 ## 0.2.20
 
-### Work in Progress
+### Maintenance
+* Installed older version of node-sass (4.12.0) in cause of always failed builds
 
 
 
