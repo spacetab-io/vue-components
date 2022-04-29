@@ -43,6 +43,9 @@
       <slot name="option"
             :option="option" />
     </template>
+    <template v-slot:dropdown-no-data>
+      <slot name="dropdown-no-data" />
+    </template>
 
     <template v-slot:collapser-control="{ amount }">
       <slot name="collapser-control"
