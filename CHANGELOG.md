@@ -1,5 +1,9 @@
 # Changelog
 
+## [WIP] 0.2.22
+
+
+
 ## 0.2.21
 ### Features
 * Added new icons: `currency-usd`, `currency-usd-2`, `currency-rub`, `time-3`
