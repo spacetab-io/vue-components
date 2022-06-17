@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.23
+### Features
+* Added new icons: `pin`, `pin-2`
+
+
 ## 0.2.22
 ### Maintenance
 * Icons `currency-usd`, `currency-usd-2`, `currency-rub`, `time-3` were updated
