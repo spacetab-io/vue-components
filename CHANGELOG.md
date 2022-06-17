@@ -1,7 +1,8 @@
 # Changelog
 
-## [WIP] 0.2.23
-
+## 0.2.23
+### Features
+* Added new icons: `pin`, `pin-2`
 
 
 ## 0.2.22
