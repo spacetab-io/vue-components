@@ -1,8 +1,15 @@
 # Changelog
 
+## 0.2.24
+### Maintenance
+* Icons `pin`, `pin-2` were updated
+
+
+
 ## 0.2.23
 ### Features
 * Added new icons: `pin`, `pin-2`
+
 
 
 ## 0.2.22
