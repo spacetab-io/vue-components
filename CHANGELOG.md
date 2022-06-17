@@ -1,6 +1,8 @@
 # Changelog
 
-## [WIP] 0.2.24
+## 0.2.24
+### Maintenance
+* Icons `pin`, `pin-2` were updated
 
 
 
