@@ -2,32 +2,35 @@ import debounce from 'lodash/debounce';
 import merge from 'lodash/merge';
 import {
   Component,
-  Prop,
   Vue,
+  Prop,
   Watch,
-} from 'vue-property-decorator';
+  toNative,
+} from 'vue-facing-decorator';
 
 import {
   ComponentValidator,
   ValidatableComponent,
 } from '../../utils/validation';
+
 import StDropdownOption from '../dropdown-option/index.vue';
 import StDropdown from '../dropdown/index.vue';
 import StDropdownScript from '../dropdown/script';
 import { DropdownBindProperties } from '../dropdown/types';
 import StInput from '../input/index.vue';
 import StInputComp from '../input/script';
+
 import {
   PopperPlacement,
   TriggerType,
 } from '../popper/types';
+
 import {
   AutocompleteValue,
   DebounceGetSuggestions,
   FetchSuggestions,
   Suggestion,
 } from './types';
-
 
 @Component({
   name: 'StAutocomplete',
@@ -37,7 +40,7 @@ import {
     StInput,
   },
 })
-export default class StAutocomplete extends Vue implements ValidatableComponent<AutocompleteValue> {
+class StAutocomplete extends Vue implements ValidatableComponent<AutocompleteValue> {
   @Prop({ type: String, default: '' })
   value!: AutocompleteValue;
 
@@ -47,10 +50,10 @@ export default class StAutocomplete extends Vue implements ValidatableComponent<
   @Prop({ type: Number, default: 300 })
   fetchSuggestionsDelay!: number;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean })
   fetchOnFocus!: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean })
   focusAfterClear!: boolean;
 
   @Prop({ type: Number, default: 1 })
@@ -62,37 +65,37 @@ export default class StAutocomplete extends Vue implements ValidatableComponent<
   @Prop({ type: Boolean, default: true })
   closeOnClear!: boolean;
 
-  @Prop(String)
+  @Prop({ type: String })
   prefixIcon!: string;
 
-  @Prop(String)
+  @Prop({ type: String })
   suffixIcon!: string;
 
-  @Prop(String)
+  @Prop({ type: String })
   size!: string;
 
   @Prop({ type: Boolean, default: true })
   clearable!: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean })
   required!: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean })
   disabled!: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean })
   readonly!: boolean;
 
-  @Prop(String)
+  @Prop({ type: String })
   placeholder!: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean })
   loading!: boolean;
 
   @Prop({ type: Object, default: () => ({}) })
   dropdownProps!: DropdownBindProperties;
 
-  @Prop(ComponentValidator)
+  @Prop({ type: ComponentValidator })
   validator?: ComponentValidator<AutocompleteValue>;
 
   extendedDropdownProps: DropdownBindProperties = {
@@ -272,3 +275,5 @@ export default class StAutocomplete extends Vue implements ValidatableComponent<
     return this.value;
   }
 }
+
+export default toNative(StAutocomplete)

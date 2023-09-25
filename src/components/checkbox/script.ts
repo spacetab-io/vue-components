@@ -2,27 +2,28 @@ import {
   Component,
   Emit,
   Prop,
+  toNative,
   Vue,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 @Component
-export default class StCheckbox extends Vue {
-  @Prop(Boolean)
+class StCheckbox extends Vue {
+  @Prop({ type: Boolean })
   readonly disabled?: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean })
   readonly readonly?: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean })
   readonly value?: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean })
   readonly indeterminate?: boolean;
 
-  @Prop(String)
+  @Prop({ type: String })
   readonly id?: string;
 
-  @Prop([String, Number])
+  @Prop({ type: [String, Number] })
   readonly label?: string | number;
 
   hovered: boolean = false;
@@ -53,3 +54,5 @@ export default class StCheckbox extends Vue {
     };
   }
 }
+
+export default toNative(StCheckbox);

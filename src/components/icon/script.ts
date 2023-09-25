@@ -3,14 +3,15 @@ import './_icons.generated';
 import {
   Component,
   Prop,
+  toNative,
   Vue,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 
 @Component({
   name: 'StIcon',
 })
-export default class StIcon extends Vue {
+class StIcon extends Vue {
   @Prop({ type: String, required: true })
   name!: string;
 
@@ -25,3 +26,5 @@ export default class StIcon extends Vue {
     this.$emit('click', event);
   }
 }
+
+export default toNative(StIcon);

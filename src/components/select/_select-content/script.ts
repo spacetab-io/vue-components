@@ -1,9 +1,10 @@
 import {
   Component,
   Prop,
+  toNative,
   Vue,
   Watch,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 import StIcon from '../../icon/index.vue';
 import StInput from '../../input/index.vue';
@@ -16,17 +17,17 @@ import StInput from '../../input/index.vue';
     StInput,
   },
 })
-export default class StSelectContent extends Vue {
-  @Prop(String)
+class StSelectContent extends Vue {
+  @Prop({ type: String})
   value!: string;
 
-  @Prop(String)
+  @Prop({ type: String})
   size!: string;
 
-  @Prop(String)
+  @Prop({ type: String})
   prefixIcon!: string;
 
-  @Prop(String)
+  @Prop({ type: String})
   suffixIcon!: string;
 
   @Prop({ type: Boolean, default: true })
@@ -35,28 +36,28 @@ export default class StSelectContent extends Vue {
   @Prop({ type: Boolean, default: true })
   clearIconAsArrowIcon!: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   multiple!: boolean;
 
-  @Prop(String)
+  @Prop({ type: String})
   placeholder!: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   loading!: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   disabled!: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   readonly!: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   required!: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   clearable!: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   isActive!: boolean;
 
   isFocused: boolean = false;
@@ -70,3 +71,5 @@ export default class StSelectContent extends Vue {
     return this.clearIconAsArrowIcon && this.clearable ? !this.value : this.showArrowIcon;
   }
 }
+
+export default toNative(StSelectContent);

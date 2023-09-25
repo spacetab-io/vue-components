@@ -1,8 +1,9 @@
 import {
   Component,
   Emit,
+  toNative,
   Vue,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 import StIcon from '../../icon/index.vue';
 
@@ -13,7 +14,7 @@ import StIcon from '../../icon/index.vue';
     StIcon,
   },
 })
-export default class StDatepickerNavigation extends Vue {
+class StDatepickerNavigation extends Vue {
   @Emit('navigate-left')
   emitNavigateLeft(event: MouseEvent): MouseEvent {
     return event;
@@ -38,3 +39,5 @@ export default class StDatepickerNavigation extends Vue {
     this.emitNavigateRight(event);
   }
 }
+
+export default toNative(StDatepickerNavigation);

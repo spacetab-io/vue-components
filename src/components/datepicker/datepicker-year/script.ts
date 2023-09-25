@@ -3,9 +3,10 @@ import {
   Component,
   Emit,
   Prop,
+  toNative,
   Vue,
   Watch,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 import StDatepickerNavigationSlider from '../datepicker-navigation-slider/index.vue';
 import StDatepickerSimpleGrid from '../datepicker-simple-grid/index.vue';
@@ -23,20 +24,20 @@ type YearGridItem = SimpleGridItem<string>;
     StDatepickerNavigationSlider,
   },
 })
-export default class StDatepickerYear extends Vue {
+class StDatepickerYear extends Vue {
   @Prop({ type: String, required: true })
   now!: string;
 
   @Prop({ type: String, required: true })
   value!: string;
 
-  @Prop(String)
+  @Prop({ type: String })
   disabledTo?: string;
 
-  @Prop(String)
+  @Prop({ type: String })
   disabledFrom?: string;
 
-  @Prop(Array)
+  @Prop({ type: Array })
   disabledRanges?: DisabledRange[];
 
   offset: number = 0;
@@ -151,3 +152,5 @@ export default class StDatepickerYear extends Vue {
     this.navigationLabel = `${fromYear} - ${toYear}`;
   }
 }
+
+export default toNative(StDatepickerYear);

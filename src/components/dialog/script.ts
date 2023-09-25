@@ -3,9 +3,10 @@ import {
   Component,
   Emit,
   Prop,
+  toNative,
   Vue,
   Watch,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 import StIcon from '../icon/index.vue';
 import { DialogPlacement } from './types';
@@ -19,7 +20,7 @@ const Modal = tingle.modal;
     StIcon,
   },
 })
-export default class StDialog extends Vue {
+class StDialog extends Vue {
   @Prop({ type: Boolean, required: true })
   value!: boolean;
 
@@ -29,7 +30,7 @@ export default class StDialog extends Vue {
   @Prop({ type: Boolean, default: false })
   disableEscapeClose!: boolean;
 
-  @Prop(String)
+  @Prop({ type: String})
   width?: string;
 
   @Prop({ type: Boolean, default: false })
@@ -125,3 +126,5 @@ export default class StDialog extends Vue {
     this.modal.modal.classList.remove('st-dialog-root--hidden');
   }
 }
+
+export default toNative(StDialog);

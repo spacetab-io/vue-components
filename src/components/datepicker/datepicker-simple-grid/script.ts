@@ -3,7 +3,7 @@ import {
   Emit,
   Prop,
   Vue,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 import { SimpleClassList } from '../../../types/general';
 import { DatepickerUtils } from '../utils';

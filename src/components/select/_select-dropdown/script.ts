@@ -2,9 +2,10 @@ import merge from 'lodash/merge';
 import {
   Component,
   Prop,
+  toNative,
   Vue,
   Watch,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 import StDropdownOption from '../../dropdown-option/index.vue';
 import StDropdown from '../../dropdown/index.vue';
@@ -24,8 +25,8 @@ import { SelectOption } from '../types';
     StDropdownOption,
   },
 })
-export default class StSelectDropdown extends Vue {
-  @Prop(Array)
+class StSelectDropdown extends Vue {
+  @Prop({ type: Array })
   options!: SelectOption[];
 
   @Prop({ type: Array, default: () => [] })
@@ -34,19 +35,19 @@ export default class StSelectDropdown extends Vue {
   @Prop({ type: Boolean, default: true })
   closeOnSelect!: boolean;
 
-  @Prop(String)
+  @Prop({ type: String})
   popperClass!: string;
 
-  @Prop(String)
+  @Prop({ type: String})
   optionClass?: string;
 
-  @Prop(String)
+  @Prop({ type: String})
   optionAdditionalClass!: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   disabled!: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   readonly!: boolean;
 
   @Prop({ type: Object, default: () => {} })
@@ -92,3 +93,5 @@ export default class StSelectDropdown extends Vue {
     (this.$refs.dropdown as StDropdownScript).close();
   }
 }
+
+export default toNative(StSelectDropdown);

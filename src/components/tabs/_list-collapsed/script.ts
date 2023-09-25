@@ -1,8 +1,9 @@
 import {
   Component,
   Prop,
+  toNative,
   Vue,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 import { PopperBindProperties } from '../../popper/types';
 import { Tab } from '../types';
@@ -10,13 +11,15 @@ import { Tab } from '../types';
 @Component({
   name: 'StTabsListCollapsed',
 })
-export default class StTabsListCollapsed extends Vue {
-  @Prop(Array)
+class StTabsListCollapsed extends Vue {
+  @Prop({ type: Array })
   tabs!: Tab[];
 
   @Prop({ type: Object, default: () => {} })
   popperProps!: PopperBindProperties;
 
-  @Prop(String)
+  @Prop({ type: String})
   hiddenListClass?: string;
 }
+
+export default toNative(StTabsListCollapsed);

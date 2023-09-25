@@ -2,21 +2,22 @@ import {
   Component,
   Emit,
   Prop,
+  toNative,
   Vue,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 @Component
-export default class StSwitch extends Vue {
-  @Prop(Boolean)
+class StSwitch extends Vue {
+  @Prop({ type: Boolean})
   value!: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   disabled!: boolean;
 
-  @Prop(String)
+  @Prop({ type: String})
   activeLabel?: string;
 
-  @Prop(String)
+  @Prop({ type: String})
   inactiveLabel?: string;
 
   @Emit('input')
@@ -59,3 +60,5 @@ export default class StSwitch extends Vue {
     return this.value;
   }
 }
+
+export default toNative(StSwitch);

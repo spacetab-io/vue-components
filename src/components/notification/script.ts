@@ -1,4 +1,4 @@
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, toNative, Vue } from 'vue-facing-decorator';
 
 import StIcon from '../icon/index.vue';
 import { NotificationTypes } from './types';
@@ -10,11 +10,11 @@ import { NotificationTypes } from './types';
     StIcon,
   },
 })
-export default class StNotification extends Vue {
-  @Prop(String)
+class StNotification extends Vue {
+  @Prop({ type: String})
   id!: string;
 
-  @Prop(String)
+  @Prop({ type: String})
   title?: string;
 
   @Prop({ type: String, required: true })
@@ -23,7 +23,7 @@ export default class StNotification extends Vue {
   @Prop({ type: String, default: NotificationTypes.info })
   type!: NotificationTypes;
 
-  @Prop(String)
+  @Prop({ type: String})
   customType!: string;
 
   @Prop({ type: Boolean, default: true })
@@ -32,7 +32,7 @@ export default class StNotification extends Vue {
   @Prop({ type: Number, default: 4500 })
   duration!: number;
 
-  @Prop(String)
+  @Prop({ type: String})
   icon?: string;
 
   timer: number = 0;
@@ -54,7 +54,7 @@ export default class StNotification extends Vue {
 
   setTimer() {
     if (this.duration > 0) {
-      this.timer = setTimeout(this.close, this.duration);
+      this.timer = window.setTimeout(this.close, this.duration);
     }
   }
 
@@ -71,3 +71,5 @@ export default class StNotification extends Vue {
     this.$emit('close');
   }
 }
+
+export default toNative(StNotification);

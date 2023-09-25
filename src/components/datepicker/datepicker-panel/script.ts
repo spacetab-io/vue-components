@@ -3,9 +3,10 @@ import {
   Component,
   Emit,
   Prop,
+  toNative,
   Vue,
   Watch,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 import StDatepickerMonthGrid from '../datepicker-month-grid/index.vue';
 import { SpacePriority } from '../datepicker-month-grid/types';
@@ -26,20 +27,20 @@ import { SelectedFromTo } from './types';
     StDatepickerNavigationSlider,
   },
 })
-export default class StDatepickerPanel extends Vue {
+class StDatepickerPanel extends Vue {
   @Prop({ type: String, required: true })
   now!: string;
 
   @Prop({ type: [String, Array], required: true })
   value!: string | string[];
 
-  @Prop(String)
+  @Prop({ type: String })
   disabledTo?: string;
 
-  @Prop(String)
+  @Prop({ type: String })
   disabledFrom?: string;
 
-  @Prop(Array)
+  @Prop({ type: Array })
   disabledRanges?: DisabledRange[];
 
   @Prop({ type: Number, default: 0 })
@@ -241,3 +242,5 @@ export default class StDatepickerPanel extends Vue {
     this.isMonthSelect = true;
   }
 }
+
+export default toNative(StDatepickerPanel);

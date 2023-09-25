@@ -1,8 +1,9 @@
 import {
   Component,
   Prop,
+  toNative,
   Vue,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 import StRow from '../row/script';
 
@@ -23,35 +24,35 @@ interface PropObject {
 @Component({
   name: 'StCol',
 })
-export default class StCol extends Vue {
+class StCol extends Vue {
   @Prop({ type: String, default: 'div' })
   tag!: string;
 
   @Prop({ type: Number, default: 24 })
   span!: number;
 
-  @Prop(Number)
+  @Prop({ type: Number })
   offset!: number;
 
-  @Prop(Number)
+  @Prop({ type: Number })
   pull!: number;
 
-  @Prop(Number)
+  @Prop({ type: Number })
   push!: number;
 
-  @Prop([Number, Object])
+  @Prop({ type: [Number, Object] })
   xs!: number|object;
 
-  @Prop([Number, Object])
+  @Prop({ type: [Number, Object] })
   sm!: number|object;
 
-  @Prop([Number, Object])
+  @Prop({ type: [Number, Object] })
   md!: number|object;
 
-  @Prop([Number, Object])
+  @Prop({ type: [Number, Object] })
   lg!: number|object;
 
-  @Prop([Number, Object])
+  @Prop({ type: [Number, Object] })
   xl!: number|object;
 
   get gutter(): number {
@@ -61,7 +62,7 @@ export default class StCol extends Vue {
       /* eslint prefer-destructuring: 0 */
       $parent = $parent.$parent;
     }
-    return $parent ? ($parent as StRow).gutter : 0;
+    return $parent ? ($parent as unknown as StRow).gutter : 0;
   }
 
   get style(): StylePaddings {
@@ -129,3 +130,5 @@ export default class StCol extends Vue {
     ].filter(Boolean);
   }
 }
+
+export default toNative(StCol);

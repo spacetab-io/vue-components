@@ -1,9 +1,10 @@
 import {
   Component,
   Prop,
+  toNative,
   Vue,
   Watch,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 import {
   ComponentValidator,
@@ -14,71 +15,71 @@ import {
 @Component({
   name: 'StInput',
 })
-export default class StInput extends Vue implements ValidatableComponent<string> {
+class StInput extends Vue implements ValidatableComponent<string> {
   // Wrapper props
-  @Prop(String)
+  @Prop({ type: String})
   size!: string;
 
   @Prop({ type: Boolean, default: true })
   clearable!: boolean;
 
-  @Prop(String)
+  @Prop({ type: String})
   prefixIcon!: string;
 
-  @Prop(String)
+  @Prop({ type: String})
   suffixIcon!: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   loading!: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   focusState!: boolean;
 
   // Input props
   @Prop({ type: String, default: '' })
   value!: string;
 
-  @Prop(String)
+  @Prop({ type: String})
   innerId!: string;
 
-  @Prop(String)
+  @Prop({ type: String})
   type!: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   required!: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   disabled!: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   readonly!: boolean;
 
-  @Prop(String)
+  @Prop({ type: String})
   placeholder!: string;
 
-  @Prop(Number)
+  @Prop({ type: Number})
   maxlength!: number;
 
-  @Prop(String)
+  @Prop({ type: String})
   name!: string;
 
-  @Prop(String)
+  @Prop({ type: String})
   pattern!: string;
 
   // Other props
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   focusAfterClear!: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   clearIconAsSuffixIcon!: boolean;
 
-  @Prop(Number)
+  @Prop({ type: Number})
   tabindex!: number;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   preventInput?: boolean;
 
-  @Prop(ComponentValidator)
+  @Prop({ type: ComponentValidator })
   validator?: ComponentValidator<string>;
 
   inputValue = this.value;
@@ -194,3 +195,5 @@ export default class StInput extends Vue implements ValidatableComponent<string>
     (this.$refs.input as HTMLInputElement).blur();
   }
 }
+
+export default toNative(StInput);

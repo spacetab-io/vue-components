@@ -2,11 +2,12 @@ import {
   Component,
   Emit,
   Prop,
+  toNative,
   Vue,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 @Component
-export default class StRadio extends Vue {
+class StRadio extends Vue {
   @Prop({ required: true })
   value!: any;
 
@@ -16,16 +17,16 @@ export default class StRadio extends Vue {
   @Prop({ type: String, required: true })
   readonly name!: string;
 
-  @Prop(String)
+  @Prop({ type: String})
   label?: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   disabled!: boolean;
 
-  @Prop(String)
+  @Prop({ type: String})
   readonly id?: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   readonly readonly?: boolean;
 
   focused: boolean = false;
@@ -59,3 +60,5 @@ export default class StRadio extends Vue {
     };
   }
 }
+
+export default toNative(StRadio);

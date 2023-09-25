@@ -1,9 +1,10 @@
 import {
   Component,
   Prop,
+  toNative,
   Vue,
   Watch,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 import { PopperBindProperties } from '../popper/types';
 import StTabsListCollapsed from './_list-collapsed/index.vue';
@@ -20,17 +21,17 @@ import { Tab } from './types';
     StTabsListCollapsed,
   },
 })
-export default class StTabs extends Vue {
-  @Prop(Array)
+class StTabs extends Vue {
+  @Prop({ type: Array })
   tabs!: Tab[];
 
-  @Prop(String)
+  @Prop({ type: String})
   value!: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   collapsed!: boolean;
 
-  @Prop(String)
+  @Prop({ type: String})
   hiddenListClass?: string;
 
   @Prop({ type: Object, default: () => ({}) })
@@ -82,3 +83,5 @@ export default class StTabs extends Vue {
     this.$emit('close', closedTab);
   }
 }
+
+export default toNative(StTabs);

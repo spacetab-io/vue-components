@@ -1,7 +1,8 @@
 import {
   Component,
   Prop,
-} from 'vue-property-decorator';
+  toNative,
+} from 'vue-facing-decorator';
 
 import StSelectContent from '../_select-content/index.vue';
 import StSelectDropdown from '../_select-dropdown/index.vue';
@@ -26,11 +27,11 @@ import {
     StIcon,
   },
 })
-export default class StSelectSingle extends StSelectBase implements ValidatableComponent<SingleSelectValue> {
-  @Prop(String)
+class StSelectSingle extends StSelectBase implements ValidatableComponent<SingleSelectValue> {
+  @Prop({ type: String})
   value!: SingleSelectValue;
 
-  @Prop(ComponentValidator)
+  @Prop({ type: ComponentValidator })
   validator?: ComponentValidator<SingleSelectValue>;
 
   dropdownVisible: boolean = false;
@@ -93,3 +94,5 @@ export default class StSelectSingle extends StSelectBase implements ValidatableC
     return this.value;
   }
 }
+
+export default toNative(StSelectSingle);

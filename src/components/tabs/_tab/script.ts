@@ -1,20 +1,23 @@
 import {
   Component,
   Prop,
+  toNative,
   Vue,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 
 @Component({
   name: 'StTab',
 })
-export default class StTab extends Vue {
-  @Prop(String)
+class StTab extends Vue {
+  @Prop({ type: String})
   icon!: string;
 
-  @Prop(String)
+  @Prop({ type: String})
   label!: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   closeable!: boolean;
 }
+
+export default toNative(StTab);

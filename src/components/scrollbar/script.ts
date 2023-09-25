@@ -2,8 +2,9 @@
 import {
   Component,
   Prop,
+  toNative,
   Vue,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 interface ScrollParameters {
   contentSize: number,
@@ -19,7 +20,7 @@ interface ScrollParameters {
 @Component({
   name: 'StScrollbar',
 })
-export default class StScrollbar extends Vue {
+class StScrollbar extends Vue {
   @Prop({ type: Number, default: 40 })
   minimumScrollSize!: number;
 
@@ -404,3 +405,5 @@ export default class StScrollbar extends Vue {
     };
   }
 }
+
+export default toNative(StScrollbar);

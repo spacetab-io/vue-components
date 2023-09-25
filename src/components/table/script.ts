@@ -4,9 +4,10 @@ import values from 'lodash/values';
 import {
   Component,
   Prop,
+  toNative,
   Vue,
   Watch,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 import { Column, SortDirection, SortEvent } from './types';
 
@@ -15,23 +16,23 @@ import { Column, SortDirection, SortEvent } from './types';
   name: 'StTable',
   inheritAttrs: false,
 })
-export default class StTable extends Vue {
+class StTable extends Vue {
   @Prop({ type: Array, default: () => [] })
   data!: any[];
 
   @Prop({ type: Array, default: () => [] })
   columns!: Column[];
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   bordered!: boolean;
 
-  @Prop(Object)
+  @Prop({ type: Object })
   selected!: {};
 
-  @Prop(String)
+  @Prop({ type: String})
   sortBy!: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   clientSorting!: boolean;
 
   @Prop({
@@ -44,7 +45,7 @@ export default class StTable extends Vue {
   @Prop({ type: Function, default: () => '' })
   rowClass!: () => string;
 
-  @Prop(String)
+  @Prop({ type: String})
   customRowKey!: string;
 
   isAsc: boolean = true;
@@ -219,3 +220,5 @@ export default class StTable extends Vue {
     };
   }
 }
+
+export default toNative(StTable);

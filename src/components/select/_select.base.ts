@@ -2,7 +2,7 @@ import {
   Prop,
   Vue,
   Watch,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 import { ComponentValidator } from '../../utils/validation';
 import { DropdownBindProperties } from '../dropdown/types';
@@ -19,40 +19,40 @@ export default class StSelectBase extends Vue {
   @Prop(ComponentValidator)
   validator?: ComponentValidator<BaseSelectValue>;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   multiple!: boolean;
 
-  @Prop(Array)
+  @Prop({ type: Array })
   options!: SelectOption[];
 
-  @Prop(String)
+  @Prop({ type: String})
   optionClass?: string;
 
-  @Prop(String)
+  @Prop({ type: String})
   placeholder!: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   disabled!: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   readonly!: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   required!: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   clearable!: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   loading!: boolean;
 
-  @Prop(String)
+  @Prop({ type: String})
   size!: string;
 
-  @Prop(String)
+  @Prop({ type: String})
   prefixIcon!: string;
 
-  @Prop(String)
+  @Prop({ type: String})
   suffixIcon!: string;
 
   @Prop({ type: Boolean, default: true })

@@ -1,8 +1,9 @@
 import {
   Component,
   Prop,
+  toNative,
   Vue,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 interface StyleMargins {
   marginLeft?: string;
@@ -13,14 +14,14 @@ interface StyleMargins {
 @Component({
   name: 'StRow',
 })
-export default class StRow extends Vue {
+class StRow extends Vue {
   @Prop({ type: String, default: 'div' })
   tag!: string;
 
-  @Prop(Number)
+  @Prop({ type: Number})
   gutter!: number;
 
-  @Prop(String)
+  @Prop({ type: String})
   type!: string;
 
   @Prop({ type: String, default: 'start' })
@@ -47,3 +48,5 @@ export default class StRow extends Vue {
     ].filter(Boolean);
   }
 }
+
+export default toNative(StRow);

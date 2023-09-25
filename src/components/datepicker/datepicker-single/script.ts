@@ -3,8 +3,9 @@ import {
   Component,
   Emit,
   Prop,
+  toNative,
   Vue,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 import { SpacePriority } from '../datepicker-month-grid/types';
 import StDatepickerTopNavigation from '../datepicker-navigation/index.vue';
@@ -23,17 +24,17 @@ interface PanelConfig {
     StDatepickerPanel,
   },
 })
-export default class StDatepickerSingle extends Vue {
+class StDatepickerSingle extends Vue {
   @Prop({ required: false, type: Number })
   monthVisible?: number;
 
-  @Prop(String)
+  @Prop({ type: String })
   disabledFrom?: string;
 
-  @Prop(String)
+  @Prop({ type: String })
   disabledTo?: string;
 
-  @Prop(Array)
+  @Prop({ type: Array })
   disabledRanges?: DisabledRange[];
 
   @Prop({ required: false, type: String, default: () => moment().format() })
@@ -96,3 +97,4 @@ export default class StDatepickerSingle extends Vue {
     return this.hasNavigation && this.navigationType === NavigationType.simple;
   }
 }
+export default toNative(StDatepickerSingle);

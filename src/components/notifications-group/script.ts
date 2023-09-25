@@ -1,8 +1,9 @@
 import {
   Component,
   Prop,
+  toNative,
   Vue,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 import { NotificationsGroupPosition } from './types';
 
@@ -12,7 +13,7 @@ export const NOTIFICATIONS_GROUP_ID = 'st-notifications-group';
 @Component({
   name: 'StNotificationsGroup',
 })
-export default class StNotificationsGroup extends Vue {
+class StNotificationsGroup extends Vue {
   @Prop({ type: String, default: NotificationsGroupPosition.bottomRight })
   position!: NotificationsGroupPosition;
 
@@ -29,3 +30,5 @@ export default class StNotificationsGroup extends Vue {
     }
   }
 }
+
+export default toNative(StNotificationsGroup);

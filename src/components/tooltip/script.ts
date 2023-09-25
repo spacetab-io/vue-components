@@ -1,8 +1,9 @@
 import {
   Component,
   Prop,
+  toNative,
   Vue,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 import StPopper from '../popper/index.vue';
 import {
@@ -15,32 +16,32 @@ import {
     StPopper,
   },
 })
-export default class StTooltip extends Vue {
-  @Prop(String)
+class StTooltip extends Vue {
+  @Prop({ type: String})
   rawContent?: string;
 
   @Prop({ type: String, default: 'span' })
   tag!: string;
 
-  @Prop(String)
+  @Prop({ type: String})
   enterActiveClass?: string;
 
   @Prop({ type: Number, default: 100 })
   delayOnMouseOver!: number;
 
-  @Prop(Number)
+  @Prop({ type: Number})
   width?: number;
 
   @Prop({ type: Number, default: 100 })
   delayOnMouseOut!: number;
 
-  @Prop(String)
+  @Prop({ type: String})
   boundariesSelector?: string;
 
   @Prop({ type: Boolean, default: true })
   arrowVisible!: boolean;
 
-  @Prop(String)
+  @Prop({ type: String})
   leaveActiveClass?: string;
 
   @Prop({ type: String, default: '' })
@@ -73,13 +74,13 @@ export default class StTooltip extends Vue {
   @Prop({ type: Boolean, default: false })
   withBorder!: boolean;
 
-  @Prop(String)
+  @Prop({ type: String})
   popperClass?: string;
 
-  @Prop(String)
+  @Prop({ type: String})
   content?: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   value!: boolean;
 
   get popperClasses(): string {
@@ -89,3 +90,5 @@ export default class StTooltip extends Vue {
     ].filter(Boolean).join(' ');
   }
 }
+
+export default toNative(StTooltip);

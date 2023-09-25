@@ -1,8 +1,9 @@
 import {
   Component,
   Prop,
+  toNative,
   Vue,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 import StPopperScript from '../popper/script';
 import {
@@ -14,20 +15,20 @@ import {
 @Component({
   name: 'StDropdown',
 })
-export default class StDropdown extends Vue {
-  @Prop(String)
+class StDropdown extends Vue {
+  @Prop({ type: String})
   popperClass?: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   value!: boolean;
 
-  @Prop(Number)
+  @Prop({ type: Number})
   width?: number;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   useReferenceWidth?: boolean;
 
-  @Prop(Number)
+  @Prop({ type: Number})
   maxHeight?: number;
 
   @Prop({ type: String, default: 'body' })
@@ -60,7 +61,7 @@ export default class StDropdown extends Vue {
   @Prop({ type: Boolean, default: false })
   disabled!: boolean;
 
-  @Prop(String)
+  @Prop({ type: String})
   enterActiveClass?: string;
 
   @Prop({ type: Number, default: 100 })
@@ -69,7 +70,7 @@ export default class StDropdown extends Vue {
   @Prop({ type: Number, default: 100 })
   delayOnMouseOver!: number;
 
-  @Prop(String)
+  @Prop({ type: String})
   leaveActiveClass?: string;
 
   @Prop({ type: String, default: '' })
@@ -87,3 +88,5 @@ export default class StDropdown extends Vue {
     this.$refs.popper.doClose();
   }
 }
+
+export default toNative(StDropdown);

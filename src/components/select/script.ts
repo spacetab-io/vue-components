@@ -2,7 +2,8 @@ import {
   Component,
   Prop,
   Ref,
-} from 'vue-property-decorator';
+  toNative,
+} from 'vue-facing-decorator';
 
 import StSelectMultiple from './_select-multiple/index.vue';
 import StSelectMultipleScript from './_select-multiple/script';
@@ -19,11 +20,11 @@ import { BaseSelectValue } from './types';
     StSelectMultiple,
   },
 })
-export default class StSelect extends StSelectBase {
+class StSelect extends StSelectBase {
   @Ref('select-component')
   selectComponent!: StSelectMultipleScript | StSelectSingleScript;
 
-  @Prop()
+  @Prop({ type: [String, Array] })
   value!: BaseSelectValue;
 
   get componentName(): string {
@@ -42,3 +43,5 @@ export default class StSelect extends StSelectBase {
     this.selectComponent.clear();
   }
 }
+
+export default toNative(StSelectBase);

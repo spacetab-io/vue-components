@@ -2,9 +2,10 @@ import {
   Component,
   Model,
   Prop,
+  toNative,
   Vue,
   Watch,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 import StIcon from '../icon/index.vue';
 import { PaginationChangeExtendedEvent } from './types';
@@ -35,11 +36,11 @@ const ELLIPSIS_ELEMENTS_LIMIT = 3; // page + ellipsis + page
     StIcon,
   },
 })
-export default class StPagination extends Vue {
+class StPagination extends Vue {
   @Model('change', { type: Number, required: true, default: 1 })
   currentPage!: number;
 
-  @Prop(Number)
+  @Prop({ type: Number})
   total!: number;
 
   @Prop({ type: Number, default: 10 })
@@ -48,10 +49,10 @@ export default class StPagination extends Vue {
   @Prop({ type: Number, default: 3 })
   groupedPages!: number;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   showEmpty!: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   showBoundary!: boolean;
 
   @Prop({ type: Boolean, default: true })
@@ -260,3 +261,5 @@ export default class StPagination extends Vue {
     this.$emit('change:extended', extendedEvent);
   }
 }
+
+export default toNative(StPagination);

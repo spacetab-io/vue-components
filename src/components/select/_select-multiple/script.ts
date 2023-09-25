@@ -2,8 +2,9 @@ import merge from 'lodash/merge';
 import {
   Component,
   Prop,
+  toNative,
   Watch,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 import StSelectContent from '../_select-content/index.vue';
 import StSelectDropdown from '../_select-dropdown/index.vue';
@@ -35,8 +36,8 @@ import {
     StCheckbox,
   },
 })
-export default class StSelectMultiple extends StSelectBase implements ValidatableComponent<MultipleSelectValue> {
-  @Prop(Array)
+class StSelectMultiple extends StSelectBase implements ValidatableComponent<MultipleSelectValue> {
+  @Prop({ type: Array })
   value!: MultipleSelectValue;
 
   @Prop(ComponentValidator)
@@ -157,3 +158,5 @@ export default class StSelectMultiple extends StSelectBase implements Validatabl
     return this.value;
   }
 }
+
+export default toNative(StSelectMultiple);

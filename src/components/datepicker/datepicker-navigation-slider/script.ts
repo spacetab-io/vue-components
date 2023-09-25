@@ -2,13 +2,14 @@ import {
   Component,
   Emit,
   Prop,
+  toNative,
   Vue,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 @Component({
   name: 'StDatepickerNavigationSlider',
 })
-export default class StDatepickerNavigationSlider extends Vue {
+class StDatepickerNavigationSlider extends Vue {
   @Prop({ type: Boolean, default: true })
   prevAllowed!: boolean;
 
@@ -39,3 +40,5 @@ export default class StDatepickerNavigationSlider extends Vue {
     event.stopPropagation();
   }
 }
+
+export default toNative(StDatepickerNavigationSlider);

@@ -8,9 +8,10 @@ import { VNode } from 'vue';
 import {
   Component,
   Prop,
+  toNative,
   Vue,
   Watch,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 import {
   PopperPlacement,
@@ -21,35 +22,35 @@ import {
 @Component({
   name: 'StPopper',
 })
-export default class StPopper extends Vue {
+class StPopper extends Vue {
   @Prop({ type: String, default: 'span' })
   tag!: string;
 
-  @Prop(String)
+  @Prop({ type: String})
   enterActiveClass?: string;
 
   @Prop({ type: Number, default: 100 })
   delayOnMouseOver!: number;
 
-  @Prop(Number)
+  @Prop({ type: Number})
   width?: number;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   useReferenceWidth?: boolean;
 
-  @Prop(Number)
+  @Prop({ type: Number})
   maxHeight?: number;
 
   @Prop({ type: Number, default: 100 })
   delayOnMouseOut!: number;
 
-  @Prop(String)
+  @Prop({ type: String})
   boundariesSelector?: string;
 
   @Prop({ type: Boolean, default: true })
   arrowVisible!: boolean;
 
-  @Prop(String)
+  @Prop({ type: String})
   leaveActiveClass?: string;
 
   @Prop({ type: String, default: '' })
@@ -82,13 +83,13 @@ export default class StPopper extends Vue {
   @Prop({ type: Boolean, default: false })
   withBorder!: boolean;
 
-  @Prop(String)
+  @Prop({ type: String})
   popperClass?: string;
 
-  @Prop(String)
+  @Prop({ type: String})
   content?: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   value!: boolean;
 
   @Watch('value')
@@ -174,7 +175,7 @@ export default class StPopper extends Vue {
   }
 
   mounted() {
-    this.referenceElement = this.reference || ((this.$slots.reference as VNode[])[0].elm as Element);
+    this.referenceElement = this.reference || ((this.$slots.reference as unknown as VNode[])[0].el as Element);
     this.popperParent = this.$refs.popper.parentElement || this.$refs.popperRoot;
 
     switch (this.trigger) {
@@ -344,7 +345,7 @@ export default class StPopper extends Vue {
 
   onMouseOver() {
     clearTimeout(this.timer);
-    this.timer = setTimeout(() => {
+    this.timer = window.setTimeout(() => {
       if (!this.disabled) {
         this.showPopper = true;
       }
@@ -353,7 +354,7 @@ export default class StPopper extends Vue {
 
   onMouseOut() {
     clearTimeout(this.timer);
-    this.timer = setTimeout(() => {
+    this.timer = window.setTimeout(() => {
       this.showPopper = false;
     }, this.delayOnMouseOut);
   }
@@ -376,7 +377,7 @@ export default class StPopper extends Vue {
   }
 
   get popperElement(): Node {
-    return (this.$slots.default as VNode[])[0].elm as Node;
+    return (this.$slots.default as unknown as VNode[])[0].el as Node;
   }
 
   get popperClasses() {
@@ -394,3 +395,5 @@ export default class StPopper extends Vue {
     };
   }
 }
+
+export default toNative(StPopper);

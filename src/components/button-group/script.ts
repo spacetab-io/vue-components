@@ -1,10 +1,13 @@
 import {
   Component,
+  toNative,
   Vue,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 
 @Component({
   name: 'StButtonGroup',
 })
-export default class StButtonGroup extends Vue {}
+class StButtonGroup extends Vue {}
+
+export default toNative(StButtonGroup);

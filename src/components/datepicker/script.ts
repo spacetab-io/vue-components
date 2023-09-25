@@ -3,8 +3,9 @@ import {
   Component,
   Emit,
   Prop,
+  toNative,
   Vue,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 import StInput from '../input/index.vue';
 import StInputScript from '../input/script';
@@ -34,7 +35,7 @@ import {
     StInput,
   },
 })
-export default class StDatepicker extends Vue {
+class StDatepicker extends Vue {
   @Prop({ type: Boolean, default: false })
   isRange!: boolean;
 
@@ -47,13 +48,13 @@ export default class StDatepicker extends Vue {
   @Prop({ type: [String, Array], required: true })
   value!: string | string[];
 
-  @Prop(String)
+  @Prop({ type: String })
   disabledFrom?: string;
 
-  @Prop(String)
+  @Prop({ type: String })
   disabledTo?: string;
 
-  @Prop(Array)
+  @Prop({ type: Array })
   disabledRanges?: DisabledRange[];
 
   @Prop({ type: String, default: NavigationType.extended })
@@ -68,10 +69,10 @@ export default class StDatepicker extends Vue {
   @Prop({ type: String, default: TriggerType.focus })
   triggerType!: string;
 
-  @Prop(String)
+  @Prop({ type: String })
   inputClass?: string;
 
-  @Prop(String)
+  @Prop({ type: String })
   datepickerClass?: string;
 
   @Prop({ type: Boolean, default: false })
@@ -83,16 +84,16 @@ export default class StDatepicker extends Vue {
   @Prop({ type: String, default: PopperPlacement.auto })
   popperPlacement?: PopperPlacement;
 
-  @Prop(String)
+  @Prop({ type: String })
   popperClass?: string;
 
-  @Prop(String)
+  @Prop({ type: String })
   placeholder?: string;
 
-  @Prop(String)
+  @Prop({ type: String })
   suffixIcon?: string;
 
-  @Prop(String)
+  @Prop({ type: String })
   prefixIcon?: string;
 
   @Prop({ type: Boolean, default: false })
@@ -170,3 +171,5 @@ export default class StDatepicker extends Vue {
     this.$refs.popper.doShow();
   }
 }
+
+export default toNative(StDatepicker);

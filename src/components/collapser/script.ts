@@ -3,9 +3,10 @@ import merge from 'lodash/merge';
 import {
   Component,
   Prop,
+  toNative,
   Vue,
   Watch,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 import StPopper from '../popper/index.vue';
 import StPopperScript from '../popper/script';
@@ -28,7 +29,7 @@ const DEBOUNCE_DELAY = 150;
     StPopper,
   },
 })
-export default class StCollapser extends Vue {
+class StCollapser extends Vue {
   @Prop({ type: Array, default: () => [] })
   elements!: any[];
 
@@ -209,3 +210,5 @@ export default class StCollapser extends Vue {
     (this.$refs.popper as StPopperScript).doClose();
   }
 }
+
+export default toNative(StCollapser);

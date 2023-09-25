@@ -2,8 +2,9 @@ import {
   Component,
   Inject,
   Prop,
+  toNative,
   Vue,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 import StIcon from '../icon/index.vue';
 
@@ -14,13 +15,13 @@ import StIcon from '../icon/index.vue';
     StIcon,
   },
 })
-export default class StButton extends Vue {
+class StButton extends Vue {
   @Inject({ default: '' }) elFormItem!: any;
 
   @Prop({ type: String, default: 'default' })
   type!: string;
 
-  @Prop(String)
+  @Prop({ type: String })
   size!: string;
 
   @Prop({ type: String, default: '' })
@@ -29,37 +30,37 @@ export default class StButton extends Vue {
   @Prop({ type: String, default: 'button' })
   nativeType!: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean })
   loading!: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean })
   disabled!: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean })
   plain!: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean })
   autofocus!: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean })
   round!: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean })
   circle!: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean })
   approve!: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean })
   cancel!: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean })
   remove!: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean })
   search!: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean })
   boldBorder!: string;
 
   handleClick($event: any) {
@@ -101,3 +102,5 @@ export default class StButton extends Vue {
     return this.size || this.elFormItemSize;
   }
 }
+
+export default toNative(StButton);

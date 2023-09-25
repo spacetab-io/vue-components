@@ -3,8 +3,9 @@ import {
   Component,
   Emit,
   Prop,
+  toNative,
   Vue, Watch,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 import StDatepickerNavigationSlider from '../datepicker-navigation-slider/index.vue';
 import StDatepickerSimpleGrid from '../datepicker-simple-grid/index.vue';
@@ -24,20 +25,20 @@ import { MonthSelectGridItem } from './types';
     StDatepickerYear,
   },
 })
-export default class StDatepickerMonth extends Vue {
+class StDatepickerMonth extends Vue {
   @Prop({ type: String, required: true })
   now!: string;
 
   @Prop({ type: String, required: true })
   value!: string;
 
-  @Prop(String)
+  @Prop({ type: String})
   disabledTo?: string;
 
-  @Prop(String)
+  @Prop({ type: String})
   disabledFrom?: string;
 
-  @Prop(Array)
+  @Prop({ type: Array })
   disabledRanges?: DisabledRange[];
 
   @Emit('input')
@@ -145,3 +146,5 @@ export default class StDatepickerMonth extends Vue {
     this.yearSelectOpened = true;
   }
 }
+
+export default toNative(StDatepickerMonth);

@@ -3,8 +3,9 @@ import {
   Component,
   Emit,
   Prop,
+  toNative,
   Vue,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 import { SimpleClassList } from '../../../types/general';
 import { DisabledRange } from '../types';
@@ -15,7 +16,7 @@ import { SpacePriority } from './types';
 @Component({
   name: 'StDatepickerMonthGrid',
 })
-export default class StDatepickerMonthGrid extends Vue {
+class StDatepickerMonthGrid extends Vue {
   @Prop({ required: true, type: Number })
   month!: number;
 
@@ -31,19 +32,19 @@ export default class StDatepickerMonthGrid extends Vue {
   @Prop({ type: Boolean, default: false })
   removeNeedlessRows!: boolean;
 
-  @Prop(String)
+  @Prop({ type: String})
   selectedFrom?: string;
 
-  @Prop(String)
+  @Prop({ type: String})
   selectedTo?: string;
 
-  @Prop(String)
+  @Prop({ type: String})
   disabledFrom?: string;
 
-  @Prop(String)
+  @Prop({ type: String})
   disabledTo?: string;
 
-  @Prop(Array)
+  @Prop({ type: Array })
   disabledRanges?: DisabledRange[];
 
   @Prop({ type: Boolean, default: true })
@@ -247,3 +248,5 @@ export default class StDatepickerMonthGrid extends Vue {
     return moment.localeData().weekdaysMin();
   }
 }
+
+export default toNative(StDatepickerMonthGrid);

@@ -2,13 +2,15 @@ import moment, {
   Moment,
   unitOfTime,
 } from 'moment';
+
 import {
   Component,
   Emit,
   Prop,
+  toNative,
   Vue,
   Watch,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 import { SimpleClassArray } from '../../types/general';
 import {
@@ -21,7 +23,7 @@ import {
 @Component({
   name: 'StCircularCountdown',
 })
-export default class StCircularCountdown extends Vue {
+class StCircularCountdown extends Vue {
   @Prop({ type: String, required: true })
   startDate!: string;
 
@@ -161,7 +163,7 @@ export default class StCircularCountdown extends Vue {
   restartInterval() {
     clearInterval(this.interval);
 
-    this.interval = setInterval(() => {
+    this.interval = window.setInterval(() => {
       this.update();
 
       if (this.endMoment.diff(this.now, 'millisecond') < 1000) {
@@ -171,3 +173,5 @@ export default class StCircularCountdown extends Vue {
     this.update();
   }
 }
+
+export default toNative(StCircularCountdown);

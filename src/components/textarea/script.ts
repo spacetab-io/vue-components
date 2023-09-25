@@ -1,17 +1,18 @@
 import {
   Component,
   Prop,
+  toNative,
   Vue,
   Watch,
-} from 'vue-property-decorator';
+} from 'vue-facing-decorator';
 
 
 @Component({
   name: 'StTextarea',
 })
-export default class StTextarea extends Vue {
+class StTextarea extends Vue {
   // Wrapper props
-  @Prop(String)
+  @Prop({ type: String})
   size!: string;
 
   @Prop({ type: Boolean, default: true })
@@ -21,40 +22,40 @@ export default class StTextarea extends Vue {
   @Prop({ type: String, default: '' })
   value!: string;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   disabled!: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   loading!: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   readonly!: boolean;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   required!: boolean;
 
-  @Prop(String)
+  @Prop({ type: String})
   placeholder!: string;
 
-  @Prop(Number)
+  @Prop({ type: Number})
   minlength!: number;
 
-  @Prop(Number)
+  @Prop({ type: Number})
   maxlength!: number;
 
-  @Prop(Boolean)
+  @Prop({ type: Boolean})
   autofocus!: boolean;
 
-  @Prop(Number)
+  @Prop({ type: Number})
   rows!: number;
 
-  @Prop(Number)
+  @Prop({ type: Number})
   cols!: number;
 
-  @Prop(String)
+  @Prop({ type: String})
   name!: string;
 
-  @Prop(Number)
+  @Prop({ type: Number})
   tabindex!: number;
 
   textareaValue: string = this.value;
@@ -80,3 +81,5 @@ export default class StTextarea extends Vue {
     this.setTextareaValue(value);
   }
 }
+
+export default toNative(StTextarea);
