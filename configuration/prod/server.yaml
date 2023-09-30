@@ -1,4 +1,0 @@
-prod:
-  server:
-    headers:
-      csp: []

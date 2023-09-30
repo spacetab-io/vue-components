@@ -1,3 +1,0 @@
-export const template = `
-  <st-{{KEBAB_NAME}}></st-{{KEBAB_NAME}}>
-`;

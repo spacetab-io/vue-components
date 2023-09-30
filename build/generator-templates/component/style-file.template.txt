@@ -1,5 +1,0 @@
-@import '../../assets/scss/components/{{KEBAB_COMPONENT_NAME}}/_variables';
-
-.st-{{KEBAB_COMPONENT_NAME}} {
-  $root: &;
-}
