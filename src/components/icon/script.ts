@@ -1,4 +1,4 @@
-import './_icons.generated';
+// import './_icons.generated';
 
 import {
   Component,

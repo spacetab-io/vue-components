@@ -29,32 +29,32 @@ import StTextarea from './components/textarea/index.vue';
 import StTooltip from './components/tooltip/index.vue';
 
 const install = (app: App) => {
-  app.component('st-autocomplete', StAutocomplete);
-  app.component('st-badge', StBadge);
-  app.component('st-button', StButton);
-  app.component('st-button-group', StButtonGroup);
-  app.component('st-circular-countdown', StCircularCountdown);
-  app.component('st-checkbox', StCheckbox);
-  app.component('st-col', StCol);
-  app.component('st-dialog', StDialog);
-  app.component('st-dropdown', StDropdown);
-  app.component('st-dropdown-option', StDropdownOption);
-  app.component('st-collapser', StCollapser);
-  app.component('st-datepicker', StDatepicker);
+  // app.component('st-autocomplete', StAutocomplete);
+  // app.component('st-badge', StBadge);
+  // app.component('st-button', StButton);
+  // app.component('st-button-group', StButtonGroup);
+  // app.component('st-circular-countdown', StCircularCountdown);
+  // app.component('st-checkbox', StCheckbox);
+  // app.component('st-col', StCol);
+  // app.component('st-dialog', StDialog);
+  // app.component('st-dropdown', StDropdown);
+  // app.component('st-dropdown-option', StDropdownOption);
+  // app.component('st-collapser', StCollapser);
+  // app.component('st-datepicker', StDatepicker);
   app.component('st-icon', StIcon);
-  app.component('st-input', StInput);
-  app.component('st-notifications-group', StNotificationsGroup);
-  app.component('st-row', StRow);
-  app.component('st-textarea', StTextarea);
-  app.component('st-radio', StRadio);
-  app.component('st-pagination', StPagination);
-  app.component('st-popper', StPopper);
-  app.component('st-tooltip', StTooltip);
-  app.component('st-select', StSelect);
-  app.component('st-scrollbar', StScrollbar);
-  app.component('st-switch', StSwitch);
-  app.component('st-table', StTable);
-  app.component('st-tabs', StTabs);
+  // app.component('st-input', StInput);
+  // app.component('st-notifications-group', StNotificationsGroup);
+  // app.component('st-row', StRow);
+  // app.component('st-textarea', StTextarea);
+  // app.component('st-radio', StRadio);
+  // app.component('st-pagination', StPagination);
+  // app.component('st-popper', StPopper);
+  // app.component('st-tooltip', StTooltip);
+  // app.component('st-select', StSelect);
+  // app.component('st-scrollbar', StScrollbar);
+  // app.component('st-switch', StSwitch);
+  // app.component('st-table', StTable);
+  // app.component('st-tabs', StTabs);
 
   /* eslint-disable-next-line no-param-reassign */
   app.config.globalProperties.$stNotification = StNotificationService;
@@ -62,27 +62,27 @@ const install = (app: App) => {
 
 export default {
   install,
-  StAutocomplete,
-  StBadge,
-  StButton,
-  StButtonGroup,
-  StCheckbox,
-  StCol,
-  StCollapser,
-  StDatepicker,
-  StDialog,
-  StDropdown,
-  StDropdownOption,
+  // StAutocomplete,
+  // StBadge,
+  // StButton,
+  // StButtonGroup,
+  // StCheckbox,
+  // StCol,
+  // StCollapser,
+  // StDatepicker,
+  // StDialog,
+  // StDropdown,
+  // StDropdownOption,
   StIcon,
-  StInput,
-  StNotificationsGroup,
-  StRow,
-  StTextarea,
-  StPagination,
-  StPopper,
-  StSelect,
-  StScrollbar,
-  StSwitch,
-  StTable,
-  StTabs,
+  // StInput,
+  // StNotificationsGroup,
+  // StRow,
+  // StTextarea,
+  // StPagination,
+  // StPopper,
+  // StSelect,
+  // StScrollbar,
+  // StSwitch,
+  // StTable,
+  // StTabs,
 };
