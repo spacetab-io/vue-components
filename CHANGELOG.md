@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.0
+### Maintenance
+* Project updated to Vue3, Vite
+
+
 ## 0.2.24
 ### Maintenance
 * Icons `pin`, `pin-2` were updated

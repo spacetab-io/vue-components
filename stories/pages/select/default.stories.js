@@ -1,4 +1,4 @@
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 import { boolean, text, array, radios, select, number } from '@storybook/addon-knobs';
 import { template } from '../../templates/select/default.template';
 import documentation from '../../documentation/select.md'

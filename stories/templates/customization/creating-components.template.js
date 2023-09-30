@@ -71,7 +71,7 @@ export const template = `
       <pre>
       <span class="storybook-customization__file-link">stories/pages/%component_name%/default.stories.js</span>
         <code class="language-js">
-          import { storiesOf } from '@storybook/vue';
+          import { storiesOf } from '@storybook/vue3';
           import { template } from '../../templates/%component_name%/default.template';
           
           import componentDocumentation from '../../documentation/%component_name%.md';

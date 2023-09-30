@@ -1,4 +1,4 @@
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 import { boolean, number, select } from '@storybook/addon-knobs';
 import { template } from '../../templates/tabs/default.template';
 import documentation from '../../documentation/tabs.md'

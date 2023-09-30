@@ -1,4 +1,4 @@
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 import { boolean, text, select, number, radios } from '@storybook/addon-knobs';
 import { template } from '../../templates/autocomplete/default.template';
 import documentation from '../../documentation/autocomplete.md'

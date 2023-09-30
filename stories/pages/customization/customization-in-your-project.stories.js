@@ -1,4 +1,4 @@
-import { storiesOf } from '@storybook/vue';
+import { storiesOf } from '@storybook/vue3';
 import { template } from '../../templates/customization/customization-in-your-project.template';
 
 const customizationStoriesOf = storiesOf('UI|Customization', module);

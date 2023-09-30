@@ -1,4 +1,4 @@
-import { storiesOf } from '@storybook/vue';
+import { storiesOf } from '@storybook/vue3';
 import { template } from '../../templates/about/changelog.template';
 import rootChangelog from '../../../CHANGELOG.md';
 

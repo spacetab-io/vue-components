@@ -1,5 +1,5 @@
 import { text } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/vue';
+import { storiesOf } from '@storybook/vue3';
 
 import documentation from '../../documentation/tooltip.md';
 import { template } from '../../templates/tooltip/default.template';

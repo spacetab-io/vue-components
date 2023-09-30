@@ -4,7 +4,7 @@ import {
 } from '@storybook/addon-knobs';
 import {
   storiesOf,
-} from '@storybook/vue';
+} from '@storybook/vue3';
 
 import {
   ComponentValidator,

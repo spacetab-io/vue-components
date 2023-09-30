@@ -1,9 +1,9 @@
-import { storiesOf } from '@storybook/vue';
+import { storiesOf } from '@storybook/vue3';
 import {
   text,
   color,
 } from '@storybook/addon-knobs';
-import iconNotes from '../../documentation/icon.md';
+import iconNotes from '../../documentation/icon.md?raw';
 import { template } from '../../templates/icon/default.template';
 
 storiesOf('Components|Icon', module).add(

@@ -1,4 +1,4 @@
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 import { date, object, select } from '@storybook/addon-knobs';
 import { template } from '../../templates/circular-countdown/default.template';
 import documentation from '../../documentation/circular-countdown.md'

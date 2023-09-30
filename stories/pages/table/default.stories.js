@@ -1,6 +1,6 @@
 /* eslint object-curly-newline: 0 */
 
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 import { boolean } from '@storybook/addon-knobs';
 import { template } from '../../templates/table/default.template';
 import documentation from '../../documentation/table.md'

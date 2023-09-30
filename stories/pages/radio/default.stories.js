@@ -1,4 +1,4 @@
-import { storiesOf } from '@storybook/vue';
+import { storiesOf } from '@storybook/vue3';
 import { boolean, array } from '@storybook/addon-knobs';
 import { template } from '../../templates/radio/default.template';
 import checkboxNotes from '../../documentation/radio.md';

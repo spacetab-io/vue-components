@@ -1,4 +1,4 @@
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 import { template } from '../../templates/switch/default.template';
 import notes from '../../documentation/switch.md'
 import { boolean, text, array } from '@storybook/addon-knobs';

@@ -3,7 +3,7 @@ import {
   configure,
   addDecorator,
   addParameters,
-} from '@storybook/vue';
+} from '@storybook/vue3';
 import { withKnobs } from '@storybook/addon-knobs';
 import { spacetabTheme } from './spacetab-theme';
 

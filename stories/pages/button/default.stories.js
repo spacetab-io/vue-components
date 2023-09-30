@@ -1,4 +1,4 @@
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 
 import {boolean, select, text} from '@storybook/addon-knobs';
 import {iconsList, sizeOptions} from "../../utils/props-options";

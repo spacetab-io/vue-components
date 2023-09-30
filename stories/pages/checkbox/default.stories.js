@@ -1,4 +1,4 @@
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 import { boolean, text } from '@storybook/addon-knobs';
 import { template } from '../../templates/checkbox/default.template';
 import checkboxNotes from '../../documentation/checkbox.md'

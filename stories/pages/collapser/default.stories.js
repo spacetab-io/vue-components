@@ -1,4 +1,4 @@
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 import { boolean, text, array } from '@storybook/addon-knobs';
 import { template } from '../../templates/collapser/default.template';
 import documentation from '../../documentation/collapser.md'

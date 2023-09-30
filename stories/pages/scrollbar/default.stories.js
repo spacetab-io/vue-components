@@ -1,4 +1,4 @@
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 import { number } from '@storybook/addon-knobs';
 import { template } from '../../templates/scrollbar/default.template';
 import notes from '../../documentation/scrollbar.md'

@@ -1,4 +1,4 @@
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 import { number, boolean, select } from '@storybook/addon-knobs';
 import { template } from '../../templates/popper/default.template';
 import documentation from '../../documentation/popper.md'
