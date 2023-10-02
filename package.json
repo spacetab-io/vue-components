@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "private": false,
   "scripts": {
+    "dev": "vite",
+    "vite-build": "vite build",
     "serve": "npm run generator:all && start-storybook -p 6006",
     "build": "npm run generator:all && build-storybook -o dist",
     "build-bundle": "vue-cli-service build --dest lib ./src/components/index.js",
@@ -49,10 +51,13 @@
     "json-templater": "^1.2.0",
     "markdown-loader": "^8.0.0",
     "node-sass": "^9.0.0",
+    "sass": "^1.68.0",
     "sass-loader": "^13.3.2",
     "storybook": "^7.4.3",
     "typescript": "^5.2.2",
-    "vite-plugin-svg-icons": "^2.0.1"
+    "vite-plugin-svg-icons": "^2.0.1",
+    "vite-plugin-svg-spritemap": "^0.0.12",
+    "vite-svg-loader": "^4.0.0"
   },
   "postcss": {
     "plugins": {
@@ -74,8 +79,6 @@
   },
   "eslintConfig": {
     "extends": [
-      "plugin:storybook/recommended",
-      "plugin:storybook/recommended",
       "plugin:storybook/recommended"
     ]
   }

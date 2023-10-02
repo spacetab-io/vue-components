@@ -47,9 +47,8 @@
 
     <tbody v-if="newData.length"
            class="st-table__tbody">
-      <template v-for="(row, index) in newData">
-        <tr :key="customRowKey ? row[customRowKey] : index"
-            :class="rowClass(row, index)"
+      <template v-for="(row, index) in newData" :key="customRowKey ? row[customRowKey] : index">
+        <tr :class="rowClass(row, index)"
             class="st-table__tr"
             @click="selectRow(row)">
           <td v-for="col in columns"

@@ -3,9 +3,8 @@
                               @navigate-left="monthOffset -= 1"
                               @navigate-right="monthOffset += 1"></st-datepicker-navigation>
     <div class="st-datepicker-single__grid">
-        <template v-for="(panel, index) in panelsConfig">
-            <st-datepicker-panel :key="index"
-                                 :now="now"
+        <template v-for="(panel, index) in panelsConfig" :key="index">
+            <st-datepicker-panel :now="now"
                                  :remove-needless-rows="panelsConfig.length < 2"
                                  :disabled-ranges="disabledRanges"
                                  :month-badge-visible="!isExtendedNavigation"
