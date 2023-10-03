@@ -16,7 +16,7 @@ export default class StSelectBase extends Vue {
   @Prop()
   value!: BaseSelectValue;
 
-  @Prop(ComponentValidator)
+  @Prop({ type: ComponentValidator })
   validator?: ComponentValidator<BaseSelectValue>;
 
   @Prop({ type: Boolean})

@@ -1,7 +1,7 @@
 import {
   Component,
   Prop,
-  Ref,
+  Setup,
   toNative,
 } from 'vue-facing-decorator';
 
@@ -11,6 +11,7 @@ import StSelectSingle from './_select-single/index.vue';
 import StSelectSingleScript from './_select-single/script';
 import StSelectBase from './_select.base';
 import { BaseSelectValue } from './types';
+import { ref } from 'vue';
 
 
 @Component({
@@ -21,7 +22,7 @@ import { BaseSelectValue } from './types';
   },
 })
 class StSelect extends StSelectBase {
-  @Ref('select-component')
+  @Setup(() => ref('select-component'))
   selectComponent!: StSelectMultipleScript | StSelectSingleScript;
 
   @Prop({ type: [String, Array] })

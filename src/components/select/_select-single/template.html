@@ -19,44 +19,43 @@
                     @select="select"
                     @dropdown-show="dropdownVisible = true; $emit('dropdown-show')"
                     @dropdown-hide="dropdownVisible = false; $emit('dropdown-hide')">
-  <template v-slot:dropdown-top>
+  <template #dropdown-top>
     <slot name="dropdown-top" />
   </template>
-  <template v-slot:dropdown-bottom>
+  <template #dropdown-bottom>
     <slot name="dropdown-bottom" />
   </template>
-  <template v-slot:no-options-message>
+  <template #no-options-message>
     <slot name="dropdown-no-data" />
   </template>
-  <st-select-content slot="reference"
-                     :value="selectedLabel"
-                     :is-active="dropdownVisible"
-                     :prefix-icon="prefixIcon"
-                     :suffix-icon="suffixIcon"
-                     :show-arrow-icon="showArrowIcon"
-                     :clear-icon-as-arrow-icon="clearIconAsArrowIcon"
-                     :placeholder="placeholder"
-                     :loading="loading"
-                     :disabled="disabled"
-                     :readonly="readonly"
-                     :required="required"
-                     :clearable="clearable"
-                     :size="size"
-                     @clear="clear"
-                     @open-popper="openDropdown"
-                     @close-popper="closeDropdown">
-    <template v-slot:prefix>
-      <slot name="content-prefix" />
-    </template>
-    <template v-slot:suffix>
-      <slot name="content-suffix" />
-    </template>
-  </st-select-content>
-  <template v-slot:default="{ options }">
+  <template #reference>
+    <st-select-content :value="selectedLabel"
+                      :is-active="dropdownVisible"
+                      :prefix-icon="prefixIcon"
+                      :suffix-icon="suffixIcon"
+                      :show-arrow-icon="showArrowIcon"
+                      :clear-icon-as-arrow-icon="clearIconAsArrowIcon"
+                      :placeholder="placeholder"
+                      :loading="loading"
+                      :disabled="disabled"
+                      :readonly="readonly"
+                      :required="required"
+                      :clearable="clearable"
+                      :size="size"
+                      @clear="clear"
+                      @open-popper="openDropdown"
+                      @close-popper="closeDropdown">
+      <template #prefix>
+        <slot name="content-prefix" />
+      </template>
+      <template #suffix><slot name="content-suffix" /></template>
+    </st-select-content>
+  </template>
+  <template #default="{ options }">
     <slot name="dropdown-list"
           :options="options"></slot>
   </template>
-  <template v-slot:option="{ option }">
+  <template #option="{ option }">
     <slot name="dropdown-option"
           :option="option">
       {{ option.label }}

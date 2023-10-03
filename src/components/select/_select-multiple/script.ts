@@ -40,7 +40,7 @@ class StSelectMultiple extends StSelectBase implements ValidatableComponent<Mult
   @Prop({ type: Array })
   value!: MultipleSelectValue;
 
-  @Prop(ComponentValidator)
+  @Prop({ type: ComponentValidator })
   validator?: ComponentValidator<MultipleSelectValue>;
 
   // Extends with onValueChange method from _select.base

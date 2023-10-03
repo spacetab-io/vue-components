@@ -19,73 +19,75 @@
                     @select="select"
                     @dropdown-show="dropdownVisible = true; $emit('dropdown-show')"
                     @dropdown-hide="dropdownVisible = false; $emit('dropdown-hide')">
-  <template v-slot:dropdown-top>
+  <template #dropdown-top>
     <slot name="dropdown-top" />
   </template>
-  <template v-slot:dropdown-bottom>
+  <template #dropdown-bottom>
     <slot name="dropdown-bottom" />
   </template>
-  <template v-slot:no-options-message>
+  <template #no-options-message>
     <slot name="dropdown-no-data" />
   </template>
-  <st-select-content slot="reference"
-                     :value="selectedValues.join(',')"
-                     :is-active="dropdownVisible"
-                     :prefix-icon="prefixIcon"
-                     :suffix-icon="suffixIcon"
-                     :show-arrow-icon="showArrowIcon"
-                     :clear-icon-as-arrow-icon="clearIconAsArrowIcon"
-                     :placeholder="placeholder"
-                     :loading="loading"
-                     :disabled="disabled"
-                     :readonly="readonly"
-                     :required="required"
-                     :clearable="clearable"
-                     :size="size"
-                     multiple
-                     @clear="clear"
-                     @open-popper="openDropdown"
-                     @close-popper="closeDropdown">
-    <template v-slot:prefix>
-      <slot name="content-prefix" />
-    </template>
-    <st-collapser class="st-select-multiple__collapser"
-                  :popper-class="collapserPopperClass"
-                  :elements="selectedLabels"
-                  element-class="st-select-multiple__collapser-item"
-                  :popper-props="extendedCollapserPopperProps">
-      <template v-slot:control="{ amount }">
-        <slot name="collapser-control"
-              :amount="amount" />
+  
+  <template #reference>
+    <st-select-content  :value="selectedValues.join(',')"
+                        :is-active="dropdownVisible"
+                        :prefix-icon="prefixIcon"
+                        :suffix-icon="suffixIcon"
+                        :show-arrow-icon="showArrowIcon"
+                        :clear-icon-as-arrow-icon="clearIconAsArrowIcon"
+                        :placeholder="placeholder"
+                        :loading="loading"
+                        :disabled="disabled"
+                        :readonly="readonly"
+                        :required="required"
+                        :clearable="clearable"
+                        :size="size"
+                        multiple
+                        @clear="clear"
+                        @open-popper="openDropdown"
+                        @close-popper="closeDropdown">
+      <template #prefix>
+        <slot name="content-prefix" />
       </template>
-      <template v-slot:list="{ elements }">
-        <slot name="collapser-list"
-              :elements="elements" />
+      <st-collapser class="st-select-multiple__collapser"
+                    :popper-class="collapserPopperClass"
+                    :elements="selectedLabels"
+                    element-class="st-select-multiple__collapser-item"
+                    :popper-props="extendedCollapserPopperProps">
+        <template #control="{ amount }">
+          <slot name="collapser-control"
+                :amount="amount" />
+        </template>
+        <template #list="{ elements }">
+          <slot name="collapser-list"
+                :elements="elements" />
+        </template>
+        <template #element="{ element }">
+          <slot name="collapser-element"
+                :element="element">
+            {{ element }};
+          </slot>
+        </template>
+        <template #hidden-list="{ hiddenElements }">
+          <slot name="collapser-hidden-list"
+                :hidden-elements="hiddenElements" />
+        </template>
+        <template #hidden-element="{ hiddenElement }">
+          <slot name="collapser-hidden-element"
+                :hidden-element="hiddenElement" />
+        </template>
+      </st-collapser>
+      <template #suffix>
+        <slot name="content-suffix" />
       </template>
-      <template v-slot:element="{ element }">
-        <slot name="collapser-element"
-              :element="element">
-          {{ element }};
-        </slot>
-      </template>
-      <template v-slot:hidden-list="{ hiddenElements }">
-        <slot name="collapser-hidden-list"
-              :hidden-elements="hiddenElements" />
-      </template>
-      <template v-slot:hidden-element="{ hiddenElement }">
-        <slot name="collapser-hidden-element"
-              :hidden-element="hiddenElement" />
-      </template>
-    </st-collapser>
-    <template v-slot:suffix>
-      <slot name="content-suffix" />
-    </template>
-  </st-select-content>
-  <template v-slot:default="{ options }">
-    <slot name="dropdown-list"
-          :options="options"></slot>
+    </st-select-content>
   </template>
-  <template v-slot:option="{ option }">
+  <template #default="{ options }">
+    <slot name="dropdown-list"
+          :options="options"/>
+  </template>
+  <template #option="{ option }">
     <slot name="dropdown-option"
           :option="option">
       {{ option.label }}
