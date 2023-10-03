@@ -23,6 +23,7 @@
   "dependencies": {
     "@rushstack/eslint-patch": "^1.5.1",
     "@vue/eslint-config-airbnb": "^7.0.0",
+    "@types/lodash": "^4.14.199",
     "core-js": "^3.32.2",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
@@ -47,7 +48,6 @@
     "@storybook/testing-library": "^0.2.1",
     "@storybook/vue3": "^7.4.3",
     "@storybook/vue3-vite": "^7.4.3",
-    "@types/lodash": "^4.14.199",
     "@types/moment": "^2.13.0",
     "@types/node": "^20.6.5",
     "@typescript-eslint/parser": "^6.7.3",
