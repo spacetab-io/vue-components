@@ -1,4 +1,5 @@
 import {
+  Component,
   Prop,
   Vue,
   Watch,
@@ -11,7 +12,7 @@ import {
   SelectOption,
 } from './types';
 
-
+@Component({})
 export default class StSelectBase extends Vue {
   @Prop()
   value!: BaseSelectValue;

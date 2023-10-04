@@ -14,8 +14,8 @@ import StDropdownOption from './components/dropdown-option/index.vue';
 import StDropdown from './components/dropdown/index.vue';
 import StIcon from './components/icon/index.vue';
 import StInput from './components/input/index.vue';
-import { StNotificationService } from './components/notification/service';
-import StNotificationsGroup from './components/notifications-group/index.vue';
+// import { StNotificationService } from './components/notification/service';
+// import StNotificationsGroup from './components/notifications-group/index.vue';
 import StPagination from './components/pagination/index.vue';
 import StPopper from './components/popper/index.vue';
 import StRadio from './components/radio/index.vue';
@@ -44,7 +44,7 @@ const install = (app: App) => {
   app.component('st-datepicker', StDatepicker);
   app.component('st-icon', StIcon);
   app.component('st-input', StInput);
-  app.component('st-notifications-group', StNotificationsGroup);
+  // app.component('st-notifications-group', StNotificationsGroup);
   app.component('st-row', StRow);
   app.component('st-textarea', StTextarea);
   app.component('st-radio', StRadio);
@@ -76,7 +76,7 @@ export default {
   StDropdownOption,
   StIcon,
   StInput,
-  StNotificationsGroup,
+  // StNotificationsGroup,
   StRow,
   StTextarea,
   StPagination,
